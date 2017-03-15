@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+
+	<ModulePrefs title="Gifts with hi5.template" summary="A demo of the hi5.template library based on Gifts"
+	 description="Tests request security interaction" title_url="http://www.hi5.com"
+	 icon="http://images.hi5.com/images/icons/_/update_birthday.gif" thumbnail="http://images.hi5.com/images/opensocial/gifts_120x60.gif"
+	 author="Mike Austin" author_email="mike_ekim@yahoo.com" author_affiliation="hi5" author_location="San Francisco, CA">
+		<Require feature="opensocial-0.7"/>
+		<Require feature="dynamic-height"/>
+		<Require feature="views"/>
+		<Require feature="skins"/>
+		<Optional feature="hi5"/>
+	</ModulePrefs>
+
+	<Content type="html"><![CDATA[
+		<script type="text/javascript" src="http://images.hi5.com/images/js/hi5_template_20080310.js"></script>
+
+		<script type="text/xml" id="template">
+			<template>
+				Hello, World! zzz xxx<br/>
+				<select id="gifts-list">
+					<option value="0">Slice of Pizza</option>
+					<option value="1">Fancy Pen</option>
+					<option value="2">Wedgie</option>
+				</select>
+				<select id="friends-list">
+					<for-each var="friend" source="viewerFriends.asArray()">
+						<option value="${friend.getId()}">${friend.getDisplayName()}</option>
+					</for-each>
+				</select>
+				<a href="javascript:giveGift()">Give!</a><br/>
+				<for-each var="gift" source="givenGifts">
+					<option>${key}: ${gift}</option>
+				</for-each>
+			</template>
+		</script>
+
+		<div id="content"></div>
+
+		<script type="text/javascript">
+			var viewerFriends, viewerFriendsPresence;
+			var givenGifts = {};
+
+			function $id(element_id) {
+				return document.getElementById(element_id);
+			}
+
+			function initialize() {
+				var request = opensocial.newDataRequest();
+
+				request.add(request.newFetchPersonRequest('VIEWER'), 'viewer');
+				request.add(request.newFetchPersonRequest('OWNER'), 'owner');
+				request.add(request.newFetchPeopleRequest('VIEWER_FRIENDS'), 'viewerFriends');
+				request.add(request.newFetchPersonAppDataRequest('VIEWER', 'gifts'), 'givenGifts');
+				if (gadgets.util.hasFeature('hi5')) {
+					//request.add(hi5.newFetchStatusRequest('OWNER'),'ownerStatus');
+					//request.add(hi5.newFetchPresenceRequest('VIEWER_FRIENDS'),'viewerFriendsPresence');
+				}
+
+				request.send(function(response) {
+					givenGifts = response.get('givenGifts').getData();
+					viewerFriends = response.get('viewerFriends').getData();
+					//viewerFriendsPresence = response.get('viewerFriendsPresence').getData();
+
+					display();
+				});
+			}
+
+			function display() {
+				hi5.template.apply('template', 'content', {viewerFriends: viewerFriends, viewerFriendsPresence: viewerFriendsPresence, givenGifts: givenGifts});
+
+				gadgets.window.adjustHeight();
+			}
+
+			function giveGift() {
+				var request = opensocial.newDataRequest();
+
+				givenGifts[$id('friends-list').value] = $id('gifts-list').options[$id('gifts-list').value].text;
+
+				request.add(request.newUpdatePersonAppDataRequest(opensocial.DataRequest.PersonId.VIEWER, 'gifts', gadgets.json.stringify(givenGifts)));
+				request.send(function(response) {
+					display();
+				});
+			}
+
+	hi5.template.hi5ml_tags['for-each'] = function(input, output, context) {
+		var variable = input.getAttribute('var');
+
+		with (context) {
+			var source = eval(input.getAttribute('source'));
+		}
+
+		if (source.constructor == Array) {
+			context = new hi5.template.Context(context);
+			context.first = function() { return this.index == 0; },
+			context.last = function() { return this.index == this.length - 1; }
+
+			context.length = source.length;
+
+			for (var i = 0; i < source.length; i++) {
+				context.index = i;
+				context[variable] = source[i];
+				hi5.template.apply(input, output, context);
+			}
+		} else if (source.constructor == Object) {
+			context = new hi5.template.Context(context);
+
+			for (key in source) {
+				context['key'] = key;
+				context[variable] = source[key];
+
+				hi5.template.apply(input, output, context);
+			}
+		}
+	}
+
+			gadgets.util.registerOnLoadHandler(initialize);
+		</script>
+	]]></Content>
+
+</Module>

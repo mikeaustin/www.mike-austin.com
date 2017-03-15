@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+
+	<ModulePrefs
+	 title="Where will I be?" title_url="http://www.hi5.com"
+	 summary="An event calendar for you and your friends"
+	 description="An event calendar for you and your friends"
+	 icon="http://images.hi5.com/images/icons/_/update_birthday.gif"
+	 thumbnail="http://images.hi5.com/images/opensocial/gifts_120x60.gif"
+	 author="Mike Austin" author_email="mike_ekim@yahoo.com"
+	 author_affiliation="hi5" author_location="San Francisco, CA">
+		<Require feature="opensocial-0.7"/>
+		<Require feature="dynamic-height"/>
+		<Require feature="views"/>
+		<Require feature="skins"/>
+		<Optional feature="hi5"/>
+        <Locale messages="http://www.mike-austin.com/events/resources/ALL_ALL.xml"/>
+
+	</ModulePrefs>
+
+	<Content type="html" quirks="false" view="default"><![CDATA[
+		<link rel="stylesheet" type="text/css" href="http://static.hi5.com/friend/styles/hi5_common_1206483399.css">
+		<link rel="stylesheet" type="text/css" href="http://www.mike-austin.com/events/application.css">
+		<div id="page-content"></div>
+		<script type="text/javascript" src="http://static.hi5.com/images/js/hi5_template_20080430.js"></script>
+		<script type="text/javascript" src="http://www.mike-austin.com/events/application.js"></script>
+	]]></Content>
+
+</Module>

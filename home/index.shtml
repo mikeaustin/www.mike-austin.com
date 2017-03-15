@@ -1,0 +1,170 @@
+<html>
+<head>
+<title>Mike Austin : Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="/home/normal.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="/home/images/backgr-grid.gif">
+<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%"
+ style="background:url(/home/images/logo-star.gif) no-repeat">
+  <tr>
+    <td valign="top"> 
+      <!--#include virtual="/home/top-menu.shtml"-->
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="titleBar">
+        <tr> 
+          <td valign="top" width="40%"> 
+            <!--#include virtual="/home/sub-menu.shtml" -->
+          </td>
+          <td valign="middle" align="center" rowspan="2"><font class="sectionHeader">Home</font></td>
+          <td valign="middle" align="right" rowspan="2" width="40%"> <font color="#FFFFFF" size="1"> 
+            </font> 
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td align="right" valign="middle"><font color="#FFFFFF" size="1"> 
+                  there is no good or bad, but thinking makes it so<br>
+              - shakespeare</font></td>
+                <td width="7">&nbsp;</td>
+              </tr>
+            </table>
+            </td>
+        </tr>
+        <tr> 
+          <td valign="top" height="3"><img src="/home/images/spacer.gif"></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="7" height="7"></td>
+          <td></td>
+          <td width="7"></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="33%" valign="top"> 
+                  <p class="section">top level navigation</p>
+                  <ul>
+                    <li><a href="/home/projects/index.shtml" class="subsection">projects</a><br>
+                      <div class="note">Programming projects I am working on and 
+                        have worked on in the past. You can find <a href="/home/projects/inertia/index.shtml">inertia</a>, 
+                        a block &amp; message based language; and <a href="/home/projects/index.shtml">rocks</a>, 
+                        an authentic vector based asteroids style game.</div>
+                    </li>
+                    <li><a href="/home/papers/index.shtml" class="subsection">papers</a> 
+                      <div class="note">Papers I have written about programming 
+                        languages, user interfaces and other various topics. Take 
+                        a look at <a href="/home/papers/context-ui.html">the 
+                        context user interface</a>, a vision I have for simplifying 
+                        the virtual computer workspace.</div>
+                    </li>
+                    <li><a href="/home/music/index.shtml" class="subsection"> 
+                      music</a> 
+                      <div class="note">A tour of my favorite groups that range 
+                        from 80's metal to 2000's trance. <a href="http://www.infected.co.il/" target="_blank">Infected 
+                        mushroom</a> is now one of my favorite bands. But never 
+                        forget the classics such as <a href="http://www.pinkfloyd-co.com/" target="_blank" title="Open pinkfloyd-co.com in a new window">Pink 
+                        Floyd</a>, <a href="http://www.black-sabbath.com/" target="_blank">Black 
+                        Sabbath</a>, <a href="http://www.led-zeppelin.com/" target="_blank">Led 
+                        Zeppelin</a> and <a href="http://zztop.com/" target="_blank">ZZ 
+                        Top</a>. </div>
+                    </li>
+                  </ul>
+                  <p align="center"><img border=0  width=192 height=96 src="http://chart.yahoo.com/c/0b/_/_ixic.gif" alt="Chart"></p>
+                  </td>
+                <td valign="top">&nbsp;</td>
+                <td valign="top" width="33%"> 
+                  <p class="section"></p>
+                  <ul>
+                    <li><a href="/home/images/index.shtml" class="subsection">images</a><br>
+                      <div class="note">Images that I have collected over time, 
+                        such as fractals, optical illusions and other art. There 
+                        will also be a collection of personal art if I ever actually 
+                        make something. This site is considered art, isn't it? 
+                        :)</div>
+                    </li>
+                    <li><a href="reference/index.shtml" class="subsection">reference</a><br>
+                      <div class="note"> I have created a few glossaries for quick 
+                        reference. You can find programming, database, and 3D 
+                        graphics glossaries.</div>
+                    </li>
+                    <li><a href="/home/quotes.shtml" class="subsection">quotes</a><br>
+                      <div class="note">A listing of my favorite quotes. Quotes 
+                        can inspire, motivate, and change your way of thinking. 
+                        Every page on this site has a unique quote listed in the 
+                        upper right relative to the page topic.</div>
+                    </li>
+                    <li><a href="/home/xlinks.shtml" class="subsection">internet 
+                      links</a><br>
+                      <div class="note">Here you will find external links to web 
+                        sites, web pages and newsgroups; technical and non-technical, 
+                        humorous and not-so-humerous.</div>
+                    </li>
+                  </ul>
+                </td>
+                <td valign="top">&nbsp;</td>
+                <td width="30%" valign="top"> 
+                  <table width="100%" border="0" cellspacing="2" cellpadding="3" class="topMenu">
+                    <tr> 
+                      <td align="center"><b><font color="#FFFFFF">Recent News</font></b></td>
+                    </tr>
+                    <tr> 
+                      <td bgcolor="#F0F0F0" class="windowContent"> 
+                        <p style="text-align: xjustify"><b><a href="projects/gravitysaver/images/gravity-saver-big-4.jpg"><img src="projects/gravitysaver/images/gravity-saver-small-4.gif" width="100" height="75" align="right" border="0"></a>July 
+                          26, 2003</b>&nbsp;&nbsp;&#149;&nbsp;Released new OpenGL 
+                          Windows screensaver - <a href="projects/index.shtml#gravitysaver">Gravity 
+                          ScreenSaver</a>. It's based on n-body gravitation, and 
+                          each particle changes color based on its mass and velocity. 
+                          It's around 400 lines of code.</p>
+                        <p style="text-align: xjustify"><b>March 19, 2003</b>&nbsp;&nbsp;&#149;&nbsp;Has 
+                          it really been that long??? I've still been working 
+                          on inertia, but doing other things also. I have finally 
+                          <b><i>fixed the 'papers' section</i></b>, and added 
+                          a few working papers and a few references. I wish I 
+                          didn't have to work. :)</p>
+                        <p style="text-align: xjustify"><b><a href="projects/inertia/inertia-io.jpg"><img src="projects/inertia/inertia-io-small.gif" width="100" height="77" align="right" border="0"></a>December 
+                          13, 2002</b>&nbsp;&nbsp;&#149;&nbsp;&nbsp;I've Been 
+                          working on inerita.io, a prototype of inertia written 
+                          in a prototype based language called <a href="http://www.dekorte.com/software/c/Io/">&quot;Io&quot; 
+                          by Steve Dekorte</a>. The image to the right is a demonstration 
+                          of some tablets, buttons and other controls. The more 
+                          interesting stuff will come when menus are implemented 
+                          since menus are a large part of the inertia idea. Happy 
+                          Holidays!</p>
+                        <p style="text-align: xjustify">Read <a href="/home/past-news.shtml">Past 
+                          News</a></p>
+                        </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            
+          </td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td valign="bottom"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="20">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td align="right" height="20" class="topMenu" valign="middle"><font color="#FFFFFF"> 
+            <!--#include virtual="/cgi-bin/counter.pl"-->
+            · Last modified: 
+            <!--#config timefmt="%B %d, %Y"-->
+            <!--#flastmod file="index.shtml"-->
+            </font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

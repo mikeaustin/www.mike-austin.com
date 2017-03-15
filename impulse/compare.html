@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 TRANSITIONAL//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body		{ font: 12px/1.5em helvetica; margin: 0; padding: 20px; }
+		h1			{ margin: 0; margin-top: 20px; font-size: 18px; color: #101010; }
+		th, td		{ vertical-align: top; padding-top: 10px; }
+		th			{ padding: 7px; padding-top: 16px; padding-left: 0; padding-right: 0; text-align: right; }
+		td			{ padding-left: 10px; }
+		tr.header th	{ font-size: 18px; text-align: left; }
+		pre			{ margin: 0; padding: 5px; background: #f0f0f0; border: 1px solid #e0e0e0; }
+		table		{ border-spacing: 0; }
+	</style>
+</head>
+<body>
+	Impulse is a mixture of Ruby, Dylan, Io and Smalltalk
+	<table>
+		<tr class="header">
+			<th colspan="2">Iterating over multiple collections with index</th>
+		</tr>
+		<tr>
+			<th>Haskell</th>
+			<td>
+<pre>
+[a * i + b * i | a <- listA | b <- listB | c <- [1..length listA]]
+</pre>
+			</td>
+		</tr>
+		<tr>
+			<th>Ruby</th>
+			<td>
+<pre>
+listC = listA.enum_with_index.zip(listB) do |(a, i), b|
+  a * i + b * i
+end
+</pre>
+			</td>
+		</tr>
+		<tr>
+			<th>Impulse</th>
+			<td>
+<pre>
+listC = [listA, listB] map: |(i, a), b|
+  a * i + b * i
+end
+</pre>
+			</td>
+			<td>
+				Number of arguments determine depth of list and index/no-index
+			</td>
+		</tr>
+
+		<tr class="header">
+			<th colspan="2">List of squared even numbers</th>
+		</tr>
+			<th>Haskell</th>
+			<td>
+<pre>
+[n * n | n <- [1..10], even n]
+</pre>
+			</td>
+		</tr>
+		<tr>
+			<th>Ruby</th>
+			<td>
+<pre>
+(1..10).map { |n| n * n if n.even? }.compact
+(1..10).select { |n| n.even? }.map { |n| n * n }
+</pre>
+			</td>
+		</tr>
+		<tr>
+			<th>Impulse</th>
+			<td>
+<pre>
+[1..10] map: |n| n even? -> n * n
+</pre>
+			</td>
+			<td>
+				Predicate block handles list comprehention semantics without special syntax
+			</td>
+		</tr>
+
+		<tr class="header">
+			<th colspan="2">Sort a list by field value</th>
+		</tr>
+			<th>Haskell</th>
+			<td>
+<pre>
+sortBy (\a b -> if a > b then GT else LT) list
+</pre>
+			</td>
+		</tr>
+		<tr>
+			<th>Ruby</th>
+			<td>
+<pre>
+list.sort { |a, b| a.date <=> b.date }
+</pre>
+			</td>
+		</tr>
+		<tr>
+			<th>Impulse</th>
+			<td>
+<pre>
+list sort: |a, b| a date > b date
+</pre>
+			</td>
+			<td>
+				Remove unnecessary brackets which cause line noise
+			</td>
+		</tr>
+
+		<tr class="header">
+			<th colspan="2">Implement map: using each:</th>
+		</tr>
+			<th>Impulse</th>
+			<td>
+<pre>
+object &lt;collection&gt;
+  method map: &lt;block&gt; block
+    local array = []
+    self each: |value|
+      array &lt;&lt; block eval: value
+    end
+    return array
+  end
+end
+</pre>
+			</td>
+		</tr>
+
+		<tr class="header">
+			<th colspan="2">A person object with fields and getters and setters</th>
+		</tr>
+			<th>Impulse</th>
+			<td>
+<pre>
+object &lt;person&gt;
+  local person-id
+  field first-name, last-name, birth-date
+
+  # birth-date setter method
+  method birth-date: date
+    if date > today
+      raise &lt;invalid-date&gt;
+    end
+    self.birth-date = date
+  end
+
+  # age getter method
+  method age
+    return today - birth-date
+  end
+end
+
+person = &lt;person&gt; clone
+person first-name: "John"; last-name: "Smith"
+person birth-date: &lt;date&gt; clone: "2010-03-01"
+</pre>
+			</td>
+			<td>
+				self.birth-date accesses the field without invoking the getter method.
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

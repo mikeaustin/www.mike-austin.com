@@ -1,0 +1,7 @@
+<messagebundle>
+  <msg name="title">Guía sobre Regalos</msg>
+  <msg name="summary">Aplicación de guía sobre Regalos OpenSocial para el recipiente de hi5</msg>
+  <msg name="description">El tutorial OpenSocial Regalos aplicación adaptada a las características específicas de integrar el hi5 contenedor. Incluye ejemplo para ir a buscar los álbumes de fotos, Estado miembro, y la presencia en línea, así como la creación de la actividad y de las solicitudes de notificación. La aplicación utiliza OpenSocial descubrimiento de la capacidad de los mecanismos a través de los contenedores siguen siendo portátiles.</msg>
+  <msg name="thumbnail">http://images.hi5.com/images/opensocial/gifts_120x60_es.gif</msg>
+  <msg name="gaveGift">${from} gave ${to} a ${gift}</msg>
+</messagebundle>

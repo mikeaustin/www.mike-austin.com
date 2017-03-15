@@ -1,0 +1,433 @@
+<html>
+<head>
+<title>Langsmith Languages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body {  font-family: Arial, Helvetica, sans-serif; font-size: 9pt}
+td { font-family: Arial, Helvetica, sans-serif; font-size: 9pt}
+.row-header {  background-color: #F0F0F0}
+a:link {  color: #000080; text-decoration: none}
+a:visited { color: #000080; text-decoration: none }
+a:hover {  text-decoration: underline}
+.row-body {  padding-top: .5em; padding-bottom: .5em; font-size: 8pt}
+.even-row { background-color: #F0F0F0 }
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" text="#333333" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="10" height="10"></td>
+    <td height="10"></td>
+    <td align="right" width="10" height="10"></td>
+    <td align="right" height="10"></td>
+    <td align="right" width="10" height="10"></td>
+  </tr>
+  <tr> 
+    <td width="10">&nbsp;</td>
+    <td>Languages by people in langsmiths@yahoogroups.com</td>
+    <td align="right" width="10">&nbsp;</td>
+    <td align="right">Last Modified: 9/20/2004, Mike Austin</td>
+    <td align="right" width="10">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="10" height="10"></td>
+    <td height="10"></td>
+    <td align="right" width="10" height="10"></td>
+    <td align="right" height="10"></td>
+    <td align="right" width="10" height="10"></td>
+  </tr>
+  <tr> 
+    <td valign="top" width="10">&nbsp;</td>
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr> 
+          <td align="center" bgcolor="#000000"><b><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;Language&nbsp;&nbsp;&nbsp;</font></b></td>
+          <td align="left" bgcolor="E0E0E0">&nbsp;</td>
+          <td bgcolor="E0E0E0"><b>Developers</b></td>
+          <td align="right" bgcolor="E0E0E0"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td bgcolor="E0E0E0"><b>Status</b></td>
+          <td align="right" bgcolor="E0E0E0"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td bgcolor="E0E0E0"><b>Ver</b></td>
+          <td align="right" bgcolor="E0E0E0"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td bgcolor="E0E0E0"><b>Links</b></td>
+        </tr>
+        <tr> 
+          <td align="center" bgcolor="#E0E0E0"><b>Boo</b></td>
+          <td align="right" class="row-header">&nbsp;</td>
+          <td class="row-header">Rodrigo de Oliveira</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">Active / Beta</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">0.4.1</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://boo.codehaus.org/">Home Page</a></td>
+        </tr>
+        <tr> 
+          <td class="row-body" align="center"><img src="boo.gif" width="40" height="40"></td>
+          <td class="row-body">&nbsp;</td>
+          <td colspan="7" class="row-body">Boo is a new object oriented statically 
+            typed programming<br>
+            language for the Common Language Infrastructure with a python inspired<br>
+            syntax and a special focus on language and compiler extensibility.</td>
+        </tr>
+        <tr> 
+          <td align="center" bgcolor="#E0E0E0"><b>Caper</b></td>
+          <td align="right" class="row-header">&nbsp;</td>
+          <td class="row-header">Paul Chapman</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">Active / ?</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://www.igblan.free-online.co.uk/igblan/caper/">Home 
+            Page</a></td>
+        </tr>
+        <tr> 
+          <td class="row-body" align="center">&nbsp;</td>
+          <td class="row-body">&nbsp;</td>
+          <td colspan="7" class="row-body">I enjoy researching Conway's Game of 
+            Life. Last year I identified a need in the Life community for a programmable 
+            editor for Life (and other CA) patterns. I dubbed the project Caper 
+            (CA Programmable Editor). The Caper editor needs a programming language, 
+            the Caper PL, or simply Caper where there is no confusion.</td>
+        </tr>
+        <tr> 
+          <td bgcolor="#E0E0E0" align="center"><b>Cleet</b></td>
+          <td align="right" class="row-header">&nbsp;</td>
+          <td class="row-header">Steve Folta</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">Active / Prototype</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://somefancy.com/cleet/">Home Page</a></td>
+        </tr>
+        <tr> 
+          <td class="row-body" align="center">&nbsp;</td>
+          <td class="row-body" align="right">&nbsp;</td>
+          <td class="row-body" colspan="7">Cleet is an object-oriented language 
+            for programming applications. It is *not* a scripting language -- 
+            programs in Cleet compile down to machine code. Cleet's object model 
+            and syntax are simpler and cleaner than other such languages (such 
+            as C++, Java, D, C#, etc.). Objects are garbage-collected.</td>
+        </tr>
+        <tr> 
+          <td bgcolor="#E0E0E0" align="center"><b>Heron</b></td>
+          <td class="row-header" align="right">&nbsp;</td>
+          <td class="row-header">Christopher Diggins</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://www.heron-language.com">Home 
+            Page</a></td>
+        </tr>
+        <tr> 
+          <td class="row-body" align="center"><font color="#FFFFFF"><img src="heron.gif" width="40" height="73"></font></td>
+          <td class="row-body" align="right">&nbsp;</td>
+          <td class="row-body" colspan="7"> Heron is an open source, general purpose, 
+            imperative programming langauge. Heron is a language that focuses 
+            on facilitating the production of code that is efficient, low in defects 
+            and highly reusable. Heron supports several software development techniques 
+            and methodologies, including, but not limited to, object oriented 
+            programming (OOP), aspect oriented programming (AOP), generic programming, 
+            design by contract (DbC), metaprogramming, functional programming 
+            and interface oriented programming (IOP).</td>
+        </tr>
+        <tr> 
+          <td bgcolor="#E0E0E0" align="center"><b>Inertia</b></td>
+          <td align="right" class="row-header">&nbsp;</td>
+          <td class="row-header">Mike Austin</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">Active / Prototype</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://www.mike-austin.com/home/projects/inertia">Home 
+            Page</a><br>
+          </td>
+        </tr>
+        <tr> 
+          <td align="center" valign="middle" class="row-body"><img src="inertia.gif" width="40" height="40"></td>
+          <td class="row-body">&nbsp;</td>
+          <td colspan="7" class="row-body"> 
+            <p>The goal of inertia is to borrow ideas and syntax from many languages, 
+              then refactor and simplify. It will be a high level object / functional 
+              language based solely on messages and block closures with a syntax 
+              between Python and Smalltalk. By using basics such as predicate-dispatching 
+              and continuations, higher level functionality can be supported such 
+              as multi-methods, continuations, and co-routines.</p>
+          </td>
+        </tr>
+        <tr> 
+          <td bgcolor="#E0E0E0" align="center"><b>Io</b></td>
+          <td class="row-header" align="right">&nbsp;</td>
+          <td class="row-header">Steve Dekorte</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">Active / Late Beta</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://www.iolanguage.com">Home Page</a></td>
+        </tr>
+        <tr> 
+          <td align="center" valign="middle" class="row-body"><img src="../languages/io-lang.gif" width="40" height="32"></td>
+          <td class="row-body">&nbsp;</td>
+          <td colspan="7" class="row-body">Io is small prototype-based programming 
+            language. The ideas in Io are mostly inspired by Smalltalk (all values 
+            are objects), Act1, Self and NewtonScript (prototype-based differential 
+            inheritance, actors for concurrency), LISP (code is a runtime inspectable/modifiable 
+            tree) and Lua (small, embeddable).</td>
+        </tr>
+        <tr> 
+          <td align="center" bgcolor="#E0E0E0"><b>Kogut</b></td>
+          <td class="row-header" align="right">&nbsp;</td>
+          <td class="row-header">Marcin Kowalczyk</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://kokogut.sourceforge.net/kogut.html">Home 
+            Page</a></td>
+        </tr>
+        <tr> 
+          <td align="center" valign="middle" class="row-body"><img src="kogut.gif" width="40" height="40"></td>
+          <td class="row-body">&nbsp;</td>
+          <td colspan="7" class="row-body"> Kogut is an experimental programming 
+            language which supports functional and scripting-style programming, 
+            and a non-traditional flavor of object-oriented programming. Its semantics 
+            is most similar to Scheme or Dylan, but the syntax looks more like 
+            ML or Ruby. The name &#147;Kogut&#148; means &#147;Rooster&#148; in 
+            Polish and is pronounced like [KOH-goot].</td>
+        </tr>
+        <tr> 
+          <td bgcolor="#E0E0E0" align="center"><b>LANG/BGB</b></td>
+          <td class="row-header" align="right">&nbsp;</td>
+          <td class="row-header">Brendan G Bohannon</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">Active</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://bgb-sys.sourceforge.net/">Home 
+            Page</a></td>
+        </tr>
+        <tr> 
+          <td align="center" valign="middle" class="row-body"><img src="../languages/bgb-lang.gif" width="43" height="32"></td>
+          <td class="row-body">&nbsp;</td>
+          <td colspan="7" class="row-body">Several vaguely related projects worked 
+            on by me, including: an interpreter system (for a language of mine) 
+            including: a zooming gui, persistence, limited distributed processing, 
+            persistent links, 3d stuff, simple physics engine, ... an os kernel; 
+            ...LANG/BGB is a functional-imperative language based on scheme with 
+            a prototype object system and features borrowed from languages like 
+            self, smalltalk, and erlang.</td>
+        </tr>
+        <tr> 
+          <td bgcolor="#E0E0E0" align="center"><b>Mica (Poe)</b></td>
+          <td class="row-header" align="right">&nbsp;</td>
+          <td class="row-header">Ryan Daum</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">Active? / Prototype?</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://darksleep.com/mica/">Home Page</a></td>
+        </tr>
+        <tr> 
+          <td align="center">&nbsp;</td>
+          <td align="right" class="row-body"></td>
+          <td colspan="7" class="row-body">Mica is a system for building network-accessible 
+            multi-user portable applications. It is a programming language and 
+            object environment designed to be accessible by more than one programmer 
+            at a time. It includes an implementation of a mostly pure object oriented 
+            language. Automatic persistence, reflection, strong encapsulation, 
+            multiple dispatch, and run-time security are some of its features.</td>
+        </tr>
+      </table>
+    </td>
+    <td valign="top" width="10">&nbsp;</td>
+    <td valign="top"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <tr> 
+          <td align="center" bgcolor="#000000"><b><font color="#FFFFFF">Language</font></b></td>
+          <td align="left" bgcolor="E0E0E0">&nbsp;</td>
+          <td bgcolor="E0E0E0"><b>Developers</b></td>
+          <td align="right" bgcolor="E0E0E0"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td bgcolor="E0E0E0"><b>Status</b></td>
+          <td align="right" bgcolor="E0E0E0"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td bgcolor="E0E0E0"><b>Ver</b></td>
+          <td align="right" bgcolor="E0E0E0"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td bgcolor="E0E0E0"><b>Links</b></td>
+        </tr>
+        <tr> 
+          <td bgcolor="#E0E0E0" align="center"><b>Onyx</b></td>
+          <td class="row-header" align="right">&nbsp;</td>
+          <td class="row-header">Jason Evans</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">Active / Stable</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://www.canonware.com/onyx/">Home Page</a></td>
+        </tr>
+        <tr> 
+          <td align="center">&nbsp;</td>
+          <td align="right" class="row-body"></td>
+          <td colspan="7" class="row-body">Onyx is a powerful stack-based, multi-threaded, 
+            interpreted, general purpose programming language similar to PostScript 
+            and Forth. It can be embedded as an extension language similarly to 
+            ficl (Forth), guile (scheme), librep (lisp dialect), s-lang, Lua, 
+            and Tcl.</td>
+        </tr>
+        <tr> 
+          <td bgcolor="#E0E0E0" align="center"><b>Scarlet</b></td>
+          <td class="row-header" align="right">&nbsp;</td>
+          <td class="row-header">Jesse Jones</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">Active / Late Beta?</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://scarlet.sourceforge.net/Home.html">Home 
+            Page</a></td>
+        </tr>
+        <tr> 
+          <td align="center">&nbsp;</td>
+          <td align="right" class="row-body"></td>
+          <td colspan="7" class="row-body">Scarlet is a dynamic programming language 
+            similar to Ruby or Smalltalk. Its features include garbage collection, 
+            closures, support for design by contract, exceptions, reflection, 
+            etc. The major goal for Scarlet is to create a language that eases 
+            the task of writing large applications.</td>
+        </tr>
+        <tr> 
+          <td bgcolor="#E0E0E0" align="center"><b>Squirrel</b></td>
+          <td class="row-header" align="right">&nbsp;</td>
+          <td class="row-header">Alberto Demichelis</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">Active / ?</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://squirrel.sourceforge.net/">Home 
+            Page</a></td>
+        </tr>
+        <tr> 
+          <td align="center"><img src="squirrel.gif" width="40" height="40"></td>
+          <td class="row-body">&nbsp;</td>
+          <td colspan="7" class="row-body">Squirrel is a high level imperative/OO 
+            programming language, designed to be a powerful scripting tool that 
+            fits in the size, memory bandwidth, and real-time requirements of 
+            applications like games. Squirrel is inspired by languages like Python,Javascript 
+            and expecially LUA (The API is very similar and the table code is 
+            based on the LUA one).</td>
+        </tr>
+        <tr> 
+          <td bgcolor="#E0E0E0" align="center"><b>SuperCollider</b></td>
+          <td class="row-header" align="right">&nbsp;</td>
+          <td class="row-header">James McCartney</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">Active</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://www.audiosynth.com/">Home Page</a></td>
+        </tr>
+        <tr> 
+          <td align="center"><img src="SuperCollider.gif" width="40" height="40"></td>
+          <td class="row-body">&nbsp;</td>
+          <td colspan="7" class="row-body">SuperCollider is an environment and 
+            programming language for real time <br>
+            audio synthesis. SuperCollider is like Smalltalk but with a syntax 
+            somewhat similar to Ruby, though it predates Ruby by a few months. 
+            SC has a real-time GC, constant time message lookup, closures, co-routines, 
+            default argument values, variable length argument lists, <br>
+            any order keyword arguments, both lexical and dynamic scoping tail 
+            call optimization, closure creation via partial application.</td>
+        </tr>
+        <tr> 
+          <td bgcolor="#E0E0E0" align="center"><b>VEND</b></td>
+          <td class="row-header" align="right">&nbsp;</td>
+          <td class="row-header">Max Battcher</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">Active / Prototype</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td class="row-header" align="right"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://www.worldmaker.net/tavi/index.php?page=WorldMaker.Lang.Vend">Home 
+            Page</a></td>
+        </tr>
+        <tr> 
+          <td align="center"><img src="wmlang.gif" width="40" height="31"></td>
+          <td class="row-body">&nbsp;</td>
+          <td colspan="7" class="row-body" valign="top">VEND began as something 
+            of a thought experiment inside a highly minimalistic language experiment 
+            (TORG/XTORG). The idea was to use English word &quot;familiarity&quot; 
+            to best effect in an object oriented (prototype-based) language. It 
+            seems that what I have come up with is something like a true OO BASIC 
+            the roundabout way. The goal of the project has then progressed to 
+            become an &quot;easy to read&quot; English-looking OO language.</td>
+        </tr>
+        <tr> 
+          <td bgcolor="#E0E0E0" align="center"><b>WO</b></td>
+          <td class="row-header" align="right">&nbsp;</td>
+          <td class="row-header">Vincent Belliard</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">Active / ?</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://www.openwo.org/">Home Page</a></td>
+        </tr>
+        <tr> 
+          <td align="center" valign="middle"><img src="../languages/wo-lang.gif" width="42" height="32"></td>
+          <td class="row-body">&nbsp;</td>
+          <td colspan="7" class="row-body">The WO is an entirely dynamic language. 
+            Everything that can be made at compilation time can be made at run 
+            time. It is possible to create classes and methods dynamically. These 
+            methods can be compiled then to get the same performances of a method 
+            defined at compilation time. It is also possible to add an element 
+            to a class under execution. The objects already allocated are then 
+            automatically updated.<br>
+          </td>
+        </tr>
+        <tr> 
+          <td bgcolor="#E0E0E0" align="center"><b>Wrapl</b></td>
+          <td class="row-header" align="right">&nbsp;</td>
+          <td class="row-header">Raja Mukherji</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">Active</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header">&nbsp;</td>
+          <td align="right" class="row-header"><img src="../languages/header-div.gif" width="1" height="16"></td>
+          <td class="row-header"><a href="http://wrapl.sourceforge.net/">Home 
+            Page</a></td>
+        </tr>
+        <tr> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td class="row-body">&nbsp;</td>
+          <td colspan="7" class="row-body">Wrapl is a high level programming language 
+            designed to be compiled to bytecode for the Riva virtual machine. 
+            Wrapl is based on the Icon programming language. Wrapl was created 
+            initially as a faster implementation of Icon, then as an improved 
+            version and finally as a language that I liked and could use.</td>
+        </tr>
+        <tr> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td class="row-body">&nbsp;</td>
+          <td colspan="7" class="row-body">&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+    <td valign="top" width="10">&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+	<title>Untitled Document</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<script>
+ 	document.domain = "mike-austin.com";
+	var request = new XMLHttpRequest();
+	
+	function getEvents(callback) {
+		request.open('GET', 'http://api.mike-austin.com/events/getEvents.php', true);
+		request.onreadystatechange = function() {
+			if (request.readyState == 4) {
+				callback(request);
+			}
+		}
+		
+		request.send(null);
+	}
+
+	function getEventDetails(event_id, callback) {
+		request.open('GET', 'http://api.mike-austin.com/events/eventDetails.php?event=' + event_id, true);
+		request.onreadystatechange = function() {
+			if (request.readyState == 4) {
+				callback(request);
+			}
+		}
+		
+		request.send(null);
+	}
+	
+	function createEvent(form) {
+		var params = 'what=' + form.what.value +
+					 '&where=' + form.where.value +
+					 '&when=' + form.when.value +
+					 '&location=' + form.location.value +
+					 '&details=' + form.details.value;
+		
+		request.open('POST', 'http://api.mike-austin.com/events/createEvent.php', true);
+		request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		request.setRequestHeader("Content-length", params.length);
+		//request.setRequestHeader("Connection", "close");
+		request.onreadystatechange = function() {
+			if (request.readyState == 4) {
+				//callback(request);
+			}
+		}
+		
+		request.send(params);
+	}
+</script>
+</body>
+</html>

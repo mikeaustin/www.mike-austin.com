@@ -1,0 +1,28 @@
+
+<link rel="stylesheet" href="/home/normal.css" type="text/css">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td bgcolor="#849EBF"><a href="/home/index.shtml"><img src="/home/images/banner.jpg" width="448" height="43" border="0"></a></td>
+    <td bgcolor="#849EBF" align="center"><font color="#FFFFFF">Powered by </font><a href="http://ipowerweb.com"><font color="#FFFFFF">IPowerWeb.com</font></a></td>
+    <td width="7" bgcolor="#849EBF" align="right"><img src="/home/images/banner-right.jpg" width="193" height="43"></td>
+  </tr>
+  <tr>
+    <td bgcolor="#6B86A5" colspan="3" height="1"><img src="/home/images/spacer.gif"></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="topMenu">
+  <tr> 
+    <td height="22" width="7">&nbsp;</td>
+    <td height="22" class="button"><a href="/home/index.shtml" title="Where it all begins">home</a>&nbsp;&nbsp;&nbsp;<font color="#FFFFFF">&#149;</font>&nbsp;&nbsp; 
+      <a href="/home/projects/index.shtml" title="Projects I am working on">projects</a>&nbsp;&nbsp;&nbsp; 
+      <a href="/home/papers/index.shtml" title="Papers I have written">papers</a>&nbsp;&nbsp;&nbsp; 
+      <a href="/home/reference/index.shtml" title="Glossaries and other references">reference</a>&nbsp;&nbsp;&nbsp; 
+      <a href="/home/music/index.shtml" title="My favorite music and more">music</a>&nbsp;&nbsp;&nbsp; 
+      <a href="/home/images/index.shtml" title="My favorite images">images</a>&nbsp;&nbsp;&nbsp; 
+      <a href="/home/quotes.shtml" title="My favorite quotes">quotes</a>&nbsp;&nbsp;&nbsp; 
+      <a href="/home/xlinks.shtml" title="External links to web sites and newsgroups">internet 
+      links</a>&nbsp;&nbsp;&nbsp;<a href="/home/weblog.html">weblog</a></td>
+    <td height="22" align="right"><b><font color="#FFFFFF">&copy; 2004 Mike Austin</font></b></td>
+    <td height="22" width="7">&nbsp;</td>
+  </tr>
+</table>

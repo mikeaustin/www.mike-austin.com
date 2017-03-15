@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>JaSteroids</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=">
+	<style type="text/css">
+		body				{ font: 16px/1.5em Arial, Sans-Serif; padding: 20px; }
+		#game-view			{ width: 500px; height: 500px; background: black; border: white; }
+		#ship				{ position: absolute; width: 25px; height: 25px;
+							  background-image: url(images/ship_sprites.png); }
+	</style>
+</head>
+
+<body class="ltr">
+	<div id="game-view">
+		<div id="ship"></div>
+	</div>
+	<div id="log"></div>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		JaSteroids = {};
+		
+		JaSteroids.Ship = function() {
+			this.x = 0;
+		}
+		
+		JaSteroids.Ship.prototype.fire = function() {
+		}
+		
+		var ship = document.getElementById("ship");
+
+		// Set initial ship position, velocity and rotation
+		ship.position = { x: 250, y: 250 };
+		ship.velocity = { x: 0, y: 0 };
+		ship.rotation = 0;
+
+		// Used to keep track of multiple keypresses
+		var keymap = {};
+
+		document.onkeydown = function(event) {
+			event = event || window.event;
+			key = event.which || event.keyCode;
+
+			// Set the key hash value to true
+			keymap[key] = true;
+
+			switch(key) {
+				case 37:
+					// Left Arrow - rotate the ship by pi/4 radians
+					ship.rotation += (Math.PI / 4.0);
+				break;
+				case 39:
+					// Right Arrow - rotate the ship by pi/4 radians
+					ship.rotation -= (Math.PI / 4.0);
+				break;
+			}
+
+			// If angle wraps in either direction, reset
+			if (ship.rotation >= Math.PI * 2) ship.rotation = 0;
+			if (ship.rotation < 0) ship.rotation += Math.PI * 2;
+
+			// Calculate sprite frame and "snap" to grid
+			var frame = (ship.rotation / (Math.PI / 4.0)) * 25;
+			ship.style.backgroundPosition = "0px -" + Math.floor(frame / 25) * 25 + "px";
+
+			document.getElementById("log").innerHTML = frame;
+		}
+
+		document.onkeyup = function(event) {
+			event = event || window.event;
+			key = event.which || event.keyCode;
+			
+			// Set the key hash value to false
+			keymap[key] = false;
+		}
+
+		setInterval(function() {
+			if (keymap[38]) {
+				// Up Arrow - move the ship with the velocity vector
+				ship.velocity.x += Math.cos(ship.rotation) * 0.1;
+				ship.velocity.y += Math.sin(ship.rotation) * 0.1;
+			}
+
+			// Move the ship according it its velocity vector
+			ship.position.x += ship.velocity.x;
+			ship.position.y -= ship.velocity.y;
+			
+			// Update the ship sprite to reflect new position
+			ship.style.left = ship.position.x + "px";
+			ship.style.top  = ship.position.y + "px";
+		}, 20);
+	</script>
+</body>
+</html>

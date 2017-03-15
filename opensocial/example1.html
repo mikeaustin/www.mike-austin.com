@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <style type="text/css">
+		h1 { font: bold 24px Arial; margin: 0 0 0.5em 0; color: #444444 }
+		h2 { font: bold 14px Arial; margin: 1em 0 0.5em 0; color: #444444 }
+	    pre { background: #f6f6f6; border: 1px solid #cccccc; padding: 10px; margin: 0; }
+	</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<h1>OpenSocial hi5.template example</h1>
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Module&gt;</pre>
+<h2>ModulePrefs declarations</h2>
+<pre>    &lt;ModulePrefs title=&quot;My Friends (hi5.template)&quot; description=&quot;Display the Owner's Friends&quot; title_url=&quot;http://www.hi5.com&quot;
+     icon=&quot;http://images.hi5.com/images/icons/_/update_skin.png&quot; thumbnail=&quot;http://googlegadgets.neoteksystems.com/Images/hovertanksThumb.png&quot;
+     author=&quot;Mike Austin&quot; author_email=&quot;maustin@hi5.com&quot; author_affiliation=&quot;hi5&quot; author_location=&quot;San Francisco, CA&quot;&gt;
+        &lt;Require feature=&quot;opensocial-0.7&quot;/&gt;
+        &lt;Require feature=&quot;dynamic-height&quot;/&gt;
+        &lt;Require feature=&quot;views&quot;/&gt;
+        &lt;Locale messages=&quot;http://www.sandbox.hi5.com/friend/apps/developer/app/get/xml/4512&quot;/&gt;
+    &lt;/ModulePrefs&gt;</pre>
+<h2></h2>
+<pre>    &lt;Content type=&quot;html&quot; standardsMode=&quot;true&quot; quirksMode=&quot;false&quot; view=&quot;default,profile&quot;&gt;
+    &lt;![CDATA[</pre>
+<h2>Style and Javascript includes</h2>
+<pre>
+        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://images.hi5.com/images/styles/hi5_common_20080222.css&quot;/&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;http://images.hi5.com/images/js/hi5_template_20080310.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;http://images.hi5.com/images/js/hi5_tags_20080310.js&quot;&gt;&lt;/script&gt;
+
+        &lt;style&gt;
+            #page-content .friend-tile {
+                float: left; display: inline; width: 270px; margin: 0 0 10px 10px; border: 1px 
+                solid #cccccc; padding: 10px;
+                background: url(http://images.hi5.com/images/graphics/gray.gif) repeat-x; background-color: #f6f6f6;
+            }
+           #page-content .friend-tile .image {
+               float: left; display: inline; width: 100px; height: 100px; overflow: hidden;
+               padding: 5px; margin-right: 10px; background: white; border: 1px solid #cccccc;
+           }
+           #page-content .friend-tile .name {
+               display: block; margin-bottom: 5px; font-weight: bold; background: #eaeaea; 
+               zoom: 1;
+           }
+        &lt;/style&gt;</pre>
+<h2>hi5.template declaration</h2>
+<pre>        &lt;!-- Template that iterates through friends and invokes the &quot;friends-tile&quot; template --&gt;
+        &lt;script type=&quot;text/xml&quot; id=&quot;template&quot;&gt;
+            &lt;template xmlns:hi5=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+                &lt;div&gt;
+                    Viewer: ${' '} &lt;hi5:name uid=&quot;viewer&quot; linked=&quot;true&quot;/&gt; 
+                    &lt;hi5:profile-pic uid=&quot;viewer&quot; size=&quot;small&quot;/&gt;
+                    ${' '} Owner: ${' '} &lt;hi5:name uid=&quot;owner&quot; linked=&quot;true&quot;/&gt; 
+                    &lt;hi5:profile-pic uid=&quot;owner&quot; size=&quot;small&quot;/&gt;
+                    ${' '} 1000: ${' '} &lt;hi5:name uid=&quot;1000&quot; linked=&quot;true&quot;/&gt; 
+                    &lt;hi5:profile-pic uid=&quot;1000&quot; size=&quot;small&quot;/&gt;
+                &lt;/div&gt;
+                &lt;br/&gt;
+                &lt;for-each var=&quot;friend&quot; source=&quot;friends.asArray()&quot;&gt;
+                    &lt;div class=&quot;friend-tile&quot;&gt;
+                        &lt;div class=&quot;image&quot;&gt;
+                            &lt;hi5:profile-pic person=&quot;friend&quot; size=&quot;small&quot;/&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;details&quot;&gt;
+                            &lt;a class=&quot;name&quot; href=&quot;${friend.getField(opensocial.Person.Field.PROFILE_URL)}&quot;&gt;
+                                &lt;hi5:name person=&quot;friend&quot;/&gt;
+                            &lt;/a&gt;
+                            &lt;hi5:message key=&quot;person.sex&quot; sex=&quot;${friend.getField(opensocial.Person.Field.GENDER)}&quot;/&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/for-each&gt;
+                &lt;div class=&quot;clear&quot;&gt;&amp;#160;&lt;/div&gt;
+            &lt;/template&gt;
+        &lt;/script&gt;</pre>
+<h2>Template output element</h2>
+<pre>        &lt;!-- Output element, parameter to hi5.template.apply() --&gt;
+        &lt;div id=&quot;page-content&quot;&gt;&lt;/div&gt;</pre>
+<h2>Application initialization</h2>
+<pre>        &lt;!-- Start of application --&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            var hi5AuthToken;
+			
+            gadgets.util.registerOnLoadHandler(function() {
+                var env = opensocial.getEnvironment();
+                var params = gadgets.views.getParams();
+                hi5AuthToken = params['Hi5AuthToken'];
+				
+                var request = opensocial.newDataRequest();
+                request.add(request.newFetchPersonRequest('OWNER'), 'owner');
+                request.add(request.newFetchPersonRequest('VIEWER'), 'viewer');
+                //params[opensocial.DataRequest.PeopleRequestFields.MAX] = 10;
+                request.add(request.newFetchPeopleRequest('OWNER_FRIENDS', {'max': 10}), 'friends');
+				
+                request.send(onLoadUsers);
+            });
+
+            function onLoadUsers(response) {
+                var owner = response.get('owner').getData();
+                var viewer = response.get('viewer').getData();
+                var friends = response.get('friends').getData();
+
+                hi5.template.apply('template', 'page-content', {friends: friends});
+
+                gadgets.window.adjustHeight();
+            }
+        &lt;/script&gt;</pre>
+<h2></h2>
+<pre>    ]]&gt;
+    &lt;/Content&gt;</pre>
+<h2></h2>
+<pre>&lt;/Module&gt;</pre>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="styles/core.css"/>
+	<script type="text/javascript" src="scripts/core.js"></script>
+	<script type="text/javascript" src="scripts/views.js"></script>
+	<style type="text/css">
+	<![CDATA[
+		#window {
+			-webkit-transform: rotate(5deg) scale(0.5);
+			-webkit-transition: -webkit-transform 0.25s ease;
+			x-webkit-box-shadow: none;
+		}
+		#window:hover {
+			-webkit-transform: scale(1.0);
+			-webkit-transition: -webkit-transform 0.25s ease-out;
+			x-webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+		}
+	]]>
+	</style>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function Request( url )
+		{
+			this.request = new XMLHttpRequest();
+			this.request.open( "GET", url );
+		}
+		
+		Request.prototype.send = function( options )
+		{
+			var self = this;
+
+			this.request.onreadystatechange = function()
+			{
+				if (this.readyState == 4 && this.status == 200)
+				{
+					if (options.updateElement)
+						options.updateElement.innerHTML = this.responseText;
+					if (options.onComplete)
+						options.onComplete( this );
+				}
+			}
+			
+			this.request.send();
+		}
+
+		function loadApp( url )
+		{
+			new Request( url ).send(
+			{
+				onComplete: function( request )
+				{
+					var html = request.responseXML.childNodes[1];
+					var head = html.childNodes[1];
+					var body = html.childNodes[3];
+
+					for (var i = 0; i < head.childNodes.length; i++)
+					{
+						if (head.childNodes[i].nodeName == "style")
+						{
+							var style = document.createElement( "style" );
+							style.type = "text/css";
+							style.appendChild( document.createTextNode( head.childNodes[i].innerHTML ) );
+							
+							document.head.appendChild( style );
+						}
+						
+						if (head.childNodes[i].nodeName == "script" && head.childNodes[i].src == "")
+						{
+							var script = document.createElement( "script" );
+							script.type = "text/javascript";
+
+							script.appendChild( document.createTextNode( head.childNodes[i].innerHTML ) );
+							document.head.appendChild( script );
+						}
+					}
+
+					var window = document.importNode( body.childNodes[1], true );
+					window.style.top = "100px";
+					window.style.left = "100px";
+					
+					desktop.element.insertBefore( window, desktop.element.$( "#menu-bar" ) );
+					
+					injectTypes( null, desktop, window );
+				}
+			});
+		}
+
+		var processes = [];
+
+		window.addEventListener( "load", function( event )
+		{
+			desktop = new inertia.Desktop( document.$( "#desktop" ) );
+
+			injectTypes( null, desktop, desktop.element );
+
+			loadApp( "calculator.xhtml" );
+		}, false );
+		/* ]]> */
+	</script>
+	<style>
+		#apple {
+			height: 19px;
+			padding-top: 1px;
+			font-size: 18px;
+		}
+		
+		li:hover #apple {
+			-webkit-text-stroke: 1px #2450b3;
+		}
+		
+		#apple2 {
+			xdisplay: none;
+			color: white;
+			position: absolute; left: 17px; top: 1px; z-index: 10000;
+			font-size: 18px;
+			-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.5)));
+		}
+		
+		x#apple:before {
+			content: attr(rel);
+			xposition: absolute; left: 9px; top: 1px;
+			-webkit-mask-image: none !important;
+		}
+	</style>
+</head>
+<body>
+	<article class="desktop-view" id="desktop" type="desktop" rel="controller">
+			<ul class="menu menu-bar" id="menu-bar" style="xheight: 200px;">
+				<li xclass="active">
+					<div id="apple2" rel="&#63743;">&#63743;</div>
+					<a id="apple" rel="&#63743;">&#63743;</a>
+					<ul class="menu menu-pane" type="view">
+						<li><a>About This Mac</a></li>
+						<li><a>Software Update...</a></li>
+						<li><a>Mac OS X Software</a></li>
+						<li><hr/></li>
+						<li><a>System Preferences...</a></li>
+						<li class="submenu"><a>Dock</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="strong">Inertia</a>
+					<ul class="menu menu-pane" type="view">
+						<li><a>About Inertia</a></li>
+						<li><hr/></li>
+						<li><a>Preferences...</a></li>
+						<li><hr/></li>
+						<li><a>Quit Inertia...</a></li>
+					</ul>
+				</li>
+				<li xclass="active">
+					<a style="">File</a>
+					<ul class="menu menu-pane" type="view">
+						<li><a type="button" action="newDocument">New...</a></li>
+						<li><a>Open...</a></li>
+						<li><hr/></li>
+						<li><a>Save</a></li>
+						<li class="shortcut shift-apple-s"><a>Save As...</a></li>
+						<li><hr/></li>
+						<li><a type="button" action="printDocument">Print...</a></li>
+					</ul>
+				</li>
+				<li>
+					<a>Edit</a>
+					<ul class="menu menu-pane" type="view">
+						<li><a>Undo</a></li>
+						<li><hr/></li>
+						<li class="shortcut apple-x"><a>Cut</a></li>
+						<li class="shortcut apple-c"><a>Copy</a></li>
+						<li><a>Paste</a></li>
+					</ul>
+				</li>
+			</ul>
+<style>
+	header button {
+		float: left;
+		width: 14px; height: 14px;
+		margin-left: 7px;
+		border: 1px solid rgba(128, 128, 128, 0.75);
+		-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.5),
+							inset 0  1px 1px rgba(0, 0, 0, 0.75),
+							inset 0 -3px 5px rgba(255, 255, 255, 0.75);
+	}
+
+	header button.close {
+		background: -webkit-gradient(radial, center 20%, 0, center 20%, 3, from(#ffffff), to(#f62f30));
+	}
+	
+	header button.minimize {
+		background: -webkit-gradient(radial, center 20%, 0, center 20%, 3, from(#ffffff), to(#e08833));
+	}
+	
+	header button.maximize {
+		background: -webkit-gradient(radial, center 20%, 0, center 20%, 3, from(#ffffff), to(#6aad3d));
+	}
+
+	header button:active {
+		border: 1px solid rgba(128, 128, 128, 0.75);
+		opacity: 0.5;
+	}
+</style>
+<style>
+	article.calculator button {
+		width: 46px; height: 26px;
+		float: left; line-height: 26px;
+		margin: 3px 2px;
+		-webkit-border-radius: 5px;
+		border: 1px solid #737373;
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#efefef), to(#989898),
+					color-stop(.2, #d4d4d4),
+					color-stop(.93, #d4d4d4));
+		-webkit-box-shadow: 0 1px #cbcbcb;
+	}
+	
+	article.calculator button:active {
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7f7f7f), to(#a4a4a4),
+					color-stop(.15, #a8a8a8),
+					color-stop(.95, #b0b0b0));
+		border-top: 1px solid #404040; border-bottom: 1px solid #646464;
+		border-left: 1px solid #555555; border-right: 1px solid #555555;
+	}
+	
+	article.calculator {
+		-webkit-border-radius: 5px;
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#989898), to(#909090),
+					color-stop(.2, #a7a7a7),
+					color-stop(.95, #a7a7a7));
+	}
+
+	article.calculator header {
+		border-bottom: none;
+	}
+	
+	article.calculator div.display {
+		margin: 2px 9px -2px 9px; padding: 2px;
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#717171), to(#cecece),
+					color-stop(.2, #989898),
+					color-stop(.8, #989898));
+		-webkit-border-radius: 5px;
+		-webkit-box-shadow: 0 1px #aeaeae;
+	}
+	
+	article.calculator div#digits {
+		text-align: right;
+		height: 44px;
+		font-size: 15px;
+		padding: 0 26px 0 10px;
+		background: #cbd0b7;
+		border: 1px solid #b4b7a4;
+		-webkit-border-radius: 4px;
+	}
+</style>
+<script type="text/javascript">
+Number.prototype["+"] = function( operand ) { return this + operand; };
+Number.prototype["-"] = function( operand ) { return this - operand; };
+Number.prototype["*"] = function( operand ) { return this * operand; };
+Number.prototype["/"] = function( operand ) { return this / operand; };
+
+inertia.Calculator = {
+	type: "calculator",
+	
+	init: function( element )
+	{
+		this.supertype.init.call( this, element );
+		
+		this.display = element.$( "#digits" );
+		
+		this.clearPressed();
+	},
+
+	setValue: function( value )
+	{
+		this.value = value;
+		
+        this.display.innerHTML = this.value;
+	},
+	
+	clearPressed: function()
+	{
+		this.operator = "+";
+		this.operand = null;
+		this.clear = true;
+		
+		this.setValue( 0 );
+	},
+	
+	numberPressed: function( number )
+	{
+        if (this.clear)
+		{
+            this.display.innerHTML = "";
+
+			this.clear = false;
+        }
+
+        this.display.innerHTML += number;
+	},
+
+    operatorPressed: function( operator ) {
+        this.operand  = parseFloat( this.display.innerHTML );
+
+		if (!this.clear)
+		{
+	        var value = this.value[this.operator]( this.operand );
+	
+			this.setValue( value );
+		}
+		
+        this.operator = operator;
+		this.clear = true;
+    },
+
+    equalsPressed: function() {
+		if (!this.clear)
+		{
+	        this.operand  = parseFloat( this.display.innerHTML );
+		}
+		
+        var value = this.value[this.operator]( this.operand );
+	
+		this.setValue( value );
+		this.clear = true;
+    }
+}.extend( inertia.View );
+</script>
+		<article class="window-view dialog-view" type="dialog" style="top: 100px; left: 400px;">
+			<header>
+				<h1 type="handle">Internet Explorer</h1>
+				<div class="rounded" style="position: absolute; top: 4px;" type="view">
+					<button class="close"></button>
+					<button class="minimize"></button>
+					<button class="maximize"></button>
+				</div>
+			</header>
+			<div class="details">
+				<div class="message">
+					<h2>
+					  The application Internet Explorer quit unexpectedly after it was relaunched.
+					</h2>
+					<div class="small">
+						Mac OS X and other applications are not affected.
+					</div>
+				</div>
+				<div class="rounded buttons">
+					<button>Save</button>
+					<button>Cancel</button>
+				</div>
+			</div>
+		</article>
+
+		<article class="window-view calculator" rel="controller" type="calculator" id="calculator" style="width: 218px; top: 100px; left: 75px;">
+			<header>
+				<h1 type="handle">Calculator</h1>
+			</header>
+			<div class="details">
+				<div class="display">
+					<div id="digits">12345</div>
+				</div>
+				<div class="rounded buttons" style="padding: 9px; overflow: hidden;">
+					<button action="clearPressed">C</button>
+					<button style="visibility: hidden;"></button>
+					<button action="operatorPressed" value="/">&#247;</button>
+					<button action="operatorPressed" value="*">&#215;</button>
+
+					<button action="numberPressed" value="7" style="clear: left;">7</button>
+					<button action="numberPressed" value="8">8</button>
+					<button action="numberPressed" value="9">9</button>
+					<button action="operatorPressed" value="-">&#8722;</button>
+					<button action="numberPressed" value="4" style="clear: left;">4</button>
+					<button action="numberPressed" value="5">5</button>
+					<button action="numberPressed" value="6">6</button>
+					<button action="operatorPressed" value="+">&#43;</button>
+					<button action="numberPressed" value="1" style="clear: left;">1</button>
+					<button action="numberPressed" value="2">2</button>
+					<button action="numberPressed" value="3">3</button>
+					<button action="equalsPressed" style="float: right; height: 58px;">&#61;</button>
+					<button action="numberPressed" value="0" style="clear: left; width: 96px;">0</button>
+					<button>.</button>
+				</div>
+			</div>
+		</article>
+
+		<!--<article class="window-view" type="dialog" id="window">
+			<header>
+				<h1 type="handle">Africa Vaccation</h1>
+			</header>
+			<details>
+				<video controls="controls" loop="loop">
+					<source xsrc="videos/sample_mpeg4.mp4"/>
+					<source src="videos/sample_theora.ogv"/>
+				</video>
+			</details>
+		</article>-->
+
+		<!--<article class="window-view" type="dialog">
+			<header>
+				<h1 type="handle">Survival Rat</h1>
+			</header>
+			<details>
+				<iframe frameborder="0" scrolling="no" src="xcalculator.xhtml" width="480" height="320"></iframe>
+			</details>
+		</article>-->
+
+	</article>
+</body>
+</html>

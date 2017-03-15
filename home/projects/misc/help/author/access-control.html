@@ -1,0 +1,102 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>Modify Access Rights - DatabasePlus</title>
+<link rel="stylesheet" href="../help-styles.css"></head>
+
+<body leftmargin=0 topmargin=0 marginwidth=0 marginheight=0 lang=EN-US link=blue vlink=purple bgcolor="#FFFFFF">
+<div> 
+  <table border=0 cellspacing=0 cellpadding=5 width="100%" >
+    <tr> 
+      <td valign=top class="navigator" ><a href="../help-topics.html" class="navlink">Help 
+        Topics</a> &gt; <a href="author-table.html" class="navlink">Author Table</a> 
+        | <a href="author-databs.html" class="navlink">Database</a></td>
+    </tr>
+    <tr> 
+      <td valign=top class="section" > <b>Modify Access Rights</b></td>
+    </tr>
+    <tr> 
+      <td valign=top class="description" > The Access Control editor allows you 
+        to view and modify user and group permissions for the database or table. 
+      </td>
+    </tr>
+    <tr> 
+      <td valign=top > 
+        <p><br>
+          There are two built-in accounts that can be modified, but not deleted:</p>
+        <ul>
+          <li> <b>Public</b> - Anyone who logs into the system anonymously through 
+            a published a report or survey. You must enable this account to allow 
+            anonymous logins.</li>
+          <li><b>Record Creator</b> - When a record is created, the person who 
+            created it is associated with that record. Modifying this permission 
+            changes access for the person who created that record.</li>
+        </ul>
+        <p ><b>Adding/Modifying Access Rights<br>
+          <br>
+          </b>In the Modify Access Rights page:</p>
+        <ul>
+          <li>Click <b>Add</b> to create a new Access Control Entry, or click 
+            <b>Edit</b> on a row to edit an existing entry.</li>
+          <li>To delete an access entry, click <b>Delete</b>.</li>
+        </ul>
+        <p>If adding a new entry, select the user or group names you with to add 
+          from the users and groups list.<br>
+          <br>
+          You can modify the following options:<br>
+          <br>
+          <b>Status (Edit)<br>
+          </b><br>
+          When editing an entry, you have the option of enabling or disabling 
+          the entry. </p>
+        <ul>
+          <li > <b>Enabled</b> - Gives the user or workgroup access to the database 
+            or table. </li>
+          <li > <b>Disabled</b> - Prohibits the user from any access to the database 
+            or table.  This option is useful to temporarily remove access.<br>
+          </li>
+        </ul>
+        <p ><b> Access Rights<br>
+          </b><br>
+          There are a number of options you can use for access rights.<br>
+          <br>
+          Access Rights check boxes:</p>
+        <ul>
+          <li><b>Can ADD new records</b> - allows the user to add records to the 
+            database or table. </li>
+        </ul>
+        <p>Access Rights radio buttons:</p>
+        <ul >
+          <li > <b>NONE</b> - Disallow any access to this database or table.  
+            The user is not allowed to view or modify any records.</li>
+          <li > <b>Can VIEW records</b> - Allow the user to view records in the 
+            database or table.</li>
+          <li > <b>MODIFY records</b> - Allow the user or workgroup to modify 
+            and view records in the database or table.</li>
+          <li > <b>Can MODIFY or DELETE records</b> - Allow the user or workgroup 
+            to view, modify, or delete records in the database or table.<br>
+          </li>
+        </ul>
+        <p ><b>Additional Security (Tables)<br>
+          <br>
+          </b>Additional security can be enforced on specific tables.  Security 
+          can be set for view, modify and delete operations. </p>
+        <ul >
+          <li ><b>Table Level</b> - Access Control specified above applies to 
+            all rows in the table.</li>
+          <li ><b>Row Level</b> - Access Control specified only applies to the 
+            rows returned by a query.</li>
+          <li ><b><a href="report-filter.html">Edit Query</a></b> - Use the expression 
+            builder to create a query that limits view access.</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  
+</div>
+
+</body>
+
+</html>

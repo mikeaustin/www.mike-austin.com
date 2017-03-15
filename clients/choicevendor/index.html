@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>ChoiceVentor | Home</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=">
+	<style type="text/css">
+		body				{ font: 16px/1.5em Arial, Sans-Serif; padding: 20px; }
+		body *				{ font-size: 0.95em; }
+		*					{ margin: 0; padding: 0; }
+		.before				{ float: left; display: inline; }
+		.after				{ float: right; display: inline; }
+		.cleared			{ overflow: hidden; zoom: 1; }
+		
+		.pane h1			{ font-size: 1.2em; padding: 10px 10px 0 10px; }
+		.pane .content		{ padding: 10px; }
+		.pane				{ height: 320px; }
+		.open-pane			{ width: 450px; }
+		.open-pane			{ display: none; }
+		.closed-pane		{ width: 220px; }
+		.closed-pane img	{ cursor: pointer; }
+		.show				{ display: block; }
+		.hide				{ display: none; }
+
+		#pane-1 			{ background: url(images/red_back.gif); }
+		#pane-2				{ background: url(images/green_back.gif); }
+		#pane-3				{ background: url(images/blue_back.gif); }
+		#red-left			{ background: url(images/red_left.gif); width: 14px; height: 320px; }
+		#blue-right			{ background: url(images/blue_right.gif); width: 20px; height: 320px; }
+		#red-green			{ background: url(images/red_green.gif); width: 29px; height: 320px; }
+		#green-blue			{ background: url(images/green_blue.gif); width: 29px; height: 320px; }
+	</style>
+</head>
+
+<body class="ltr">
+	<ul id="panes">
+		<li id="red-left" class="before"></li>
+		<li id="pane-1" class="pane before">
+			<div class="open-pane show">
+				<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
+				<div class="content cleared">
+					<img class="after" src="images/chagall.jpg"/>
+					<div>
+						<form>
+							<p>Lorem ipsum dolor sit amet</p>
+							<input type="text"/>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="closed-pane hide">
+				<h1>Lorem ipsum dolor...</h1>
+				<div class="content cleared">
+					<img class="after" src="images/chagall.jpg"/>
+				</div>
+			</div>
+		</li>
+		<li id="red-green" class="before"></li>
+		<li id="pane-2" class="pane before">
+			<div class="open-pane">
+				<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
+				<div class="content cleared">
+					<img class="after" src="images/chagall.jpg"/>
+					<div>
+						<form>
+							<p>Lorem ipsum dolor sit amet</p>
+							<input type="text"/>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="closed-pane">
+				<h1>Lorem ipsum dolor...</h1>
+				<div class="content cleared">
+					<img class="after" src="images/chagall.jpg"/>
+				</div>
+			</div>
+		</li>
+		<li id="green-blue" class="before"></li>
+		<li id="pane-3" class="pane before">
+			<div class="open-pane">
+				<h1>Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
+				<div class="content cleared">
+					<img class="after" src="images/chagall.jpg"/>
+					<div>
+						<form>
+							<p>Lorem ipsum dolor sit amet</p>
+							<input type="text"/>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="closed-pane">
+				<h1>Lorem ipsum dolor...</h1>
+				<div class="content cleared">
+					<img class="after" src="images/chagall.jpg"/>
+				</div>
+			</div>
+		</li>
+		<li id="blue-right" class="before"></li>
+	</ul>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".closed-pane img").click(function() {
+				$(".open-pane").hide();
+				$(".closed-pane").show();
+
+				var pane = $(this).closest(".pane");
+				pane.find(".open-pane").show();
+				pane.find(".closed-pane").hide();
+			});
+		});
+	</script>
+</body>
+</html>

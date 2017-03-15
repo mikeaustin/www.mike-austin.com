@@ -1,0 +1,5 @@
+[
+    { id: "1", what: "\"<b>Simple's Gifts<\/b>\": Unitarian Universalist Pacific Central District Assembly", where: "Fremont Marriott", when: new Date("2008\/04\/25 00:00:00"), location: "46100 Landing Parkway, Fremont, California 94538" },
+    { id: "2", what: "Simple Gifts: Unitarian Universalist Pacific Central District Assembly", where: "Fremont Marriott", when: new Date("2008\/04\/25 00:00:00"), location: "46100 Landing Parkway, Fremont, California 94538" },
+    { id: "3", what: "asdf", where: "ereer", when: new Date("0000\/00\/00 00:00:00"), location: "1234234" },
+]

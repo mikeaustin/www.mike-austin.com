@@ -1,0 +1,76 @@
+<style>
+  #photos {
+    text-align: center;
+    margin-right: 20px;
+    padding-bottom: 25px;
+  }
+  
+  #photos li {
+    xposition: relative;
+    xmargin: 20px 0 0 0;
+    xpadding: 2px;
+    xoutline: 1px solid red;
+    line-height: 0;
+  }
+  
+  #photos span {
+    xoutline: 1px solid red;
+    display: inline-block;
+    xpadding: 5px;
+    xbackground: green;
+    line-height: 0;
+    box-shadow: inset 0 0 1px hsla(0, 0%, 0%, 0.5), 0 0 10px hsla(0, 0%, 0%, 0.5);
+  }
+  
+  #photos img {
+    xvisibility: hidden;
+    position: relative;
+    z-index: -1;
+    xborder: 1px solid hsla(0, 0%, 75%, 1);
+    backface-visibility: hidden;
+  }
+  
+  x#photos img.landscape {
+    width: 75%;
+  }
+
+  x#photos img.portrait {
+    width: 60%;
+  }
+  
+  #photos li:first-child {
+    margin-top: 0;
+  }
+  
+  #photos li:before {
+    position: absolute;
+    height: 53px;
+    line-height: 51px;
+    font-size: 25px;
+    font-size: 2.5vw;
+    color: hsl(0, 0%, 75%);
+    right: 25%; bottom: 3px; left: 25%;
+    content: attr(data-title);
+    background: hsla(0, 0%, 0%, 0.5);
+  }
+</style>
+
+<ul id="photos">
+  <li data-title="Half Moon Bay 2016"><span><img class="landscape" src="new/photos/HMB_Apr2016.jpg" width="480" /><span></li>
+  <li data-title="Groupie Puppy"><span><img class="portrait" src="new/photos/Groupie_Puppy.jpg" width="360" /></span></li>
+  <li data-title="Christmas 2015"><img class="landscape" src="new/photos/XMas2015.jpg" /></li>
+  <li data-title="Napa Wine Tasting 2016"><img class="portrait" src="new/photos/Napa2016_WineTasting.jpg" /></li>
+  <li data-title="Puppy Intro to Coding"><img class="landscape" src="new/photos/Puppy_Intro_to_Coding.jpg" /></li>
+</ul>
+
+<script>
+  $(document).ready(function(event) {
+    var photos = $("#photos li");
+
+    photos.each(function(index, item) {
+      var even = index % 2 == 0;
+      
+      $(item).css("transform", "rotateZ(" + (Math.random() - (even ? 1 : 0)) * 5 + "deg)");
+    });
+  });
+</script>

@@ -1,0 +1,55 @@
+Sticky Windows
+--------------
+ - Since a Window can't have multiple parents, set the parent of a sticky
+   window when switching desktops
+
+Goals
+-----
+Lightweight
+Simple API
+Properties
+Models/Events
+Live Designing
+
+ToDo
+----
+- Make label text and attribute
+x Move window texture update before drawing routines
+- Label should resize width for text
+- Move mouse grab to function
+x Move gl calls to graphics
+- GenericModel - Name, Type
+- CloseButton should reference window var, not parent
+- Visual.contextMenu
+- do() that knows outer scope
+- Desktop switching tabs
+x Graphics vertex(), color(), begin()
+x Window sizing is getting invalidated
+  invalidate() being called within drawing method?
+  Font drawString produces the error
+  Real problem is that invalidate() starves glutPostRedisplay()
+- Add tracing capability without overhead?
+- Add window shadows
+x Add chinese checkers game in a Window
+- init gets called when 'subclassing'
+  That's how prototypes work, but it causes race conditions
+
+
+import = doFile
+using = appendProto
+
+ChinaVisual
+ChinaApp
+
+Each app gets it's own namespace
+
+Object clone doFile( "China.io" )
+
+
+
+ChinaApp.io
+
+appendProto( Inertia )
+
+xxx
+

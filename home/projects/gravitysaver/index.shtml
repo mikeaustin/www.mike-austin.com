@@ -1,0 +1,258 @@
+<html>
+<head>
+<title>Mike Austin : Internet Links</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+.page {  height: 100ex; width: 100%}
+-->
+</style>
+<link rel="stylesheet" href="/home/normal.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="/home/images/backgr-grid.gif">
+<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+  <tr>
+    <td valign="top"> 
+      <!--#include virtual="/home/top-menu.shtml"-->
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="titleBar">
+        <tr> 
+          <td valign="top" width="40%"> 
+            <!--#include virtual="/home/music/sub-menu.shtml" -->
+          </td>
+          <td valign="middle" align="center" rowspan="2"><font color="#FFFFFF" class="sectionHeader">Internet 
+            Links</font></td>
+          <td valign="middle" align="right" rowspan="2" width="40%"> <font color="#FFFFFF" size="1"> 
+            </font> 
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td align="right"><font color="#FFFFFF" size="1"> just remember 
+                  love is life, and hate is living death<br>
+                  &#150; Black Sabbath </font></td>
+                <td width="7">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td valign="top" height="3"><img src="/home/images/spacer.gif"></td>
+        </tr>
+      </table>
+	  <BASE TARGET="_blank">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="7" height="7"></td>
+          <td></td>
+          <td width="7"></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="49%" valign="top"> 
+                  <p class="section">technology</p>
+                  <ul>
+                    <li><a href="http://www.berlin-consortium.org/">the berlin 
+                      project</a> &nbsp;&#149;&nbsp; www.berlin-consortium.org<br>
+                      <div class="note">A component based, 3D GUI based on Unicode, 
+                        CORBA and OpenGL</div>
+                    </li>
+                    <li><a href="http://www.thebrain.com">the brain</a> &nbsp;&#149;&nbsp; 
+                      www.thebrain.com 
+                      <div class="note">This is a commercial product that organizes 
+                        data into &quot;thoughts&quot;, which can have several 
+                        children, parents and links. Each node can be linked to 
+                        a web site or document and can store rich text in the 
+                        side panel</div>
+                    </li>
+                    <li> <a href="http://www.apple.com/macosx">macintosh os/x</a> 
+                      &nbsp;&#149;&nbsp; www.apple.com/macosx<br>
+                      <div class="note">Apples new (well, actually modified) operating 
+                        system for the next Millennium. Originally NeXT OS running 
+                        on a Mach kernel.</div>
+                    </li>
+                    <li><a href="http://www.google.com/search?hl=en&ie=UTF-8&oe=UTF-8&q=BeOS">beos</a> 
+                      &nbsp;&#149;&nbsp; www.google.com/search?...BeOS<br>
+                      <div class="note">The best operating system designed, which 
+                        unfortunately did not make it out alive. <a href="http://www.palm.com">Palm</a> 
+                        now own the operating system and intelectual property 
+                        of Be.</div>
+                    </li>
+                    <li> 
+                      <div class="note"><a href="http://www.gnome.org">the gnome 
+                        project </a> &nbsp;&#149;&nbsp; www.gnome.org<br>
+                        <div class="note">GNU Network Object Model Environment. 
+                          A framework and GUI for component driven interfaces. 
+                          It attempts to fill the void of a standard Linux GUI 
+                          and application set </div>
+                      </div>
+                    </li>
+                    <li> <a href="http://www.sun.com/research/self">the self language</a> 
+                      &nbsp;&#149;&nbsp; http://www.sun.com/research/self<br>
+                      <div class="note">An experimental prototype based, object-oriented 
+                        programming language. It inherits much of smalltalk's 
+                        syntax, but is not a descendent of smalltalk.</div>
+                    </li>
+                    <li> 
+                      <div class="note"><a href="http://www.obsoletecomputermuseum.org/">www.obsoletecomputermuseum.org</a><br>
+                        A database of some old computers. I date back to about 
+                        the VIC-20.</div>
+                    </li>
+                    <li> 
+                      <div class="note">sourceforge</div>
+                    </li>
+                    <li><a href="http://www.opengl.org">opengl.org</a> &nbsp;&#149;&nbsp; 
+                      www.opengl.org</li>
+                    <li> 
+                      <div class="note">redmet</div>
+                    </li>
+                    <li> 
+                      <div class="note"><a href="http://gaeldesign.com/ib/mediaVoom.php">mediaVoom</a> 
+                        &nbsp;&#149;&nbsp; gaeldesign.com/ib/mediaVoom.php</div>
+                    </li>
+                    <li> 
+                      <div class="note"><a href="http://www.bagley.org/%7Edoug/shootout/">the 
+                        great computer language shootout</a> &nbsp;&#149;&nbsp; 
+                        www.bagley.org/~doug/shootout<br>
+                      </div>
+                    </li>
+                  </ul>
+                  <p class="section">newsgroups</p>
+                  <ul>
+                    <li><a href="news://comp.graphics.api.opengl">comp.graphics.api.opengl</a></li>
+                    <li><a href="news://comp.human-factors">comp.human-factors</a></li>
+                    <li><a href="news://comp.object">comp.object</a></li>
+                    <li><a href="news://comp.lang.smalltalk">comp.lang.smalltalk</a></li>
+                    <li><a href="news://comp.lang.objective-c">comp.lang.objective-c</a></li>
+                    <li><a href="news://comp.databases.object">comp.databases.object</a></li>
+                    <li><a href="news://alt.philosophy">alt.philosophy</a></li>
+                    <li><a href="news://alt.sci.physics">alt.sci.physics</a></li>
+                  </ul>
+                </td>
+                <td valign="top">&nbsp;</td>
+                <td width="49%" valign="top"> 
+                  <p class="section">search &amp; news</p>
+                  <ul>
+                    <li><a target="_new" href="http://www.pinkfloyd-co.com/" title="Visit Pink Floyd's official web site">nooface.com</a> 
+                      &nbsp;&#149;&nbsp; www.nooface.com 
+                      <div class="note">Pink Floyd is the ultimate chill band. 
+                        Turn the lights down low and turn on the lava lamp.</div>
+                    </li>
+                    <li><a href="http://www.extremetech.com/">extremetech.com</a> 
+                      &nbsp;&#149;&nbsp; www.extremetech.com<br>
+                      <div class="note">Technology new and reviews</div>
+                    </li>
+                    <li><a target="_new" href="http://dmoz.org">dmoz.org</a> &nbsp;&#149;&nbsp; 
+                      dmoz.org 
+                      <div class="note">Open directory project.<a target="_top" href="http://www.led-zeppelin.com/"> 
+                        </a></div>
+                    </li>
+                    <li><a href="http://labs.google.com/">google labs</a> &nbsp;&#149;&nbsp; 
+                      labs.google.com<br>
+                      <div class="note">Try some of googles lab projects, such 
+                        as google glossary, google sets, voice search, and keyboard 
+                        shortcuts.</div>
+                    </li>
+                    <li><a href="http://ccc.commnet.edu/grammar/">grammar guide</a> 
+                      &nbsp;&#149;&nbsp; ccc.commnet.edu/grammar<br>
+                      <div class="note"></div>
+                    </li>
+                    <li><a href="http://www.flipcode.com">flipcode.com</a> &nbsp;&#149;&nbsp; 
+                      www.flipcode.com<br>
+                      <div class="note">Daily game development news and resources.</div>
+                    </li>
+                    <li><a href="http://www.gamedev.net">gamedev.net</a> &nbsp;&#149;&nbsp; 
+                      www.gamedev.net<br>
+                      <div class="note">Game development news and resources.</div>
+                    </li>
+                  </ul>
+                  <p class="section">fun &amp; misc</p>
+                  <ul>
+                    <li>buddhism 
+                      <div class="note">One of the first metal bands I got into. 
+                        They are the orchestration.</div>
+                    </li>
+                    <li><a href="http://iqx.ionichost.com/other/instest.html">insanity 
+                      test</a> &nbsp;&#149;&nbsp; http://iqx.ionichost.com/other/instest.html<br>
+                    </li>
+                    <li><a href="http://home.globility.com/%7Esuperdog/fun/colortest.gif">color 
+                      test</a> &nbsp;&#149;&nbsp; home.globility.com/~superdog/fun/colortest.gif<br>
+                      <div class="note">Look at the chart and say the COLOR, no 
+                        the word.</div>
+                    </li>
+                    <li><a href="http://www.columbia.edu/itc/anthropology/v1007/jakabovics/mf4.html">male 
+                      vs. female brain</a> &nbsp;&#149;&nbsp; http://www.columbia.edu/itc/.../mf4.html<br>
+                    </li>
+                    <li><a href="http://www.joshs.com/humor/">josh's humor collection</a> 
+                      &nbsp;&#149;&nbsp; http://www.joshs.com/humor<br>
+                    </li>
+                    <li><a href="http://www.box2321.com/mybrain/">mybrain - odd 
+                      humor</a> &nbsp;&#149;&nbsp; www.box2321.com/mybrain<br>
+                    </li>
+                    <li><a href="http://yoyo.cc.monash.edu.au/%7Emongoose/french/phrases.html">'useful' 
+                      french phrases</a> &nbsp;&#149;&nbsp; yoyo.cc.monash.edu.au/.../phrases.html</li>
+                    <li><a href="http://flameboy36.tripod.com/rice.htm">make your 
+                      own car body kit</a> &nbsp;&#149;&nbsp; http://flameboy36.tripod.com/rice.htm</li>
+                    <li><a href="http://www.cyber-nation.com/victory/quotations/">a 
+                      large quotation database</a> &nbsp;&#149;&nbsp; www.cyber-nation.com/.../quotations</li>
+                    <li><a href="http://www.deviantart.com/">deviant art</a> &nbsp;&#149;&nbsp; 
+                      www.deviantart.com</li>
+                    <li><a href="http://www.digitalblasphemy.com/">digital blasphemy</a> 
+                      &nbsp;&#149;&nbsp; www.digitalblasphemy.com</li>
+                    <li><a href="http://www.uselessmoviequotes.com/">www.uselessmoviequotes.com</a></li>
+                    <li><a href="http://www.upwardrising.com/">upward rising development</a> 
+                      &nbsp;&#149;&nbsp; www.upwardrising.com</li>
+                    <li><a href="http://www.shoutcast.com/">shoutcast</a> &nbsp;&#149;&nbsp; 
+                      www.shoutcast.com</li>
+                    <li><a href="http://www.freiburg.linux.de/%7Euae/">uae amiga 
+                      emulator</a> &nbsp;&#149;&nbsp; www.freiburg.linux.de/~uae</li>
+                    <li><a href="http://www.mame.net/">mame arcade emulator</a> 
+                      - www.mame.net</li>
+                    <li><a href="http://www.gamespot.com">gamespot.com</a> &nbsp;&#149;&nbsp; 
+                      www.gamespot.com</li>
+                    <li><a href="http://www.barstoclubs.com/s_clubs.html">san 
+                      francisco bars &amp; clubs</a> &nbsp;&#149;&nbsp; www.barstoclubs.com/s_clubs.html</li>
+                    <li><a href="http://www.nitevibe.com">nitevibe - club and 
+                      bar listings</a> &nbsp;&#149;&nbsp; www.nitevibe.com</li>
+                    <li><a href="http://www.bbc.co.uk/science/space/exploration/timetravel/index.shtml">bbci 
+                      - time travel</a> &nbsp;&#149;&nbsp; www.bbc.co.uk/.../timetravel/index.shtml</li>
+                    <li><a href="http://www.space-time-mass.com/explanation.html">space-time-mass</a> 
+                      &nbsp;&#149;&nbsp; www.space-time-mass.com/explanation.html</li>
+                  </ul>
+                  <p>http://redwoodsoft.com/cel/</p>
+                  <p>http://www.dekorte.com/software/c/Io/</p>
+                  <p>gealdesign</p>
+                  <p>strange brew</p>
+                  <p>http://panoramix.ift.uni.wroc.pl/~maq/eng/</p>
+                  <p>http://www.planware.org/quotes.htm</p>
+                </td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+          </td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td valign="bottom"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="20">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td class="topMenu" align="right" height="20"><font color="#FFFFFF"> 
+            <!--#include virtual="/cgi-bin/counter.pl"-->
+            · Last modified: 
+            <!--#config timefmt="%B %d, %Y"-->
+            <!--#flastmod file="index.shtml"-->
+            </font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

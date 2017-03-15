@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Untitled Document</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=">
+
+	<link rel="stylesheet" type="text/css" href="http://images.hi5.com/images/styles/global_20071116.css"/>
+	<link rel="stylesheet" type="text/css" href="http://static.hi5.com/friend/styles/hi5_common_1211239050.css"/>
+
+	<style>
+		#page-content ul.tabs:after			{ content:"."; display: block; height: 0; clear: both; visibility: hidden; overflow: hidden; }
+		#page-content ul.tabs				{ background: #f3f3f3; padding-top: 5px; }
+		#page-content ul.tabs li			{ border-bottom: 1px solid #cccccc; color: #cccccc; }
+		#page-content ul.tabs li a			{ color: #000000; }
+		#page-content ul.tabs li.links a	{ color: #2E5098; }
+		#page-content ul.tabs li.active		{ border-bottom: 1px solid white; }
+		#page-content ul.tabs li.active	a	{ border-bottom: 1px solid white; font-weight: bold; }
+		#page-content ul.tabs li.after		{ border: none; background: none; padding-left: 3px; padding-right: 3px; }
+	
+		#page-content .after		{ float: right; }
+		#page-content h2			{ padding: 0; margin: 0; border-bottom: none; }
+		#page-content th			{ text-align: left; }
+		#page-content h4			{ padding: 5px; font-family: Arial,Helvetica,Sans-Serif; font-weight: bold; }
+		#page-content h2.app-title	{ padding: 3px 7px; background: #999999; color: white; }
+	
+		#page-content th			{ font-family: Arial,Helvetica,Sans-Serif; padding-right: 5px; }
+		#page-content th a			{ font-family: Arial,Helvetica,Sans-Serif; font-weight: bold; }
+	
+		#app-details				{ border: 1px solid #cccccc; }
+	
+		#page-content .general-details th,
+		#page-content .general-details td			{ padding: 5px; }
+	
+		#page-content .stats-details th				{ font-family: Arial,Helvetica,Sans-Serif; text-align: right; padding-bottom: 3px; border-bottom: 1px solid #cccccc; }
+		#page-content .stats-details td				{ vertical-align: top; padding-left: 5px; padding-right: 5px; text-align: right; }
+		#page-content .stats-details tr.first th,
+		#page-content .stats-details tr.first td	{ padding-top: 5px; }
+	
+		#page-content .language-details th,
+		#page-content .language-details td			{ padding: 10px 10px; border-top: 1px dotted #cccccc; vertical-align: middle; }
+		#page-content .language-details tr.first th,
+		#page-content .language-details tr.first td	{ border-top: none; }
+		#page-content .language-details tr.selected	{ background: #e0e0e0; }
+		
+		label			{ cursor: pointer; }
+	</style>
+	<!--[if IE]>
+	<style>
+		#page-content ul.tabs				{ display: inline-block; }
+	</style>
+	<![endif]-->
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"></script>
+</head>
+
+<body>
+	<div id="p_container">
+		<div id="page-content">
+			<div id="app-details">
+				<!-- <%@ include file="dev-details-general.jsp %> -->
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		var tab = window.location.hash || '#dev-details-general.html';
+		new Ajax.Updater('app-details', tab.slice(1));
+		
+		function clickTab(url) {
+			new Ajax.Updater('app-details', url);
+			window.location.hash = '#' + url;
+			
+			return false;
+		}
+	</script>
+</body>
+</html>

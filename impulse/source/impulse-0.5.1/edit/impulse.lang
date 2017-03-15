@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Author: Mike Austin <mike@mike-austin.com>
+ Copyright (C) 2004 Mike Austin
+
+ This library is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+-->
+<language id="impulse" _name="Impulse" version="2.0" _section="Scripts">
+  <metadata>
+    <property name="mimetypes">text/x-impulse</property>
+    <property name="globs">*.impulse</property>
+    <property name="line-comment-start">#</property>
+  </metadata>
+
+  <styles>
+    <style id="comment" _name="Comment" map-to="def:comment"/>
+    <style id="decimal" _name="Decimal number" map-to="def:decimal"/>
+    <style id="string" _name="String" map-to="def:string"/>
+    <style id="keyword" _name="Keyword" map-to="def:keyword"/>
+    <style id="type" _name="Type" map-to="def:type"/>
+    <style id="escape" _name="Escaped Character" map-to="def:special-char"/>
+    <style id="reserved" _name="Reserved Identifier" map-to="def:keyword"/>
+    <style id="nil-value" _name="Nil Constant" map-to="def:special-constant"/>
+    <style id="boolean" _name="Boolean value" map-to="def:boolean"/>
+    <style id="operator" _name="Operator" map-to="def:operator"/>
+  </styles>
+
+  <definitions>
+    <context id="line-comment" style-ref="comment" end-at-line-end="true">
+      <start>#</start>
+      <include>
+        <context ref="def:in-comment"/>
+      </include>
+    </context>
+
+    <context id="decimal" style-ref="decimal">
+      <match>(?&lt;![\w])([1-9](_?[0-9])*|0)(?![\w])</match>
+    </context>
+
+    <context id="string" style-ref="string">
+      <start>["]</start>
+      <end>["]</end>
+    </context>
+
+    <context id="keywords" style-ref="keyword">
+      <keyword>object</keyword>
+      <keyword>method</keyword>
+      <keyword>operator</keyword>
+      <keyword>if</keyword>
+      <keyword>else</keyword>
+      <keyword>else if</keyword>
+      <keyword>end$</keyword>
+      <keyword>for</keyword>
+      <keyword>attr</keyword>
+      <keyword>local</keyword>
+      <keyword>not</keyword>
+      <keyword>or</keyword>
+      <keyword>return</keyword>
+    </context>
+
+    <context id="operators" style-ref="operator">
+      <prefix></prefix>
+      <suffix></suffix>
+      <keyword>-&gt;</keyword>
+    </context>
+
+    <context id="types" style-ref="type">
+      <match>&lt;[a-z][a-z0-9_-]*&gt;</match>
+    </context>
+
+    <context id="nil-value" style-ref="nil-value">
+       <keyword>nil</keyword>
+    </context>
+
+    <context id="boolean" style-ref="boolean">
+       <keyword>false</keyword>
+       <keyword>true</keyword>
+    </context>
+
+    <context id="impulse">
+      <include>
+        <context ref="def:shebang"/>
+        <context ref="line-comment"/>
+        <context ref="decimal"/>
+        <context ref="string"/>
+        <context ref="keywords"/>
+        <context ref="operators"/>
+        <context ref="types"/>
+        <context ref="nil-value"/>
+        <context ref="boolean"/>
+      </include>
+    </context>
+
+  </definitions>
+</language>

@@ -1,0 +1,229 @@
+<html>
+
+<head>
+<meta name=Generator content="Microsoft Office HTML Filter 2.0">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Originator content="Microsoft Word 9">
+<title>Tutorial 1 - Tables, Relations, Value Lists and Views</title>
+<link rel="stylesheet" href="../help-styles.css"></head>
+
+<body leftmargin=0 topmargin=0 marginwidth=0 marginheight=0 lang=EN-US link=blue vlink=purple bgcolor="#FFFFFF">
+<div > 
+  <table border=0 cellspacing=0 cellpadding=5 width="100%" >
+    <tr> 
+      <td valign=top class="navigator" ><a href="help-topics.html" class="navlink">Help 
+        Topics</a> &gt; <a href="../examples.html" class="navlink">Concepts 
+        &amp; Tutorials</a></td>
+    </tr>
+    <tr> 
+      <td valign=top class="section" > 
+        <b>DatabasePlus Tutorial 1<br>
+          </b><span class="heading" ><font size="1">A Simple Contact Manager</font></span>
+      </td>
+    </tr>
+    <tr> 
+      <td valign=top class="description" > 
+        This short tutorial will get you acquainted with creating tables and 
+          relations, using value lists, and creating views.
+      </td>
+    </tr>
+    <tr> 
+      <td valign=top > 
+        <p><br>
+          The tutorial starts by creating a basic table and then adding records 
+          to it. It then moves on to creating a value list for contact categories. 
+          Last, it explains how to create a table and create a link to another 
+          table, then how create a view to display the results.<br>
+          <br>
+          <b class="heading"> 1. Creating the Contacts database</b></p>
+        <p>Click <b>Create a New Database</b></p>
+        <ul>
+          <li>Enter <code><font size="2">Contact Manager</font> </code> into the 
+            <b>Name</b> text box, then click <b>Save</b></li>
+          <li>Click <b>Author</b> under your database</li>
+        </ul>
+        <p><b class="heading">2. Creating the Contacts table</b></p>
+        <p>Here, you will create the contacts table.</p>
+        <p>Select <b>Tables</b> from the <b>Type</b> navigation pull-down menu 
+        </p>
+        <ul>
+          <li>Click <b>Basic Settings</b><br>
+            Enter <code><font size="2">Contacts</font></code> into the <b>Name</b> 
+            text box, then click <b>Save</b></li>
+          <li>Click <b>Fields</b></li>
+          <li>Click <b>Add</b> 
+            <ul>
+              <li>Enter <code><font size="2">Full Name</font></code> into the 
+                <b>Name</b> text box</li>
+              <li> Select <b>Text</b> from the <b>Type</b> pull-down menu</li>
+            </ul>
+          </li>
+          <li>Click <b>Add</b> 
+            <ul>
+              <li>Enter <code><font size="2">Age</font></code> into the <b>Name</b> 
+                text box </li>
+              <li>Select <b>Number</b> from the <b>Type</b> pull-down menu</li>
+            </ul>
+          </li>
+          <li>Click <b>Add</b>
+            <ul>
+              <li>Enter <code><font size="2">Birthday</font></code> into the <b>Name</b> 
+                text box</li>
+              <li>Select <b>Date</b> from the <b>Type</b> pull-down menu</li>
+            </ul>
+          </li>
+          <li>Click <b>Save</b> </li>
+        </ul>
+        <p>The Contacts table should look like this:</p>
+        <p align="center"><img src="images/contact-fields.gif" width="235" height="250" border="0"></p>
+        <p><b class="heading">3. Adding records into the Contacts table</b></p>
+        <p>Here, you will add the first record into the contacts table.</p>
+        <p>Select <b>Browse</b> from the <b>Task</b> navigation pull-down menu</p>
+        <ul>
+          <li>Click <b>Add Record</b> 
+            <ul>
+              <li>Enter your name into the <b>Full Name</b> text box</li>
+              <li>Enter your age into the <b>Age</b> text box</li>
+              <li>Enter your birthday into the <b>Birthday</b> text box</li>
+              <li>Click <b>Save</b> </li>
+            </ul>
+          </li>
+        </ul>
+        <p>You have now created a simple table and added data into it. From here, 
+          you can:</p>
+        <ul>
+          <li>Click <b>Modify</b> to edit your data</li>
+          <li>Click <b>Printer Friendly</b> to display a report style page</li>
+          <li>Select the <b>check-box</b> next to your name and click <b>Delete 
+            Selected</b> to delete the data</li>
+        </ul>
+        <p><b class="heading">4. Adding more functionality</b></p>
+        <p>Here, you will create a Value List to create a contact category with 
+          the values <i>Business</i> and <i>Personal</i>.</p>
+        <p>Select <b>Author</b> from the <b>Task</b> navigation pull-down menu, 
+          and <b>Database</b> from the <b>Type</b> navigation pull-down menu</p>
+        <ul>
+          <li>Click <b>Value Lists</b></li>
+          <li>Click <b>Add</b> </li>
+          <li>Enter <code><font size="2">Category</font></code> into the <b>Name</b> 
+            text box</li>
+          <li>Click <b>Edit Items</b> 
+            <ul>
+              <li>Click <b>Add</b><br>
+                Enter <code><font size="2">Business</font></code> into the <b>Name</b> 
+                and <b>Value</b> text boxes</li>
+              <li>Click <b>Add<br>
+                </b>Enter <code><font size="2">Personal</font></code> into the 
+                <b>Name</b> and <b>Value</b> text boxes</li>
+              <li>Click <b>Done </b></li>
+            </ul>
+          </li>
+          <li>Click <b>Save</b></li>
+        </ul>
+        <p>The Category value list should look like this:</p>
+        <p align="center"><img src="images/contatcs-vlist.gif" width="235" height="203"></p>
+        <p>Select <b>Tables</b> from the <b>Type</b> navigation pull-down menu</p>
+        <ul>
+          <li>Click <b>Fields</b></li>
+          <li>Click <b>Add</b><br>
+            Enter <code><font size="2">Category</font></code> into the <b>Name</b> 
+            text box<br>
+            Select <b>Category</b> from the <b>Value List</b> pull-down menu</li>
+          <li>Click <b>Save </b></li>
+        </ul>
+        <p>Select <b>Browse</b> from the <b>Task</b> navigation pull-down menu</p>
+        <ul>
+          <li>Click <b>Modify</b> on the row with your name</li>
+          <li>Change <b>Category</b> from Business to Personal</li>
+          <li>Click <b>Save</b> </li>
+        </ul>
+        <p><b class="heading">5. Linking data together in tables</b></p>
+        <p>Here, you will create a new table called Journal and create a table 
+          reference and a view to see it in action.</p>
+        <p>Select <b>Author</b> from the <b>Task</b> navigation pull-down menu</p>
+        <p>Select <b>Add a Table </b> from the <b>Name</b> navigation pull-down 
+          menu</p>
+        <ul>
+          <li>Enter <code><font size="2">Journal</font></code> into the <b>Name</b> 
+            text box</li>
+          <li>Click <b>Save</b></li>
+          <li>Click <b>Fields</b></li>
+          <li>Click <b>Add</b> 
+            <ul>
+              <li>Enter <code><font size="2">Notes</font></code> into the <b>Name</b> 
+                text box</li>
+            </ul>
+          </li>
+          <li>Click <b>Add</b> 
+            <ul>
+              <li>Enter <code><font size="2">Date</font></code> into the <b>Name</b> 
+                text box and select <b>Date</b> from the <b>Type</b> pull-down 
+                menu.</li>
+              <li> Select <b>Current Date/Time</b> to automatically insert the 
+                current date when a new record is created.</li>
+            </ul>
+          </li>
+          <li>Click <b>Add</b> 
+            <ul>
+              <li>Enter <code><font size="2">Contact</font></code> <font size="2"><code>Link</code></font> 
+                into the <b>Name</b> text box</li>
+              <li>Select <b>Table Reference</b> from the <b>Type</b> pull-down 
+                menu</li>
+              <li>Select <b>Contacts</b> from the <b>Relate to Table</b> pull-down 
+                menu. This tells the table that this field links to the Contacts 
+                table.</li>
+            </ul>
+          </li>
+          <li>Click <b>Save</b> </li>
+        </ul>
+        <p>The Journal table should look like this:</p>
+        <p align="center"><img src="images/journal-table.gif" width="235" height="250"></p>
+        <p>Select <b>Views </b> from the <b>Type</b> navigation pull-down menu</p>
+        <ul>
+          <li>Enter <code><font size="2">Simple</font></code> into the <b>Name</b> 
+            text box</li>
+          <li>Select <b>Contacts</b> from the <b>Base Table</b> pull-down menu</li>
+          <li>Click <b>Save</b></li>
+          <li>Click <b>Fields</b> 
+            <ul>
+              <li>Click <b>Add View Fields</b></li>
+              <li>Select all fields from the <b>Available Fields</b> list. This 
+                is usually accomplished by selecting the first item, then holding 
+                down the shift key and selecting the last item.</li>
+              <li>Click <b>Add Field</b></li>
+              <li>Click <b>Done</b></li>
+              <li>Select the <b>[Journal]Contact Link</b> field from the <b>Fields</b> 
+                list</li>
+              <li>Replace the contents of the <b>Name</b> text box with <font size="2"><code>Journal</code></font></li>
+            </ul>
+          </li>
+          <li>Click <b>Save</b></li>
+        </ul>
+        <p>Select <b>Browse </b> from the <b>Task</b> navigation pull-down menu</p>
+        <ul>
+          <li>Click <b>Modify</b> 
+            <ul>
+              <li>In the <b>Journal</b> tab, click <b>Add Record</b></li>
+              <li>Enter <code><font size="2">Created a database</font></code> 
+                in the <b>Notes</b> text box. Notice the date was inserted automatically. 
+                You may change the date if it is not correct.</li>
+              <li>Click <b>Done</b></li>
+            </ul>
+          </li>
+          <li>Click <b>Save</b></li>
+        </ul>
+        <p>The Contact detail view should look like this:</p>
+        <p align="center"><img src="images/contacts-view.gif" width="235" height="160"></p>
+        <p>You now have a simple, but relatively powerful starting point for a 
+          contact manager. This concludes Tutorial 1.</p>
+      </td>
+    </tr>
+  </table>
+
+<p >&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

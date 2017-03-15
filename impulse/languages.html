@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Languages Design Resources</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+        *       { margin: 0; padding: 0; }
+        body    { font: 14px/20px helvetica; color: #404040; padding: 10px 0; text-align: center;
+                  background: #c0c0c0; }
+        #page   { width: 800px; margin: 0 auto; text-align: left; background: #ffffff;
+                  border: 1px solid #808080; }
+        #body   { padding: 20px; }
+        h1      { font: bold 30px/26px 'trebuchet ms', helvetica; color: #505050; }
+        h2      { font: bold 18px/16px 'trebuchet ms', helvetica; margin-top: 1em; }
+        p       { margin-top: 1em; margin-left: 1em; }
+        p.item  { margin-top: 5px; margin-left: 0; }
+        pre     { margin-left: 1em; }
+        a       { color: #668866; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        li      { list-style: square; margin-left: 2em; margin-top: 5px; }
+        dl      { margin-left: 1em; list-style: square; overflow: hidden; }
+        dt      { font: bold 14px/1em 'trebuchet ms', helvetica; xmargin-top: 5px; border-top: 1px dotted #c0c0c0;
+                  padding: 8px 0; float: left; width: 200px; clear: both; }
+        dd      { xdisplay: inline; margin-top: 0px; padding-top: 6px; float: right; width: 530px; border-top: 1px dotted #c0c0c0; }
+        .first  { margin-top: 0 !important; }
+        .before { float: left; display: inline; }
+        .light  { color: #808080; }
+        .small  { font-size: 12px; }
+    </style>
+    <script type="text/javascript">
+        var languages = [
+            { name: "Cobra",    author: "Chuck Esterbrook", url: "http://cobra-language.com",
+                                summary: "Cobra is a general purpose programming language with a clean, high-level syntax, static and dynamic binding, first class support for unit tests and contracts, and compiled performance with scripting conveniences." },
+            { name: "COS",      author: "Laurent Deniau", url: "http://sourceforge.net/projects/cos",
+                                summary: "COS is a C89 library lifting C to the level of other OOPLs and beyond. Its syntax and features inspired from Objective-C and CLOS provide: uniform object model, generic functions, fast multimethods & delegation, introspection, exceptions & contracts." },
+            { name: "Dynace",   author: "Blake McBride", url: "http://blake.mcbride.name/software/dynace/index.html",
+                                summary: "Dynace is a preprocessor, include files and a library which extends the C and C++ languages with advanced object oriented capabilities, automatic garbage collection and multiple threads." },
+            { name: "Impulse",  author: "Mike Austin", url: "http://www.mike-austin.com/impulse",
+                                summary: "Impulse is a small, dynamic, prototypical language with planned support for multi-methods and predicate dispatching, which borrows syntax and semantics from Ruby, Smalltalk, Dylan, Io, Lua and JavaScript." },
+            { name: "Io",       author: "Steve Dekorte", url: "http://www.iolanguage.com",
+                                summary: "Io is a small, prototype-based programming language inspired by Smalltalk (all values are objects), Self (prototype-based), Act1 (actors and futures), LISP (code is a runtime modifiable tree) and Lua (small, embeddable)." },
+            { name: "Ioke",     author: "Ola Bini", url: "http://ioke.org",
+                                summary: "Ioke is a folding language. It allows you to write highly expressive code that writes code. Ioke allows you to create abstractions at any level, and expressiveness is the ultimate goal of the language." },
+            { name: "MiniD",    author: "Jarrett Billingsley", url: "http://www.dsource.org/projects/minid",
+                                summary: "MiniD is a scripting language most closely related to Lua, with other influences from D, Squirrel, and Io and is dynamically typed with a C-style syntax and D-like (though not identical to D) semantics." },
+            { name: "Nexus",    author: "Adam", url: "http://www.nexuslang.org/main/about.html",
+                                summary: "Nexus is an object-oriented, dynamically-typed, reflective programming language that aims to make the programming experience both agile and intuitive, with an embedded interpreter, natural syntax, versatile paradigm, and a comprehensive class library." },
+            { name: "PLOT",     author: "David Moon", url: "http://users.rcn.com/david-moon/PLOT",
+                                summary: "Programming Language for Old Timers (PLOT) is a new dialect of Lisp, thoroughly revised and simplified, where simplicity and power are maximized." },
+            { name: "Seed7",    author: "Thomas Mertes", url: "http://seed7.sourceforge.net",
+                                summary: "Seed7 is a statically typed language in which new statements and operators can be declared easily." },
+            { name: "Shiny",    author: "Sean Pringle", url: "http://aerosuidae.net/shiny.html",
+                                summary: "Shiny is a simple interpreted scripting language with aspects similar to Lua, Ruby and Perl. Anyone familiar with C derivative languages should find Shiny easy to pick up." },
+            { name: "Squirrel", author: "Alberto Demichelis", url: "http://squirrel-lang.org",
+                                summary: "Squirrel is a high level imperative/OO programming language, designed to be a powerful scripting tool that fits in the size, memory bandwidth, and real-time requirements of applications like games." },
+            { name: "Tangent",  author: "Telastyn", url: "https://www.assembla.com/wiki/show/tangent-lang",
+                                summary: "A toy language, designed to alleviate some of the weaknesses of C# and research feasibility of a few features." },
+            { name: "Voodoo",   author: "Robert Haarman", url: "http://inglorion.net/documents/designs/voodoo",
+                                summary: "Voodoo is a programming language designed to be a thin abstraction layer over CPUs' native instruction sets and operating systems' calling conventions." },
+        ];
+        
+        window.onload = function()
+        {
+            var body = document.getElementById( "languages-a" );
+            var half = Math.floor(languages.length / 2);
+            
+            for ( i = 0; i < half; i++ )
+            {
+                var lang = document.getElementById( "language" ).innerHTML;
+
+                for ( p in languages[i] )
+                {
+                    lang = lang.replace( "${" + p + "}", languages[i][p], "g" );
+                    lang = lang.replace( "$%7B" + p + "%7D", languages[i][p], "g" );
+                }
+
+                body.innerHTML += lang;
+            }
+
+            var body = document.getElementById( "languages-b" );
+            
+            for ( i = half; i < languages.length; i++ )
+            {
+                var lang = document.getElementById( "language" ).innerHTML;
+
+                for ( p in languages[i] )
+                {
+                    lang = lang.replace( "${" + p + "}", languages[i][p], "g" );
+                    lang = lang.replace( "$%7B" + p + "%7D", languages[i][p], "g" );
+                }
+
+                body.innerHTML += lang;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="templates" style="display: none;">
+        <div id="language">
+            <div style="xwidth: 370px; border-top: 1px dotted #c0c0c0; padding: 5px 0;">
+                <div><a href="${url}" style="font-weight: bold;">${name}</a> :: ${author}</div>
+                <div class="small light">${summary}</div>
+            </div>
+        </div>
+    </div>
+    <div id="page">
+        <div style="background: #e0e0e0; padding: 20px;">
+            <h1 style="xcolor: #000000;">Language Design</h1>
+            <p class="item">Links to language design resources, and directory of new or lesser known languages.</p>
+        </div>
+        <div id="body" style="overflow: hidden;">
+            <p style="margin-left: 0;" class="first">
+                This page was built to host links to language design resources, and to provide a directory of new or lesser known languages.
+            </p>
+
+            <h2>Resources</h2>
+            <p>
+                <dl>
+                    <dt><a href="http://www.paulgraham.com/langdes.html">5 Questions</a></dt>
+                    <dd class="small light">5 Questions About Language Design by Paul Graham</dd>
+                    <dt><a href="http://merd.sourceforge.net/pixel/language-study/syntax-across-languages.html">Language Syntax</a></dt>
+                    <dd class="small light">Syntax Accross Languages for language designers, users and lovers</dd>
+                    <dt><a href="http://web.cs.mun.ca/~ulf/pld/">Ulf's Notes</a></dt>
+                    <dd class="small light">Ulf's Home-Page of Programming Language Design</dd>
+                    <dt><a href="http://c2.com/cgi/wiki?FindPage">C2 Wiki</a></dt>
+                    <dd class="small light">A content wiki with a focus on patterns in software development. </dd>
+                    <dt><a href="http://groups.google.com/group/pilud">PiLuD</a></dt>
+                    <dd class="small light">PiLuD: Free talks on Programming Language Design</dd>
+                    <dt><a href="http://tech.groups.yahoo.com/group/langsmiths/">Langsmiths</a></dt>
+                    <dd class="small light">Discussion group for folks writing their own object oriented programming languages</dd>
+                    <dt><a href="irc://freenode.net#proglangdesign">#proglangdesign</a></dt>
+                    <dd class="small light">Discussing programming languages designs, new or lesser known languages</dd>
+                    <dt><a href="news://comp.lang.misc">comp.lang.misc</a></dt>
+                    <dd class="small light">Different computer languages not specifically listed</dd>
+                </dl>
+            </p>
+
+            <h2>Languages</h2>
+            <p id="languages">
+                <span id="languages-a" style="float: left; width: 365px;"></span>
+                <span id="languages-b" style="float: right; width: 365px;"></span>
+            </p>
+        </div>
+    </page>
+</body>
+</html>

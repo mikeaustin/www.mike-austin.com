@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="styles/core.css"/>
+	<script type="text/javascript" src="scripts/core.js"></script>
+	<script type="text/javascript" src="scripts/views.js"></script>
+	<style type="text/css">
+		/* <![CDATA[ */
+		article.calculator {
+			width: 218px;
+			-webkit-border-radius: 5px;
+			border: 1px solid rgba(0, 0, 0, 0.45);
+			border-top: 1px solid rgba(0, 0, 0, 0.25);
+			border-bottom: 1px solid rgba(0, 0, 0, 0.55);
+		}
+
+		article.calculator header {
+			border-bottom: none;
+		}
+		
+		article.calculator div.details {
+			background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#989898), to(#909090),
+						color-stop(.2, #a7a7a7),
+						color-stop(.95, #a7a7a7));
+			-webkit-border-bottom-left-radius: 3px; -webkit-border-bottom-right-radius: 3px;
+		}
+		
+		article.calculator div.details div.display {
+			-webkit-margin-top-collapse: separate;
+			margin: 2px 9px -2px 9px; padding: 2px;
+			background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#717171), to(#cecece),
+						color-stop(.2, #989898),
+						color-stop(.8, #989898));
+			-webkit-border-radius: 5px;
+			-webkit-box-shadow: 0 1px #aeaeae;
+		}
+		
+		article.calculator div.details #digits {
+			display: block;
+			font-size: 15px; text-align: right;
+			height: 44px; padding: 0 26px 0 10px;
+			background: #eefbbe; border: 1px solid #b4b7a4;
+			-webkit-border-radius: 4px;
+		}
+		
+		article.calculator div.details button {
+			float: left; width: 46px; height: 26px; margin: 3px 2px;
+			line-height: 26px;
+			-webkit-border-radius: 5px;
+			border: 1px solid #737373;
+			background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#efefef), to(#989898),
+						color-stop(.2, #d4d4d4),
+						color-stop(.93, #d4d4d4));
+			-webkit-box-shadow: 0 1px #cbcbcb;
+		}
+	
+		article.calculator div.details button:nth-child(1 + 4n) {
+			clear: left;
+		}
+	
+		article.calculator div.details button.equals {
+			float: right; height: 58px;
+			line-height: 90px;
+			background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#efefef), to(#989898),
+						color-stop(.06, #d4d4d4),
+						color-stop(.97, #d4d4d4));
+		}
+	
+		article.calculator div.details button.zero {
+			width: 96px;
+		}
+	
+		article.calculator div.details button:active {
+			background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7f7f7f), to(#a4a4a4),
+						color-stop(.15, #a8a8a8),
+						color-stop(.95, #b0b0b0));
+			border-top: 1px solid #404040; border-bottom: 1px solid #646464;
+			border-left: 1px solid #555555; border-right: 1px solid #555555;
+		}
+		/* ]]> */
+	</style>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		Number.prototype["+"] = function( operand ) { return this + operand; };
+		Number.prototype["-"] = function( operand ) { return this - operand; };
+		Number.prototype["*"] = function( operand ) { return this * operand; };
+		Number.prototype["/"] = function( operand ) { return this / operand; };
+		
+		inertia.Calculator = {
+			type: "inertia.Calculator",
+			
+			init: function( element )
+			{
+				this.supertype.init.call( this, element );
+				
+				this.display = element.$( "#digits" );
+				
+				this.clearPressed();
+			},
+		
+			setValue: function( value )
+			{
+				this.value = value;
+				
+		        this.display.innerHTML = this.value;
+			},
+			
+			clearPressed: function()
+			{
+				this.operator = "+";
+				this.operand = null;
+				this.clear = true;
+				
+				this.setValue( 0 );
+			},
+			
+			numberPressed: function( number )
+			{
+		        if (this.clear)
+				{
+		            this.display.innerHTML = "";
+		
+					this.clear = false;
+		        }
+		
+		        this.display.innerHTML += number;
+			},
+		
+		    operatorPressed: function( operator ) {
+		        this.operand  = parseFloat( this.display.innerHTML );
+		
+				if (!this.clear)
+				{
+			        var value = this.value[this.operator]( this.operand );
+			
+					this.setValue( value );
+				}
+				
+		        this.operator = operator;
+				this.clear = true;
+		    },
+		
+		    equalsPressed: function() {
+				if (!this.clear)
+				{
+			        this.operand  = parseFloat( this.display.innerHTML );
+				}
+				
+		        var value = this.value[this.operator]( this.operand );
+			
+				this.setValue( value );
+				this.clear = true;
+		    }
+		}.extend( inertia.View );
+		/* ]]> */
+	</script>
+</head>
+<body id="desktop" type="desktop">
+	<article class="window-view calculator" rel="controller" type="inertia.Calculator">
+		<header>
+			<h1 type="handle">Calculator</h1>
+			<div class="rounded" style="position: absolute; top: 4px;" type="view">
+				<button class="close"></button>
+			</div>
+		</header>
+		<div class="details">
+			<div class="display">
+				<output id="digits">12345</output>
+			</div>
+			<menu class="rounded buttons" style="padding: 9px; overflow: hidden;">
+				<command label="C"/>
+				<button action="clearPressed">C</button>
+				<button style="visibility: hidden;"></button>
+				<button action="operatorPressed" value="/">&#247;</button>
+				<button action="operatorPressed" value="*">&#215;</button>
+				<button action="numberPressed" value="7">7</button>
+				<button action="numberPressed" value="8">8</button>
+				<button action="numberPressed" value="9">9</button>
+				<button action="operatorPressed" value="-">&#8722;</button>
+				<button action="numberPressed" value="4">4</button>
+				<button action="numberPressed" value="5">5</button>
+				<button action="numberPressed" value="6">6</button>
+				<button action="operatorPressed" value="+">&#43;</button>
+				<button action="numberPressed" value="1">1</button>
+				<button action="numberPressed" value="2">2</button>
+				<button action="numberPressed" value="3">3</button>
+				<button action="equalsPressed" class="equals">&#61;</button>
+				<button action="numberPressed" value="0" class="zero">0</button>
+				<button>.</button>
+			</menu>
+		</div>
+	</article>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<html>
+
+<head>
+<meta name=Generator content="Microsoft Office HTML Filter 2.0">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Originator content="Microsoft Word 9">
+<title>DatabasePlus Concepts 1</title>
+<link rel="stylesheet" href="../help-styles.css"></head>
+
+<body topmargin=0 leftmargin=0 marginwidth=0 marginheight=0 lang=EN-US link=blue vlink=purple bgcolor="#FFFFFF">
+<div > 
+  <table border=0 cellspacing=0 cellpadding=5 >
+    <tr> 
+      <td valign=top class="navigator" ><a href="../help-topics.html" class="navlink">Help 
+        Topics</a> &gt; <a href="../examples.html" class="navlink">Concepts 
+        &amp; Tutorials</a></td>
+    </tr>
+    <tr> 
+      <td valign=top class="section" > <b><span >DatabasePlus Concepts 1<br>
+        <font size="1">Tables, Records and Fields</font></span></b></td>
+    </tr>
+    <tr> 
+      <td valign=top class="description" >This example covers concepts about storing 
+        data with tables, records, and fields.</td>
+    </tr>
+    <tr> 
+      <td valign=top > 
+        <p><br>
+          Information can be stored in many different ways, from simple sticky 
+          notes to paper forms and reports to small and large computer systems. 
+          The advantage of using a computer system is that information is stored 
+          electronically. Once information is stored in this format, it can be 
+          searched, sorted, viewed and compared very easily.</p>
+        <p><b>Structured Data</b></p>
+        <p>Similar to a spreadsheet, a table in a database represents a two-dimensional 
+          grid that contains rows and columns. Information of this type is called 
+          structured data, because every row contains the same type of information 
+          and the columns describe the individual pieces of information. In a 
+          database, a row is called a record, and a column is called a field.</p>
+        <p>Here is a diagram of a simple table:</p>
+        <table align="center" border="0" cellspacing="0" cellpadding="0" bgcolor="#000000">
+          <tr> 
+            <td> 
+              <table border="0" cellpadding="3" cellspacing="1">
+                <tr align="center" bgcolor="#000000"> 
+                  <td><font color="#FFFFFF"><b>Contact Name</b></font></td>
+                  <td><font color="#FFFFFF"><b>Age</b></font></td>
+                  <td><font color="#FFFFFF"><b>Birthday</b></font></td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td>John Doe</td>
+                  <td>33</td>
+                  <td>4/5/1967</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td>Bill Doe</td>
+                  <td>40</td>
+                  <td>1/2/1960</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td>Susan Doe</td>
+                  <td>25</td>
+                  <td>2/1/1975</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <p>This table has three fields: Contact Name, Age, and Birthday. You'll 
+          notice that the rows, or records, contain a whole piece of information: 
+          a contact, while the columns, or fields, contain the bits of information.</p>
+        <p><b>Field Types</b></p>
+        <p>Fields in a table can be one of many types, and must be specified. 
+          Choosing the correct field type is crucial for speed, efficiency and 
+          functionality of the field. For example, a number can be stored as text, 
+          but it is inefficient and you will loose numeric sorting functionality.</p>
+        <p>The definition for the previous table would be:</p>
+        <table align="center" border="0" cellspacing="0" cellpadding="0" bgcolor="#000000">
+          <tr> 
+            <td> 
+              <table border="0" cellpadding="3" cellspacing="1">
+                <tr align="center" bgcolor="#000000"> 
+                  <td><b><font color="#FFFFFF">Field Name</font></b></td>
+                  <td><b><font color="#FFFFFF">Field Type</font></b></td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td>Contact Name</td>
+                  <td>Text</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td>Age</td>
+                  <td>Number</td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td>Birthday</td>
+                  <td>Date</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <p>The Contact Name field type is set to Text because names are alphabetic. 
+          The Age field type is set to Number because age is numeric. The Birthday 
+          field type is set to Date because birthday is a date.</p>
+        </td>
+    </tr>
+  </table>
+
+</div>
+
+</body>
+
+</html>

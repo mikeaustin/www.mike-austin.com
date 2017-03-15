@@ -1,0 +1,317 @@
+<html>
+<head>
+<title>DatabasePlus - Getting Started</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="help-styles.css">
+<script>
+function openHelp2( url )
+{
+	win = window.open('/content/help/' + url, 'helpWin2', 'toolbar=no,menubar=no,resizable=yes,scrollbars=no,width=550,height=500');
+	win.focus();
+}
+</script>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" lang=EN-US>
+<table border=0 cellspacing=0 cellpadding=5 width="100%" >
+  <tr> 
+    <td valign=top class="navigator" ><a href="help-topics.html" class="navlink">Help Topics</a></td>
+  </tr>
+  <tr> 
+    <td valign=top class="section" ><b>Getting Started - DatabasePlus</b></td>
+  </tr>
+  <tr> 
+    <td valign=top class="description" >This section helps you get started building 
+      DatabasePlus applications by creating value lists, tables, views, reports, 
+      workgroups, access rights and table events.</td>
+  </tr>
+  <tr> 
+    <td valign=top > 
+      <p> <br>
+        A database is composed of structured data, in the form of tables, records 
+        and fields. A table is similar to a spreadsheet, which contains rows and 
+        columns of data. In a database, a row is called a record, and a column 
+        is called a field. For an illustration of all the components of a DatabasePlus 
+        database, see <a href="javascript:openHelp2('images/dbplusbig-picture.gif')">The 
+        Big Picture</a>.</p>
+      <p>To create an an empty database...</p>
+      <p>From <i>My Desktop</i>, click <b>Create new Database</b>, then:</p>
+      <ul>
+        <li>Enter the name of your database in the <b>Name</b> text box.</li>
+        <li>Click <b>Save</b>.</li>
+        <li>You will be brought back to <i>My Desktop</i>.</li>
+      </ul>
+      <p>To create a database from a pre-built template...</p>
+      <p>From <i>My Desktop</i>, click <b>Create a New Database</b>, then:</p>
+      <ul>
+        <li>Click the template you wish to use, such as <b>Customer Support Template</b>, 
+          or click <b>...with Sample Data</b> to create a database with sample 
+          data.</li>
+        <li>You will be brought back to <i>My Desktop</i>.</li>
+      </ul>
+      <p>The following sections describe how to create tables, views, reports, 
+        workgroups, assigning access and creating events within DatabasePlus.<br>
+      </p>
+      <ol>
+        <li><a href="#creating-valuelists"><b>Creating Value Lists</b></a></li>
+        <li><a href="#creating-tables"><b>Creating Tables</b></a></li>
+        <li><a href="#creating-views"><b>Creating Views</b></a></li>
+        <li><a href="#creating-reports"><b>Creating Reports</b></a></li>
+        <li><a href="#creating-workgroups"><b>Creating Workgroups</b></a></li>
+        <li><a href="#assigning-access"><b>Assigning Access Rights</b></a></li>
+        <li><a href="#creating-tableevents"><b>Creating Table Events</b></a></li>
+      </ol>
+      <p></p>
+      <p><b class="heading"><a name="creating-valuelists"></a><br>
+        Creating Value Lists</b> 
+      <hr noshade size="1" width="100%">
+      <p></p>
+      <p>Value lists allow you to define pull-down menu options for fields. If 
+        a value list is attached to a field, it will show a pull-down menu with 
+        the available options everywhere the field is visible - in tables, views, 
+        reports, and in the search page. Value Lists can also be viewed as <i>Radio 
+        Buttons</i> and an expanded <i>List</i>.</p>
+      <p>To create a value list...</p>
+      <p>From <i>My Desktop</i>, select <b>Author</b> under your database, then:</p>
+      <ul>
+        <li>Click <b>Value Lists</b>.</li>
+        <li>Click <b>Add</b>. 
+          <ul>
+            <li>Enter the name of the value list in the <b>Name</b> text box.</li>
+            <li>Click <b>Edit Items</b>. </li>
+            <li>Click <b>Add</b>. 
+              <ul>
+                <li>Enter the name of the item in the <b>Name</b> text box.</li>
+                <li>Enter the database value associated with the item in the <b>Value</b> 
+                  text box.</li>
+                <li>Click <b>Done</b>.</li>
+              </ul>
+            </li>
+            <li>Click <b>Save</b>.</li>
+          </ul>
+        </li>
+      </ul>
+      <b class="heading"><a name="creating-tables"></a><br>
+      Creating Tables</b> 
+      <hr noshade size="1" width="100%">
+      <p>Tables define the structure of your data, and store data in records. 
+        You can add events and define access rights for each table you create.</p>
+      <p>To create a table...</p>
+      <p>Select <b>Author</b> from the <b>Task</b> navigation menu.<br>
+        Select <b>Tables</b> from the <b>Type</b> navigation menu, then:</p>
+      <ul>
+        <li>Select <b>Add a Table</b> from the <b>Name</b> navigation pull-down 
+          menu. 
+          <ul>
+            <li>Enter the name of the table in the <b>Name</b> text box.</li>
+            <li>Click <b>Save</b>.</li>
+          </ul>
+        </li>
+        <li>Click <b>Fields</b>. 
+          <ul>
+            <li>Click <b>Add</b> to add a new field.</li>
+            <li>Enter the name of the field in the <b>Name</b> text box.</li>
+            <li>Select the field type using the <b>Type</b> pull-down menu.<br>
+              See <a href="author/field-types.html">Field Types</a> for details.</li>
+            <li>Enter a value into the <b>Default Value</b> text box if you want 
+              the field to be filled automatically.</li>
+            <li>Select <b>Required Field</b> if you want the field to enforce 
+              a value.</li>
+            <li>Click <b>Save</b>.</li>
+          </ul>
+        </li>
+        <li>Click <b>Events</b> if you want to add events to the table. 
+          <ul>
+            <li>Click <b>Add</b> to add a new event.</li>
+            <li>Select the criteria and values you want for the event.<br>
+              See <a href="author/table-events.html">Table Events</a> for details.</li>
+            <li>Click <b>Save</b>.</li>
+          </ul>
+        </li>
+      </ul>
+      <b class="heading"><a name="creating-views"></a><br>
+      Creating Views</b> 
+      <hr noshade size="1" width="100%">
+      <p>Views allow you to combine tables into one table view, relabel fields, 
+        and add calculated fields.</p>
+      <p>To create a view...</p>
+      <p>Select <b>Author</b> from the <b>Task</b> navigation menu.<br>
+        Select <b>Views</b> from the <b>Type</b> navigation menu, then:</p>
+      <ul>
+        <li>Select <b>Add a View</b> from the <b>Name</b> navigation pull-down 
+          menu. 
+          <ul>
+            <li>Enter the name of the view in the <b>Name</b> text box.</li>
+            <li>Select the base table from the <b>Base Table</b> pull-down menu. 
+            </li>
+            <li>Click <b>Save</b>.</li>
+          </ul>
+        </li>
+        <li>Click <b>Fields</b>. 
+          <ul>
+            <li>Click <b>Add View Fields</b>. 
+              <ul>
+                <li>Select the fields you want to include in the view from the 
+                  <b>Available Fields</b> list and click <b>Add Field</b>.</li>
+                <li>Click <b>Done</b>.</li>
+              </ul>
+            </li>
+            <li>Click <b>Add Calculation</b> if you want to add a calculated field. 
+              <ul>
+                <li>Enter the name of the calculation in the <b>Name</b> text 
+                  box.</li>
+                <li>Click <b>Edit Calculation</b>.</li>
+                <li>Select the field result type from the Result Field Type pull-down 
+                  menu.<br>
+                  See <a href="author/field-types.html">Field Types</a> for details.</li>
+                <li>Enter your calculation formula using the formula tools or 
+                  simply type it in the <b>Calculation Formula</b> text box.<br>
+                  See <a href="author/edit-calculation.html">Edit Calculation</a> 
+                  for details.</li>
+                <li>Click <b>Done</b>.</li>
+              </ul>
+            </li>
+            <li>Click <b>Save</b>.</li>
+          </ul>
+        </li>
+      </ul>
+      <b class="heading"><a name="creating-reports"></a><br>
+      Creating Reports</b> 
+      <hr noshade size="1" width="100%">
+      <p>Reports allow you to format fields, create and order tabs, assign available 
+        actions, and add sort and filter criteria.</p>
+      <p>To create a report...</p>
+      <p>Select <b>Author</b> from the <b>Task</b> navigation menu.<br>
+        Select <b>Reports</b> from the <b>Type</b> navigation menu, then:<br>
+      </p>
+      <p>Select <b>Add a Report</b> from the <b>Name</b> navigation pull-down 
+        menu. </p>
+      <ul>
+        <li>Enter the name of the report in the <b>Name</b> text box.</li>
+        <li>Select the base table or view from the <b>Choose a Table</b> or <b>Choose 
+          a View</b> pull-down menu. </li>
+        <li>Click <b>Save</b>.</li>
+      </ul>
+      <p>Click <b>Fields in Tabs</b>. </p>
+      <ul>
+        <li>When creating a new report, fields will be added to the <i>summary</i> 
+          tab automatically. If you wish to remove an item or items, select the 
+          field from the <b>Fields in this tab</b> list and click <b>Remove Field</b>.<br>
+          See <a href="author/report-fields.html">Report Fields</a> for more details.</li>
+        <li>Click <b>Save</b>.</li>
+      </ul>
+      <p>Click <b>Tabs</b> if you want to add custom tabs. </p>
+      <ul>
+        <li>One-to-many fields in your report will automatically create a tab 
+          for the table or report. To rename a tab, select it from the <b>Current 
+          Tabs in Report</b> list and enter the name into the <b>Tab Name</b> 
+          text box.</li>
+        <li>To add a custom one-to-one field tab to your report, click <b>Add</b>.</li>
+        <li>Enter the name of your tab in the <b>Tab Name</b> text box.<br>
+          See <a href="author/report-tabs.html">Report Tabs</a> for more details.</li>
+        <li>Click <b>Save</b>.</li>
+      </ul>
+      <p>Click <b>Field Settings</b>. </p>
+      <ul>
+        <li>Select a field from the <b>Fields in this tab</b> list, and modify 
+          any of the properties such as the <b>Label</b>, <b>Entry Presentation</b> 
+          and <b>Text Alignment</b>. Select <b>Read Only</b> to display static 
+          text, not a text edit box.<br>
+          See <a href="author/report-fields.html">Report Fields</a> for more details. 
+        </li>
+        <li>Click <b>Save</b>.</li>
+      </ul>
+      <p>Click <b>Filter</b> if you want to add a filter to your report </p>
+      <ul>
+        <li>Click Add Expression to add criteria.</li>
+        <li>Select the <b>Field</b>, <b>Expression</b> and enter your filter <b>Value</b>.</li>
+        <li>Click Add Expression to add another, and select AND or OR.<br>
+          See <a href="author/report-filter.html">Report Filters</a> for more 
+          details.</li>
+        <li>Click <b>Done</b>.</li>
+      </ul>
+      <p>Click <b>Sort</b> if you want to sort fields in your report automatically. 
+      </p>
+      <ul>
+        <li>Select the field you wish to sort on from the <b>Available Fields</b> 
+          list and click <b>Add Field</b>.</li>
+        <li>To change the sort order of a field, select it from the <b>Sort Order</b> 
+          list and click <b>Reverse Sort Order</b>.<br>
+          See <a href="browse/browse-sortrecs.html">Sort Records</a> for more 
+          details.</li>
+        <li>Click <b>Save.</b></li>
+      </ul>
+      <a name="creating-workgroups"></a><b class="heading"><br>
+      Creating Workgroups</b> 
+      <hr noshade size="1" width="100%">
+      <p>Workgroups allow you to share your data and to collect data from others.</p>
+      <p>To create a new Workgroup...</p>
+      <p>From <i>My Desktop</i>, click <b>Create new Workgroup</b>, then:</p>
+      <ul>
+        <li>Enter the name of the report in the <b>Name</b> text box.</li>
+        <li>Click <b>Save</b>.</li>
+        <li>Click <b>Invite Users</b>.</li>
+        <li>Enter the e-mail addresses of the people you want to invite to your 
+          workgroup, separating each address with a semicolon (;).</li>
+        <li>Click <b>Invite Users</b>.</li>
+        <li>Review the subject and message and make any changes you want.</li>
+        <li>Click <b>Send</b>.</li>
+        <li>If successful, you will get a message &quot;Your email has been queued 
+          for delivery&quot;.</li>
+        <li>Click <b>Done</b>.</li>
+        <li>To review your invitations, click <b>Review Invitations</b>.</li>
+      </ul>
+      <p>When a recipient receives your invitation, they should click on the URL 
+        provided, and log in under their bitlocker account. If they do not have 
+        an account, they can create one at this time.</p>
+      <b class="heading"><a name="assigning-access"></a><br>
+      </b><b>Assigning Access Rights</b> 
+      <hr noshade size="1" width="100%">
+      <p>Access Control allows you to set security rules for workgroups, individual 
+        members, and special accounts such as Public and Record Creator. Access 
+        control can be set at the database, table, and table row levels.</p>
+      <p>To allow a workgroup access to your database...</p>
+      <p>From <i>My Desktop</i>, click <b>Author</b> under your database, then:</p>
+      <ul>
+        <li>Click <b>Access Control</b>.</li>
+        <li>Click <b>Add</b>.</li>
+        <li>Select the <b>Workgroup Name</b>. The number of members in that workgroup 
+          are shown under <i>Members</i>.</li>
+        <li>Select the Access Rights you want to assign to that workgroup, such 
+          as Can ADD new records, and Can VIEW records. For details on access 
+          rights, see <a href="author/access-control.html">Access Control</a>.</li>
+        <li>Click <b>Save</b>.</li>
+      </ul>
+      <b class="heading"><a name="creating-tableevents"></a><br>
+      </b><b>Creating Table Events</b> 
+      <hr noshade size="1" width="100%">
+      <p>Table Events allow you to define e-mail alerts to trigger when certain 
+        actions such as adds, deletes, or modifications occur to the table.</p>
+      <p>To create a table event...</p>
+      <p>From <i>My Desktop</i>, click <b>Author</b> under your database.<br>
+        Select <b>Tables</b> from the <b>Type</b> navigation menu.<br>
+        Select your table from the <b>Name</b> navigation menu, then: </p>
+      <ul>
+        <li>Click <b>Events</b>.</li>
+        <li>Click <b>Add</b>. 
+          <ul>
+            <li>Select the event type from the <b>Upon Event</b> pull-down menu. 
+              You can select from <b>Modify</b>, <b>Delete</b>, or <b>New</b>.</li>
+            <li>Select the recipient of the e-mail. It may be sent to the <b>Record 
+              Creator</b>, the <b>Database Owner</b>, a <b>Workgroup</b>, or a 
+              <b>Custom</b> address.</li>
+            <li>Select the subject of the message to be sent. You can select <b>Field</b>, 
+              which simply reports the field, or <b>Custom</b>, where you can 
+              enter your own subject text.</li>
+            <li>Select the report to use for the e-mail, and whether to provide 
+              a <b>Link</b> or include the <b>Content</b> the report in the e-mail.</li>
+            <li>Click <b>Save</b>.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>&nbsp;</p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

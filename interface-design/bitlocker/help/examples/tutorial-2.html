@@ -1,0 +1,159 @@
+<html>
+
+<head>
+<meta name=Generator content="Microsoft Office HTML Filter 2.0">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Originator content="Microsoft Word 9">
+<title>Tutorial 2 - Calculations, Reports and Access Rights</title>
+<link rel="stylesheet" href="../help-styles.css"></head>
+
+<body leftmargin=0 topmargin=0 marginwidth=0 marginheight=0 lang=EN-US>
+<div > 
+  <table border=0 cellspacing=0 cellpadding=5 width="100%" >
+    <tr> 
+      <td valign=top class="navigator" ><a href="../help-topics.html" class="navlink">Help 
+        Topics</a> &gt; <a href="../examples.html" class="navlink">Concepts 
+        &amp; Tutorials</a></td>
+    </tr>
+    <tr> 
+      <td valign=top class="section" > 
+        <b>DatabasePlus Tutorial 2<br>
+        </b><font size="1">Extending the Simple Contact Manager</font> </td>
+    </tr>
+    <tr> 
+      <td valign=top class="description" > This short tutorial will get you acquainted 
+        with constructing calculated fields and creating summary and detail reports.</td>
+    </tr>
+    <tr> 
+      <td valign=top > 
+        <p><br>
+          The tutorial starts by creating a calculated field for Age, then moves 
+          on to creating reports for summary and detail views. Last, it shows 
+          how to use modify access rights to grant other members access to your 
+          database.<br>
+          <br>
+          <b class="heading">1. Creating a Calculated Field</b></p>
+        <p>Here, you will remove the Age field from the Contacts table and replace 
+          it with a calculated field that uses the contact's birthday to calculate 
+          the person's age.</p>
+        <p>From the <i>Desktop</i>, click <b>Author</b> under your database</p>
+        <p>Select <b>Tables</b> from the <b>Type</b> navigation pull-down menu 
+        </p>
+        <ul>
+          <li>Click <b>Fields</b></li>
+          <li>Select the <b>Age</b> field and delete it by clicking <b>Delete</b>.</li>
+          <li>Click <b>Save</b></li>
+        </ul>
+        <p>Select <b>Views</b> from the <b>Type</b> navigation pull-down menu 
+        </p>
+        <ul>
+          <li>Click <b>Fields</b><br>
+            Select the <b>Age</b> field and delete it by clicking <b>Delete Field</b>.</li>
+          <li>Click <b>Add Calculation</b><br>
+            Enter Age into the <b>Name</b> text box.</li>
+          <li>Click <b>Edit Calculation</b> </li>
+          <li>Select <b>Number</b> from the <b>Result Field Type</b>.</li>
+          <li>To enter the formula &quot;<font size="2"><code>Year( Today() ) 
+            - Year( 'Birthday' ) - 1</code></font>&quot;, simply type it in the 
+            <b>Calculation Formula</b> text box, or follow these steps to use 
+            the calculation tools: 
+            <ol>
+              <li>Select <b>YEAR(Date)</b> from the <i>Functions</i> pull-down 
+                menu and click <b>Enter Formula</b></li>
+              <li>Select <b>TODAY()</b> from the <i>Functions</i> pull-down menu 
+                and click <b>Enter Formula</b></li>
+              <li>Click the close parenthesis <b>')'</b> button, then the minus 
+                <b> '-'</b> button in the <b>Operators</b> section</li>
+              <li>Select <b>YEAR(Date)</b> from the <i>Functions</i> pull-down 
+                menu and click <b>Enter Formula</b></li>
+              <li>Select <b>Birthday</b> from the <i>Fields</i> pull-down menu 
+                and click <b>Insert Field</b></li>
+              <li>Click the close parenthesis <b>')'</b> button , then the minus 
+                <b>'-'</b> button, then enter <font size="2"><code>1</code></font></li>
+            </ol>
+          </li>
+          <li>Click <b>Done</b></li>
+          <li>Click <b>Save</b></li>
+        </ul>
+        <p>It should look like this:</p>
+        <p align="center"><img src="images/contacts-calcage.gif" width="254" height="164"></p>
+        <p>Select <b>Browse</b> from the <b>Task</b> navigation pull-down menu 
+          to view the results.</p>
+        <p>Notice that the Age field is about right (if you entered your real 
+          birth-date in Tutorial 1), but it has one decimal point and a trailing 
+          0. That is because the default number format set in the database section 
+          is set to <i>One Decimal Place</i>. You can change the database default, 
+          but there is a better solution: create a report.</p>
+        <p> A report is similar to a view when browsing, but has many more features 
+          for formatting. A view is still needed to consolidate multiple tables 
+          into one picture and to create calculations. Reports can be based on 
+          tables or views, but by using views, you have much more control in the 
+          final results.</p>
+        <p><b class="heading">2. Creating the Contacts Report</b></p>
+        <p>Here, you will create the contacts report.</p>
+        <p>Select <b>Author</b> from the <b>Task</b> navigation pull-down menu 
+          and <b>Reports</b> from the <b>Type</b> menu.</p>
+        <ul>
+          <li>Click <b>Basic Settings</b></li>
+          <li>Enter <font size="2"><code>Summary</code></font> in the <b>Name</b> 
+            text box.</li>
+          <li>Click <b>Change to View</b> if not currently in View mode.</li>
+          <li>Select <b>Basic</b> from the <b>Choose a View</b> pull-down menu.</li>
+          <li>Click <b>Save</b>.</li>
+          <li>Click <b>Fields</b>.</li>
+          <li>Select the <b>Age</b> field from the <b>Fields</b> in this tab list.</li>
+          <li>Select <b>No Decimal Places</b> from the <b>Display Format</b> pull-down 
+            menu.</li>
+          <li>Click <b>Save</b>.</li>
+        </ul>
+        <p>It should look like this:</p>
+        <p align="center"><img src="images/contacts-format.gif" width="229" height="196"></p>
+        <p>Select <b>Browse</b> from the <b>Task</b> navigation pull-down menu.</p>
+        <p>You'll notice that the Age field is displayed as an integer, with no 
+          decimal places. Now click <b>Modify</b> on one of the records to view 
+          its details. You'll notice that there is a field called Contacts, with 
+          all of the fields data set to <i>Contacts</i>. This happens because 
+          the details view of this record is only a table, not a report. If you 
+          choose a report as a details view, you have the power to use a view's 
+          calculated fields and data relationships.</p>
+        <p><b class="heading">3. Creating the Summary Details Report</b></p>
+        <p>Create a <b>Journal View</b> using the steps used to create a <b>Contacts 
+          View</b> in <b>Tutorial 1</b>.</p>
+        <p>Select <b>Author</b> from the <b>Task</b> navigation pull-down menu.</p>
+        <ul>
+          <li>Select <b>Add a Report </b> from the <b>Name</b> navigation pull-down 
+            menu.</li>
+          <li>Enter <font size="2"><code>Journal Details</code></font> into the 
+            <b>Name</b> text box.</li>
+          <li>Select <b>Journal View</b> from the <b>Choose a View</b> pull-down 
+            menu.</li>
+          <li>Click <b>Save</b></li>
+        </ul>
+        <p>Select <b>Summary </b> from the <b>Name</b> navigation pull-down menu.</p>
+        <ul>
+          <li>Click <b>Fields in Tabs</b></li>
+          <li>Select <b>Journal</b> from the <b>Available Tabs</b> pull-down menu.</li>
+          <li>Select <b>Journal Details</b> from the <b>One-to-many Table or Report</b> 
+            pull-down menu</li>
+          <li>Click <b>Save</b></li>
+        </ul>
+        <p>Select <b>Browse</b> from the <b>Task</b> navigation pull-down menu.</p>
+        <p>Now click <b>Modify</b> on one of the records to view its details. 
+          You'll notice that the <b>Journal tab</b> is now using the <i>Journal 
+          Details</i> report, which includes all the fields from contact, not 
+          just a <i>Contact</i> field as before.</p>
+        <p>It should look like this:</p>
+        <p align="center"><img src="images/contacts-report.gif"></p>
+        <p>You should now have a clearer picture of how to use DatabasePlus to 
+          construct tables, views and reports. This concludes Tutorial 2.</p>
+      </td>
+    </tr>
+  </table>
+
+<p >&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

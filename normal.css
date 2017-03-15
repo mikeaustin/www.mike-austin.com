@@ -1,0 +1,48 @@
+td {
+  font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 13px; font-weight: normal
+}
+
+.outside-table {
+border: 3px #6A6A6A solid
+}
+
+a:link { color: #000080; text-decoration: none; font-size: 13px }
+a:visited { color: #400080; text-decoration: none; font-size: 13px }
+a:hover { color: #F08000; text-decoration: none; font-size: 13px }
+
+.footer-link { font-weight: bold; color: #FFFFFF; text-decoration: none }
+.main-title { font-size: 28px; font-weight: bold }
+.table-header {
+  border-color: black black #000000; border-style: none;
+  border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px;
+  font-size: 18px;
+  font-weight: bold
+}
+
+a:link.main-menu { color: #EEEEEE; text-decoration: none;
+  font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold }
+a:link.main-menu-active { color: #FFCC00; text-decoration: none;
+  font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold }
+a:visited.main-menu { color: #EEEEEE; text-decoration: none;
+  font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold }
+a:visited.main-menu-active { color: #FFCC00; text-decoration: none;
+  font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold }
+
+a:link.header-link { color: #EEEEEE; text-decoration: none; font-size: 13px; font-weight: bold }
+a:visited.header-link { color: #EEEEEE; text-decoration: none; font-size: 13px; font-weight: bold }
+a:hover.header-link { color: #FFCC00; text-decoration: none }
+
+a:hover.main-menu { color: #FFCC00 }
+a:hover.footer-link { color: #FFCC00 }
+
+xa:link.item-link { color: #000080; text-decoration: none; font-size: 14px; font-weight: bold }
+a:link.item-link { color: #0060C0; text-decoration: none; font-size: 14px; font-weight: bold }
+xa:visited.item-link { color: #400080; text-decoration: none; font-size: 14px; font-weight: bold }
+a:visited.item-link { color: #6060C0; text-decoration: none; font-size: 14px; font-weight: bold }
+a:hover.item-link { color: #EEAA00 }
+
+.item-link { color: #000000; text-decoration: none; font-size: 14px; font-weight: bold }
+.item-row {  border-color: #CCCCCC black black; border-style: solid; border-top-width: 1px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px}
+.item-row-left { border-color: #CCCCCC black black #CCCCCC; border-style: solid; border-top-width: 1px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 1px}
+.item-row-right { border-color: #CCCCCC #CCCCCC black black; border-style: solid; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 0px; border-left-width: 0px}
+.item-right { border-color: black #CCCCCC black black; border-style: solid; border-top-width: 0px; border-right-width: 1px; border-bottom-width: 0px; border-left-width: 0px}

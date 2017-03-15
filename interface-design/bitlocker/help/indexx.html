@@ -1,0 +1,462 @@
+<html>
+<head>
+<title>DatabasePlus 2.0</title>
+
+<script language="JavaScript">
+<!--
+if (parent != self)
+{
+top.location = document.location;
+}
+
+function MM_showHideLayers() { //v2.0
+  var i, visStr, args, theObj;
+  args = MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) { //with arg triples (objNS,objIE,visStr)
+    visStr   = args[i+2];
+    if (navigator.appName == 'Netscape' && document.layers != null) {
+      theObj = eval(args[i]);
+      if (theObj) theObj.visibility = visStr;
+    } else if (document.all != null) { //IE
+      if (visStr == 'show') visStr = 'visible'; //convert vals
+      if (visStr == 'hide') visStr = 'hidden';
+      theObj = eval(args[i+1]);
+      if (theObj) theObj.style.visibility = visStr;
+  } }
+}
+
+function MM_preloadImages() { //v2.0
+  if (document.images) {
+    var imgFiles = MM_preloadImages.arguments;
+    if (document.preloadArray==null) document.preloadArray = new Array();
+    var i = document.preloadArray.length;
+    with (document) for (var j=0; j<imgFiles.length; j++) if (imgFiles[j].charAt(0)!="#"){
+      preloadArray[i] = new Image;
+      preloadArray[i++].src = imgFiles[j];
+  } }
+}
+
+function MM_swapImgRestore() { //v2.0
+  if (document.MM_swapImgData != null)
+    for (var i=0; i<(document.MM_swapImgData.length-1); i+=2)
+      document.MM_swapImgData[i].src = document.MM_swapImgData[i+1];
+}
+
+function MM_swapImage() { //v2.0
+  var i,j=0,objStr,obj,swapArray=new Array,oldArray=document.MM_swapImgData;
+  for (i=0; i < (MM_swapImage.arguments.length-2); i+=3) {
+    objStr = MM_swapImage.arguments[(navigator.appName == 'Netscape')?i:i+1];
+    if ((objStr.indexOf('document.layers[')==0 && document.layers==null) ||
+        (objStr.indexOf('document.all[')   ==0 && document.all   ==null))
+      objStr = 'document'+objStr.substring(objStr.lastIndexOf('.'),objStr.length);
+    obj = eval(objStr);
+    if (obj != null) {
+      swapArray[j++] = obj;
+      swapArray[j++] = (oldArray==null || oldArray[j-1]!=obj)?obj.src:oldArray[j];
+      obj.src = MM_swapImage.arguments[i+2];
+  } }
+  document.MM_swapImgData = swapArray; //used for restore
+}
+
+function openHelpWindow(URL) {
+		win = window.open(URL, 'helpWin', 'toolbar=yes,menubar=yes,resizable=yes,scrollbars=yes,width=300,height=500');
+		win.focus();
+}
+//-->
+</script>
+
+<style type="text/css">
+<!--
+.nounderline {  text-decoration: none}
+-->
+</style>
+
+</head>
+      
+<body background="/content/images/home_bg.gif" bgcolor="#FFFFFF" text="#000033" link="#999999" alink="#CC3300" vlink="#999999" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" onLoad="MM_preloadImages('/content/images/nav/design_1.gif','#970792076107');MM_preloadImages('/content/images/nav/publish_1.gif','#971471230855');MM_preloadImages('/content/images/nav/security_1.gif','#971472932031');MM_preloadImages('/content/images/nav/apps_1.gif','#971473196581');MM_preloadImages('/content/images/nav/desktop_1.gif','#971473813001');MM_preloadImages('/content/images/nav/login_1.gif','#971473966061');MM_preloadImages('/content/images/nav/home_1.gif','#971473985128')">
+<div id="Layer6" style="position:absolute; left:379px; top:61px; z-index:1; width: 351px; height: 85px; visibility: hidden"> 
+  <table border="0" cellpadding="1" cellspacing="0" height="20" width="318">
+    <tr> 
+      <td width="8"><img src="/content/images/nav_subtopcrnr.gif" width="7" height="7"></td>
+      <td width="306"></td>
+    </tr>
+    <tr> 
+      <td width="8">&nbsp;</td>
+      <td width="306"> <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#CC6600"><b><font color="#CC3300">Login 
+        or Signup</font></b><br>
+        signup today for your free account,<br>
+        getting started is easy</font></td>
+    </tr>
+    <tr> 
+      <td width="8"><img src="/content/images/nav_subbtmcrnr.gif" width="7" height="7"></td>
+      <td width="306"></td>
+    </tr>
+  </table>
+</div>
+<div id="Layer5" style="position:absolute; left:379px; top:61px; z-index:1; width: 351px; height: 85px; visibility: hidden"> 
+  <table border="0" cellpadding="1" cellspacing="0" height="20" width="318">
+    <tr> 
+      <td width="8"><img src="/content/images/nav_subtopcrnr.gif" width="7" height="7"></td>
+      <td width="306"></td>
+    </tr>
+    <tr> 
+      <td width="8">&nbsp;</td>
+      <td width="306"> <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#CC6600"><b><font color="#CC3300">My 
+        Bitlocker Desktop</font></b><br>
+        my databases, my shared databases,<br>
+        my workgroups</font></td>
+    </tr>
+    <tr> 
+      <td width="8"><img src="/content/images/nav_subbtmcrnr.gif" width="7" height="7"></td>
+      <td width="306"></td>
+    </tr>
+  </table>
+</div>
+<div id="Layer3" style="position:absolute; left:379px; top:61px; z-index:1; width: 351px; height: 85px; visibility: hidden"> 
+  <table border="0" cellpadding="1" cellspacing="0" height="20" width="318">
+    <tr> 
+      <td width="8"><img src="/content/images/nav_subtopcrnr.gif" width="7" height="7"></td>
+      <td width="306"></td>
+    </tr>
+    <tr> 
+      <td width="8">&nbsp;</td>
+      <td width="306"> <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#CC6600"><b><font color="#CC3300">Security 
+        Features </font></b><br>
+        password protection, read-write access <br>
+        administration, workgroups</font></td>
+    </tr>
+    <tr> 
+      <td width="8"><img src="/content/images/nav_subbtmcrnr.gif" width="7" height="7"></td>
+      <td width="306"></td>
+    </tr>
+  </table>
+</div>
+<div id="Layer2" style="position:absolute; left:379px; top:61px; z-index:1; width: 351px; height: 85px; visibility: hidden"> 
+  <table border="0" cellpadding="1" cellspacing="0" height="20" width="318">
+    <tr> 
+      <td width="8"><img src="/content/images/nav_subtopcrnr.gif" width="7" height="7"></td>
+      <td width="306"></td>
+    </tr>
+    <tr> 
+      <td width="8">&nbsp;</td>
+      <td width="306"> <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#CC6600"><b><font color="#CC3300">Publish 
+        a Database</font></b><br>
+        embed a report, embed a survey,<br>
+        using forms</font></td>
+    </tr>
+    <tr> 
+      <td width="8"><img src="/content/images/nav_subbtmcrnr.gif" width="7" height="7"></td>
+      <td width="306"></td>
+    </tr>
+  </table>
+</div>
+<div id="Layer1" style="position:absolute; left:379px; top:61px; z-index:1; width: 351px; height: 85px; visibility: hidden"> 
+  <table border="0" cellpadding="1" cellspacing="0" height="20" width="318">
+    <tr> 
+      <td width="8"><img src="/content/images/nav_subtopcrnr.gif" width="7" height="7"></td>
+      <td width="306"></td>
+    </tr>
+    <tr> 
+      <td width="8">&nbsp;</td>
+      <td width="306"> <font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#CC6600"><b><font color="#CC3300">Design 
+        a Database</font></b><br>
+        create tables, define relationships,<br>
+        advanced techniques</font></td>
+    </tr>
+    <tr> 
+      <td width="8"><img src="/content/images/nav_subbtmcrnr.gif" width="7" height="7"></td>
+      <td width="306"></td>
+    </tr>
+  </table>
+</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="175"><img src="/content/images/blank.gif" width="175" height="1" border="0"></td>
+		<td width="189"><img src="/content/images/blank.gif" width="189" height="1" border="0"></td>
+		<td width="100"><img src="/content/images/blank.gif" width="100" height="1" border="0"></td>
+		<td width="40"><img src="/content/images/blank.gif" width="40" height="1" border="0"></td>
+	</tr>
+	<tr>
+		
+    <td width="369" height="134" valign="top" colspan="2" rowspan="2"><a href="/"><img src="/content/images/home_top.gif" width="369" height="134" border="0" alt="Bitlocker. Database tools for the web." name="logo"></a></td>
+		<td valign="top" align="right" colspan="2">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td height="56" align="right" nowrap><font size="1" face="verdana, arial, helvetica, sans-serif"><a href="mailto:feedback@bitlocker.com" class="nounderline"><font color="#66CCFF">Feedback</font></a> <image align="middle" src="/content/images/home_div.gif" border="0"> <a href="/content/help/index.htm" class="nounderline"><font color="#66CCFF">Help with New Features</font></a>&nbsp;&nbsp;&nbsp;</font></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2"><img src="/content/images/blank.gif" width="40" height="74" border="0"></td>
+	</tr>
+	<tr>
+		<td valign="top" align="center" bgcolor="#FFFFFF">
+      <table width="175" border="0" cellpadding="0" cellspacing="0">
+        <tr> 
+          <td><a href="../apps/design.htm" onMouseOver="MM_showHideLayers('document.layers[\'Layer1\']','document.all[\'Layer1\']','show');MM_swapImage('document.design','document.design','/content/images/nav/design_1.gif','#970792076107')" onMouseOut="MM_showHideLayers('document.layers[\'Layer1\']','document.all[\'Layer1\']','hide');MM_swapImgRestore()"><img src="/content/images/nav/design_0.gif" border="0" name="design"></a></td>
+        </tr>
+        <tr> 
+          <td><a href="../apps/publish.htm" onMouseOver="MM_showHideLayers('document.layers[\'Layer2\']','document.all[\'Layer2\']','show');MM_swapImage('document.publish','document.publish','/content/images/nav/publish_1.gif','#971471230855')" onMouseOut="MM_showHideLayers('document.layers[\'Layer2\']','document.all[\'Layer2\']','hide');MM_swapImgRestore()"><img src="/content/images/nav/publish_0.gif" border="0" name="publish"></a></td>
+        </tr>
+        <tr> 
+          <td><a href="../apps/security.htm" onMouseOver="MM_showHideLayers('document.layers[\'Layer3\']','document.all[\'Layer3\']','show');MM_swapImage('document.security','document.security','/content/images/nav/security_1.gif','#971472932031')" onMouseOut="MM_showHideLayers('document.layers[\'Layer3\']','document.all[\'Layer3\']','hide');MM_swapImgRestore()"><img src="/content/images/nav/security_0.gif" border="0" name="security"></a></td>
+        </tr>
+        <tr> 
+          <td><a href="/site?c=50" onMouseOver="MM_showHideLayers('document.layers[\'Layer5\']','document.all[\'Layer5\']','show');MM_swapImage('document.desktop','document.desktop','/content/images/nav/desktop_1.gif','#971473813001')" onMouseOut="MM_showHideLayers('document.layers[\'Layer5\']','document.all[\'Layer5\']','hide');MM_swapImgRestore()"><img src="/content/images/nav/desktop_0.gif" border="0" name="desktop"></a></td>
+        </tr>
+        <tr> 
+          <td><a href="/site?c=11" onMouseOver="MM_showHideLayers('document.layers[\'Layer6\']','document.all[\'Layer6\']','show');MM_swapImage('document.login','document.login','/content/images/nav/login_1.gif','#971473966061')" onMouseOut="MM_showHideLayers('document.layers[\'Layer6\']','document.all[\'Layer6\']','hide');MM_swapImgRestore()"><img src="/content/images/nav/login_0.gif" border="0" name="login"></a></td>
+        </tr>
+        <tr> 
+          <td><a href="/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('document.home','document.home','/content/images/nav/home_1.gif','#971473985128')"><img src="/content/images/nav/home_0.gif" border="0" name="home"></a></td>
+        </tr>
+      </table>
+</td>
+		
+    <td colspan="2" valign="top" bgcolor="#FFFFFF"> 
+      <p><font size="4" face="verdana, arial, helvetica, sans-serif" color="#CC3300"><b><font size="2">DatabasePlus</font> 
+        2.0</b></font>
+      <p align="right"><b><font face="verdana, arial, helvetica, sans-serif" size="2" color="#CC3300">Go 
+        to DatabasePlus </font><a href="javascript:openHelpWindow('/content/help/help-topics.html')" class="nounderline"><font 
+        face="verdana, arial, helvetica, sans-serif" color="#CC3300" size="4">Help&#187;</font></a></b><br>
+        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">for detailed 
+        explanations of all features.&nbsp;&nbsp;</font>
+      <p> <font face="Verdana, Arial, Helvetica, sans-serif" size="3"><b>DatabasePlus 
+        2.0: What's New</b></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+        <br>
+        A user's guide for adjusting to the new and improved product <br>
+        <br>
+        <b>Summary</b> <br>
+        The most noticeable difference you'll find with DatabasePlus 2.0 is that 
+        we've redesigned the interface. Instead of a vertical toolbar with drawers, 
+        there is now a horizontal toolbar with popup menus for rapidly moving 
+        between elements when designing a database. Also, when using a database, 
+        you'll find the vertical toolbar is replaced with explicit links within 
+        the body of the record browser. The navigation and structure of the page 
+        previously called &quot;My Bitlockers&quot; is greatly improved. Because 
+        this page is where you'll find links to all your various databases, reports 
+        and workgroups, we've renamed it &quot;My Bitlocker Desktop&quot;.<br>
+        <br>
+        There's also a fundamental change to the structure of the product. You'll 
+        find the meaning of some terms has changed. With the addition 
+        of relational, there are now multiple "tables" within a database, each 
+        of which contains fields and value lists. What had been called "Views" 
+        before, where layout information was stored, has now become a relational 
+        view where fields can be combined from multiple tables into a single "virtual 
+        table". The formatting information has now been pushed down to reports. 
+        <br>
+        <br>
+        For more detail on these changes and more, please browse the index below. 
+        </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a name="index"></a><br>
+        <b>Index</b> </font></p>
+      <blockquote>
+        <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><a href="#ui" class="nounderline"><font color="#CC3300" size="1"><b> 
+          1. Navigation & Interface</b></font></a> <b><font size="1"><br>
+          <br>
+          <a href="#terms" class="nounderline"><font color="#CC3300">2. Database Structure & Terminology</font></a> 
+          <br>
+          <br>
+          <a href="#security" class="nounderline"><font color="#CC3300">3. Security Enhancements</font></a> 
+          <br>
+          <br>
+          <a href="#publish" class="nounderline"><font color="#CC3300">4. Publishing 
+          Enhancements</font></a><br>
+          <br>
+          <a href="#desktop" class="nounderline"><font color="#CC3300">5. New &amp; Improved Desktop</font></a></font></b></font></p>
+      </blockquote>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><br>
+        <a name="ui"></a><br>
+        1. Navigation & Interface</b> <br>
+        Instead of a vertical toolbar with drawers, there is now a horizontal 
+        toolbar with popup menus for rapidly moving between elements when designing 
+        a database. <img src="../images/help/nav_scrnshot.gif" width="310" height="47" align="right" border="1" hspace="10" vspace="7" alt="Navigate quickly between tasks and elements">The 
+        first popup menu allows you to select the task you wish to perform. Choose 
+        between <font color="#CC3300">browse</font> and <font color="#CC3300">author</font>. 
+        The second popup menu allows you to specify which object type you want 
+        to browse or author. Choose between <font color="#CC3300">database</font>, 
+        <font color="#CC3300">tables</font>, <font color="#CC3300">views</font> 
+        and <font color="#CC3300">reports</font>. The third popup menu only shows 
+        up when you've selected an object other than database and allows you to 
+        select exactly which table, view or report which you wish to browse or 
+        author. </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Whereas in 
+        1.8 almost all functionality was located in the left hand toolbar drawers, 
+        in 2.0 you'll find a more intuitive, inline approach to the interface. 
+        Simply follow the instructions which accompany each of the menus and wizards.</font></p>
+      <p align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b><a href="#index" class="nounderline"><font color="#CC3300">Index</font><img src="../images/up_arrow.gif" width="8" height="9" hspace="2" border="0"></a></b></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+        <br>
+        </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="terms"></a><br>
+        2. Database Structure & Terminology</b> <br>
+        With the addition of relational functionality, there are now multiple 
+        <font color="#CC3300">tables</font> within a database, each of which contains 
+        fields and value lists. </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">What had 
+        been called <font color="#CC3300">views</font> before, where layout information 
+        was stored, has now become a relational view where fields can be combined 
+        from multiple tables into a single "virtual table". The formatting information 
+        has now been pushed down to <font color="#CC3300">reports</font>. <img src="../images/help/menu_scrnshot.gif" width="292" height="251" border="1" align="right" hspace="10" vspace="7" alt="Databases now contain multiple tables"></font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#CC3300">Reports</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+        specify a base table or view, but add all the formatting information that 
+        had been stored with v1.8 views. </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">In Reports, 
+        "multiple view" support has been replaced with "tabs". <font color="#CC3300">Tabs</font> 
+        are groups of fields. They have names and order, so forms can be constructed 
+        with a summary area and a collection of tabs containing additional information.<br clear="all">
+        </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b><font color="#CC3300">Guide to Terminology</font></b></font><br><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#000033">
+        <tr>
+          <td>
+            <table width="100%" border="0" cellspacing="1" cellpadding="4">
+              <tr> 
+                <td width="19%" bgcolor="#CCCCCC">&nbsp;</td>
+                <td width="41%" bgcolor="#CCCCCC"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>In 
+                  1.8 it was...</b></font></td>
+                <td width="40%" bgcolor="#CCCC99"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b><font color="#CC3300">Now 
+                  in 2.0 it is...</font></b></font></td>
+              </tr>
+              <tr bgcolor="#EEEEEE"> 
+                <td width="19%" valign="top" bgcolor="#FFFFFF"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>database</b></font></td>
+                <td width="41%" valign="top" bgcolor="#FFFFFF"><font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#666666">A 
+                  single table of records</font></td>
+                <td width="40%" valign="top" bgcolor="#FFFFCC"><font size="1" face="Verdana, Arial, Helvetica, sans-serif">Multiple 
+                  tables of records, fields have relational functionality across 
+                  tables </font></td>
+              </tr>
+              <tr bgcolor="#FFFFCC"> 
+                <td width="19%" valign="top" bgcolor="#EEEEEE"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>table</b></font></td>
+                <td width="41%" valign="top" bgcolor="#EEEEEE"><font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#666666">A 
+                  type of view</font></td>
+                <td width="40%" valign="top" bgcolor="#FFFF99"><font size="1" face="Verdana, Arial, Helvetica, sans-serif">Independent 
+                  groups of records that can relate to each other</font></td>
+              </tr>
+              <tr bgcolor="#FFFF99"> 
+                <td width="19%" valign="top" bgcolor="#FFFFFF"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>view</b></font></td>
+                <td width="41%" valign="top" bgcolor="#FFFFFF"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#666666">Layout 
+                  information</font></td>
+                <td width="40%" valign="top" bgcolor="#FFFFCC"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">Relational 
+                  virtual table, layout information now in reports</font></td>
+              </tr>
+              <tr bgcolor="#FFFFCC"> 
+                <td width="19%" valign="top" bgcolor="#EEEEEE"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>report</b></font></td>
+                <td width="41%" valign="top" bgcolor="#EEEEEE"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#666666">Some 
+                  layout information, multiple views</font></td>
+                <td width="40%" valign="top" bgcolor="#FFFF99"><font face="Verdana, Arial, Helvetica, sans-serif" size="1">All 
+                  layout information, tabs</font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><font size="1" color="#CC3300">NOTE:</font></b> 
+        <b>Calculated fields</b> can now only be created in views (not tables.) 
+        Views only contain derived information from other tables. Tables only 
+        contain actual values that are entered or imported by the user. </font></p>
+      <p>
+      <p align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b><a href="#index" class="nounderline"><font color="#CC3300">Index</font><img src="../images/up_arrow.gif" width="8" height="9" hspace="2" border="0"></a></b></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+        <br>
+        </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="security"></a><br>
+        3. Security Enhancements</b> <img src="../images/help/security_scrnshot.gif" width="225" height="324" border="1" align="right" vspace="7" hspace="10" alt="Fine tune your security settings with access control lists"><br>
+        <font color="#CC3300">Access control lists</font> replace the use of task 
+        based security (publish, survey, etc.) for finer control of access privileges. 
+        In 1.8, task based security settings were found in the settings dialog. 
+        Now access control lists are at the table level.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#CC3300">Workgroups</font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+        are now accessible from the desktop. </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Groups 
+        of users can be added to access lists in the form of workgroups. </font><font face="Verdana, Arial, Helvetica, sans-serif" size="2">To 
+        add users to workgroups, you now "invite" them via email rather than looking 
+        them up in the system. </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Once a user 
+        has accepted an invitation to any workgroup, they become members of the 
+        account and can then be quickly added to any workgroup, or directly to 
+        any access control list. </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b><font color="#CC3300">NOTE:</font></b></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"> 
+        <b>To add a user directly</b> to an access control list, they must first 
+        be invited to a workgroup and accept the invitation.<br clear="all">
+        </font></p>
+      <p align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b><a href="#index" class="nounderline"><font color="#CC3300">Index</font><img src="../images/up_arrow.gif" width="8" height="9" hspace="2" border="0"></a></b></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+        <br>
+        </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="publish"></a><br>
+        4. Publishing Enhancements</b> <img src="../images/help/embed_scrnshot.gif" width="342" height="168" border="1" vspace="7" align="left" hspace="10" alt="It's now possible to publish the same database as both a survey and a report, simultaneously"><br>
+        There is now a wizard for creating links that can be embedded in other 
+        sites. </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">There is 
+        an option in the wizard to indicate if the embedded element is a report 
+        or survey. This replaces the use of the security setting to determine 
+        if it should be a survey.<br clear="all">
+        </font></p>
+      <p align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b><a href="#index" class="nounderline"><font color="#CC3300">Index</font><img src="../images/up_arrow.gif" width="8" height="9" hspace="2" border="0"></a></b></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+        <br>
+        </font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><a name="desktop"></a><br>
+        5. New &amp; Improved Desktop</b> <br>
+        <img src="../images/help/desktop_scrnshot.gif" width="318" height="167" border="1" vspace="7" hspace="10" align="right" alt="My Bitlocker Desktop is the redesigned My Bitlockers"></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Click 
+        the &quot;Create a New Database&quot; link at the top of your desktop 
+        to get started. Click the &quot;Author&quot; link to the far right of 
+        any database to setup and structure your database.</font></p>
+      <p><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Workgroups 
+        are now at the desktop level. This gives you the added advantage of being 
+        able to give one group of users access to more than one database without 
+        having to recreate the group.<br clear="all">
+        </font></p>
+      <p align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b><a href="#index" class="nounderline"><font color="#CC3300">Index</font><img src="../images/up_arrow.gif" width="8" height="9" hspace="2" border="0"></a></b></font><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><br>
+        </font></p>
+      <p align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><font face="verdana, arial, helvetica, sans-serif" size="2" color="#CC3300">Go 
+        to DatabasePlus </font><a href="javascript:openHelpWindow('/content/help/help-topics.html')" class="nounderline"><font 
+        face="verdana, arial, helvetica, sans-serif" color="#CC3300" size="4">Help&#187;</font></a></b><br>
+        <font face="Verdana, Arial, Helvetica, sans-serif" size="2">for detailed 
+        explanations of all features.&nbsp;&nbsp;</font> </font></p>
+      </td>
+		<td bgcolor="#FFFFFF">&nbsp;</td>
+	</tr>
+	<tr>
+		<td bgcolor="#FFFFFF">&nbsp;</td>
+		<td colspan="3" bgcolor="#FFFFFF">
+			<p><br><br>
+        		<font size="1" face="verdana, arial, helvetica, sans-serif" color="#999999"><a href="/content/about/legal.htm" class="nounderline">Legal</a> | <a href="/content/about/terms.htm" class="nounderline">Terms</a> 
+        		| <a href="mailto:feedback@bitlocker.com" class="nounderline">Feedback</a> | <a href="/content/help/index.htm" class="nounderline">Help with New Features</a> | <a href="/" class="nounderline">Home</a><br>
+			<br>
+			Copyright &#169; 1999-2001 Bitlocker, Inc. All Rights Reserved </font></p>
+			<p><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </p>
+		</td>
+	</tr>
+</table>
+ 
+</body>
+</html>

@@ -1,0 +1,140 @@
+body, td, p {
+font-family: arial, helvetica;
+font-size: 12px;
+}
+p, h2, h3, h4 {
+margin: 0;
+padding: 0;
+}
+p {
+margin-bottom: 10px;
+}
+h2 {
+font-size: 18px;
+margin-bottom: 10px;
+}
+h3 {
+font-size: 16px;
+margin-top: 15px;
+margin-bottom: 10px;
+}
+h4 {
+font-size: 13px;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#maincontent, #maincontent h2 {
+border-bottom: solid 1px #FFCC00;
+margin-bottom: 15px;
+}
+#maincontent {
+padding-bottom: 25px;
+margin-bottom: 15px;
+}
+
+#headerlinks {
+font-family: verdana, geneva;
+font-size: 7pt;
+color: #999;
+}
+#headerlinks a:link, #headerlinks a:visited {
+color: #777;
+text-decoration: none;
+}
+#headerlinks a:hover {
+text-decoration: underline;
+}
+
+#CNETfeaturedShell {
+width: 750px;
+font-family: verdana, geneva;
+font-size: 10px;
+color: #000;
+text-align: left;
+}
+#CNETfeatured {
+background-color: #FC0;
+border-left: 1px solid #000;
+border-right: 1px solid #000;
+padding: 10px 10px 10px 30px;
+}
+#CNETfeatured a {
+font-weight: bold;
+text-decoration: none;
+color: #000;
+}
+#CNETfeatured a:hover {
+text-decoration: underline;
+}
+
+#networkfooter {
+width: 750px;
+margin: 0;
+padding: 0;
+font-family: verdana, geneva;
+font-size: 10px;
+}
+#networklinks {
+padding: 5px;
+margin: 0 0 5px;
+background-color: #000;
+text-align: center;
+color: #FC0;
+}
+#networklinks a {
+font-family: arial,helvetica;
+font-size: 9px;
+font-weight: bold;
+color: #FC0;
+text-decoration: none;
+}
+#networklinks a:hover {
+text-decoration: underline;
+}
+#networklinks #cnetlinks {
+padding: 0 0 3px;
+border-bottom: 1px solid #333;
+margin: 0 0 3px;
+}
+#networkfooter #copyright {
+text-align: left;
+color: #000;
+}
+#networkfooter #copyright a {
+font-weight: bold;
+color: #000;
+}
+#networkfooter #copyright #aboutCNET {
+float: right;
+width: auto;
+}
+#networkfooter #copyright #aboutCNET a {
+font-weight: normal
+}
+.protexisBox {
+border:#eeeeee solid 1px;
+padding: 15px;
+text-align: center;
+font-family: arial, helvetica;
+font-size: 10px;
+}
+
+.protexisBetaBox {
+border:#bbbbbb solid 1px;
+padding-right: 15px;
+padding-left: 15px;
+background: url(http://i.i.com.com/cnwk.1d/i/dl/upl/grad_tile.jpg) repeat-x;
+}
+
+.dtdRule {
+background: url(http://i.i.com.com/cnwk.1d/i/dl/upl/dtdRule.gif) repeat-x bottom left;
+padding: 0;
+margin: 0;
+}
+
+.bgcolor_table {
+background: #000;
+}
+.bgcolor_td {
+background: #fff;
+}

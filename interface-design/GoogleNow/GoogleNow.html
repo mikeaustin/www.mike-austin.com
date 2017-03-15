@@ -1,0 +1,119 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title></title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,300' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+		* {
+			margin: 0; padding: 0;
+			font: 18px/1.5em Open Sans;
+			font: 18px/1.5em Ubuntu;
+			color: #808080;
+		}
+		
+		body {
+			padding: 10px;
+			background: #f0f0f0;
+		}
+		
+		.rounded {
+			border-radius: 2px;
+		}
+		
+		article {
+			position: relative;
+			width: 400px;
+			padding: 0 10px;
+			margin-bottom: 10px;
+			background: white;
+			border-radius: 2px;
+			box-shadow: 0 1px 5px #e0e0e0;
+			-webkit-column-break-inside: avoid;
+		}
+
+		article::before {
+			content: '.';
+			position: absolute;
+			z-index: -1;
+			top: 0; right: 0; bottom: -2px; left: 0;
+			border-radius: 2px;
+			background: #d8d8d8;
+		}
+			
+		article:last-child {
+			margin-bottom: 0;
+		}
+				
+		header, header * {
+			font-size: 26px;
+		}
+		
+		header {
+			position: relative;
+			padding: 10px 5px;
+			margin-bottom: -1px;
+			font-size: 26px; font-weight: 300;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		}
+		
+		button {
+			display: block;
+			position: relative;
+			width: 100%;
+			padding: 10px 10px;
+			background: none;
+			border: none;
+			border-top: 1px solid rgba(0, 0, 0, 0.1);
+			margin-top: -1px;
+			color: #60c0f0;
+		}
+				
+		.content {
+			padding: 10px 5px;
+		}
+		
+		button:hover {
+			background: #60c0f0;
+			color: white;
+		}
+		
+		.after {
+			float: right;
+		}
+	</style>
+</head>
+<body xstyle="-webkit-column-count: 2;">
+
+	<article>
+		<header><span class="after">&#x2606;</span>The Corner Hotel</header>
+		<img src="rooftop2.jpg" style="width: 100%; xmargin-left: -10px;"/>
+		<div class="buttons">
+			<button>Navigate to DXB</button>
+			<button>View email</button>
+		</div>
+	</article>
+
+	<article>
+		<header><span class="after">&#x2606;</span>The Corner Hotel</header>
+		<img src="petit-palace-hotel-santa-barbara-madrid-bano-001.jpg" style="width: 100%;">
+		<div class="buttons">
+			<button>Navigate to DXB</button>
+			<button>View email</button>
+		</div>
+	</article>
+
+	<article>
+		<header><span class="after">&#x2606;</span>The Corner Hotel</header>
+		<div class="content">
+			asdf<br/>asdf
+			asdf<br/>asdf
+		</div>
+		<div class="buttons">
+			<button>Navigate to DXB</button>
+			<button>View email</button>
+		</div>
+	</article>
+	
+</body>
+</html>

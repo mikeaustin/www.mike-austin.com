@@ -1,0 +1,309 @@
+<html>
+<head>
+<style>
+  body  { font: 14px/1.5em Arial; }
+  td    { vertical-align: top; }
+  th    { text-align: left; }
+</style>
+</head>
+<body>
+<ul>
+  <li>Multiple Assignment</li>
+  <li>Operator Index Assign</li>
+  <li>Splat/Vararg Expansion</li>
+  <li>Dynamic Message Send</li>
+  <li>Collection Iteration</li>
+  <li>Nested Block Closures</li>
+</ul>
+<table>
+<tr>
+<th>Ruby</th><th>MiniD</th><th>Groovy</th>
+</tr>
+<tr>
+<td><pre>#
+# class View
+#
+
+class View
+  def self.new(*args)
+    object = super(*args)
+    
+    yield object if block_given?
+
+    return object
+  end
+
+  attr :parent, true
+  attr :views, true
+  attr :fields, true
+
+  def initialize()
+    @views  = []
+    @fields = {}
+  end
+
+  def []=(name, view)
+    @fields[name] = view
+
+    views << view
+  end
+
+  def [](name)
+    @fields[name]
+  end
+end
+
+#
+# class Action
+#
+
+class Action
+  attr :target, true
+  attr :action, true
+  attr :args, true
+  
+  def initialize(target, action, *args)
+    @target, @action, @args = target, action, args
+  end
+
+  def invoke()
+    @target.send(@action, *args)
+  end
+end
+
+#
+# class Window
+#
+
+class Window &lt; View
+  def close(message)
+    puts("Window closing... " + message)
+
+    views.each &:release
+  end
+end
+
+#
+# class Button
+#
+
+class Button &lt; View
+  attr :caption, true
+  attr :onclick, true
+
+  def initialize(caption)
+    super
+
+    @caption = caption
+  end
+
+  def click()
+    @onclick.invoke() if @onclick
+  end
+end
+
+#
+# main
+#
+
+window = Window.new do |window|
+  window["button"] = Button.new("Push Me!") do |button|
+    button.onclick = Action.new(window, :close, "Goodbye!")
+  end
+end
+
+window["button"].click()</pre></td>
+<td><pre>module inertia
+
+//
+// class View
+//
+
+class View {
+  function exec(block) {
+    block(this)
+
+    return this
+  }
+
+  parent = null
+  views  = null
+  fields = null
+  
+  this() {
+    :views  = []
+    :fields = {}
+  }
+  
+  function opIndexAssign(name, view) {
+    :fields[name] = view
+
+    :views.append(view)
+  }
+
+  function opIndex(name) {
+    return :fields[name]
+  }
+}
+
+//
+// class Action
+//
+
+class Action {
+  target = null
+  action = null
+  args   = null
+  
+  this(target, action, varargs) {
+    :target, :action, :args = target, action, [varargs]
+  }
+
+  function invoke() {
+    :target.(:action)(:args.expand())
+  }
+}
+
+//
+// class Window
+//
+
+class Window : View {
+  function close(message) {
+    writeln("Window closing... ", message)
+
+    :views.each $ \view -> view.release()
+  }
+}
+
+//
+// class Button
+//
+
+class Button : View {
+  caption = null
+  onclick = null
+
+  this(caption) {
+    super()
+
+    :caption = caption
+  }
+
+  function click() {
+    if (:onclick) :onclick.invoke()
+  }
+}
+
+//
+// class Main
+//
+
+local window = Window().exec $ \window {
+  window["button"] = Button("Push Me!").exec $ \button {
+    button.onclick = Action(window, "close", "Goodbye!")
+  }
+}
+
+window["button"].click()</pre></td>
+<td><pre>//
+// class View
+//
+
+class View {
+  def exec(block) {
+    block(this)
+
+    return this;
+  }
+
+  public parent
+  public views
+  public fields
+
+  def View() {
+    this.views  = []
+    this.fields = [:]
+  }
+
+  void setProperty(String name, view) {
+    if (name[0] == '_') fields[name] = view
+    else                this.@"$name" = view
+
+    views << view
+  }
+
+  def getProperty(String name) {
+    if (name[0] == '_') return fields[name]
+    else                return this.@"$name"
+  }
+}
+
+//
+// class Action
+//
+
+class Action {
+  public target
+  public action
+  public args
+
+  def Action(target, action, Object[] args) {
+     this.target = target; this.action = action; this.args = args
+  }
+
+  def invoke() {
+    target."$action"(*args)
+  }
+}
+
+//
+// class Window
+//
+
+class Window extends View {
+  def close(message) {
+    println("Window closing... " + message)
+
+    this.views*.release()
+  }
+}
+
+//
+// class Button
+//
+
+class Button extends View {
+  public caption
+  public onclick
+
+  def Button(caption) {
+    super()
+
+    this.caption = caption
+  }
+
+  def click() {
+    if (onclick) onclick.invoke()
+  }
+}
+
+//
+// main
+//
+
+static void main() {
+  def window = new Window().exec { window ->
+    window["_button"] = new Button("Push Me!").exec { button ->
+      button.onclick = new Action(window, "close", "Goodbye")
+    }
+  }
+
+  window["_button"].click()
+}
+
+main()</pre></td>
+</tr></table>
+</body>
+</html>
+

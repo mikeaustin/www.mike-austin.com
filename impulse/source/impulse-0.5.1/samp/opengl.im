@@ -1,0 +1,15 @@
+#gl display: a -> (1..1000) each: i -> gl vertex: (random - 0.5), (random - 0.5)
+
+#puts: "gl display: a -> (8000..10000) each: i -> gl vertex: (i cos * (i/10000)) @ (i sin * (i/10000))"
+#gl display: a -> (8000..10000) each: i -> gl vertex: (i cos * (i/10000)) @ (i sin * (i/10000))
+
+puts: "] n = 10000"
+n = 10000
+puts: "] gl display: a -> (8000..n) each: i -> gl vertex: (i cos * (i/n)) @ (i sin * (i/n))"
+gl display: a -> (8000..n) each: i -> gl vertex: (i cos * (i/n)) @ (i sin * (i/n))
+puts: "] gl color: 0.0, 0.75, 1.0, 0.2"
+gl color: 0.0, 0.75, 1.0, 0.2
+
+puts: "] gl main-loop"
+gl main-loop
+

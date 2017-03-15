@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="glossary.xsl" ?>
+<glossary>
+
+  <categs>
+    <categ name="memory"/>
+    <categ name="color"/>
+  </categs>
+
+  <node name="Assignment">
+    <categ name="memory"/>
+    <desc>
+      The operation of setting a variable to a value.
+      Common assignment operators are =, := and &lt;-.
+    </desc>
+  </node>
+  <node name="Abstraction">
+    <categ name="color"/>
+    <desc>
+      The process of picking out (abstracting) common features of 
+            objects and procedures. The process of focusing upon the essential 
+            characteristics of an object.
+    </desc>
+  </node>
+  <node name="Accessor">
+    <categ name="memory"/>
+    <categ name="color"/>
+    <desc>
+      A method that provides a public interface to allow the 'getting' of an object's private instance 
+            variables or data members. Also known as a 'getter'.
+    </desc>
+  </node>
+  <node name="Associative Array">
+    <categ name="memory"/>
+    <categ name="color"/>
+    <desc>
+      A section of code that is stored and executed at a later time. They 
+            are often used to process a collection of items, and to support exception 
+            handling.    </desc>
+  </node>
+
+  <node name="Weak Typing">
+    <categ name="memory"/>
+    <desc>
+      A language characteristic that does not require an explicit type declaration for each value 
+            or expression. Weak typing makes dynamic binding feasible.
+    </desc>
+  </node>
+</glossary>

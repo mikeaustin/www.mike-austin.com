@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Impulse: A small, dynamic language</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+        *       { margin: 0; padding: 0; }
+        body    { font: 14px/20px helvetica; color: #404040; padding: 10px 0; text-align: center;
+                  background: #c0c0c0; background: #808080; }
+        #page   { width: 950px; margin: 0 auto; text-align: left; background: #ffffff;
+                  border: 1px solid #808080; box-shadow: 0 5px 20px #000000; }
+        #body   { padding: 20px; }
+        h1      { font: bold 30px/26px 'trebuchet ms', helvetica; color: #505050; }
+        h2      { font: bold 18px/16px 'trebuchet ms', helvetica; margin-top: 1em; }
+        strong  { color: #505050; color: #606060; }
+        span    { color: #406080; }
+        span.literal { color: #448844; }
+        span.comment { color: #606060; font-weight: bold; }
+        p, pre  { margin-top: 1em; margin-left: 1em; }
+        pre     { font-size: 12px; xborder: 1px solid #c0c0c0; background: #f0f0f0; padding: 10px; box-shadow: inset 0 0 3px #808080; xborder-radius: 10px; }
+        p.item  { margin-top: 5px; margin-left: 0; }
+        pre     { margin-left: 1em; }
+        a       { color: #668866; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        li      { list-style: square; margin-left: 2em; margin-top: 5px; }
+        dl      { margin-left: 2em; list-style: square; }
+        dt      { font: bold 14px/1em 'trebuchet ms', helvetica; margin-top: 5px; display: list-item; }
+        dd      { xdisplay: inline; margin-top: 3px; }
+        .first  { margin-top: 0 !important; }
+    </style>
+</head>
+
+<body>
+    <div id="page">
+        <div style="background: #e0e0e0; padding: 20px; border-bottom: 1px solid #c0c0c0;">
+            <img src="impulse.png" style="float: left; width: 52px; height: 51px; background: white; border: 1px solid #a0a0a0; padding: 5px; margin-right: 10px; margin-top: -8px;"/>
+            <h1 style="xcolor: #000000;">Impulse</h1>
+            <p class="item">A small, dynamically typed, message based prototypical language written with simplicity in mind.</p>
+        </div>
+        <div id="body">
+            <p style="margin-left: 0;" class="first">
+                Impulse is a small, dynamically typed, message based prototypical language written with simplicity in mind.
+                Its syntax and semantics are derived mostly from Ruby, Io, Smalltalk and Dylan, and it's purpose is to be a
+                smarter 'scripting' language, with features such as trait composition, extension methods (wich solves
+                monkey-patching), and constructor field initialization.  A core goal is to keep the language, both the
+                implementation and the syntax, small and lightweight.
+            </p>
+
+            <!--<h2>Features</h2>
+            <p>
+                <dl>
+                    <dt>Prototype Based</dt>
+                    <dd>
+                        Singletons are easy to create, and objects can change behavior by switching
+                        their parent prototypes.
+                    </dd>
+                    <dt>Small and lightweight</dt>
+                    <dd>
+                        The core is less than 2,000 lines of lightweight C++, including the VM,
+                        parser and garbage collector.
+                    </dd>
+                    <dt>Reflective and Open</dt>
+                    <dd>
+                       All objects, including native C++ prototypes can be extended and modified.  Everything is a first class object.
+                    </dd>
+                    <dt>Easily Embeddable</dt>
+                    <dd>
+                       The language was designed from the bottom up, to provide the most simple
+                       interface to the runtime.
+                    </dd>
+                </dl>
+            </p>-->
+
+            <h2>Examples</h2>
+<p>100 Doors [http://rosettacode.org/wiki/100_doors]</p>
+<pre>
+<span class="comment">// Unoptimized version</span>
+
+doors = [<span class="literal">false</span>] ** <span class="literal">100</span>
+
+(<span class="literal">1</span>..<span class="literal">100</span>) each: |i| <strong>do</strong>
+   (i..<span class="literal">100</span>) each: |j| <strong>do</strong>
+      doors[j] = doors[j] not
+   <strong>end</strong>, step: i
+<strong>end</strong>
+</pre>
+<pre>
+<span class="comment">// Optimized version</span>
+
+doors = [<span class="literal">false</span>] ** <span class="literal">100</span>
+
+(1..100 sqrt) each: |i| <strong>do</strong>
+   doors[i * i] = <span class="literal">true<span>
+<strong>end</strong>
+</pre>
+<p>Transform a few names into a different format</p>
+<pre>
+names = [<span class="literal">"mark twain"</span>, <span class="literal">"john smith"</span>]
+
+result = names map: |name| <strong>do</strong>
+   name split: <span class="literal">" "</span> $ map: <span class="literal">#capitalize</span> $ reverse $ join: <span class="literal">", "</span>
+<strong>end</strong>
+
+<span class="comment">// The $ operator simply groups expressions. This is equivalent:</span>
+
+result = names map: |name| <strong>do</strong>
+   (((name split: <span class="literal">" "</span>) map: <span class="literal">#capitalize</span>) reverse) join: <span class="literal">", "</span>
+<strong>end</strong>
+</pre>
+<p>Generate an 8-bit binary literal (not yet valid in Impulse)</p>
+<pre>
+<span class="literal">"0b"</span> ++ (<span class="literal">0</span>..<span class="literal">1</span> $ sample: <span class="literal">8</span> $ join: <span class="literal">""</span>)
+
+<span class="comment">// This creates a string such as:</span>
+
+<span class="literal">"0b01100110"<span>
+</pre>
+<p>Different ways to compose messages</p>
+<pre>
+"abc" upper-case                   <span class="comment">// A normal message-send</span>
+"abc" with: <span class="literal">#upper-case</span>            <span class="comment">// Passing a symbol to use as the message</span>
+"abc" with: |c| c upper-case       <span class="comment">// Passing a block, useful for ad-hoc chaining</span>
+"abc" send: <span class="literal">#upper-case</span>, args: []  <span class="comment">// Meta-message-send with symbol and arguments array</span>
+</pre>
+<p>Define a simple bank-account object</p>
+<pre>
+<strong>object</strong> <span>&lt;bank-account&gt;</span>
+
+   <strong>field</strong> balance = <span class="literal">0</span>
+   
+   <strong>method</strong> deposit: amount
+      <span class="literal">self</span>.balance = <span class="literal">self</span>.balance + amount
+   <strong>end</strong>
+
+<strong>end</strong>
+
+account = <span>&lt;bank-account&gt;</span> [<span class="literal">#balance</span> =&gt; 100]
+</pre>
+            <h2>Download</h2>
+            <p>
+                The latest implementation is written in Ruby, which facilitates rapid prototyping, provides garbage collection, etc., and can be found here: 
+                <a href="https://github.com/mikeaustin/impulse-language/tree/master/ruby2">
+                https://github.com/mikeaustin/impulse-language/tree/master/ruby2</a>
+            </p>
+            <p>
+                You can run the interactive interpreter, or REPL, by typing:</p><pre>ruby impulse.rb</pre><p>To execute code in a file, simply
+                add the filename afterwards.  For example,</p><pre>ruby impulse.rb tests.im</pre>
+            </p>
+<img src="impulse.jpg" style="float: right;"/>
+            <h2>Reference</h2>
+            <p>
+                <ul>
+                    <li><a href="http://docs.google.com/Doc?id=dmknvsb_7c8v9kmw3" target="_new">The Impulse Programming Language</a></li>
+                    <li><a href="http://docs.google.com/Doc?id=dmknvsb_6g4hg89cb" target="_new">Impulse: Why Another New Language?</a></li>
+                    <li><a href="http://docs.google.com/Doc?id=dmknvsb_9dprqb2fh" target="_new">Impulse Runtime Documentation</a></li>
+                    <li><a href="http://docs.google.com/Doc?id=dmknvsb_8fpkd4whr" target="_new">Impulse Example: Standard Library</a></li>
+                    <li><a href="http://mike-austin.com/impulse/source/0.5/docs" target="_new">Impulse Runtime Class Reference</a></li>
+                </ul>
+            </p>
+
+            <h2>Related</h2>
+            <p>
+                <ul>
+                    <li><a href="http://www.cs.washington.edu/research/projects/cecil/www/Papers/gud.html" target="_new">Predicate Dispatching: A Unified Theory of Dispatch</a></li>
+                    <li><a href="http://www.opendylan.org/books/drm/Singletons" target="_new">Dylan Singleton Types [Dylan Reference Manual]</a></li>
+                    <li><a href="http://en.wikibooks.org/wiki/Haskell/Pattern_matching" target="_new">Haskell/Pattern matching</a></li>
+                    <li><a href="http://en.wikipedia.org/wiki/Self_programming_language" target="_new">The Self Programming Language</a></li>
+                    <li><a href="http://lee.fov120.com/ecoop.pdf" target="_new">Prototypes with Multiple Dispatch [PDF]</a></li>
+                </ul>
+            </p>
+            
+            <h2>Contact</h2>
+            <p>
+                You can reach me with any questions or comments at mike AT mike-austin DOT com
+            </p>
+        </div>
+    </page>
+</body>
+</html>

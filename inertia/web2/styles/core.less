@@ -1,0 +1,318 @@
+
+@light-color: #e0e0e0;
+@dark-color: #c0c0c0;
+
+ //
+ // mixins
+ //
+ 
+	.rounded(@tl, @tr, @br, @bl) {
+		-moz-border-radius: @tl @tr @br @bl;
+	}
+
+	.shiny(@dir) {
+		background: -moz-linear-gradient(@dir, @light-color, @dark-color);
+	}
+
+	.gradient(@dir, @start, @finish) {
+		background: -moz-linear-gradient(@dir, @start, @finish);
+	}
+
+	.shadow(@left, @top, @radius, @color) {
+		-moz-box-shadow: @left @top @radius @color;
+	}
+
+	.extent(@width, @height) {
+		width: @width; height: @height;
+	}
+
+
+ //
+ // global
+ //
+
+	* {
+		margin: 0; padding: 0;
+		font: 12px/1.5 Helvetica;
+		color: #202020;
+		text-decoration: none;
+		list-style: none;
+		cursor: default;
+	}
+
+	h1, .button {
+		text-shadow: 1px 1px 0 #e0e0e0;
+	}
+
+	div.inset {
+		xbackground: -moz-linear-gradient(top, #c0c0c0, #d8d8d8);
+		background: -moz-linear-gradient(top, #e0e0e0, #c8c8c8);
+		xbackground: -moz-linear-gradient(top, #c0c0c0, #d8d8d8);
+	}
+
+	div.inset2 {
+		xbackground: -moz-linear-gradient(top, #c0c0c0, #d8d8d8);
+		xbackground: -moz-linear-gradient(top, #d8d8d8, #c0c0c0);
+		background: -moz-linear-gradient(top, #d8d8d8, #d0d0d0);
+	}
+
+
+	article#desktop {
+		position: absolute; overflow: hidden;
+		top:0; right: 0; bottom: 0; left: 0;
+		background: url(../images/Up_in_Smoke_by_illpadrino.jpg) bottom right no-repeat;
+	}
+
+
+ //
+ // article.sidebar
+ //
+ 
+ 	article.sidebar {
+ 		display: block;
+ 		position: absolute;
+ 		top: 0; width: 320px; bottom: 0; left: 0;
+ 		background: #f0f0f0;
+		border-right: 1px solid rgba(0, 0, 0, 0.4);
+ 		
+ 		ul > li > h1 {
+			height: 25px; line-height: 25px;
+			color: #404040; font-weight: bold;
+			padding: 0 8px;
+			border-top: 1px solid #ffffff; border-bottom: 1px solid #a0a0a0;
+			.shiny(top);
+			
+			&:before {
+				float: left;
+				content: '\25BC';
+				padding-right: 4px;
+				margin-top: -1px;
+			}
+ 		}
+ 		
+ 		.message li {
+ 			padding: 5px 8px;
+ 			border-bottom: 1px solid #d8d8d8;
+ 			
+ 			&:last-child {
+	 			border-bottom: 1px solid #c0c0c0;
+	 		}
+	 		
+	 		.name    { font-weight: bold; color: #404040; }
+	 		.date    { float: right; }
+	 		.subject { font-weight: bold; color: #404040; font-size: 10px; }
+	 		.text    { color: #808080; font-size: 10px; }
+ 		}
+ 	}
+ 
+
+ //
+ // article.window
+ //
+
+	article.window {
+		display: block;
+		position: absolute;
+		left: 330px; top: 10px;
+		.extent(1000px, 633px);
+		border: 1px solid rgba(0, 0, 0, 0.4);
+		.rounded(5px, 5px, 5px, 5px);
+		background: #f0f0f0;
+		//.shadow(0, 0, 25px, rgba(0, 0, 0, 0.5));
+		overflow: hidden;
+		position: relative;
+	
+		header {
+			position: relative;
+
+			h1 {
+				height: 25px; line-height: 25px;
+				color: #404040; font-weight: bold; text-align: center;
+				border-top: 1px solid #ffffff; border-bottom: 1px solid #a0a0a0;
+				.rounded(5px, 5px, 0, 0);
+				.shiny(top);
+			}
+
+			a.button {
+				position: absolute; left: 5px; top: 15px;
+				width: 18px; height: 18px;
+				border: 1px solid #a0a0a0;
+				text-align: center;	text-shadow: none;
+				.gradient(top, #e0e0e0, #c0c0c0);
+				.rounded(15px, 15px, 15px, 15px);
+
+				&:before {
+					diaplay: block; width: 18px; height: 18px;
+					padding: 0;	content: 'x'; color: transparent;
+					.rounded(15px, 15px, 15px, 15px);
+				}
+			}
+
+		}
+		
+		footer {
+			position: absolute;
+			height: 15px; right: 0; bottom: 0; left: 0;
+			border-top: 1px solid #c0c0c0;
+			
+			h1
+			{
+				height: 15px;
+				border-top: 1px solid #ffffff;
+				.rounded(0, 0, 5px, 5px);
+				background: -moz-linear-gradient(top, #d8d8d8, #c0c0c0);
+			}
+		}
+	}
+
+
+ //
+ // ul.tabbar
+ //
+	
+	ul.tabbar {
+		height: 30px;
+		background: #d0d0d0;
+		border-bottom: 1px solid #a0a0a0;
+		border-top: 1px solid #e0e0e0;
+
+		li {
+			float: left;
+			margin-top: 5px;
+
+			div {
+				display: block;
+				height: 24px;
+				line-height: 27px;
+				padding: 0 10px;
+				cursor: pointer;
+			}
+
+			&.selected {
+				border: 1px solid #a0a0a0; border-bottom: none;
+				.rounded(5px, 5px, 0, 0);
+				.gradient(top, #c8c8c8, #f0f0f0);
+
+				div {
+					font-weight: bold;
+					color: #404040;
+					text-shadow: 1px 1px 0 #f8f8f8;
+					border-top: 1px solid #f0f0f0;
+					line-height: 24px;
+					.rounded(5px, 5px, 0, 0);
+				}
+			}
+		}
+
+	}
+
+
+ //
+ // ul.toolbar
+ //
+
+	ul.toolbar {
+		height: 38px;
+		border-top: 1px solid #d8d8d8;
+		border-bottom: 1px solid #a0a0a0;
+		padding: 0 2px; padding-right: 8px;
+		background: -moz-linear-gradient(top, #e0e0e0, #c8c8c8);
+
+		li {
+			float: left;
+			padding: 5px 0;
+		}
+	}
+
+	.toolbar .button {
+		border: 1px solid transparent;
+		background: none;
+		
+		&:before {
+			border-top: 1px solid transparent;
+		}
+	}
+
+
+ //
+ // button
+ //
+	
+	 .button {
+		display: block;
+		border: 1px solid #a0a0a0;
+		cursor: pointer;
+		.gradient(top, #e0e0e0, #c0c0c0);
+		.rounded(5px, 5px, 5px, 5px);
+
+		&:before {
+			display: block;
+			xposition: relative;
+			content: attr(label);
+			height: 23px; line-height: 25px;
+			padding: 0 7px 0 30px;
+			background-position: 5px 1px;
+			background-repeat: no-repeat;
+			border-top: 1px solid #ffffff;
+			border-bottom: 1px solid transparent;
+			.rounded(5px, 5px, 5px, 5px);
+		}
+
+	}
+
+	.button:hover {
+		.button;
+	}
+
+	.button:active {
+		.gradient(top, #c0c0c0, #e0e0e0);
+
+		&:before {
+			xleft: 1px; top: 1px;
+			border-top: 1px solid transparent;
+			border-bottom: 1px solid #d0d0d0;
+		}
+	}
+
+
+ //
+ // div.slider
+ //
+
+	div.slider {
+		@width: 25px;
+		@padding: 8px;
+		
+		position: absolute;
+		top: 0; right: 0; bottom: 0; width: @width; 
+		xbackground: -moz-linear-gradient(left, #d0d0d0, #e0e0e0);
+		xborder-left: 1px solid #c0c0c0;
+
+		&:before {
+			display: block;
+			content: "."; color: transparent;
+			position: absolute; top: 3px; right: @width / 2 - 2; width: 3px; bottom: 10px;
+			background: #c0c0c0;
+			-moz-border-radius: 5px;
+			border: 1px solid #c0c0c0;
+		}
+
+		.thumb {
+			position: absolute;
+			top: 3px; right: 3px; width: @width - @padding; bottom: 100px;
+			border: 1px solid #c0c0c0;
+			background: -moz-linear-gradient(left, #c0c0c0, #e0e0e0);
+			-moz-border-radius: 5px;
+
+			&:before {
+				display: block;
+				content: "."; color: transparent;
+				position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+				border-left: 1px solid #f0f0f0; border-top: 1px solid #f0f0f0;
+				-moz-border-radius: 5px;
+			}
+		}
+	}
+
+@import "dark.less";
+

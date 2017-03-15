@@ -1,0 +1,9 @@
+puts: "PI = 3.14159265"
+puts: PI = 3.14159265
+
+puts: "] rotate = angle -> (10 * angle cos) - (0 * angle sin)"
+puts: rotate = angle -> (10 * angle cos) - (0 * angle sin)
+
+puts: "] (0..6) map: angle -> rotate eval: angle * (PI / 6)"
+puts: (0..6) map: angle -> rotate eval: angle * (PI / 6)
+

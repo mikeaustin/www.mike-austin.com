@@ -1,0 +1,45 @@
+<html>
+<head>
+<script language="JavaScript">
+self.resizeTo( 650, 450 )
+</script>
+<meta http-equiv="Refresh"
+ content="0;url=mailto:mike@mike-austin.com">
+<link rel="stylesheet" href="/home/normal.css" type="text/css">
+</head>
+<body bgcolor="#F0F0F4">
+<p>To reduce SPAM e-mail, this page redirects to a mailto: url.<br>
+  If you have any problems e-mailing me, please use the form below.</p>
+<form name="form1" method="post" action="http://www.mike-austin.com/cgi-bin/cgiemail/emailme.txt">
+  <input type="hidden" name="success" value="http://www.mike-austin.com">
+  <p>&nbsp; </p>
+  <table border="0" cellspacing="0" cellpadding="2">
+    <tr> 
+      <td align="right"><b>From</b>:</td>
+      <td valign="top"> 
+        <input type="text" name="email" size="40">
+      </td>
+    </tr>
+    <tr>
+      <td align="right"><b>Subject</b>:</td>
+      <td valign="top">
+        <input type="text" name="subject" size="60">
+      </td>
+    </tr>
+    <tr> 
+      <td align="right"><b>Message</b>:</td>
+      <td valign="top"> 
+        <textarea name="body" rows="5" cols="60"></textarea>
+      </td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td valign="top"> 
+        <input type="submit" name="Submit" value="Send E-mail">
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+

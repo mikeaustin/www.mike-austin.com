@@ -1,0 +1,90 @@
+/** \mainpage Impulse 
+            <p style="margin-left: 0;" class="first">
+                Impulse is a small, dynamic, prototypical programming language with planned support for multi-methods and
+                predicate dispatching.  It borrows syntax and semantics from other languages such as Ruby,
+                Smalltalk, Dylan, Io, Lua and JavaScript along with ideas from functional languages like Haskell and ML.<br/>
+                A core goal is too keep the language, both the implementation
+                and the syntax, small and lightweight.  Impulse tries to factor special syntax such as
+                pattern matching and list comprehension into the language using predicates.
+            </p>
+
+            <h2>Features</h2>
+            <p>
+                <dl>
+                    <dt>Prototype Based</dt>
+                    <dd>
+                        Singletons are easy to create, and objects can change behavior by switching
+                        their parent prototypes.
+                    </dd>
+                    <dt>Small and lightweight</dt>
+                    <dd>
+                        The core is less than 2,000 lines of lightweight C++, including the VM,
+                        parser and garbage collector.
+                    </dd>
+                    <dt>Reflective and Open</dt>
+                    <dd>
+                       All objects, including native C++ prototypes can be extended and modified.  Everything is a first class object.
+                    </dd>
+                    <dt>Easily Embeddable</dt>
+                    <dd>
+                       The language was designed from the bottom up, to provide the most simple
+                       interface to the runtime.
+                    </dd>
+                </dl>
+            </p>
+
+            <h2>Examples</h2>
+            <p>
+<pre>
+# Get a list of even numbers between 1 and 10
+  1..10 map: n [n is-even?] -&gt; n * n
+
+# The ubiquitous factorial example
+  factorial = n [n == 0] -> 1 \
+                []       -> factorial: (n - 1)
+
+# A method which takes a &lt;stream&gt; argument
+  object &lt;document&gt;
+    method print: stream &lt;stream&gt;
+      stream write: self
+    end
+  end
+</pre>
+            </p>
+
+            <h2>Download</h2>
+            <p>
+                Source - <a href="http://mike-austin.com/impulse/source/impulse-0.5-source.tgz">impulse-0.5-source.tgz</a>
+            </p>
+            <p>
+                Compiling should be as easy as "make && sudo make install".  Impulse has been tested with
+                GCC 4.3.3 on Ubuntu 32/64, GCC 4.3.2-1 on Cygwin, and GCC 4.0.1 on Mac OS X.
+            </p>
+
+            <h2>Reference</h2>
+            <p>
+                <ul>
+                    <li><a href="http://docs.google.com/Doc?id=dmknvsb_7c8v9kmw3" target="_new">The Impulse Programming Language</a></li>
+                    <li><a href="http://docs.google.com/Doc?id=dmknvsb_6g4hg89cb" target="_new">Impulse: Why Another New Language?</a></li>
+                    <li><a href="http://docs.google.com/Doc?id=dmknvsb_9dprqb2fh" target="_new">Impulse Runtime Documentation</a></li>
+                    <li><a href="http://docs.google.com/Doc?id=dmknvsb_8fpkd4whr" target="_new">Impulse Example: Standard Library</a></li>
+                </ul>
+            </p>
+
+            <h2>Related</h2>
+            <p>
+                <ul>
+                    <li><a href="http://www.cs.washington.edu/research/projects/cecil/www/Papers/gud.html" target="_new">Predicate Dispatching: A Unified Theory of Dispatch</a></li>
+                    <li><a href="http://www.opendylan.org/books/drm/Singletons" target="_new">Dylan Singleton Types [Dylan Reference Manual]</a></li>
+                    <li><a href="http://en.wikibooks.org/wiki/Haskell/Pattern_matching" target="_new">Haskell/Pattern matching</a></li>
+                    <li><a href="http://en.wikipedia.org/wiki/Self_programming_language" target="_new">The Self Programming Language</a></li>
+                    <li><a href="http://lee.fov120.com/ecoop.pdf" target="_new">Prototypes with Multiple Dispatch [PDF]</a></li>
+                </ul>
+            </p>
+            
+            <h2>Contact</h2>
+            <p>
+                You can reach me with any questions or comments at mike AT mike-austin DOT com
+            </p>
+*/
+

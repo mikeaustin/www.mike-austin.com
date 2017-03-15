@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <style>
+  	* {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+      font: 15px/1em Arial;
+      color: hsl(0, 0%, 25%);
+    }
+    
+    xhtml, body {
+      height: 100vh;
+    }
+    
+    article {
+      position: relative;
+      max-width: 960px;
+      xmin-width: 600px;
+      margin: 0 auto;
+      height: 100vh;
+    }
+
+#header-background {
+  position: fixed;
+  z-index: 2;
+  top: 0; left: 0; right: 0;
+  height: 140px;
+  background: hsl(0, 0%, 95%);
+  border-bottom: 1px solid hsl(0, 0%, 75%);
+}
+    
+header {
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+  outline: 1px solid red;
+  padding: 0 20px;
+}
+
+#profile-name {
+  xfont: 70px/1em 'Times New Roman';
+  height: 140px;
+  padding: 70px 0 0 170px;
+  position: relative;
+}
+    
+    main {
+      outline: 1px solid green;
+      padding: 0 20px;
+      padding-top: 140px;
+      overflow: hidden;
+    }
+    
+    footer {
+      height: 100%;
+    }
+    
+    #footer-background {
+      height: 100%;
+      outline: 1px solid blue;
+      background: url(images/planet.png) center bottom no-repeat;
+      background-size: auto 100%;
+    }
+    
+    h1, p {
+      background: lightgray;
+    }
+    
+    section {
+      float: left;
+      width: 500px;
+      margin-top: 10px;
+      margin-right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="header-background"></div>
+
+  <article>
+    <header>
+      <h1 id="profile-name">Mike Austin</h1>
+    </header>
+    <main>
+      <section>
+        <p>1234567890 1234567890 1234567890 1234567890 1234567890 1234567890 </p>
+      </section>
+      <section style="width: 250px;">
+        <p>section</p>
+      </section>
+    </main>
+    <footer>footer</footer>
+  </article>
+  
+  <div id="footer-background"></div>
+
+</body>
+</html>

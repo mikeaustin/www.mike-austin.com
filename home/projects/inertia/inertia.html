@@ -1,0 +1,135 @@
+<html>
+<head>
+<title>The Inertia Programming Language</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt}
+li {  clip:         rect(   ); margin-left: 1em}
+ul {  margin-left: 2em; padding-left: 0em}
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<img src="/home/projects/inertia/inertia-logo.gif" width="31" height="40" align="left">
+<h3 align="center">The Inertia Programming Language<br>
+  <font size="-1">2002-2004 Mike Austin</font></h3>
+<h3>What is Inertia?</h3>
+<ul>
+  Inertia is a programming language that has been brewing in my head for a few 
+  years now. It's a language based on objects, blocks (closures) and messages, 
+  with syntax and semantics borrowed from several languages -- refactored and 
+  stripped of extraneous symbols and other artifacts. There is nothing yet to 
+  download, I've only constructed prototypes and test implementations. 
+  <p>Inertia's main goals are to: 
+</ul>
+<ul>
+  <li>Make simple things very simple, but more complex things possible</li>
+  <li>Get rid of extraneous symbols and delimiters in the syntax, but...</li>
+  <li>Add a little syntactic sugar for collection access and assignment</li>
+  <li>Use higher order functions to allow native code to execute more often</li>
+  <li>Create a runtime in C++ which is very easy to use and extend</li>
+</ul>
+<ul>
+  <p>Maybe not in the first versions, but I'd also like to incorporate these later 
+    on:</p>
+  <li>Pattern matching for method arguments -- for types and values</li>
+  <li>Predicate dispatching and support for DBC and metaprogramming</li>
+  <li>Coroutines, generators and thread support for multi-processor machines</li>
+</ul>
+<h3>Simple Examples</h3>
+<ul>
+  <pre>
+1..5 each: i		-- Outputs 1,2,3,4,5,
+  put: i, ','
+
+1..5 reduce: t,i	-- Returns 15
+  t + i
+
+method double: arg	-- Declares a method
+  puts: arg * 2
+
+double: 10		-- Calls 'double:', returns 20
+
+employee.'Mike Austin' = Employee new
+</pre>
+</ul>
+<h3>Basics of Inertia</h3>
+<ul>
+  <li>Based soley on objects, blocks and messages<br>
+    Prototype inheritance, unified semantics for values and methods</li>
+  <li>Unary, binary and keyword messages as in Smalltalk<br>
+    Self documenting, precendence levels are convenient</li>
+  <li>Block indentation like Python or Haskell<br>
+    No extraneous {}'s or do end's, reads more like an outline</li>
+  <h4>Syntax</h4>
+  <p>The syntax is a kind of a mix between Smalltalk and Python. There are three 
+    types of messages: unary, binary, and keyword:</p>
+  <pre>10 sin		-- unary message, highest precedence
+x * 10		-- binary message, mid-level precedence
+a pow: 2	-- keyword message, lowest precedence
+
+a pow: x * 10 sin	-- Parsed as "a pow: (x * (10 sin))"
+</pre>
+
+  <h4>Datatypes</h4>
+  <pre>10					=&gt; an Integer
+'Hi'				=&gt;  a String
+1..10				=&gt;  a Range
+1,3,5,7,9			=&gt;  a List
+'A'..'Z','a'..'z'	=&gt;  a List of Ranges
+method test: arg	=&gt;  a Method
+
+slot x, y			=&gt; an instance variable
+var	a, b			=&gt;  a local variable
+object Car			=&gt; an object instance
+enum Color			=&gt; an enummeration</pre>
+</ul>
+<h3>Methods</h3>
+<ul>
+  A method is a value that executes code with optional parameters. You begin a 
+  method by defining it's name and arguments, followed by a newline and two spaces, 
+  or a vertical bar, |, for methods defined on the same line:
+  
+  <pre>method double: arg	or	define double: arg | puts: arg * 2
+  puts: arg * 2</pre>
+
+The syntax for calling a method is very similar to defining:
+
+<pre>
+double: 10 =&gt; 20
+</pre>
+</ul>
+<h3>Objects</h3>
+<ul><p>There are no classes in Inertia. You create objects that act as prototypes 
+  for other objects, or you create standalone objects, or singletons.</p>
+<pre>object BankAccount
+
+  slot balance = 0
+
+  method withdrawl: amount
+    balance -= amount
+	
+  method deposit: amount
+    balance += amount
+</pre></ul>
+<h3>More Examples</h3>
+<ul>
+  <pre>
+object Ship: Object
+
+  define collidedWith: object &lt;Rock&gt;
+    puts: 'Ship collided with a Rock of size 2'
+
+method factorial: 0 | 1
+method factorial: n | n * factorial: n - 1
+
+squares = 1..10 map: a | a^2
+
+y = x in:
+  1..10 | -1
+  &gt; 100 | 1</pre>
+</ul>
+</body>
+</html>

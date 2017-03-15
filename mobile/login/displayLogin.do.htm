@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Cache-Control" content="No-Cache"><title>hi5 | Your Friends. Your World.</title>
+	
+		
+	
+	
+	<link href="http://images.hi5.com/images/favicon.ico" type="image/x-icon" rel="shortcut icon">
+	<link rel="apple-touch-icon" href="http://hi5networks.com/media/hi5logo_96dpi_160x120.jpg">
+	<style>
+	#content			{ xwidth: 230px; xwidth: 320px; xheight: 270px; xoverflow-y: scroll; }
+	#header				{ xpadding: 6px 5px 5px 5px; color: #d6d6d6; }
+	#banner				{ border-bottom: 1px solid #eeeeee; }
+	#footer				{ padding: 6px 5px 5px 5px; color: #d6d6d6; text-align: center; }
+
+	body				{ font-family: Arial, Helvetica, sans-serif; font-size: small; color: #666666; }
+	body				{ margin: 0; padding: 0px; }
+	form				{ margin: 0; padding: 0; }
+    input				{ padding-left: 0; padding-right: 0; color: #000000; }
+    textarea			{ padding-left: 0; padding-right: 0; color: #000000; }
+
+	p					{ margin: 0; padding: 0; margin-top: 3px; }
+	a					{ text-decoration: none; color: #085098; font-weight: normal; }
+	h1					{ margin: 0; padding: 3px 5px; font-weight: normal; font-size: small; border-top: 3px solid #7ea2c8;
+						  background: url(http://images.hi5.com/images/mobile/header/module_header.gif) left bottom repeat-x; background-color: #f6f6f6; color: #000000; }
+	strong				{ font-weight: normal; color: #000000; }
+
+	.selected			{ color: #000000; }
+	.module				{ overflow: hidden; }
+	.content			{ border-bottom: 1px solid #eeeeee; padding: 5px; overflow: hidden; }
+	.button				{ float: right; margin-left: 10px; }
+	.photo				{ float: left; margin-right: 5px; }
+	.navigate			{ background: #e0e0e0; padding: 2px; }
+	.unfinished			{ border: 1px solid red; }
+</style></head><body>
+	<div id="content">
+		<div id="header" class="content" style="background: transparent url(http://images.hi5.com/images/logos/logo_micro.gif) no-repeat scroll 5px; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+			<img src="displayLogin.do_files/clear.gif" align="absbottom" border="0" height="12" width="25">
+			<strong>Your Friends.  Your world.</strong>
+		</div>
+
+		<div id="login" class="module">
+			
+
+			<h1>Login</h1>
+
+			<div class="content">
+				<form name="loginForm" method="post" action="/friend/mobile/login/processLogin.do">
+					<div>
+						Email or Phone #:<br>
+						<input name="email" value="tester2@hi5.com" size="20" maxlength="255" tabindex="1" style="width: 100%;" type="text">
+						<input name="phone" value="6505551212" size="20" maxlength="255" tabindex="1" format="*N" style="width: 100%;" type="text">
+					</div>
+					<div style="margin-top: 5px;">
+						Password:<br>
+						<input name="password" maxlength="255" tabindex="2" value="tester2" style="width: 100%;" type="password">
+					</div>
+					<div style="margin-top: 5px;" align="center">
+						<input tabindex="3" value="Login" type="submit"> &nbsp; <input name="remember" checked type="checkbox"> Remember Me
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div id="register">
+			<h1 style="border-top: 3px solid #fcaf32;">Register</h1>
+
+			<div class="content">
+				<div>
+					Your email:<br> <input size="20" style="width: 100%;">
+				</div>
+				<div style="margin-top: 5px;">
+					Your phone number: <a href="#">Why?</a><br> <input style="width: 100%;"><br>
+					Example: 5432354950
+				</div>
+				<div style="margin-top: 5px;">
+					Country Code: <select><option>PT</option><option>US</option><option>UK</option></select>
+				</div>
+				<div style="margin-top: 5px;">
+					Create a Password:<br> <input style="width: 100%;" type="password">
+				</div>
+				<div style="margin-top: 5px;">
+					Date of Birth:<br>
+					<select><option>Month</option><option>Jan</option></select>
+					<select><option>Day</option><option>31</option></select>
+					<select><option>Year</option><option>1990</option></select>
+				</div>
+				<div style="margin-top: 5px;" align="center">
+					<input value="Register" type="submit">
+				</div>
+			</div>
+		</div>
+
+		<div id="footer">
+			<a href="http://192.168.64.110:8080/friend/mobile/home/displayLoggedinHome.do">Language</a> |
+			<a href="http://192.168.64.110:8080/friend/mobile/login/not%20implemented">Full Site</a>
+		</div>
+	</div>
+</body></html>

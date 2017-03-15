@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<style type="text/css">
+		*			{ font: 14px/1.5em Serif; margin: 0; padding: 0; }
+		pre			{ font: 12px/0.75em 'Courier New'; margin: 10px 0; }
+		body		{ padding: 10px; }
+		h1			{ font: 24px/1.0em Sans-Serif; margin: 20px 0 5px 0; font-weight: bold; }
+		h2			{ font: 18px/1.0em Sans-Serif; margin: 20px 0 0 0; }
+		#container	{ width: 800px; }
+		.first		{ margin-top: 0 !important; }
+		br			{ line-height: 0.75em; }
+	</style>
+</head>
+
+<body><div id="container">
+<h1 class="first">Impulse</h1>
+  <p>Impulse is an dynamic, object-oriented, prototype based programming language 
+    I've been toying with on and off for a few years. It's based upon blocks and 
+    predicate dispatching, meaning that a block, or lexical closure, can have 
+    multiple definitions and dispatching on these blocks is based on predicates. 
+    I dislike special syntax for things such as pattern matching, list comprehension, 
+    etc., so Implulse tries to factor these ideas into the language, eliminating 
+    special syntax.<br/>
+<br/>
+    I've implemented bits and pieces for testing, but there is no source available 
+    at this time. It's still heavy in the design and experiment phase. If you're 
+    like me, the best way to learn is by example - so here are a bunch of examples... 
+    :) 
+  <h2>Misc. Examples</h2>
+
+  <pre>
+* Return a list of squares
+
+
+  1..10 map: i -> i * i;
+
+
+* Return a list of squared evens and cubed odds
+
+
+  1..10 map: n -> [n is-even?] -> n^2,
+
+                  [n is-odd?]  -> n^3;
+  
+
+* Parse a programming language
+
+  
+  def next-token: stream ->
+
+    stream each: char ->
+
+      [char is-digit?] -> read-number: stream,
+
+      [char is-alpha?] -> read-identifier: stream;
+
+    ;
+
+  ;
+
+
+* Other examples showing map, zip, split, sort, etc.
+
+
+  (1..3, 1..3) map                      => 1, 2, 3, 1, 2, 3
+
+  (1..3, 1..3) map: i, j -> i * j;      => 1, 2, 3, 2, 4, 6, 3, 6, 9
+
+  (1..3, 1..3) zip                      => (1, 1), (2, 2), (3, 3)
+
+  (1..3, 1..3) zip: i, j -> i * j;      => 1, 4, 9
+
+  1..6 slice: 2 | map: i, j -> i * j;   => 1, 2, 3, 2, 4, 6, 3, 6, 9
+
+
+  'one two three' split map: word -> word as-number;
+
+  list sort: a, b -> a > b;
+
+  stream map: r:g:b -> (r + g + b) / 3;
+
+  adder = 1 +
+  
+  adder: 2                              => 3
+
+
+  Impulse		Long version			C-ish Equivalent
+  --------------------	------------------------------	--------------------------
+  
+  x foo			x send: #foo			x.foo()
+
+  x.foo			x get: #foo			&x.foo
+
+  x = y nil? 1		x = if: [y nil?] -> 1		x = y || 1
+
+  x ? foo		if: [x ?] -> x foo		x && x.foo()
+
+  x.? foo		if: [x get: #foo] -> x foo	x.foo ? x.foo()
+</pre>
+
+<h2>Game Example</h2>
+
+<pre>
+* Define a Ship object that interacts with other actors
+
+
+  import: Object.Actor
+
+
+  def Actor.Ship: color -&gt;
+
+
+    * At every game tick, test collisions between actors
+
+  
+      def tick: delta -&gt;
+
+        actors each: actor -&gt; test-collision: actor;
+
+      ;
+
+
+    * Define a multi-predicate method to test collisions
+
+
+      def test-collision: actor -&gt;
+
+        [self distance-to: actor < 1.0] -&gt; self collided-with: actor,
+
+        [self distance-to: actor < 0.0] -&gt; puts "You've imploded!";
+
+      ;
+
+
+    * Append to a multi-predicate method to test validity
+
+
+      def test-collisions: actor -&gt;
+
+        [self destroyed?] -&gt; puts "Can't crash into nothing";
+
+
+    * Call collided function on other object collided with
+
+
+      def collided-with: actor -&gt;
+  
+        [Rock] -&gt; puts "Collided with a Rock",
+  
+        [Shot] -&gt; puts "Collided with a Shot";
+
+
+;
+
+
+* Create a new ship object
+
+  ship = Actor.Ship clone
+
+
+* Update ship object
+
+  ship tick
+</pre>
+</div>
+</body>
+</html>

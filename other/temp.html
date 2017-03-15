@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<p class="T1.Text1">The following is a trivial use of an exception clause.</p>
+    
+<pre class="Cv.Code">block ()
+  open-files();
+  compute-with-files()
+<s>exception (&lt;error&gt;)</s> 
+  <s>"didn't work";</s>
+cleanup
+  close-files();
+<em>exception (&lt;error&gt;)</em> 
+  <em>"didn't work";</em>
+end block </pre>
+</body>
+</html>

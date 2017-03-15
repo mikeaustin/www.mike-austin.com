@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stylesheet xmlns:hi5="http://www.w3.org/1999/xhtml">
+
+	<template name="home">
+		<h2 style="margin-bottom: 5px;">
+			<div style="float: right; font-weight: normal;">
+				<a href="javascript:setListStyle('tiles')"><hi5:message key="home.link.tiles"/></a> ${'&#160;'} &#183; ${'&#160;'}
+				<a href="javascript:setListStyle('list')"><hi5:message key="home.link.list"/></a>
+			</div>
+			<hi5:message key="home.header.friends"/>
+		</h2>
+	
+		<div id="friends" style="position: relative;"></div>
+	</template>
+
+	<template name="friends-tiles">
+		<div style="margin-bottom: 7px;">
+			<div style="float: right;"><a href="javascript:paginateFriends('next')"><hi5:message key="home.link.nextpage"/></a></div>
+			<hi5:message key="home.text.showing" range="1 - 20" total="100"/>
+		</div>
+	
+		<for-each var="friend" source="friends.asArray()">
+			<div style="float: left; display: inline; width: 180px; margin-left: 20px; margin-top: 20px;">
+				<img style="float: left; margin-right: 7px; border: 1px solid #cccccc;" width="50" height="50" src="${friend.getField('thumbnailUrl')}"/>
+				<div style="margin-bottom: 10px; white-space: nowrap; overflow: hidden;"><a href="javascript:viewMemberProfile(${friend.getId()});">${friend.getDisplayName()}</a></div>
+				<set var="title"><hi5:message key="friends.title.send_message" name="${friend.getDisplayName()}"/></set>
+				<div><a href="#" title="${title}"><img border="0" src="http://images.hi5.com/images/icons/_/20x20_message.gif"/></a></div>
+			</div>
+		</for-each>
+	</template>
+	
+	<template xmlns:hi5="http://www.w3.org/1999/xhtml" name="friends-list">
+		<div style="margin-bottom: 7px;">
+			<div style="float: right;"><a href="javascript:paginateFriends('next')">Next 20 &#187;</a></div>
+			Showing 1 - 20
+		</div>
+	
+		<for-each var="friend" source="friends.asArray()">
+			<div style="float: left; display: inline; width: 120px; margin-right: 10px; margin-bottom: 10px;">
+				<div style="white-space: nowrap; overflow: hidden;"><a href="#">${friend.getDisplayName()}</a></div>
+			</div>
+		</for-each>
+	</template>
+
+</stylesheet>

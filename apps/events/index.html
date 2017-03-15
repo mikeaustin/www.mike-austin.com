@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+	<textarea cols="100" rows="20">
+	</textarea>
+<script>
+	var json = document.getElementsByTagName('textarea')[0];
+	//var x = eval(json.value);
+	//alert(x.details);
+	
+	//json.value = x[0].details;
+	
+	var request = new XMLHttpRequest();
+	//request.open('GET', 'http://api.mike-austin.com/events/getEventsList.php', true);
+	request.open('GET', 'http://www.mike-austin.com/cgi-bin/api/events/getEventsList.php', true);
+	request.onreadystatechange = function() {
+		if (request.readyState == 4) {
+		alert(request.responseText);
+			json.value = eval(request.responseText)[0].details;
+		}
+	}
+	
+	request.send(null);
+</script>
+</body>
+</html>

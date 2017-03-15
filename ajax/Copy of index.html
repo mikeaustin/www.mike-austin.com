@@ -1,0 +1,116 @@
+<html>
+<head>
+<style type="text/css">
+  body, td {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+  div.window {
+    background-color: #C0C0C0;
+    padding: 2px 2px 2px 2px;
+  }
+  div.window div.title {
+    background-image: url(titlebar-bg2.gif);
+    height: 25px;  line-height: 25px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  input {
+    border: 1px solid #C0C0C0;
+    padding: 2px;  margin: 0px;
+    height: 22px;
+  }
+</style>
+
+<script language="javascript" type="text/javascript">
+
+var xmlHttp = false;
+
+try {
+  xmlHttp = new XMLHttpRequest();
+} catch( e ) {
+  try {
+    xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+  } catch( e ) {
+    try {
+      xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+    } catch( e ) {
+      alert("Can't create XMLHttpRequest!");
+    }
+  }
+}
+
+var grabbed_element = false;
+var firstX, firstY;
+
+document.onmousemove = function( e ) {
+  if (!e) e = window.event;
+  if (grabbed_element) {
+    document.getElementById("city").value = grabbed_element.style.left;
+    //e.stopPropagation()
+    grabbed_element.style.left = e.clientX - firstX;
+    grabbed_element.style.top = e.clientY - firstY;
+  }
+}
+
+document.onmouseup = function( e ) {
+  grabbed_element = false;
+}
+
+function Window( text ) {
+  this.div = document.createElement("div");
+  this.div.className = "window";
+  this.div.style.position = "absolute";
+  this.div.style.left = "100px"; this.div.style.top = "100px";
+  this.div.style.width = "300px"; this.div.style.height = "200px";
+
+  this.title = document.createElement("div");
+  this.title.className = "title";
+  this.title.appendChild( document.createTextNode( xmlHttp.responseText ) );
+  this.title.onmousedown = function( e ) {
+    if (!e) e = window.event;
+    grabbed_element = this.parentNode;
+    firstX = e.clientX - parseInt(this.parentNode.style.left);
+    firstY = e.clientY - parseInt(this.parentNode.style.top);
+  }
+  this.title.onmouseup = function( e ) {
+    grabbed_element = false;
+  }
+
+  client = document.createElement("div");
+  client.style.backgroundColor = "#FFFFFF";
+  client.style.height = "175px";
+  client.appendChild( document.createTextNode( text ) )
+
+  this.div.appendChild( this.title );
+  this.div.appendChild( client );
+
+  return this.div;
+}
+
+function callServer() {
+  var url = "data.txt"
+
+  xmlHttp.open("GET", url, true);
+  xmlHttp.onreadystatechange = updatePage;
+  xmlHttp.send(null);
+}
+
+function updatePage() {
+  if (xmlHttp.readyState == 4) {
+    //document.getElementById("zipCode").value = xmlHttp.responseText;
+    document.body.style.backgroundColor = "#F8F8F8";
+    document.body.appendChild( Window( document.getElementById("city").value ) )
+  }
+}
+
+</script>
+</head>
+
+<body leftmargin="10" topmargin="10" marginwidth="10" marginheight="10">
+  <table><tr>
+  <td>Window:</td><td><input type="text" name="city" id="city" size="25" onChange="callServer();"/></td>
+  <td><img src="new-button.gif" onClick="callServer();"/></td>
+  </tr></table>
+</body>
+</html>

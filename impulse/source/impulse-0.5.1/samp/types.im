@@ -1,0 +1,34 @@
+puts: "] float = 10.5"
+puts: float = 10.5
+puts: "] float sin abs"
+puts: float sin abs
+
+puts: "] string = 'foo'"
+puts: string = "foo"
+puts: "] string size"
+puts "] string size"
+puts: string size
+puts: "] string split"
+puts: string split
+
+puts: "] array = 1,2,3"
+puts: array = 1,2,3
+puts: "] array size"
+puts: array size
+puts: "] array join: ','"
+puts: array join: ","
+puts: "] array each: n -> puts: n"
+puts: array each: n -> puts: n
+
+puts: "] range = 1..10"
+puts: range = 1..10
+puts: "] range size"
+puts: range size
+puts: "] range map: n -> n + n"
+puts: range map: n -> n + n
+
+puts: "] block = x -> y -> x * y"
+puts: block = x -> y -> x * y
+puts: "] (block eval: 2) eval: 5"
+puts: (block eval: 2) eval: 5
+

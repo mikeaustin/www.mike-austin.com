@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr valign="top"> 
+    <td colspan="2"> 
+      <pre>Parsing inertia-test-main.dylan
+&quot;inertia-test-main.dylan&quot;, line 4, characters 3 through 11:
+      add-child (*screen*, make (&lt;view&gt;));
+      ^^^^^^^^^
+  Error: Parse error at or before ordinary word ``add-child''
+skipping rest of inertia-test-main.dylan</pre>
+    </td>
+  </tr>
+  <tr valign="top">
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr valign="top"> 
+    <td> 
+      <pre>
+inertia-test.lid
+----------------
+library:    inertia-test
+executable: inertia-test
+files:      inertia-test-exports
+            inertia-test-main
+
+
+inertia-test-exports.dylan
+--------------------------
+module: dylan-user
+
+define library inertia-test
+  use dylan;
+  use inertia;
+end;
+
+define module inertia-test
+  use inertia-views;
+end;
+
+
+inertia-test-main.dylan
+-----------------------
+module: inertia-test
+
+begin
+  add-child (*screen*, make (&lt;view&gt;));
+end;
+</pre>
+    </td>
+    <td> 
+      <pre>
+inertia.lid
+-----------
+library: inertia
+files:   inertia-exports
+         inertia-geometry
+         inertia-views        
+
+
+inertia-exports.dylan
+---------------------
+module: dylan-user
+
+define library inertia
+  use /* library */ dylan;
+  use /* library */ opengl;
+
+  export /* module */ inertia-geometry;
+  export /* module */ inertia-views;
+end;
+
+define module inertia-views
+  use /* module */ dylan;
+  use /* module */ opengl;
+  use /* module */ opengl-glut;
+  
+  export /* classes */ &lt;view&gt;, &lt;screen&gt;
+  export /* methods */ add-child, draw-view;
+  export /* globals */ *screen*;
+end;
+
+
+inertia-views.dylan
+-------------------
+module: inertia-views
+
+define method add-child (self :: &lt;view&gt;, child :: &lt;view&gt;) => ()
+  add! (self.subviews, child);
+end;
+	  </pre>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

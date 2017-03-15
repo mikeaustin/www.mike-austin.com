@@ -1,0 +1,64 @@
+body {
+	font-family: sans-serif;
+}
+
+img {
+	border-width: 0;
+}
+
+h1 {
+	font-size: 1.75em;
+}
+
+h2 {
+	font-size: 1.25em;
+}
+
+h3 {
+	font-size: 1em;
+}
+
+p {
+	font-size: 1em;
+}
+
+a {
+	color: #444;
+}
+
+a:hover {
+	color: #f44;
+}
+
+.actionmenu {
+	padding: 0;
+	display: inline;
+}
+
+.actionmenu li {
+	display: inline;
+	list-style-position: outside;
+}
+
+.actionmenu li + li:before {
+	content: " | "
+}
+
+#alerts {
+	margin: 1em;
+	padding: .5em;
+	border: 1px solid #c00;
+	background: #f88;
+}
+
+#topmenu .actionmenu {
+	padding-left: 2em;
+}
+
+address {
+	font-size: .75em;
+	margin-top: 2em;
+	padding-top: 1em;
+	padding-left: 1em;
+	border-top: thin solid black;
+}

@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>Impulse Programming Language</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt}
+td { font-family: Arial, Helvetica, sans-serif; font-size: 10pt }
+.table-section {  border-color: black #999999 black black; border-style: solid; border-top-width: 0px; border-right-width: 1px; border-bottom-width: 0px; border-left-width: 0px}
+.table-section-text {  border-color: black black #999999; border-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px}
+h1 {  font-size: 18pt; font-weight: bold; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px}
+h2 {  font-size: 14pt; font-weight: bold; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px}
+h3 { font-size: 12pt; font-weight: bold; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px ; font-style: italic}
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="800" border="0" cellspacing="0" cellpadding="10">
+  <tr> 
+    <td> 
+      <h1>Impulse Programming Language</h1>
+      November 2005 &middot; Mike Austin 
+      <p>Impusle is a language idea I've been toying with over the past few years. 
+        It's based upon block predicate dispatching, meaning that a block, or 
+        lexical closure, can have multiple definitions and dispatching on these 
+        blocks is based on predicates. Think of it as Smalltalk with functional 
+        pattern matching. I dislike special syntax such as pattern matching, list 
+        comprehension, etc., and Impulse tries to factor these ideas into the 
+        language, eliminating special syntax.</p>
+      <h2>Blocks</h2>
+      <p>A block is a lexical closure with the properties of a generic function. 
+        A block therefor can have multiple definitions, and a predicate decides 
+        which of these are executed. When used as higher order functions, these 
+        blocks can emulate list comprehension, pattern matching and more.</p>
+      <h3>Simple Blocks</h3>
+      <p>A simple block is defined by a list of arguments each optionally supporting 
+        a element separator (:), an arrow (-&gt;), and an expression. </p>
+      <pre>a, b -> a * b					>> {block}
+
+squared = n -> n * n
+squared value: 10				>> 20
+
+list sort: a, b -> a < b
+
+pixels map: r:g:b -&gt; (r + g + b) / 3</pre>
+      <h3>Predicate Blocks</h3>
+      <p>A predicate block is defined by a list of arguments, followed by a list 
+        of predicates enclosed in square brackets ([]), an arrow (-&gt;), and 
+        an expression. Each predicate is scoped to it's corresponding argument, 
+        in addition to the local context in which it was defined. This allows 
+        you to simulate pattern matching such as [&gt; 10, &lt; 20], and to compare 
+        arbitrary values such as [a date &lt; b date]. To allow nil return values, 
+        there is a concept of a non-value, as if the function was never called.</p>
+      <pre>n [n > 0] -> n * n				>> {block}
+
+x, y [&gt; 10, &lt; 20] -&gt; x * y			>> {block}
+
+evens-squared = 1..10 map: n
+  [% 2 == 0] -> n * n				>> 4,16,36,64,100
+</pre>
+      <h3>Multiple Predicate Blocks</h3>
+      <p>A multiple-predicate block is defined by a list of arguments, followed 
+        by a list of predicates enclosed in square brackets ([]), each with an 
+        arrow (-&gt;), and an expression. Child blocks are executed based on the 
+        predicate arguments supplied.</p>
+      <pre>stream each: char
+  [is-digit?] -> read-number
+  [is-alpha?] -> read-identifier
+
+n = if: [n &lt; 0] -&gt; -1 [n &gt; 0] -&gt; 1</pre>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,5 @@
+class IdeaList {
+
+    String name
+
+}

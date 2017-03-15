@@ -1,0 +1,90 @@
+<html>
+
+<head>
+<meta name=Generator content="Microsoft Office HTML Filter 2.0">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Originator content="Microsoft Word 9">
+<title>DatabasePlus Concepts 2</title>
+<link rel="stylesheet" href="../help-styles.css"></head>
+
+<body topmargin=0 leftmargin=0 marginwidth=0 marginheight=0 lang=EN-US link=blue vlink=purple bgcolor="#FFFFFF">
+<div > 
+  <table border=0 cellspacing=0 cellpadding=5 width="100%" >
+    <tr> 
+      <td valign=top class="navigator" ><a href="../help-topics.html" class="navlink">Help 
+        Topics</a> &gt; <a href="../examples.html" class="navlink">Concepts 
+        &amp; Tutorials</a></td>
+    </tr>
+    <tr> 
+      <td valign=top class="section" > <b><span >DatabasePlus Concepts 2<br>
+        <font size="1">Table and View Relationships</font></span></b></td>
+    </tr>
+    <tr> 
+      <td valign=top class="description" >This page demonstrates several database 
+        layouts that are possible with DatabasePlus.</td>
+    </tr>
+    <tr> 
+      <td valign=top > 
+        <p><br>
+          The more data and different type of data you store, the more likely 
+          you will want to create relationships between tables. This allows you 
+          to consolidate your data into one or several different views, allowing 
+          you to see more at a glance, and to view it in different perspectives.</p>
+        <p>There are four types of relationships you can build:</p>
+        <ul>
+          <li><b>One-to-One Relationship</b> - This type of relationship states 
+            that one record in one table refers to exactly one record in another.</li>
+          <li><b>One-to-Many Relationship</b> - This type of relationship states 
+            that one record in one table refers to one or more records in another.</li>
+          <li><b>Many-to-One Relationship</b> - This is similar to a one-to-many 
+            relationship, but the reference is reversed. It simply changes the 
+            perspective.</li>
+          <li><b>Many-to-Many Relationship</b> - This type of relationship states 
+            that one or more records in one table refer to one or more records 
+            in another. This type of relationship requires an intermediate table. 
+            Details on this type are discussed further in this section.</li>
+        </ul>
+        <p>Here is a diagram of a three table and one view model that makes up 
+          a simple contact manager:</p>
+        <p align="center"><img src="images/contact-manager.gif"></p>
+        <p>Notice that the Journal table has a reference to the Contacts table. 
+          This order is very important, because where you create the link determines 
+          the type of relationship. In this case, it creates a one-to-many relationship 
+          - there are many journal entries for one contact, and Contacts is the 
+          primary table. If you created a link to the Journal table in the Contacts 
+          table, you would have created a one-to-one relationship, which would 
+          only allow you to have one journal entry per contact. The Contacts to 
+          Company reference is an example of a one-to-one relationship, where 
+          one contact can only belong to one company.</p>
+        <p>The general rule of thumb is:</p>
+        <ul>
+          <li>To create <b>a one-to-one</b> relationship, create a link in the 
+            primary table.</li>
+          <li>To create a <b>one-to-many</b> relationship, create a link in the 
+            table that will have many records to one record in the primary, or 
+            master table.</li>
+        </ul>
+        <p><b>More On Many-to-Many Relationships</b></p>
+        <p>Sometimes you need a many-to-many relationship, where many records 
+          in one table reference many records in a second. An example would be 
+          Projects-to-People, where multiple people can be working on the same 
+          project, but any one person may also be working on multiple projects.</p>
+        <p>To accomplish this, you need an intermediate table. This table acts 
+          as a bridge between the two tables that use a many-to-many relationship. 
+          As in a one-to-many relationship, the reference is created in the table 
+          that has many records to the one record in the other. The result is 
+          to create two references in the intermediate table - one to the first 
+          table, and one to the second. Create your views using the base tables 
+          and you will have a one-to-many relationship for each primary table.</p>
+        <p>Here is an updated Contact Manager diagram that includes a many-to-many 
+          reference between the Contacts and Projects tables:</p>
+        <p align="center"><img src="images/contact-manager2.gif"></p>
+        </td>
+    </tr>
+  </table>
+
+</div>
+
+</body>
+
+</html>

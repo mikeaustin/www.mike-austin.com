@@ -1,0 +1,477 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="glossary.xsl" ?>
+<glossary>
+
+  <categs>
+    <categ name="memory"/>
+    <categ name="color"/>
+    <categ name="types"/>
+  </categs>
+
+  <node name="Actor">
+    <categ name="memory"/>
+    An object that can operate on other objects, but is never operated on by other objects itself.
+  </node>
+
+  <node name="Assignment">
+    <categ name="memory"/>
+      The operation of setting a variable to a value.
+      Common assignment operators are =, := and &lt;-.
+  </node>
+
+  <node name="Abstraction">
+    <categ name="memory"/>
+    <categ name="color"/>
+      The process of picking out (abstracting) common features of 
+            objects and procedures. The process of focusing upon the essential 
+            characteristics of an object.
+  </node>
+
+  <node name="Accessor">
+    <categ name="memory"/>
+      A method that provides a public interface to allow the 'getting' of an object's private instance 
+            variables or data members. Also known as a 'getter'.
+  </node>
+
+  <node name="Agent">
+    <categ name="memory"/>
+    An object that can both operate on other objects and provide services to other objects. As the name implies, it often serves as an intermediary between other objects.
+  </node>
+
+  <node name="Algorithm">
+    <categ name="memory"/>
+    A set of precisely defined steps guaranteed to arrive at an answer to a problem or set of problems. As this implies, a set of steps that might never end is not an algorithm.
+  </node>
+
+  <node name="API">
+    <categ name="memory"/>
+    Application Programming Interface. The interface by which an application program accesses a library or subsystem. An API is defined at source code level and provides a level of abstraction between the application and the library to ensure the portability of the code.
+  </node>
+
+  <node name="Argument">
+    <categ name="memory"/>
+    A value that is supplied by one function (the calling function) that wishes to make use of the services of another function (the called function).
+  </node>
+
+  <node name="Array">
+    <categ name="memory"/>
+    A collection of identically typed data items distinguished by their indices. The number of dimensions an array can have depends on the language but is usually unlimited.
+  </node>
+
+  <node name="Associative Array">
+    <categ name="memory"/>
+    An array where the indices are not just integers but may be arbitrary strings. 
+  </node>
+
+  <node name="Block">
+    <categ name="memory"/>
+    A section of code that is stored and executed at a later time. They are often used to process a collection of items, and to support exception handling.
+  </node>
+
+  <node name="Boolean">
+    <categ name="memory"/>
+    <categ name="types"/>
+    A type of variable whose range of values is limited to true or false.
+  </node>
+
+
+  <node name="OODB">
+    <categ name="memory"/>
+    Object Oriented Database. A facility for the storage of objects. OODBs provide persistence, concurrency, and transaction support to object-oriented languages.
+  </node>
+
+  <node name="Bug">
+    <categ name="memory"/>
+    An unwanted and unintended property of a program or piece of hardware, especially one that causes it to malfunction. Also known as an 'undocumented feature'.
+  </node>
+
+  <node name="Bytecode">
+    <categ name="memory"/>
+    A binary file containing an executable program, which is normally interpreted by a byte-code interpreter.
+  </node>
+
+  <node name="Class">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Collection">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Comment">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Component">
+    <categ name="memory"/>
+    Usually one or more classes that work together to provide a specific functionality.
+  </node>
+
+  <node name="Concrete Class">
+    <categ name="memory"/>
+    A class whose implementation is complete and thus may have instances.
+  </node>
+
+  <node name="Conccurrency">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Condition">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Constraint">
+    <categ name="memory"/>
+    A Boolean relation, often an equality or ineqality relation, between the values of one or more variables (often two). E.g. x>3 is a constraint on x.
+  </node>
+
+  <node name="Delegation">
+    <categ name="memory"/>
+    The act of one object forwarding an operation to another, to be performed on behalf of the first object.
+  </node>
+
+  <node name="Distributed Object">
+    <categ name="memory"/>
+    An object that is accessable over a network, potentially from different languages and operating systems.
+  </node>
+
+  <node name="Dynamic Binding">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Encapsulation">
+    <categ name="memory"/>
+    The ability to provide users with a well-defined interface to a set of functions in a way which hides their internal workings. In object-oriented programming, the technique of keeping together data structures and the methods (procedures) which act on them.
+  </node>
+
+  <node name="Exception">
+    <categ name="memory"/>
+    An error condition that changes the normal flow of control in a program.
+  </node>
+
+  <node name="Namespace">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Expression">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Extreme Programming">
+    <categ name="memory"/>
+    A style of programming in which pair programming, simple design, complete unit tests and integration are at the top of the list. Similar to 'just in time' programming.
+  </node>
+
+  <node name="Fat">
+    <categ name="memory"/>
+    As in fat library, fat class, etc. A situation when a single implementation tries to do too much work. Using refactoring, one can eliminate fat implementations.
+  </node>
+
+  <node name="Framework">
+    <categ name="memory"/>
+    A collection of classes that provide a set of services for a particular domain; a framework thus exports a number of individual classes and mechanisms that clients can use or adapt.
+  </node>
+
+  <node name="Garbage Collection">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="GUI">
+    <categ name="memory"/>
+    Graphical User Interface. Any interface that communicates with the user, primarily through graphical icons.
+  </node>
+
+  <node name="Heuristic">
+    <categ name="memory"/>
+    Relating to or using a problem-solving technique in which the most appropriate solution of several found by alternative methods is selected at successive stages of a program for use in the next step of the program.
+  </node>
+
+  <node name="Infix Notation">
+    <categ name="memory"/>
+    One of the possible orderings of functions and operands: in infix notation the functions are placed between their operands, such as "1+2". Although infix notation is limited to binary functions most languages mix infix notation with prefix or postfix notation, as a form of syntactic sugar.
+  </node>
+
+  <node name="Interpreted">
+    <categ name="memory"/>
+    A language feature which enabled it to be executed in native source format.
+  </node>
+
+  <node name="Inheritance">
+    <categ name="memory"/>
+    A relationship among classes, wherein one class shares the structure or behavior defined in one (single inheritance) or more (multiple inheritance) other classes.
+  </node>
+
+  <node name="Instance">
+    <categ name="memory"/>
+    An instance has state, behavior, and identity. The structure and behavior of similar instances are defined in their common class. The terms instance and object are interchangeable.
+  </node>
+
+  <node name="Interface">
+    <categ name="memory"/>
+    The outside view of a class, object, or module, which emphasizes its abstraction while hiding its structure and the secrets of its behavior.
+  </node>
+
+  <node name="Library">
+    <categ name="memory"/>
+    A collection of subroutines and functions stored in one or more files, usually in compiled form, for linking with other programs. Libraries are one of the earliest forms of organised code reuse.
+  </node>
+
+  <node name="Message">
+    <categ name="memory"/>
+    An operation one object performs on another. Messages are usually sent by invoking a specific method or operation provided by another object.
+  </node>
+
+  <node name="Metaclass">
+    <categ name="memory"/>
+    The class of a class; a class whose instances are themselves classes.
+  </node>
+
+  <node name="Metaobject">
+    <categ name="memory"/>
+    An object that represents a type, operation, class, method or object model entity that describes objects.
+  </node>
+
+  <node name="Method">
+    <categ name="memory"/>
+    An operation upon an object, defined as part of the declaration of a class; all methods are operations, but not all operations are methods, The terms message, method and operation are usually interchangeable.
+  </node>
+
+  <node name="Mixin">
+    <categ name="memory"/>
+    A class that embodies a single, focused behavior, used to augment the behavior of some other class via inheritance; the behavior of a mixin is usually orthogonal to the behavior of the classes with which it is combined.
+  </node>
+
+  <node name="Mutator">
+    <categ name="memory"/>
+    A method that provides a public interface to allow the 'setting' of an object's private instance variables or data members. Also known as a 'setter'.
+  </node>
+
+  <node name="MVC">
+    <categ name="memory"/>
+    Model-View-Controller.
+  </node>
+
+  <node name="MVP">
+    <categ name="memory"/>
+    Model-View-Presenter.
+  </node>
+
+  <node name="Multimethod">
+    <categ name="memory"/>
+    Using runtime type of arguments for dispatching.
+  </node>
+
+  <node name="Nesting">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Nil">
+    <categ name="memory"/>
+    A value representing 'no value'. Assignment of a nil variable is dependant on the language implementation.
+  </node>
+
+  <node name="Object">
+    <categ name="memory"/>
+    An object has state, behavior, and identity; the structure and behavior of similar objects are defined in their common class. The terms instance and object are interchangeable.
+  </node>
+
+  <node name="Object-Oriented">
+    <categ name="memory"/>
+    Any language, tool or method that focuses on modeling real world systems using abstraction, encapsulation, inheritance and polymorphism.
+  </node>
+
+  <node name="Object-Oriented">
+    <categ name="memory"/>
+    Any language, tool or method that focuses on modeling real world systems using abstraction, encapsulation, inheritance and polymorphism.
+  </node>
+
+  <node name="Overloading">
+    <categ name="memory"/>
+    Overloading is the static-binding term for multi-methods.
+  </node>
+
+  <node name="Parameter">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Persistence">
+    <categ name="memory"/>
+    The property of an object by which its existence transcends time(i.e., the object continues to exist after its creator ceases to exists) and/or space (i.e., the object's locations moves from the address space in which it was created).
+  </node>
+
+  <node name="Polymorphism">
+    <categ name="memory"/>
+    A concept in type theory, according to which a name (such as a variable declaration) may denote objects of many different classes that are related by some common superclass; thus, any object denoted by this name is able to respond to some common set of operations in different ways.
+  </node>
+
+  <node name="Parameter">
+    <categ name="memory"/>
+
+  </node>
+
+  <node name="Portable">
+    <categ name="memory"/>
+    Source code which can be compiled by different machines or language dialects without modification.
+  </node>
+
+  <node name="Primitive">
+    <categ name="memory"/>
+    A primitive has a fixed size in computer memory. In most oo languages, a primitive cannot be subclassed or treated as an object.
+  </node>
+
+  <node name="Parameter">
+    <categ name="memory"/>
+
+  </node>
+
+  <node name="Protocol">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Prototype">
+    <categ name="memory"/>
+    A partially working piece of software which demonstrates a proof-of-concept.
+  </node>
+
+  <node name="Proxy">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Query">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="RAD">
+    <categ name="memory"/>
+    Rapid Application Development. A RAD environment in one in which you can build applications quicky by using pre-built components.
+  </node>
+
+  <node name="Range">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Refactor">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Reference">
+    <categ name="memory"/>
+    A pointer to an object or data, rather than the actual object or data itself.
+  </node>
+
+  <node name="Reflection">
+    <categ name="memory"/>
+    The ability of an object to know about itself - it's class, methods, etc. Also known as introspection or runtime-information.
+  </node>
+
+  <node name="Reusable">
+    <categ name="memory"/>
+    A design in which code is written to be used in different scenareos without modification. i.e., generic.
+  </node>
+
+  <node name="Scalar Variable">
+    <categ name="memory"/>
+    A variable that has only a single value at any one time; this is contrasted with a vector or an array, which contains a number of values.
+  </node>
+
+  <node name="Scope">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Script">
+    <categ name="memory"/>
+    A computer language that is used for higher-level coding. It is usually interpreted or byte-code compiled.
+  </node>
+
+  <node name="Stub">
+    <categ name="memory"/>
+    A local procedure in a remote procedure call. The client calls the stub to perform some task and need not necessarily be aware that RPC is involved. The stub transmits parameters over the network to the server and returns the results to the caller.
+  </node>
+
+  <node name="Subclass">
+    <categ name="memory"/>
+    A class that inherits from one of more classes (which are called its immediate superclasses).
+  </node>
+
+  <node name="Subsystem">
+    <categ name="memory"/>
+    A system that is part of some larger system.
+  </node>
+
+  <node name="Superclass">
+    <categ name="memory"/>
+    The class from which another class inherits (which is called its immediate subclass).
+  </node>
+
+  <node name="Thread">
+    <categ name="memory"/>
+    Threads may be distinguished only by the value of their program counters and stack pointers while sharing a single address space and set of global variables.
+  </node>
+
+  <node name="Unit Test">
+    <categ name="memory"/>
+    x
+  </node>
+
+  <node name="Vector">
+    <categ name="memory"/>
+    A one-dimensional array.
+  </node>
+
+  <node name="Virtual Machine">
+    <categ name="memory"/>
+    An abstract machine for which an interpreter exists. Virtual machines are often used in the implementation of portable executors for high-level languages.
+  </node>
+
+  <node name="Weak Typing">
+    <categ name="memory"/>
+    A language characteristic that does not require an explicit type declaration for each value or expression. Weak typing makes dynamic binding feasible.
+  </node>
+
+  <node name="Aggregation">
+    <categ name="memory"/>
+    A composition technique for building a new object from one or more existing objects that support some or all of the new object's required interfaces.
+  </node>
+  
+  <node name="Associative Array">
+    <categ name="memory"/>
+      A section of code that is stored and executed at a later time. They 
+            are often used to process a collection of items, and to support exception 
+            handling.
+  </node>
+
+  <node name="Weak Typing">
+    <categ name="memory"/>
+      A language characteristic that does not require an explicit type declaration for each value 
+            or expression. Weak typing makes dynamic binding feasible.
+
+  </node>
+  
+  <refs>
+    <node>www.microgold.com/Stage/Glossary.html</node>
+    <node>foldoc.doc.ic.ac.uk/foldoc/index.html</node>
+    <node>www.steveheller.com/glossa.htm</node>
+    <node>spirou.mc.hik.se/~pal/oobook/webgloss.htm</node>
+    <node>webopedia.lycos.com/Programming</node>
+    <node>sw.itworld.com/swol-04-1996/swol-04-oobook.glossary.html</node>
+    <node>www.dictionary.com</node>
+  </refs>
+  
+</glossary>

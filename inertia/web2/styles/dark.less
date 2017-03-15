@@ -1,0 +1,74 @@
+
+article.dark {
+
+	article.window {
+		border: 1px solid #a0a0a0;
+		background: #a8a8a8;
+		.shadow(0, 0, 25px, rgba(0, 0, 0, 0.5));
+	
+		header {
+			h1 {
+				color: #404040; font-weight: bold; text-align: center;
+				border-top: 1px solid #ffffff; border-bottom: 1px solid #a0a0a0;
+				.shiny(top);
+			}
+		}
+	}
+
+
+	div.inset {
+		background: -moz-linear-gradient(top, #989898, #808080);
+	}
+
+	ul.toolbar {
+		border-top: none; border-bottom: 1px solid #606060;
+	}
+
+	ul.tabbar {
+		border-bottom: 1px solid #606060; border-top: 1px solid #a0a0a0;
+
+		li div {
+			color: #f0f0f0;
+			text-shadow: none;
+		}
+	}
+
+	input {
+		border: 1px solid #606060;
+		background: #c0c0c0;
+	}
+
+	.toolbar .button {
+		border: 1px solid transparent;
+		background: none;
+		
+		&:before {
+			border-top: 1px solid transparent;
+		}
+	}
+
+	.button {
+		border: 1px solid #606060;
+		color: #f0f0f0;
+		text-shadow: none;
+		.gradient(top, #a0a0a0, #808080);
+
+		&:before {
+			border-top: 1px solid #e0e0e0;
+		}
+	}
+
+	.button:hover {
+		.button;
+	}
+
+	.button:active {
+		.gradient(top, #808080, #a0a0a0);
+
+		&:before {
+			border-top: 1px solid #808080;
+		}
+	}
+
+}
+

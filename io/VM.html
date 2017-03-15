@@ -1,0 +1,283 @@
+<html>
+<head>
+<title>Io VM Cheat Sheet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body {  font-family: Arial, Helvetica, sans-serif; font-size: 12px}
+td { font-family: Arial, Helvetica, sans-serif; font-size: 12px }
+.title {  border-style: dashed; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px; font-weight: bold}
+a {  color: #000088; text-decoration: none}
+a:hover {  text-decoration: underline}
+.methods {  word-spacing: 0.25em; font-size: 10px}
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="10" marginheight="10">
+<p>Io VM Cheat Sheet Prototype - 2004 Mike Austin</p>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr valign="top"> 
+    <td width="50%"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr valign="top"> 
+          <td class="title" valign="middle" align="center"> <b><font size="+1"><a href="http://www.iolanguage.com/Source/release/Io/IoVM/_docs/primitives/Object.html">Object</a></font></b></td>
+          <td class="title" valign="middle"><b>An Object is a key/value dictionary 
+            with string keys and values of any type</b></td>
+        </tr>
+        <tr valign="top"> 
+          <td valign="middle" align="center">
+            <p>methods:</p>
+            <p><i>hover mouse over methods for a short description</i></p>
+          </td>
+          <td class="methods"><a href="http://www.iolanguage.com/Source/release/Io/IoVM/_docs/primitives/Object.html#clone" title="Returns an new object whose proto slot is set to the receiver">clone</a> 
+            <a href="#" title="Returns an new object whose slots key/value pairs are the same as the receiver">shallowCopy</a> 
+            <a href="#" title="Returns the name of the primitive">type</a> &#149; 
+            <a href="#">print</a> <a href="#">write</a> &#149; <a href="#">==</a> 
+            <a href="#">!=</a> &#149; <a href="#">and</a> <a href="#">or</a> &#149; 
+            <a href="#">setSlot</a> getSlot removeSlot slotNames foreach &#149; 
+            perform performWithArgList ? forward super &#149; for if while &#149; 
+            break continue exit &#149; catchException raiseException &#149; @ 
+            @@ yield pause resume wait isActive activeCoroCount setSchedulerSleepSeconds 
+            schedularSleepSeconds &#149; method block list collectGarbage do doString 
+            doMessage uniqueId getenv </td>
+        </tr>
+        <tr valign="top"> 
+          <td class="title" valign="middle" align="center"> <b><font size="+1"><a href="#">Number</a></font></b></td>
+          <td class="title" valign="middle"><b>A Number primivative is a container 
+            for a double(a large floating point number)</b></td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">methods:</td>
+          <td class="methods">+ - / * abs exp % negate log log10 pow sqrt &#149; 
+            &lt; &lt;= &gt; &gt;= != == between &#149; asNumber asString asCharacter 
+            asBuffer &#149; print roundDown roundUp ceil floor min max toggle 
+            &#149; acos asin atan atan2 cos sin tan &#149; random setRandomSeed 
+            &#149; &amp; | bitwiseAng bitwiseOr bitwiseXor bitwiseComplement sheftLeft 
+            shiftRight &#149; isAlphaNumeric isAlphabetic isControlCharacter isDigit 
+            isGraph isLowerCase isUpperCase isPrint isPunctuation isSpace isHexDigit</td>
+        </tr>
+        <tr valign="top"> 
+          <td class="title" align="center" valign="middle"><b><font size="+1"><a href="#">String</a></font></b></td>
+          <td class="title" valign="middle">A String is a container for a byte 
+            array that can contain strings or other data</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td class="methods" valign="top">asNumber asString asBuffer at find 
+            reverseFind beginsWith endsWith contains containsAnyCase length split 
+            splitCount splitAt substring &#149; escape unescape append .. insert 
+            removeFromTo replace lower upper &#149; foreach &#149; == != &lt; 
+            &gt; &lt;= &gt;= &#149; print linePrint doFile join &#149; toBase 
+            fromBase &#149; appendPath removeLastPathComponent lastPathComponent 
+            pathExtension </td>
+        </tr>
+        <tr valign="top"> 
+          <td class="title" align="center" valign="middle"><b><font size="+1"><a href="#">Buffer</a></font></b></td>
+          <td class="title" valign="middle">A Buffer is a container for a byte 
+            array similar to a immutable String</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td valign="top" class="methods">== &#149; print &#149; asString at 
+            length fromTo find byteAt &#149; setLength sizeTo empty atPut append 
+            .. prepend insertAt removeFromTo replace join split splitCount lower 
+            upper &#149; foreach</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle" class="title"><b><font size="+1"><a href="#">Nil</a></font></b></td>
+          <td valign="middle" class="title">Nil is a special object used for comparison.</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle"><b><font size="+1"></font></b></td>
+          <td valign="middle">clone and or</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle" class="title"><b><font size="+1"><a href="#">List</a></font></b></td>
+          <td valign="middle" class="title">An mutable array of values. The first 
+            index is 0.</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td valign="middle" class="methods">at contains count indexOf print 
+            &#149; add atPut empty atInsert push pop remove removeAt reverse &#149; 
+            == &#149; random randomize &#149; sort sortBy &#149; foreach do select 
+            selectInPlace detect</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle" class="title"><b><font size="+1"><a href="#">LinkedList</a>&nbsp;</font></b></td>
+          <td valign="middle" class="title">A mutable, doubly linked list of values.</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td valign="middle" class="methods">at contains count indexOf &#149; 
+            add atPut empty insertAt push pop remove removeAt reverse &#149; == 
+            &#149; random randomize &#149; and or &#149; doBlock foreach</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle" class="title"><b><font size="+1"><a href="#">Map</a></font></b></td>
+          <td valign="middle" class="title">A key/value dictionary appropriate 
+            for holding large key/value collections.</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td valign="middle" class="methods">type clear &#149; at atPut atIfAbsentPut 
+            remove count &#149; atIfAbsent keyAtValue &#149; hasKey hasValue &#149; 
+            keys values do foreach</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle" class="title"><b><font size="+1"><a href="#">WeakLink</a></font></b></td>
+          <td valign="middle" class="title">A reference to an object that does 
+            not prevent the garbage collector from collecting it.</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td valign="middle" class="methods">setLink link setDelegate delegate 
+            setIdentifier identifier</td>
+        </tr>
+      </table>
+      
+    </td>
+    <td width="50%"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr valign="top"> 
+          <td valign="middle" align="center">&nbsp;</td>
+          <td class="title" valign="middle" align="center"><b><font size="+1"><a href="#">Date</a></font></b></td>
+          <td class="title" valign="middle"><b>A container for a date and time</b></td>
+        </tr>
+        <tr valign="top"> 
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td class="methods"><a href="#" title="less than">&lt;</a> <a href="#">&gt;</a> 
+            <a href="#">==</a> <a href="#">!=</a> &#149; <a href="#" title="Sets the receiver to the current time">now</a> 
+            <a href="#" title="Returns the number of seconds since the beginning of the program">clock</a> 
+            <a href="#">year</a> setYear month setMonth day setDay hour setHour 
+            minute setMinute second setSecond isDaylightSavingsTime zone &#149; 
+            secondsSince dateAfterSeconds secondsToRun &#149; setFormat format 
+            asString asNumber fromNumber fromString &#149; + - += -=</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle" class="title"><b><font size="+1"><a href="#">Duration</a></font></b></td>
+          <td valign="middle" class="title"><b>A container for a duration of time</b></td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle">&nbsp;</td>
+          <td class="methods">&lt; &gt; == != &#149; years setYears days setDays 
+            hours setHours minutes setMinutes seconds setSeconds &#149; asString 
+            asNumber fromNumber &#149; += -=</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle"><b></b></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td class="title" align="center" valign="middle"><b><font size="+1"><a href="#">File</a></font></b></td>
+          <td class="title" valign="middle"><b>Encapsulates file i/o</b></td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle">&nbsp;</td>
+          <td valign="middle" class="methods">standardInput standardOutput &#149; 
+            setPath path name useTemporaryPath &#149; exists size &#149; openForReading 
+            openForUpdating openForAppending open mode close &#149; asString asBuffer 
+            readLine readLines readStringOfLength at foreach &#149; write atPut 
+            flush &#149; rewind setPosition position &#149; remove moveTo</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle" class="title"><b><font size="+1"><a href="#">Directory</a></font></b></td>
+          <td valign="middle" class="title">Support for accessing filesystem directories 
+            with the Io programming language. (IoServer)</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle"><b><font size="+1"></font></b></td>
+          <td valign="top" class="methods">exists create path setPath name items 
+            at count</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle">&nbsp;</td>
+          <td valign="middle">&nbsp;</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle" class="title"><b><font size="+1"><a href="#">Exception</a>&nbsp;</font></b></td>
+          <td valign="middle" class="title">The Exception proto is used to raise 
+            and catch errors</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle"><b><font size="+1"></font></b></td>
+          <td valign="middle" class="methods">raise raiseResumable catch resume 
+            isResumable </td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle">&nbsp;</td>
+          <td valign="middle">&nbsp;</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle" class="title"><b><font size="+1"><a href="#">Message</a></font></b></td>
+          <td valign="middle" class="title">A Message object encapsulates the 
+            action of a message send.</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle">&nbsp;</td>
+          <td valign="middle" class="methods">name setName nextMessage setNextMessage 
+            attachedMessage setAttachedMessage arguments setArguments doInContext 
+            fromString </td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle" class="title"><b><font size="+1"><a href="#">Future</a></font></b></td>
+          <td valign="middle" class="title">A transparent container for a value 
+            returned by an asynchronous message.</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle">&nbsp;</td>
+          <td valign="middle" class="methods">? isWaitingFuture</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle" class="title"><b><font size="+1"><a href="#">Nop</a> 
+            </font></b></td>
+          <td valign="middle" class="title">No operation, useful in empty if statements</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle">&nbsp;</td>
+          <td valign="middle" class="methods">forward</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle">&nbsp;</td>
+          <td valign="middle">&nbsp;</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle" class="title"><font size="+1"><a href="#">Vector</a></font></td>
+          <td valign="middle" class="title"> A vector is an array of numbers (IoServer). 
+            Supports PPC Altivec and x86 SSE optimizations.</td>
+        </tr>
+        <tr valign="top"> 
+          <td align="center" valign="middle">&nbsp;</td>
+          <td align="center" valign="middle">&nbsp;</td>
+          <td valign="middle" class="methods">copy subarray setSize size at atPut 
+            &#149; += -= *= sum min max mean square normalize absolute &#149; 
+            log log10 pow random sort reverseSort &#149; meanSquare rootMeanSquare 
+            dotProduct sin &#149; setMin setMax set</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

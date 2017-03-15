@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "Content-type: text/plain"
+
+echo
+
+
+
+traceroute custsql-ipw09.eigbox.net
+

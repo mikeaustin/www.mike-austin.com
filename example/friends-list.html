@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stylesheet xmlns:hi5="http://www.w3.org/1999/xhtml">
+
+	<template xmlns:hi5="http://www.w3.org/1999/xhtml">
+		<div style="margin-bottom: 7px;">
+			<div style="float: right;"><a href="javascript:paginateFriends('next')">Next 20 &#187;</a></div>
+			Showing 1 - 20
+		</div>
+	
+		<for-each var="friend" source="friends.asArray()">
+			<div style="float: left; display: inline; width: 120px; margin-right: 10px; margin-bottom: 10px;">
+				<div style="white-space: nowrap; overflow: hidden;"><a href="#">${friend.getDisplayName()}</a></div>
+			</div>
+		</for-each>
+	</template>
+
+</stylesheet>

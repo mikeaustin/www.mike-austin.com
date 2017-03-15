@@ -1,0 +1,6 @@
+include Makefile
+
+CC      = ~/.wine/drive_c/MinGW/bin/g++.exe
+CFLAGS  = -O3 -c -Wall -DGLUT_DISABLE_ATEXIT_HACK
+LIBS    = -lws2_32 -lopengl32 -lglu32 -lglut32
+

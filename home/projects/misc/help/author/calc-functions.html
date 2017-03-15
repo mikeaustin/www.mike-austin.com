@@ -1,0 +1,334 @@
+<html>
+
+<head>
+<meta name=Generator content="Microsoft Office HTML Filter 2.0">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Originator content="Microsoft Word 9">
+<title>Calculation Functions - DatabasePlus</title>
+<link rel="stylesheet" href="../help-styles.css"></head>
+
+<body topmargin=0 leftmargin=0 marginwidth=0 marginheight=0 lang=EN-US link=blue vlink=purple bgcolor="#FFFFFF">
+<table border=0 cellspacing=0 cellpadding=5 width="100%">
+  <tr> 
+    <td valign=top class="navigator"><a href="../help-topics.html" class="navlink">Help 
+      Topics</a> &gt; <a href="author-views.html" class="navlink">Author Views</a> 
+      &gt; <a href="edit-calculation.html" class="navlink">Edit Calculation</a></td>
+  </tr>
+  <tr> 
+    <td valign=top class="section"> <b>Calculation Functions</b></td>
+  </tr>
+  <tr> 
+    <td valign=top class="description">The following functions are available for 
+      use in Calculation Formulas. </td>
+  </tr>
+  <tr> 
+    <td valign=top> 
+      <p><br>
+        DatabasePlus supports standard text, number, date, and time functions. 
+        Number functions also work with the Currency field type. Number or Text 
+        functions also work with the True/False field type. For all functions 
+        listed below, the variables <i>(text, number, date, time)</i> can be either 
+        a constant or the field name.</p>
+      <table border=0 cellspacing=0 cellpadding=1 bgcolor="#FFFFFF" bordercolor="#000000">
+        <tr valign="top"> 
+          <td bgcolor="#CCCCCC" width=98> <b>Function Syntax</b></td>
+          <td bgcolor="#CCCCCC" width=407> <b>Function Description</b></td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98> ABS(number)</td>
+          <td width=407> Returns the Absolute Value of (number).</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98> CreationDate()</td>
+          <td bgcolor="#E5E5E5" width=407> Returns the date that a record is added. 
+            Tip: Use this function to create a hidden calculation field to track 
+            when a survey is submitted.</td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98> CreatorAccountName()</td>
+          <td width=407> Returns the registered DatabasePlus account name of a 
+            user who adds a record.</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98> CreatorName()</td>
+          <td bgcolor="#E5E5E5" width=407> Returns the registered first and last 
+            name of a user who adds a record.</td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98> Date(month,day,year) </td>
+          <td width=407> Returns the numerical data type date. For example, 1/1/2000. 
+            Year is represented by four digits.</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98> DatetoText(date)</td>
+          <td bgcolor="#E5E5E5" width=407> Returns date as data type text. </td>
+        </tr>
+        <tr valign="top"> 
+          <td  width=98> DAY(date)</td>
+          <td  width=407> Returns just the <b>day</b> part of the date, as a number. 
+          </td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98> DayName(date)</td>
+          <td bgcolor="#E5E5E5" width=407> Returns just the <b>day</b> part of 
+            the date, as text. </td>
+        </tr>
+        <tr valign="top"> 
+          <td  width=98> DayOfWeek(date)</td>
+          <td  width=407> Returns the position of <b>day</b> part of the date, 
+            from 1 (Sunday) to 7 (Saturday). </td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98> DayOfYear(date)</td>
+          <td bgcolor="#E5E5E5" width=407> Returns the number of days elapsed 
+            since the <b>day</b> part of the date, from January 1 of the date 
+            year.</td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98> Exact(text,text)</td>
+          <td width=407> A case sensitive function that compares original text 
+            with new text. This returns a &quot;1&quot;, if there is a match and 
+            a &quot;0&quot; if not. </td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98> Hour(time)</td>
+          <td bgcolor="#E5E5E5" width=407> Returns just the <b>hour</b> part of 
+            the time.</td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98> EXP(number) </td>
+          <td width=407> Returns the value of <i>&quot;e&quot;</i> to the power 
+            of <i>number</i>. Exponential, like PI, has a standard numerical value.</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" colspan="2">If(condition, true statement, false 
+            statement)</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98>&nbsp; </td>
+          <td bgcolor="#E5E5E5" width=407> 
+            <p> Enter a condition (formula). If the formula returns a result that 
+              is true, then the result of the expression in the true argument 
+              is displayed in the calculation field. If the formula returns a 
+              result that is false, then the result of the expression in the false 
+              argument is displayed in the calculation field.<br>
+              <br>
+              For example, to calculate how much you'll have to pay an hourly 
+              worker, who gets time and a half for over 8 hours of work per day, 
+              you'd use the following IF statement:<br>
+              <br>
+              <span style='font-size:10.0pt;font-family:"times"'>If (hours < = 
+              8), rate*hours, (rate*8)+(rate*(hours-8)*1.5)<br>
+              <br>
+              </span>where <b>Rate</b> = rate of pay for work completed, say $10 
+              per hour, and <b>Hours</b> = number of hours worked per day, say 
+              12.<br>
+              <br>
+              <b>Note:</b> In order for this formula to work, first create a field 
+              called <b>Rate</b> with the type <i>currency</i>, a field called 
+              <b>Hours </b> with the type <i>number</i>, and a calculation field 
+              with a name such as, <b>Cost per Day</b> with the type <i>calculation</i>. 
+              Then put the formula, shown above, in the Current Formula box on 
+              the Edit Calculation dialog and select the Calculation Result type: 
+              currency. </p>
+          </td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98>INT(number) </td>
+          <td width=407> Returns just the <b>integer</b> part of a number.</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98> Left (text,number) </td>
+          <td bgcolor="#E5E5E5" width=407> Returns the character/s in text, determined 
+            by the number, counting from the left. For example, if the text entered 
+            into this field is &quot;Green&quot;, and the number in this function 
+            is 2, then it returns &quot;Gr.&quot;</td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98> Length(text)</td>
+          <td width=407> Returns the number of characters entered into this field. 
+            For example, if &quot;Jennifer&quot; were entered, this field would 
+            return the number 8.</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98> Lower(text)</td>
+          <td bgcolor="#E5E5E5" width=407> <o:p>Returns text in lower case.</td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98>Minute(time)</td>
+          <td width=407>Returns just the <b>minute</b> part of the time.</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98>ModificationDate()</td>
+          <td bgcolor="#E5E5E5" width=407>Returns the date that a record was last 
+            modified (edited).</td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98>ModifierAccountName()</td>
+          <td width=407>Returns the registered Bitlocker account name of the user 
+            who last modified a record.</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98>ModifierName()</td>
+          <td bgcolor="#E5E5E5" width=407>Returns the registered Bitlocker first 
+            and last name of the user who last modified a record.</td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98>Month(date)</td>
+          <td width=407>Returns just the <b>month </b>part of the date.</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98>MonthName(date)</td>
+          <td bgcolor="#E5E5E5" width=407>Returns just the <b>month</b> part of 
+            the date, as text. </td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98>NumToText(number)</td>
+          <td width=407>Returns number as a text data type.</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98>PI()</td>
+          <td bgcolor="#E5E5E5" width=407>Use this symbol to add the number for 
+            PI to a formula. For example, PI()*(R*R) is the formula for calculating 
+            the area of a circle.</td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98>Position(text,search text, start, occurrence)</td>
+          <td width=407>Returns the position of the specified <i>occurrence of 
+            search string in text, </i> from <i>start</i>. Returns zero, if the 
+            string doesn't appear as specified. Use this to find a text string 
+            in some text. For example, you can find the second occurrence of the 
+            text string, "how", in the a text field named Comments, by using the 
+            following values in this formula: Position('Comments', "how", 1,2). 
+            For this example, the contents of the field Comments is: "How are 
+            you, how is it going?". The value returned will be a number that represents 
+            the location of the first letter in the text string starting from 
+            the first character in the text (14 in this case). Note: To speed 
+            up this calculation, you can set Start to any number. In this example, 
+            it is set to begin the search at the first character.</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98>POW(number1, number2)</td>
+          <td bgcolor="#E5E5E5" width=407>Returns number1 to the number2 power. 
+            For example, Pow (3,5) will return 3 to the 5th power or 243 (3*3*3*3*3). 
+          </td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98>Random()</td>
+          <td width=407>Returns a random number between 0 and 1. To include a 
+            random number between 1 and 100, enter the formula: Random()*100.</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98>Replace(text, start, size, replacement 
+            text)</td>
+          <td bgcolor="#E5E5E5" width=407>Replaces characters in text with replacement 
+            text, from the position of <i>start</i> and containing the number 
+            of characters in <i>size</i>. Use this to replace a portion of text 
+            in a text field. For example, you can replace character spaces 5-13 
+            of text in the text field, Instructions, with "business", by using 
+            the following values in this formula: Replace('Instructions',5, 8, 
+            "business "). The original text is, "Use Home address". The result 
+            will be "Use business address".</td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98>Right(text,number)</td>
+          <td width=407>Returns the character/s in text, determined by the number, 
+            counting from the right. For example, if the text entered into this 
+            field is &quot;Green&quot;, and the number in this function is 2, 
+            then it returns &quot;en&quot;.</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98>Round(number, precision)</td>
+          <td bgcolor="#E5E5E5" width=407>Returns the number, rounded to the number 
+            of decimal places specified in the precision argument. If <i>precision</i> 
+            is less than zero, then all digits right of the decimal separator 
+            are dropped and <i>number</i> is rounded to the nearest ten for a 
+            precision of -1, the nearest hundred for a precision of -2, etc. A 
+            negative precision is allowed only for the Round function, not for 
+            the Truncate function.</td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98>Seconds(Time)</td>
+          <td width=407>Returns just the <b>seconds</b> part of time.</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98> 
+            <p>Sign(number)</p>
+          </td>
+          <td bgcolor="#E5E5E5" width=407>Returns -1 when the number is negative, 
+            0 when the number is zero, and 1 when the number is positive.</td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98> 
+            <p>Sqrt(number)</p>
+          </td>
+          <td width=407>Returns the square root of a number.</td>
+        </tr>
+        <tr valign="top"> 
+          <td bgcolor="#E5E5E5" width=98>TextToDate(text)</td>
+          <td bgcolor="#E5E5E5" width=407>Returns text as data type date.</td>
+        </tr>
+        <tr valign="top"> 
+          <td width=98>TextToNum(text)</td>
+          <td width=407>Returns text as data type number.</td>
+        </tr>
+        <tr valign="top"> 
+          <td height="14" bgcolor="#E5E5E5" width=98>TextToTime(text) </td>
+          <td height="14" bgcolor="#E5E5E5" width=407>Returns text as a data type 
+            time.</td>
+        </tr>
+        <tr valign="top"> 
+          <td height="14" width=98>Time(hours, minutes, seconds)</td>
+          <td height="14" width=407>Returns the data type time. For example, 10:45:29 
+            or 10:45 and 29 seconds. To indicate AM or PM, use military time, 
+            1-23, for the hours digits. The system will display AM or PM, as appropriate, 
+            when the data is shown in database views. Also, the format of <i>time</i> 
+            can be changed, using the Views Dialog, after you create this formula.</td>
+        </tr>
+        <tr valign="top"> 
+          <td height="14" bgcolor="#E5E5E5" width=98>TimeToText(Time)</td>
+          <td height="14" bgcolor="#E5E5E5" width=407>Returns (time) as the data 
+            type text.</td>
+        </tr>
+        <tr valign="top"> 
+          <td height="14" width=98>Today()</td>
+          <td height="14" width=407>Returns the current date.</td>
+        </tr>
+        <tr valign="top"> 
+          <td height="14" bgcolor="#E5E5E5" width=98>Trim(Text)</td>
+          <td height="14" bgcolor="#E5E5E5" width=407>Returns (text) without spaces 
+            before and after.</td>
+        </tr>
+        <tr valign="top"> 
+          <td height="14" width=98>Truncate(number, precision)</td>
+          <td height="14" width=407>Returns the number, truncated to the number 
+            of decimal places specified in the precision argument. </td>
+        </tr>
+        <tr valign="top"> 
+          <td height="14" bgcolor="#E5E5E5" width=98>Upper(text)</td>
+          <td height="14" bgcolor="#E5E5E5" width=407>Returns text in upper case.</td>
+        </tr>
+        <tr valign="top"> 
+          <td height="14" width=98>WeekOfYear(Date)</td>
+          <td height="14" width=407>Returns the week number of the date. Week 
+            number 1 is the first week of the date year. Part of a week is counted 
+            as a full week.</td>
+        </tr>
+        <tr valign="top"> 
+          <td height="14" bgcolor="#E5E5E5" width=98>WordCount(text)</td>
+          <td height="14" bgcolor="#E5E5E5" width=407>Returns the number of words 
+            in (text).</td>
+        </tr>
+        <tr valign="top"> 
+          <td height="14" width=98>Year(Date)</td>
+          <td height="14" width=407>Returns the <b>year</b> part of date, as a 
+            number.</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h3>&nbsp;</h3>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<pre>
+//
+// simple.cpp
+// gcc simple.cpp -lglut32 -lglu32 -lopengl32
+//
+
+#include &lt;GL/gl.h&gt;<br>#include &lt;GL/glut.h&gt;
+
+int   windowWidth  = 800;
+int   windowHeight = 600;
+float objectXPos   = 0;
+float objectYPos   = 0;
+float objectXAngle = 0;
+float objectYAngle = 0;
+int   lastXPos, lastYPos;
+int   gbutton, gstate;
+
+void displayCallback()
+{
+ // Clear the screen and depth buffer
+    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+
+ // Reset scene transformations move back 3 units
+    glLoadIdentity();
+    glTranslatef( 0.0, 0.0, -3 );
+
+ // Move and rotate the cube to follow the mouse
+    glTranslatef( objectXPos, objectYPos, 0 );
+    glRotatef( objectXAngle, 1.0, 0.0, 0.0 );
+    glRotatef( objectYAngle, 0.0, 1.0, 0.0 );
+
+ // Draw the cube with a radius of 1
+    GLfloat material[] = { .5, .5, .75, 1.0 };
+    glMaterialfv( GL_FRONT, GL_DIFFUSE, material );
+    glutSolidCube( 1 );
+
+ // Swap the back buffer to the front
+    glutSwapBuffers();
+}
+
+void reshapeCallback( int width, int height )
+{
+ // Save the new window settings
+    windowWidth  = width;
+    windowHeight = height;
+
+ // Change the viewport and projection values
+    glViewport( 0, 0, windowWidth, windowHeight );
+    glMatrixMode( GL_PROJECTION );
+      glLoadIdentity();
+      gluPerspective( 45, (float)windowWidth / (float)windowHeight, 1.0, 10.0 );
+    glMatrixMode( GL_MODELVIEW );
+}
+
+void mouseCallback( int button, int state, int x, int y )
+{
+    gbutton  = button;
+    gstate   = state;
+    lastXPos = x;
+    lastYPos = y;
+}
+
+void motionCallback( int x, int y )
+{
+    if( gbutton == GLUT_LEFT_BUTTON )
+    {
+     // Change the cube's angle to match mouse position
+        objectXAngle += y - lastYPos;
+        objectYAngle += x - lastXPos;
+    }
+    else if( gbutton == GLUT_RIGHT_BUTTON )
+    {
+     // Change the cube's position to match mouse position
+        objectXPos += (x - lastXPos) / 100.0;
+        objectYPos += -(y - lastYPos) / 100.0;
+    }
+    lastXPos = x;
+    lastYPos = y;
+
+ // Tell glut to refresh the screen
+    glutPostRedisplay();
+}
+
+int main( int argc, char *argv[] )
+{
+ // Initialize glut with dubble buffer, rgba and depth buffer
+    glutInit( &argc, argv );
+    glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH );
+
+ // Initialize window size and create the window
+    glutInitWindowSize( windowWidth, windowHeight );
+    glutCreateWindow( "Simple OpenGL Example" );
+
+ // Set our glut callback functions
+    glutDisplayFunc( displayCallback );
+    glutReshapeFunc( reshapeCallback );
+    glutMouseFunc( mouseCallback );
+    glutMotionFunc( motionCallback );
+
+ // Enable depth buffer, alpha blending and lighting
+    glEnable( GL_DEPTH_TEST );  glDepthFunc( GL_LESS );
+    glEnable( GL_BLEND );       glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+    glEnable( GL_LIGHTING );    glEnable( GL_LIGHT0 );
+
+ // Enter the glut main loop for event processing
+    glutMainLoop();
+
+    return 0;
+}
+</pre>
+</body>
+</html>

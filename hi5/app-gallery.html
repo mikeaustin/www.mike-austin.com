@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="http://images.hi5.com/images/styles/global_20071116.css"/>
+<style>
+	*					{ line-height: 1.5em; }
+	h2					{ font: bold 14px Arial; margin: 0; }
+	h3					{ margin: 0; font-weight: normal; font-size: 11px; color: #999999; }
+	ul					{ list-style: none; margin: 0; padding: 0; }
+	ul li				{ margin-top: 5px; }
+	ul.app-tile li		{ float: left; xwidth: 350px; margin-left: 20px; }
+	ul.categories a		{ display: block; }
+	.clear				{ clear: left; }
+	.first				{ margin-top: 0; }
+	
+	#sidenav			{ float: left; width: 160px; }
+	#content			{ float: right; width: 786px; position: relative; }
+	
+	#preview			{ display: none; border: 2px solid #cccccc; position: absolute; width: 700px; height: 700px; left: 50%; margin-left: -350px; top: 50px; background: white; }
+</style>
+</head>
+
+<body>
+	<div id="p_container">
+		<br/>
+		<div id="sidenav">
+			<div style="padding: 10px; background: url(http://images.hi5.com/images/graphics/gray.gif) repeat-x; background-color: #f6f6f6; border: 1px solid #eaeaea;">
+				<ul class="categories">
+					<li class="first"><a href="#">All Categories</a></li>
+					<li><a href="#">Music</a></li>
+					<li><a href="#">News</a></li>
+					<li><a href="#" style="font-weight: bold;">Travel & Places</a></li>
+					<li><a href="#">Music</a></li>
+					<li><a href="#">News</a></li>
+					<li><a href="#">Travel & Places</a></li>
+					<li><a href="#">Music</a></li>
+					<li><a href="#">News</a></li>
+					<li><a href="#">Travel & Places</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="content">
+			<div id="preview" style="padding: 10px; overflow: hidden;">
+				<div style="float: right;"><a href="#" style="font-weight: bold;">Install</a> &nbsp;&middot;&nbsp; <a href="javascript:closePreview();">Close</a></div>
+				<h2 style="padding-bottom: 5px; border-bottom: 1px solid #cccccc; margin-bottom: 10px;">My Music</h2>
+				<div id="hi5_gadgetContent0" style="overflow: scroll;">
+					Loading application...
+				</div>
+			</div>
+			<ul class="app-tile">
+				<li>
+					<div style="float: left;"><img src="http://images.hi5.com/images/music/myMusic_100x100.gif" width="70"/></div>
+					<div style="float: left; width: 280px; margin-left: 10px;">
+						<h2>My Music</h2>
+						<h3>Play, access and share your entire iTunes library any time you want and from any computer.</h3>
+						<p>Search the My Music library of over 6 millions songs and add music videos to your personal library and profile page.</p>
+						<div align="right"><a href="javascript:previewApp('');">Preview</a></div>
+					</div>
+				</li>
+				<li>
+					<div style="float: left;"><img src="http://images.hi5.com/images/music/myMusic_100x100.gif" width="70"/></div>
+					<div style="float: left; width: 280px; margin-left: 10px;">
+						<h2>My Music</h2>
+						<h3>Play, access and share your entire iTunes library any time you want and from any computer.</h3>
+						<p>Search the My Music library of over 6 millions songs and add music videos to your personal library and profile page.</p>
+						<div align="right"><a href="#">Preview</a></div>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+
+	<script src="http://static.hi5.com/os/jquery.js"></script>
+	<script src="http://static.hi5.com/os/OpenSocialReference.js"></script>
+	<script src="http://static.hi5.com/os/hi5container.js"></script>
+	<script src="http://static.hi5.com/os/hi5profile.js"></script>
+	
+ 	<script>
+		var sandbox = new Sandbox();
+
+		sandbox.init("canvas", {
+			container: {
+				viewer: {id: "75939877", name: "? Mike ?", pictureUrl: "http://photos1.hi5.com/0014/736/976/T2GoGw736976-01.png", gender: "male", isViewerObject: 1}, 
+				owner: {id: "75939877", name: "? Mike ?", pictureUrl: "http://photos1.hi5.com/0014/736/976/T2GoGw736976-01.png", gender: "male", isOwnerObject: 1}
+			},
+			locale: "en-US",
+			Hi5AuthToken: "cOewaQ-vNDA5VFmNQKDocw..:YXF0GBN6Y9ZObhXdkUQCOd07XTJNPpD-4zthuXDnOM1hJ0uX_GQMh9foaImWI8bfp0QGKFlB8idYb8-LIrnWlg.."
+		}, ['http://g.ilike.com/gadget/ilike']);
+
+		sandbox.addGadget('http://g.ilike.com/gadget/ilike', 0, null, '' + 'appId=1&amp;');
+
+		function previewApp() {
+			document.getElementById('preview').style.display = 'block';
+		}
+
+		function closePreview() {
+			document.getElementById('preview').style.display = 'none';
+		}
+	</script>
+</body>
+</html>

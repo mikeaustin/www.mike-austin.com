@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html manifest="vader.appcache">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<title></title>
+	<script type="text/javascript">
+		var yesSound = new Audio("sounds/vader_39.mp3");
+		var whatSound = new Audio("sounds/vader_11.mp3");
+		var noSound = new Audio("sounds/vader_30.mp3");
+
+		var goodSound = new Audio("sounds/vader_23.mp3");
+		var impressiveSound = new Audio("sounds/vader_27.mp3");
+		var fatherSound = new Audio("sounds/vader_31.mp3");
+		var destinySound = new Audio("sounds/vader_33.mp3");
+		var destroySound = new Audio("sounds/vader_28.mp3");
+
+		var correctSound = new Audio("sounds/vader_35.mp3");
+		var wishSound = new Audio("sounds/vader_06.mp3");
+
+		var darksideSound = new Audio("sounds/vader_38.mp3");
+		var faithSound = new Audio("sounds/vader_03.mp3");
+		
+		function playRandomSound()
+		{
+			var randomSound = new Audio("sounds/vader_" + pad(Math.floor(Math.random() * 40), 2) + ".mp3");
+			randomSound.play();
+			//alert(pad(Math.floor(Math.random() * 40), 2));
+		}
+		
+		function pad(num, size) {
+			var s = "000000000" + num;
+			
+			return s.substr(s.length - size);
+		}
+	</script>
+	<style type="text/css">
+		@font-face {
+			font-family: 'Star Jedi';
+			src: url('fonts/Starjedi.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		* {
+			margin: 0; padding: 0;
+			list-style: none;
+			xfont: 20px 'Star Jedi';
+			xfont: 20px impact;
+			xfont-weight: normal;
+			xfont-style: normal;
+			color: white;
+			font-size: 15px;
+		}
+		
+		body {
+			background: black;
+		}		
+
+		ul {
+			overflow: hidden;
+		}
+
+		#soundboard {
+			xwidth: 800px;
+			height: 100%;
+		}
+		
+		#soundboard li {
+			float: left;
+		}
+		
+		.button {
+			xmargin: 10px;
+			background: rgba(255, 255, 255, 0.75);
+			color: black; text-align: center; xline-height: 45px;
+			width: 33.333%; xheight: 50px;
+			xmargin-right: 3px;
+		}
+		
+		button {
+			display: block;
+			xmargin: 5px;
+			width: 100%;
+			height: 100px;
+			color: #404040;
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div id="soundboard">
+		<ul>
+			<li class="button"><button onclick="faithSound.play()">faith</button></li>
+			<li class="button"><button onclick="impressiveSound.play()">impressive</button></li>
+			<li class="button"><button onclick="fatherSound.play()">father</button></li>
+			<li class="button"><button onclick="darksideSound.play()">dark side</button></li>
+			<li class="button"><button onclick="destinySound.play()">destiny</button></li>
+			<li class="button"><button onclick="destroySound.play()">destroy</button></li>
+		</ul>
+		<button style="position: absolute; margin-top: -70px; top: 50%; height: 140px; font-size: 30px;" onclick="playRandomSound()">random clip</button>
+		<ul style="position: absolute; left: 0; right: 0; height: 200px; bottom: 0;">
+			<li class="button"><button onclick="correctSound.play()">correct</button></li>
+			<li class="button"><button onclick="goodSound.play()">good</button></li>
+			<li class="button"><button onclick="wishSound.play()">as you wish</button></li>
+			<li class="button"><button onclick="yesSound.play()">yes</button></li>
+			<li class="button"><button onclick="whatSound.play()">what</button></li>
+			<li class="button"><button onclick="noSound.play()">no</button></li>
+		</ul>
+	</div>
+</body>
+</html>
+
+<!--
+
+3	I find your lack of faith disturbing
+22	Perhaps you think you're treated unfairly
+27	Impressive. Most impressive.
+28	Don't make me destroy you.
+29	If you only knew the power of the dark side
+38	You don't know the power of the dark side.
+
+31	I am your father
+
+6	As you wish
+35	That is correct.
+23	Good.
+11	What.
+30	No.
+39	Yes.
+
+
+1	I want to know what happened to the plans they sent you
+2	You are part of the rebel alliance, and a traitor
+4	And now your highness, we will discuss the location of your hidden rebel base
+5	Don't be to proud of this technilogical terror you've constructed
+7	Don't underestimate the force
+8	Your powers are weak, old man
+9	The force is strong with this one
+10	I have you now
+12	You have failed me for the last time, admiral
+13	What is thy bidding, my master
+14	Noooooo
+15	Noooooo
+16	That's it
+17	No captain
+18	No dissintegration
+19	Appology accepted
+20	Don't fail me again
+21	We would be honored if you would join us
+24	He's all yours, bounty hunter
+25	I altering the deal. Pray I don't alter it any further.
+26	The force is with you, young skywalker
+32	Join me, and together we can rule the galaxy as father and son
+33	It is your destiny
+34	The emporor does not share your optimistic appraisal of the situation
+36	Good work.
+37	So, you have accepted the truth.
+40	Sister.
+
+-->

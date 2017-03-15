@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Show Member</title>
+
+    
+        
+        <link rel="stylesheet" href="html_1_files/socialme.css">
+        <link rel="shortcut icon" href="http://localhost:8080/socialme/images/favicon.ico" type="image/x-icon">
+        <meta name="layout" content="socialme">
+        
+        <script type="text/javascript" src="html_1_files/prototype.js"></script>
+
+        <script type="text/javascript">
+            function showLoginDialog() {
+                var dialog = $("login-dialog");
+
+                dialog.style.marginTop  = -dialog.offsetHeight / 2 + "px";
+                dialog.style.visibility = "visible";
+            }
+
+            function hideLoginDialog() {
+                var dialog = $("login-dialog");
+
+                dialog.style.visibility = "hidden";
+            }
+        </script>
+        <script type="text/javascript" src="html_1_files/application.js"></script></head><body>
+        <div id="page">
+            <div id="spinner" class="spinner" style="display: none;">
+                <img src="html_1_files/spinner.gif" alt="Spinner">
+            </div>	
+            <div id="login-dialog" style="border: 1px solid rgb(192, 192, 192); position: absolute; left: 50%; top: 50%; width: 300px; margin-left: -150px; visibility: hidden; z-index: 1;">
+			<div style="background: rgb(224, 224, 224) none repeat scroll 0%; position: absolute; top: -7px; right: -7px; bottom: -7px; left: -7px; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; opacity: 0.5;"></div>
+            <div style="background: rgb(240, 240, 240) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; position: relative;">
+				<h3 style="border-bottom: 1px dotted rgb(192, 192, 192); margin: 0pt 5px; padding: 7px 5px 6px;">Login</h3>
+                <form onsubmit="new Ajax.Request('/socialme/account/login',{asynchronous:true,evalScripts:true,onSuccess:function(e){hideLoginDialog()},parameters:Form.serialize(this)});return false" method="post" action="/socialme/account/login" name="login" style="" id="login">
+                    <table cellpadding="0" cellspacing="10">
+                        <tbody><tr><th>E-mail:</th><td><input name="email" id="email" value="" type="text"></td></tr>
+                        <tr><th>Password:</th><td><input name="password" id="password" value="" type="text"></td></tr>
+                        <tr><th>&nbsp;</th>
+						<td><input name="login" style="border: 1px solid rgb(208, 208, 208); padding: 5px; background: transparent url(/socialme/images/glossy_button_backgr.gif) repeat-x scroll 0%; overflow: visible; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" value="Login" id="login" type="submit">
+						</td></tr>
+                    </tbody></table>
+                </form>
+            </div>
+        </div>
+
+        <div id="header">
+            <span style="margin: 10px; float: right;">
+				Roxxor &nbsp;·&nbsp;
+				<a href="javascript:showLoginDialog()">Login</a> &nbsp;·&nbsp;
+				<a href="http://localhost:8080/socialme/account/logout">Logout</a>
+			</span>
+			<ul id="navigation" class="cleared">
+				<li class="before"><a class="home" href="http://localhost:8080/socialme">Home</a></li>
+				<li class="before"><a href="http://localhost:8080/socialme/member/list" class="list">Member List</a></li>
+				<li class="before"><a href="http://localhost:8080/socialme/member/create" class="create">New Member</a></li>
+			</ul>
+        </div>
+        <div id="body" class="cleared">
+            <div class="before" style="width: 450px;">
+				<div class="before" style="margin-right: 10px;">
+                    <img src="html_1_files/thumbnail_frame_100.png" style="position: absolute; margin-left: -10px; margin-top: -8px;">
+                    <img src="html_1_files/E.jpg" style="margin-right: 10px; margin-left: 3px; margin-top: 4px;" height="100" width="100">
+				</div>
+
+                <div class="before" style="">
+                    <h1 class="first" style="">Roxxor</h1>
+                    <div>Location: San Bruno, CA</div>
+                    <div>Interests: Roxxin' the axe!</div>
+
+					<div style="margin-top: 5px;">
+		                <a href="#">Add as Buddy</a> &nbsp; <a href="#">Poke</a>
+					</div>
+				</div>
+
+				<br clear="left">
+                <h2>Updates</h2>
+				<ul id="updates" class="icon-list">
+					<li class="header first" style="background: transparent url(images/member-20x20.gif) no-repeat scroll 0pt 3px; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">Andy V.</li>
+					<li class="indent"><a href="#">Andy V.</a> sent you a message <a href="#">Hey dude, what up?</a></li>
+
+					<li class="indent"><a href="#">Andy V.</a> replied to your group message <a href="#">Why I like it</a></li>
+					<li class="header" style="background: transparent url(images/member-20x20.gif) no-repeat scroll 0pt 3px; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">Joe S.</li>
+					<li class="indent"><a href="#">Joe S.</a> posted a message to <a href="#">Get Down with It</a> asdfasdf asdfasdf asdfasdfas asdfasfasdf</li>
+
+					<li class="indent"><a href="#">Joe S.</a> posted a message to <a href="#">Get Down with It</a></li>
+					<li class="header" style="background: transparent url(images/member-20x20.gif) no-repeat scroll 0pt 3px; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">Jill W.</li>
+					<li class="indent"><a href="#">Jill W.</a> posted a message to <a href="#">Get Down with It</a></li>
+				</ul>
+
+                <h2>Friends</h2>
+                <ul>
+                    
+                </ul>
+			</div>
+
+			<div class="after" style="width: 290px;">
+				<div class="module first">
+					<h2 class="first">Events</h2>
+					<ul>
+						
+							<li>
+								<span class="after" style="font-weight: bold; color: rgb(128, 128, 128);">Feb 11</span>
+								<a href="http://localhost:8080/socialme/event/show/1">See Justice in Oakland</a>
+							</li>
+						
+							<li>
+								<span class="after" style="font-weight: bold; color: rgb(128, 128, 128);">Feb 11</span>
+								<a href="http://localhost:8080/socialme/event/show/2">See Metallica in San Francisco</a>
+							</li>
+						
+					</ul>
+				</div>
+
+				<div class="module">				
+					<h2 class="first">Comments</h2>
+					<div id="comments">
+						
+    <ul class="cleared" style="margin: 0pt; padding: 0pt;">
+        
+            
+                
+            
+            <li style="overflow: hidden; margin-top: 0pt; list-style-type: none; list-style-image: none; list-style-position: outside;">
+                <div style="float: left;">
+                    <img src="html_1_files/thumbnail_frame_50.png" style="position: absolute; margin-left: -4px; margin-top: -2px;">
+                    <img src="html_1_files/E.jpg" style="margin-right: 10px; margin-left: 2px; margin-top: 4px;" height="50" width="50">
+                </div>
+                <div>On Feb 11, 2009, <a href="#">Roxxor</a> said:</div>
+                <div style="">asdfsd af fasdfsadf    fasdfasdfaf</div>
+            </li>
+               
+        
+            
+            <li style="overflow: hidden; margin-top: 10px; list-style-type: none; list-style-image: none; list-style-position: outside;">
+                <div style="float: left;">
+                    <img src="html_1_files/thumbnail_frame_50.png" style="position: absolute; margin-left: -4px; margin-top: -2px;">
+                    <img src="html_1_files/E.jpg" style="margin-right: 10px; margin-left: 2px; margin-top: 4px;" height="50" width="50">
+                </div>
+                <div>On Feb 11, 2009, <a href="#">Roxxor</a> said:</div>
+                <div style="">asdfsadf asdfasdf</div>
+            </li>
+               
+        
+            
+            <li style="overflow: hidden; margin-top: 10px; list-style-type: none; list-style-image: none; list-style-position: outside;">
+                <div style="float: left;">
+                    <img src="html_1_files/thumbnail_frame_50.png" style="position: absolute; margin-left: -4px; margin-top: -2px;">
+                    <img src="html_1_files/E.jpg" style="margin-right: 10px; margin-left: 2px; margin-top: 4px;" height="50" width="50">
+                </div>
+                <div>On Feb 11, 2009, <a href="#">Roxxor</a> said:</div>
+                <div style="">asdfasdf</div>
+            </li>
+               
+        
+    </ul>
+
+
+<div class="item">
+    <div>Give Roxxor a comment...</div>
+    <form onsubmit="new Ajax.Updater({success:'comments'},'/socialme/profileComment/ajaxsave',{asynchronous:true,evalScripts:true,on500:function(e){showLoginDialog()},parameters:Form.serialize(this)});return false" method="post" action="/socialme/profileComment/ajaxsave" name="comment" id="comment">
+        <input name="member.id" value="1" id="member.id" type="hidden">
+        <fieldset style="border: 1px solid rgb(224, 224, 224); background: rgb(255, 250, 205) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+            <textarea name="message" style="border: medium none ; background: rgb(255, 250, 205) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 100%; height: 55px;" id="message"></textarea>
+            <div style="border-top: 1px dotted rgb(204, 204, 204); padding: 3px; background: rgb(224, 224, 224) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" align="center">
+                <input name="addComment" style="border: 1px solid rgb(208, 208, 208); padding: 5px; background: transparent url(/socialme/images/glossy_button_backgr.gif) repeat-x scroll 0%; overflow: visible; font-weight: bold; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" value="Add Comment" id="addComment" type="submit">
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+					</div>
+				</div>
+			</div>
+        </div>		
+        </div>
+    </body></html>

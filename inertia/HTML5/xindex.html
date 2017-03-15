@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="styles/core.css"/>
+	<script type="text/javascript" src="scripts/core.js"></script>
+	<script type="text/javascript" src="scripts/views.js"></script>
+	<script type="text/javascript">
+		var desktop = null;
+		var button = null;
+
+		document.addEventListener( "mousedown", function( event )
+		{
+			button = event.button;
+
+			event.preventDefault();
+			event.stopPropagation();
+	
+			var event = new inertia.MouseEvent( "mouseDown", event.clientX, event.clientY );
+		
+			desktop.sendEvent( event );
+		}, false );
+
+		document.addEventListener( "mouseup", function( event )
+		{
+			button = null;
+			
+			event.preventDefault();
+			event.stopPropagation();
+	
+			var event = new inertia.MouseEvent( "mouseUp", event.clientX, event.clientY );
+		
+			desktop.sendEvent( event );
+		}, false );
+
+		document.addEventListener( "mousemove", function( event )
+		{
+			event.preventDefault();
+			event.stopPropagation();
+
+			if (button != null)
+			{
+				event = new inertia.MouseEvent( "mouseDrag", event.clientX, event.clientY );
+				
+				desktop.sendEvent( event );
+			}
+		}, false );
+
+		window.addEventListener( "load", function( event )
+		{
+			desktop = new inertia.Desktop( document.$( "#desktop" ) );
+
+			injectTypes( 5, desktop, desktop.element );
+			
+			//var buttons = document.$$( "#calculator button" );
+			//alert(document.$( "#calculator" ).getAttribute( "object" ) );
+			//for (var i = 0; i < buttons.length; i++) {
+			//	buttons[i].getAttribute( "object" ).controller = document.$( "#calculator" ).getAttribute( "object" );
+			//}
+		}, false);
+	</script>
+	<style type="text/css">
+		#window {
+			-webkit-transform: rotate(5deg) scale(0.5);
+			-webkit-transition: -webkit-transform 0.25s ease;
+			x-webkit-box-shadow: none;
+		}
+		#window:hover {
+			-webkit-transform: scale(1.0);
+			-webkit-transition: -webkit-transform 0.25s ease-out;
+			x-webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+		}
+	</style>
+</head>
+<body>
+	<article class="desktop-view" id="desktop" type="desktop">
+		<article class="menu menubar">
+			<ul>
+				<li><a class="strong">Inertia</a></li>
+				<li class="active">
+					<a>File</a>
+					<ul class="menu menu-pane">
+						<li type="button"><a>New...</a></li>
+						<li><a>Open...</a></li>
+						<li><hr/></li>
+						<li><a>Save</a></li>
+						<li class="shift-apple-s"><a>Save As...</a></li>
+						<li><hr/></li>
+						<li><a>Print...</a></li>
+					</ul>
+				</li>
+				<li><a>Edit</a></li>
+				<li><a>View</a></li>
+			</ul>
+		</article>
+
+		<article class="window-view dialog-view" type="dialog">
+			<header>
+				<h1 type="handle">Internet Explorer</h1>
+			</header>
+			<details>
+				<div class="message">
+					<h2>
+					  The application Internet Explorer quit unexpectedly after it was relaunched.
+					</h2>
+					<div class="small">
+						Mac OS X and other applications are not affected.
+					</div>
+				</div>
+				<div class="rounded buttons">
+					<button>Save</button>
+					<button>Cancel</button>
+				</div>
+			</details>
+		</article>
+
+		<article class="window-view" type="dialog" id="window">
+			<header>
+				<h1 type="handle">Africa Vaccation</h1>
+			</header>
+			<details>
+				<video controls="controls" loop="loop">
+					<source xsrc="videos/sample_mpeg4.mp4"/>
+					<source src="videos/sample_theora.ogv"/>
+					No video for you!
+				</video>
+			</details>
+		</article>
+<style>
+	article.calculator button {
+		width: 46px; height: 26px;
+		float: left; line-height: 26px;
+		margin: 3px 2px;
+		-webkit-border-radius: 5px;
+		border: 1px solid #737373;
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#efefef), to(#989898),
+					color-stop(.2, #d4d4d4),
+					color-stop(.93, #d4d4d4));
+		-webkit-box-shadow: 0 1px #cbcbcb;
+	}
+	
+	article.calculator button:active {
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7f7f7f), to(#a4a4a4),
+					color-stop(.15, #a8a8a8),
+					color-stop(.95, #b0b0b0));
+		border-top: 1px solid #404040; border-bottom: 1px solid #646464;
+		border-left: 1px solid #555555; border-right: 1px solid #555555;
+	}
+	
+	article.calculator {
+		-webkit-border-radius: 5px;
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#989898), to(#909090),
+					color-stop(.2, #a7a7a7),
+					color-stop(.95, #a7a7a7));
+	}
+
+	article.calculator header {
+		border-bottom: none;
+	}
+	
+	article.calculator div.display {
+		margin: 2px 9px -2px 9px; padding: 2px;
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#717171), to(#cecece),
+					color-stop(.2, #989898),
+					color-stop(.8, #989898));
+		-webkit-border-radius: 5px;
+		-webkit-box-shadow: 0 1px #aeaeae;
+	}
+	
+	article.calculator div#digits {
+		text-align: right;
+		height: 44px;
+		font-size: 15px;
+		padding: 0 26px 0 10px;
+		background: #cbd0b7;
+		border: 1px solid #b4b7a4;
+		-webkit-border-radius: 4px;
+	}
+</style>
+<script type="text/javascript">
+inertia.Calculator = { 
+	type: "calculator",
+	
+	init: function( element )
+	{
+		this.supertype.init.call( this, element );
+	},
+	
+	numberPressed: function( value )
+	{
+		alert( value );
+	}
+}.extend( inertia.View );
+</script>
+		<article class="window-view calculator" rel="controller" type="calculator" id="calculator" style="width: 218px;">
+			<header>
+				<h1 type="handle">Calculator</h1>
+			</header>
+			<details>
+				<div class="display">
+					<div id="digits">12345</div>
+				</div>
+				<div class="rounded buttons" style="padding: 9px; overflow: hidden;">
+					<button>C</button>
+					<button style="visibility: hidden;"></button>
+					<button>&#247;</button>
+					<button>&#215;</button>
+
+					<button style="clear: left;">7</button>
+					<button>8</button>
+					<button>9</button>
+					<button>&#8722;</button>
+					<button style="clear: left;">4</button>
+					<button>5</button>
+					<button>6</button>
+					<button>&#43;</button>
+					<button action="numberPressed" value="1" style="clear: left;">1</button>
+					<button action="numberPressed" value="2">2</button>
+					<button action="numberPressed" value="3">3</button>
+					<button style="float: right; height: 58px;">&#61;</button>
+					<button action="numberPressed" value="0" style="clear: left; width: 96px;">0</button>
+					<button>.</button>
+				</div>
+			</details>
+		</article>
+
+	</article>
+</body>
+</html>

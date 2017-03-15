@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<player showDisplay="yes" showPlaylist="yes" autoStart="yes" volume="50" initVolume="50">
+  <song path="http://www.mike-austin.com/other/JC.mp3" title="Jessie Remix"/>
+</player>

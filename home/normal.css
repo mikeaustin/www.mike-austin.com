@@ -1,0 +1,50 @@
+/* normal text */
+   body, td {
+     font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: normal; font-style: normal;
+     color: #333333
+   }
+
+/* normal links */
+   a { text-decoration: none; color: #336699 ; font-weight: bold }
+   a:visited { color: #666699 }
+   a:hover { text-decoration: underline }
+
+/* all anchors with parent class is button */
+   .button a { color: #FFFFFF; font-weight: bold}
+   .button a:visited { color: #FFFFFF; font-weight: bold}
+   x.button a:hover { background: #000000 }
+   .subButton a { color: #666666; font-weight: bold }
+   .subButton a:visited { color: #666666; font-weight: bold }
+   xa.button { color: #FFFFFF; font-weight: bold}
+   xa.button:visited { color: #FFFFFF; font-weight: bold}
+   xa.subButton { color: #666666; font-weight: bold }
+   xa.subButton:visited { color: #666666; font-weight: bold }
+
+a.selected { font-weight: bold; text-decoration: underline}
+a.selected:visited { font-weight: bold; text-decoration: underline}
+
+#.menu a { color: #333333 }
+
+/* list formatting */
+   ul {
+     margin-left: 3em; margin-top: 0.5em; padding-top: 0px;   margin-bottom: 0.5em; padding-left: 0px
+; list-style-image: url(/home/images/bullet-arrow.gif)
+   }
+   li {  margin-left: 0px; padding-left: 0px }
+
+/* section styles */
+   .topic {
+     font-size: 16px; border-color: #CCCCCC black; background-color: #EEEEF0; font-weight: bold; border-style: solid; border-top-width: 1px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px
+   }
+   .section {  font-size: 16px; font-weight: bold}
+   .note {  font-weight: normal; margin-bottom: 0.5em; margin-top: .5em}
+   .subsection { font-size: 14px; font-weight: bold }
+   .titleBar {  background-color: #6A85a2}
+   .topMenu {  background-color: #7A95B2}
+   .windowContent {  padding-left: 6px; font-size: 11px}
+
+/* miscellaneous */
+   img { border-style: none }
+   a.brokenLink { color: #CC6666; text-decoration: line-through }
+   a.brokenLink:visited { color: #CC6666; text-decoration: line-through }
+.sectionHeader { font-size: 16px; font-weight: bold ; color: #FFCC00}

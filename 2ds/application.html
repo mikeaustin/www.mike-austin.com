@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stylesheet xmlns:os="http://www.w3.org/1999/xhtml">
+
+	<template name="home">
+		<div>
+			<form onsubmit="friendsList.updateFriends(this.search_text.value); return false;">
+				<input type="text" id="search_text" name="search_text"/> <input type="submit" value="Find"/>
+			</form>
+		</div>
+		<h2>
+			<div class="links after">
+				<a href="javascript:friendsList.setListStyle('tiles')"><os:message key="tiles-link"/></a> ${'&#160;'} &#183; ${'&#160;'}
+				<a href="javascript:friendsList.setListStyle('list')"><os:message key="list-link"/></a>
+			</div>
+			<os:message key="friends-header"/>
+		</h2>
+	
+		<div id="friends"></div>
+	</template>
+
+	<template name="pagination">
+		<div class="pagination">
+			<div class="after">
+				<a href="javascript:friendsList.paginateFriends('next')"><os:message key="next-page" size="${friendsList.pagesize}"/></a>
+			</div>
+			<os:message key="showing-range" range="${friendsList.offset + 1} - ${friendsList.offset + friendsList.pagesize}"/>
+		</div>
+	</template>
+
+	<template name="friends-tiles">
+		<apply-template name="pagination"/>
+	
+		<for-each var="friend" source="friends.asArray()">
+			<div class="friend-tile">
+				<div class="tile-thumb">
+					<os:profile-pic person="friend" size="thumb"/>
+				</div>
+				<div class="tile-name">
+					<nobr><os:name person="friend" linked="true"/></nobr>
+				</div>
+				<set var="title_message"><os:message key="send-message" name="${friend.getDisplayName()}"/></set>
+				<set var="title_pizza"><os:message key="missing-key" gift="pizza">Send them a ${gift}</os:message></set>
+				<div class="tile-actions">
+					<img border="0" src="http://images.hi5.com/images/icons/_/20x20_message.gif" title="${title_message}"/> ${' '}
+				</div>
+			</div>
+		</for-each>
+	</template>
+
+	<template name="friends-list">
+		<apply-template name="pagination"/>
+
+		<for-each var="friend" source="friends.asArray()">
+			<div class="friend-item">
+				<div class="item-name">
+					<nobr><os:name person="friend" linked="true"/></nobr>
+				</div>
+			</div>
+		</for-each>
+	</template>
+
+	<template name="friend-tile">
+		<div class="friend-tile">
+			<div class="tile-thumb">
+				<os:profile-pic person="friend" size="small"/>
+			</div>
+			<div class="tile-name">
+				<nobr><os:name person="friend" linked="true"/></nobr>
+			</div>
+			<div class="tile-interests" style="font-family: Arial; font-size: 11px;">
+				Interests: ${interests}
+			</div>
+		</div>
+	</template>
+
+</stylesheet>

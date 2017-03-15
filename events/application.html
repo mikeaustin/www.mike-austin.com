@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stylesheet xmlns:os="http://www.w3.org/1999/xhtml">
+
+	<template name="home">
+		<a href="javascript:application.sendInvites();">Send Invites</a>
+		<h2>
+			<div class="links after">
+				<a href="javascript:friendsList.setListStyle('tiles')"><os:message key="tiles-link"/></a> ${'&#160;'} &#183; ${'&#160;'}
+				<a href="javascript:friendsList.setListStyle('list')"><os:message key="list-link"/></a>
+			</div>
+			<os:message key="friends-header"/>
+			<input type="radio" name="test" id="one"/> <input type="radio" name="test" id="two"/>
+		</h2>
+
+		<div class="panel">
+			<h2 class="first">
+				<img class="after" src="http://static.hi5.com/images/icons/_/15x15_add.gif" onclick="eventsList.createEvent()"/>
+				Where will I be?
+			</h2>
+			<div id="new-event" class="event selected">
+				<div class="when"></div>
+				<div class="details">
+					<input type="text" class="text" name="what" value="Event title"/>
+					<input type="text" class="text" name="where" value="Venue or name of place"/>
+					<input type="text" class="text" name="when" value="Month, day, year, time"/>
+					<input type="text" class="text" name="location" value="Street, city, state"/>
+					<input type="submit" value="Save"/>
+				</div>
+			</div>
+			<div id="events"></div>
+		</div>
+	</template>
+
+	<template name="events">
+		<for-each var="event" source="events">
+			<div class="event" onclick="eventsList.selectEvent(this, ${event.id})">
+				<div class="when">
+					${months[event.when.getMonth()]} ${event.when.getDate()}
+					<div class="small light">${event.when.getFullYear()}</div>
+				</div>
+				<div class="details">
+					<div class="what">${event.what}</div>
+					<div class="where small light">${event.where}</div>
+				</div>
+			</div>
+		</for-each>
+	</template>
+
+</stylesheet>

@@ -1,0 +1,64 @@
+
+Side scrolling physics
+  Trial Xtreme
+  Granny Smith
+
+Top down parking
+  Car Transporter Truck Driver
+  Real Truck Parking 3D
+  The Little Crane That Could
+
+Sidescroll jumper
+
+First person jumper
+  Subway Surfers
+
+Puzzle
+  Cut the Rope
+
+Tower defense
+
+
+
+Super Hexagon
+
+Mini Golf MatchUp
+
+Sandbox puzzle
+  Machinarium
+
+
+Mini Accomplishments
+  Almost messing up and saving yourself
+  Finding powerups and hidden items
+  Finding partial solutions to puzzles
+
+The Incredible Machine
+
+
+
+Code and Art: Not that Different
+
+Designed like layers of an onion:
+  Photoshop Smart Objects encapsulate ideas for re-use
+  Layers are named and organized for easy navigation
+
+
+
+Composable, modular
+Abstraction, simplicity
+
+Simple is not easy
+
+<blink>
+
+Short, elegant solution that solves a problem.
+
+Short, elegant design that provokes emotion.
+
+
+Time & Space
+CPU & Memory
+
+
+Library: Collection of components

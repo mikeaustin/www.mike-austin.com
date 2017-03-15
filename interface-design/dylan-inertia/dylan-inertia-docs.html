@@ -1,0 +1,251 @@
+<html>
+<head>
+<title>Dylan Inertia Quick Reference</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+td {  font-family: Arial, Helvetica, sans-serif; font-size: 10pt}
+.table-section {  border-color: black #999999 black black; border-style: solid; border-top-width: 0px; border-right-width: 1px; border-bottom-width: 0px; border-left-width: 0px}
+a {  text-decoration: none; color: #000066}
+ul { margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0.75em; padding-top: 0px; padding-right: 0px; padding-bottom: 0em; padding-left: 0.75em; color: #888888}
+li {  margin-top: 0em; margin-right: 0px; margin-bottom: 0.25em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px}
+body { font-family: Arial, Helvetica, sans-serif; font-size: 10pt }
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="10" topmargin="10" marginwidth="10" marginheight="10">
+<font size="+2"><b>Dylan Inertia Quick Reference</b></font><br>
+  Hover mouse over links for summary<br>
+  <br>
+<table border="0" cellspacing="0" cellpadding="5">
+  <tr> 
+    <td colspan="2"><font size="+1">Core Classes</font></td>
+  </tr>
+  <tr> 
+    <td class="table-section" bgcolor="#999999" align="center"><font color="#FFFFFF"><b>&lt;persistent&gt;</b></font></td>
+    <td bgcolor="#F0F0F0">Base class of all persistent objects</td>
+  </tr>
+  <tr> 
+    <td width="20" class="table-section" align="right" valign="top">slots</td>
+    <td> 
+      <ul>
+        <li><a href="#" title="Table of symbols that provide runtime dispatching">fields</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td width="20" class="table-section" align="right" valign="top">methods</td>
+    <td> 
+      <ul>
+        <li><a href="#" title="Writes an object hierarchy to a stream">store-object(object, 
+          filename)</a> &nbsp; <a href="#" title="Reads an object hierarchy from a stream">build-object(object, 
+          filename)</a> &nbsp; <a href="#" title="Returns the class name as a string">class-name(object)</a> 
+          &nbsp; <a href="#" title="Creates an object from a symbol">make-from-symbol(symbol)</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td width="20" class="table-section" align="right" valign="top">subclasses</td>
+    <td> 
+      <ul>
+        <li>&lt;shape&gt;</li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td height="10"></td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#999999" class="table-section" align="center"><b><font color="#FFFFFF">&lt;event&gt;</font></b></td>
+    <td bgcolor="#F0F0F0">Base class of all Inertia events :: &lt;object&gt;</td>
+  </tr>
+  <tr> 
+    <td class="table-section" align="right" valign="top">methods</td>
+    <td> 
+      <ul>
+        <li><a href="#" title="Sends an event to a shape">send-event(shape, event, 
+          data)</a></li>
+        <li><a href="#" title="Called when a mouse event occurs">on-mouse-event(shape, 
+          event, button)</a> &nbsp; <a href="#" title="Called when a keyboard event occurs">on-key-event(shape, 
+          event, key)</a> &nbsp; <a href="#" title="Called when a focus event occurs">on-focus-event(shape, 
+          event, data)</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td class="table-section" align="right" valign="top">keywords</td>
+    <td> 
+      <ul>
+        <li>origin:</li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td class="table-section" align="right" valign="top">subclasses</td>
+    <td> 
+      <ul>
+        <li>&lt;mouse-event&gt; &nbsp; &lt;mouse-down-event&gt; &nbsp; &lt;mouse-up-event&gt;<br>
+          &lt;mouse-drag-event&gt; &nbsp; &lt;mouse-enter-event&gt; &nbsp; &lt;mouse-exit-event&gt;</li>
+        <li>&lt;key-event&gt; &nbsp; &lt;key-down-event&gt; &nbsp; &lt;key-up-event&gt;<br>
+          &lt;focus-event&gt; &nbsp; &lt;focus-gained-event&gt; &nbsp; &lt;focus-lost-event&gt;</li>
+        <li>&lt;parent-reshape-event&gt;</li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td height="10"></td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#999999" class="table-section" align="center"><b><font color="#FFFFFF">&lt;shape&gt;</font></b></td>
+    <td bgcolor="#F0F0F0">Base class of all displayable shapes :: &lt;persistent&gt;</td>
+  </tr>
+  <tr> 
+    <td class="table-section" align="right" valign="top">slots</td>
+    <td> 
+      <ul>
+        <li><a href="#" title="The top and left points of a shape">origin</a> 
+          &nbsp; <a href="#" title="The width and height points of a shape">extent</a> 
+          &nbsp; <a href="#" title="The fill, or background color of the shape">fill-color</a> 
+          &nbsp; <a href="#" title="The line, or outline color of a shape">line-color</a> 
+          &nbsp; <a href="#" title="The outline width of the shape">line-width</a> 
+          &nbsp; <a href="#" title="For x and y, #'move' or #'size'">reshape-mode</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td class="table-section" align="right" valign="top">keywords</td>
+    <td> 
+      <ul>
+        <li>left: &nbsp; top: &nbsp; width: &nbsp; height: &nbsp; reshape:</li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td class="table-section" align="right" valign="top">methods</td>
+    <td> 
+      <ul>
+        <li><a href="#" title="Add a child shape to a shape's hierarchy">add-child(shape, 
+          child)</a> &nbsp; <a href="#" title="Remove a child shape from a shapes' hierarchy">remove-child(shape, 
+          child)</a></li>
+        <li><a href="#" title="The left coordinate of a shape">shape-left(shape)</a> 
+          &nbsp; <a href="#" title="The top coordinate of a shape">shape-top(shape)</a> 
+          &nbsp; <a href="#" title="The shape's width">shape-width(shape)</a> 
+          &nbsp; <a href="#" title="The shape's height">shape-height(shape)</a> 
+          &nbsp; <a href="#" title="The shape's absolute screen coordinates">screen-origin(shape)</a></li>
+        <li><a href="#" title="Draw a shape, it's children and effects">draw-shape(shape)</a> 
+          &nbsp; <a href="#" title="Draw the content, or background of the shape">draw-content(shape, 
+          delegate)</a> &nbsp; <a href="#" title="Draw on top of any effects layers">draw-overlay(delegate)</a> 
+          &nbsp; <a href="#" title="Draw the shape's outline">draw-outline(shape)</a></li>
+        <li><a href="#" title="Returns true if point is in shape">contains-point?(shape, 
+          point)</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td class="table-section" align="right" valign="top">subclasses</td>
+    <td> 
+      <ul>
+        <li>&lt;polygon&gt; &nbsp; &lt;rectangle&gt; &nbsp; &lt;widget&gt;</li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td height="10"></td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#999999" align="center" class="table-section"><font color="#FFFFFF"><b>&lt;widget&gt;</b></font></td>
+    <td bgcolor="#F0F0F0">Base class of all interactive ui components :: &lt;rectangle&gt;</td>
+  </tr>
+  <tr> 
+    <td class="table-section">&nbsp;</td>
+    <td> 
+      <ul>
+        <li>&lt;screen&gt; &nbsp; &lt;push-button&gt; &nbsp; &lt;window&gt; &nbsp; 
+          &lt;text-editor&gt; &nbsp; &lt;text-field&gt;<br>
+          &lt;shape-editor&gt;</li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td colspan="2"><font size="+1">Widgets</font></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#999999" align="center" class="table-section"><font color="#FFFFFF"><b>&lt;window&gt;</b></font></td>
+    <td bgcolor="#F0F0F0">A movable, sizable container widget :: &lt;widget&gt;</td>
+  </tr>
+  <tr> 
+    <td align="right" valign="top" class="table-section">slots</td>
+    <td> 
+      <ul>
+        <li><a href="#" title="The caption, or title of a window">caption</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td align="right" valign="top" class="table-section">keywords</td>
+    <td> 
+      <ul>
+        <li><a href="#" title="The caption, or title of the window">caption:</a> 
+          &nbsp; <a href="#" title="The internal client-area for the window">client:</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td bgcolor="#999999" align="center" class="table-section"><font color="#FFFFFF"><b>&lt;push-button&gt;</b></font></td>
+    <td bgcolor="#F0F0F0">A widgets that responds to mouse clicks :: &lt;widget&gt;</td>
+  </tr>
+  <tr> 
+    <td align="right" valign="top" class="table-section">slots</td>
+    <td> 
+      <ul>
+        <li>caption</li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td align="right" valign="top" class="table-section">keywords</td>
+    <td> 
+      <ul>
+        <li>caption:</li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td height="10"></td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#999999" align="center" class="table-section"><font color="#FFFFFF"><b>&lt;text-editor&gt;</b></font></td>
+    <td bgcolor="#F0F0F0">A multi-line simple text editor widget :: &lt;widget&gt;</td>
+  </tr>
+  <tr> 
+    <td align="right" valign="top" class="table-section">slots</td>
+    <td> 
+      <ul>
+        <li></li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td align="right" valign="top" class="table-section">keywords</td>
+    <td> 
+      <ul>
+        <li><a href="#" title="The initial content of the text-editor">content:</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr> 
+    <td align="right" valign="top">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

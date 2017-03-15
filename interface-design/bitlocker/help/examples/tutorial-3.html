@@ -1,0 +1,176 @@
+<html>
+
+<head>
+<meta name=Generator content="Microsoft Office HTML Filter 2.0">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Originator content="Microsoft Word 9">
+<title>Tutorial 3 - Workgroups, Access Rights, Publishing Reports, and Table Events</title>
+<link rel="stylesheet" href="../help-styles.css"></head>
+
+<body leftmargin=0 topmargin=0 marginwidth=0 marginheight=0 lang=EN-US>
+<div > 
+  <table border=0 cellspacing=0 cellpadding=5 width="100%" >
+    <tr> 
+      <td valign=top class="navigator" ><a href="../help-topics.html" class="navlink">Help 
+        Topics</a> &gt; <a href="../examples.html" class="navlink">Concepts 
+        &amp; Tutorials</a></td>
+    </tr>
+    <tr> 
+      <td valign=top class="section" > 
+        <b>DatabasePlus Tutorial 3<br>
+          </b><font size="1">Managing Workgroups, 
+          creating Access Rights, publishing Reports and creating Table Events</font>
+      </td>
+    </tr>
+    <tr> 
+      <td valign=top class="description" > This short tutorial will get you acquainted 
+        with Workgroups, Access Control, publishing Reports, and adding Events 
+        to tables.</td>
+    </tr>
+    <tr> 
+      <td valign=top > 
+        <p><br>
+          The tutorial starts by creating a workgroup and adding access rights. 
+          It then moves on to publishing reports. Last, it shows how to create 
+          tables events to notify people when a record is created, modified or 
+          deleted.</p>
+        <p> <b class="heading">1. Creating the Workgoup</b></p>
+        <p>Here, you will create a new workgroup and invite users to join the 
+          workgroup. You may invite anybody who has an e-mail address.</p>
+        <p>From <i>My Desktop</i>, click <b>Add new Workgroup</b></p>
+        <ul>
+          <li>Enter <font size="2"><code>Human Resources</code></font> into the 
+            <b>Name</b> text box</li>
+          <li>Click <b>Save</b></li>
+          <li>Click <b>Invite Users</b></li>
+          <li>Enter the e-mail addresses of the people you wish to include in 
+            this group. They do not need to have a Bitlocker account at this time, 
+            but will need one later to access your data. You may use your own 
+            address for this tutorial.</li>
+          <li>Click <b>Invite Users</b></li>
+          <li>Make any changes you want in the <b>Subject</b> text box, then click 
+            <b>Send</b>.</li>
+          <li>Click <b>Done</b> to return to the <i>Workgroup Editor</i></li>
+          <li>Click <b>Done</b> to return to <i>My Desktop</i></li>
+        </ul>
+        <p>You can review your invitations by clicking <b>Review Invitations</b>. 
+          It should look similar to this:</p>
+        <p align="center"><img src="images/review-invites.gif"></p>
+        <p><b class="heading">2. Granting Access Rights</b></p>
+        <p>Here, you will grant the Human Resources group access to add, modify 
+          or delete any records in any table in your database.</p>
+        <p>Click <b>Author</b> under the <b>Contact Manager</b> database</p>
+        <ul>
+          <li>Click <b>Access Control</b></li>
+          <li>Click <b>Add </b> 
+            <ul>
+              <li>Select <b>Human Resources</b></li>
+              <li>Select <b>Can ADD new records</b> if not already selected</li>
+              <li>Select <b>Can MODIFY or DELETE records</b></li>
+              <li>Click <b>Save</b></li>
+            </ul>
+          </li>
+          <li>Click <b>Done</b></li>
+        </ul>
+        <p>It should look like this:</p>
+        <p align="center"><img src="images/dbase-access.gif"></p>
+        <p>Next, you will set specific access rights on the Contacts table. Setting 
+          table level security bypasses database security. You can grant or deny 
+          access to to a table just like the database.</p>
+        <p>Select <b>Tables</b> from the <b>Type</b> navigation pull-down menu</p>
+        <ul>
+          <li>Click <b>Access Control</b> 
+            <ul>
+              <li>Click <b>Set Access Control Level</b></li>
+              <li>Select <b>Use table level security</b></li>
+              <li>Click <b>Save</b></li>
+            </ul>
+          </li>
+        </ul>
+        <p>Now you can edit table access rights:</p>
+        <ul>
+          <li>Click <b>Modify Access Rights</b> 
+            <ul>
+              <li>Click <b>Edit</b> on <b>Record Creator</b></li>
+              <li>Select <b>Enabled</b> for <b>Status</b></li>
+              <li>Click <b>Can MODIFY records</b></li>
+              <li>Click <b>Save</b></li>
+              <li>Click <b>Add</b></li>
+              <li>Select <b>Human Resources</b></li>
+              <li>Select <b>Can ADD new records</b> if not already selected</li>
+              <li>Select <b>Can MODIFY or DELETE records</b></li>
+              <li>Click <b>Save</b></li>
+            </ul>
+          </li>
+          <li>Click <b>Done</b></li>
+        </ul>
+        <p>It should look like this:</p>
+        <p align="center"><img src="images/table-events2.gif" width="251" height="225"></p>
+        <p><b class="heading">3. Publishing a Report</b></p>
+        <p>Here, you will publish a report to an e-mail recipient or recipients. 
+          There are two options when publishing reports: <b>Embed a Report</b>, 
+          when allows you to copy the result and paste it directly in a web page; 
+          and <b>E-mail a Report</b>, which provides a link to the report. In 
+          this tutorial, we will E-mail the report. To publish reports to non-members, 
+          you must enable the <b>Public</b> account under <i>Database Access Control</i>.</p>
+        <p>Select <b>Database</b> from the <b>Type</b> navigation pull-down menu</p>
+        <ul>
+          <li>Click <b>Publish Reports</b></li>
+          <li>Click <b>Email a report</b></li>
+          <li>Click <b>Next</b> 
+            <ul>
+              <li>Select the <b>Summary</b> report</li>
+            </ul>
+          </li>
+          <li>Click <b>Next</b> 
+            <ul>
+              <li>Select <b>No Input</b> if not already selected. Setting a report 
+                as a <i>survey</i> allows the viewer to enter data into a new 
+                record. For surveys to work with non-members, you must enable 
+                the <b>Public</b> account under <i>Database Access Control</i>.</li>
+            </ul>
+          </li>
+          <li>Click <b>Next</b> 
+            <ul>
+              <li>Enter the e-mail addresses of the recipients for which you want 
+                to send the report, separating each one with a semicolon.</li>
+            </ul>
+          </li>
+          <li>Click <b>Next</b> 
+            <ul>
+              <li>Make any changes you want to the message, then click <b>Send</b></li>
+            </ul>
+          </li>
+          <li>Click <b>Done</b></li>
+        </ul>
+        <p>If everything worked, you should have an e-mail in your e-mail in-box. 
+          Open the message and click the web page link, then create a new account. 
+          After logging in, you should have access to the Contact Manager reports.</p>
+        <p><b class="heading">4. Creating an Event</b></p>
+        <p>Events allow you or others to be notified when a record has been created, 
+          modified or deleted. It is best used with the workgroup and shared database 
+          features. </p>
+        <p>Select <b>Tables</b> from the <b>Type</b> navigation pull-down menu.</p>
+        <ul>
+          <li>Click <b>Events</b></li>
+          <li>Click <b>Add</b></li>
+          <li>Select <b>New</b> from the <b>Upon Event</b> pull-down menu</li>
+          <li>Select <b>Workgroup</b> from the <b>Send Email To</b> option, then 
+            select <b>Human Resources</b></li>
+          <li>Click <b>Field</b> from the <b>With Subject</b> option, then select 
+            <b>Full Name</b></li>
+          <li>Click <b>Save</b></li>
+          <li>Click <b>Done</b></li>
+        </ul>
+        <p align="center"><img src="images/table-event.gif" width="248" height="270"></p>
+        <p>Now, any time a new contact is entered, all members of the Human Resources 
+          group will be notified. This concludes Tutorial 3.</p>
+        </td>
+    </tr>
+  </table>
+
+</div>
+
+</body>
+
+</html>

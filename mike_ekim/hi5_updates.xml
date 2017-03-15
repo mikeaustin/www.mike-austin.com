@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="hi5 Friend Updates" />
+    <Content type="html"><![CDATA[
+      <div>
+        <img width="50"
+ src="http://pics-03.hi5.com/userpics/103/167/167246103.img.small.jpg"
+ style="float: left;"/>
+        <div style="float: left; width: 250px;">
+          <div>Incense uploaded the track 'Going home to Rayna'</div>
+          <div>Jun 16, 2007 10:01 AM</div>
+        </div>
+        <div style="clear: left;"></div>
+      </div>
+      <br/>
+      <div>
+        <img width="50"
+ src="http://pics-03.hi5.com/userpics/103/167/167246103.img.small.jpg"
+ style="float: left;"/>
+        <div style="float: left; width: 250px;">
+          <div>Incense uploaded the track 'Going home to Rayna'</div>
+          <div>Jun 16, 2007 10:01 AM</div>
+        </div>
+        <div style="clear: left;"></div>
+      </div>
+    ]]>
+  </Content>
+</Module>

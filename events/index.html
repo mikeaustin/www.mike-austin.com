@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+	<title>Untitled Document</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="http://static.hi5.com/friend/styles/hi5_common_1206483399.css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+	<iframe name="iframe" id="iframe" src="http://api.mike-austin.com/events/events.html" onload="init()" style="display: none;"></iframe>
+	
+	<div id="template" style="display: none;">
+		<div style="padding: 7px; overflow: hidden; border: 1px solid transparent;" onmousedown="getEventDetails(this, ${id});">
+			<div style="float: left; text-align: right;">${when}</div>
+			<div style="float: right; width: 330px;">
+				<img style="float: right; margin-top: 2px; margin-left: 7px;" src="http://images.hi5.com/images/icons/_/close_button.gif" onclick="deleteEvent(${id});"/>
+				<div style="font-family: Arial; font-weight: bold; white-space: nowrap; overflow: hidden;">${what}</div>
+				<div>${where}</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="page-content">
+		<textarea id="details" style="position: absolute; left: 450px; width: 400px; height: 300px;"></textarea>
+		<div id="events" style="width: 400px; padding: 7px; border: 1px solid #cccccc; background: url(http://images.hi5.com/images/graphics/gray.gif) repeat-x; background-color: #f6f6f6;"></div>
+	
+		<fieldset style="width: 400px;">
+			<form name="new-event" method="post" onsubmit="iframe.createEvent(this); return false;">
+				What: <input name="what"/><br/>
+				Where: <input name="where"/><br/>
+				When: <input name="when"/><br/>
+				Location: <input name="location"/><br/>
+				Details: <textarea name="details"></textarea><br/>
+				<button type="submit"/>Submit</button>
+			</form>
+		</fieldset>
+	</div>
+
+	<script>
+		document.domain = "mike-austin.com";
+	 
+		var json = document.getElementsByTagName('textarea')[0];
+
+		var $ = function(element_id) {
+			return document.getElementById(element_id);
+		}
+		
+		var iframe;
+		
+		var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+		
+		function init() {
+			iframe = window.frames.iframe;
+
+			iframe.getEvents(function(request) {
+				var data = eval(request.responseText);
+
+				var template = $('template');
+				for (var i = 0; i < data.length; i++) {
+					var html = template.innerHTML;
+					html = html.replace(/\$\{id\}/g, data[i].id);
+					html = html.replace(/\$\{what\}/g, data[i].what);
+					html = html.replace(/\$\{where\}/g, data[i].where);
+					html = html.replace(/\$\{when\}/g, months[data[i].when.getMonth()] + ' ' + data[i].when.getDate() + '<br/>' + data[i].when.getFullYear());
+					$('events').innerHTML += html;
+				}
+			});	
+		}
+		
+		function getEventDetails(div, event_id) {
+			var events = div.parentNode.childNodes;
+			for (var i = 0; i < events.length; i++) {
+				if (events[i].nodeType == 1) {
+					events[i].style.background = 'none';
+					events[i].style.borderColor = 'transparent';
+				}
+			}
+			div.style.background = '#e6e6e6';
+			div.style.borderColor = '#cccccc;';
+			
+			iframe.getEventDetails(event_id, function(response) {
+				var data = eval(response.responseText);
+				
+				$('details').innerHTML = data[0].details;
+			});
+		}
+		
+		function deleteEvent(event_id) {
+			iframe.deleteEvent(event_id, function(response) {
+			});
+		}
+	</script>
+</body>
+</html>

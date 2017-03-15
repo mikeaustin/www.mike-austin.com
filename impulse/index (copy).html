@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Impulse: A small, dynamic language</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+        *       { margin: 0; padding: 0; }
+        body    { font: 14px/20px helvetica; color: #404040; padding: 10px 0; text-align: center;
+                  background: #c0c0c0; }
+        #page   { width: 800px; margin: 0 auto; text-align: left; background: #ffffff;
+                  border: 1px solid #808080; }
+        #body   { padding: 20px; }
+        h1      { font: bold 30px/26px 'trebuchet ms', helvetica; color: #505050; }
+        h2      { font: bold 18px/16px 'trebuchet ms', helvetica; margin-top: 1em; }
+        p, pre  { margin-top: 1em; margin-left: 1em; }
+        p.item  { margin-top: 5px; margin-left: 0; }
+        pre     { margin-left: 1em; }
+        a       { color: #668866; text-decoration: none; }
+        li      { list-style: square; margin-left: 2em; margin-top: 5px; }
+        dl      { margin-left: 2em; list-style: square; }
+        dt      { font: bold 14px/1em 'trebuchet ms', helvetica; margin-top: 5px; display: list-item; }
+        dd      { xdisplay: inline; margin-top: 3px; }
+        .first  { margin-top: 0 !important; }
+    </style>
+</head>
+
+<body>
+    <div id="page">
+        <div style="background: #e0e0e0; padding: 20px;">
+            <h1 style="xcolor: #000000;">Impulse</h1>
+            <p class="item">A small, dynamic, prototypical language with planned support for
+                multi-methods and predicate dispatching.</p>
+        </div>
+        <div id="body">
+            <p style="margin-left: 0;" class="first">
+                Impulse is a small, dynamic, prototypical programming language with 
+                a few unique features.  It borrows syntax and semantics from other languages such as Ruby,
+                Smalltalk, Dylan, Io, Lua and JavaScript along with ideas from functional languages.<br/>
+                A core goal is too keep the language, both the implementation
+                and the syntax, small and lightweight.  Impulse tries to factor special syntax such as
+                pattern matching and list comprehension into the language using predicates.
+            </p>
+
+            <h2>Features</h2>
+            <p>
+                <dl>
+                    <dt>Prototype Based</dt>
+                    <dd>
+                        Singletons are easy to create, and objects can change behavior by switching
+                        their parent prototypes.
+                    </dd>
+                    <dt>Small and lightweight</dt>
+                    <dd>
+                        The core is less than 2,000 lines of lightweight C++, including the VM,
+                        parser and garbage collector.
+                    </dd>
+                    <dt>Reflective and Open</dt>
+                    <dd>
+                       All objects, including native C++ prototypes can be extended and modified.  Everything is a first class object.
+                    </dd>
+                    <dt>Easily Embeddable</dt>
+                    <dd>
+                       The language was designed from the bottom up, to provide the most simple
+                       interface to the runtime.
+                    </dd>
+                </dl>
+            </p>
+
+            <h2>Examples</h2>
+<pre>
+# Get a list of even numbers between 1 and 10
+(1..10).map |n| n even ? n * n
+</pre>
+			<p>
+			? without the : is a binary conditional operator which return void when false.  Void is similar to
+			JavaScript's "undefined" and represents "no value", vs nil which means "empty value".
+			</p>
+<pre>
+# Ubiquitous factorial example    
+factorial = |n| n == 1 ? 1 : factorial [n - 1]
+
+# A newline after block params defines a multi-line block
+factorial = |n|
+  n == 1 ? 1 : factorial [n - 1]
+end
+</pre>
+
+            <h2>Download</h2>
+            <p>
+                Source &nbsp;&ndash;&nbsp; <a href="https://github.com/mikeaustin/impulse-language">https://github.com/mikeaustin/impulse-language</a>
+            </p>
+            <p>
+                Compiling should be as easy as "make && sudo make install". Impulse has been
+                tested with GCC 4.3.3 on Ubuntu 32/64, GCC 4.0.1 on MacOS X 10.5, MinGW GCC 
+                3.4.5 on Windows and GCC 3.4.3 on SunOS 5.
+            </p>
+
+            <h2>Reference</h2>
+            <p>
+                <ul>
+                    <li><a href="http://docs.google.com/Doc?id=dmknvsb_7c8v9kmw3" target="_new">The Impulse Programming Language</a></li>
+                    <li><a href="http://docs.google.com/Doc?id=dmknvsb_6g4hg89cb" target="_new">Impulse: Why Another New Language?</a></li>
+                    <li><a href="http://docs.google.com/Doc?id=dmknvsb_9dprqb2fh" target="_new">Impulse Runtime Documentation</a></li>
+                    <li><a href="http://docs.google.com/Doc?id=dmknvsb_8fpkd4whr" target="_new">Impulse Example: Standard Library</a></li>
+                    <li><a href="http://mike-austin.com/impulse/source/0.5/docs" target="_new">Impulse Runtime Class Reference</a></li>
+                </ul>
+            </p>
+
+            <h2>Related</h2>
+            <p>
+                <ul>
+                    <li><a href="http://www.cs.washington.edu/research/projects/cecil/www/Papers/gud.html" target="_new">Predicate Dispatching: A Unified Theory of Dispatch</a></li>
+                    <li><a href="http://www.opendylan.org/books/drm/Singletons" target="_new">Dylan Singleton Types [Dylan Reference Manual]</a></li>
+                    <li><a href="http://en.wikibooks.org/wiki/Haskell/Pattern_matching" target="_new">Haskell/Pattern matching</a></li>
+                    <li><a href="http://en.wikipedia.org/wiki/Self_programming_language" target="_new">The Self Programming Language</a></li>
+                    <li><a href="http://lee.fov120.com/ecoop.pdf" target="_new">Prototypes with Multiple Dispatch [PDF]</a></li>
+                </ul>
+            </p>
+            
+            <h2>Contact</h2>
+            <p>
+                You can reach me with any questions or comments at mike AT mike-austin DOT com
+            </p>
+        </div>
+    </page>
+</body>
+</html>

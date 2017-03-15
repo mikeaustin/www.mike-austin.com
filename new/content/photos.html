@@ -1,0 +1,94 @@
+<section>
+  <ul id="photos-list">
+    <li data-title="Half Moon Bay 2016"><img class="landscape" src="new/photos/HMB_Apr2016.jpg" /></li>
+    <li data-title="Groupie Puppy"><img class="portrait" src="new/photos/Groupie_Puppy.jpg" /></li>
+    <li data-title="Christmas 2015"><img class="landscape" src="new/photos/XMas2015.jpg" /></li>
+    <li data-title="Napa Wine Tasting 2016"><img class="portrait" src="new/photos/Napa2016_WineTasting.jpg" /></li>
+    <li data-title="Puppy's intro to Coding"><img class="landscape" src="new/photos/Puppy_Intro_to_Coding.jpg" /></li>
+  </ul>
+</section>
+
+<style>
+  @font-face {
+    font-family: 'Architects Daughter';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Architects Daughter'), local('ArchitectsDaughter'), url(new/fonts/daughter-regular.woff) format('woff');
+  }
+
+  body {
+    background: white !important;
+  }
+    
+  #photos-list {
+    position: relative;
+    text-align: center;
+  }
+  
+  #photos-list li {
+    display: block;
+    position: relative;
+    margin: 0;
+  }
+  
+  #photos-list img {
+    border: 10px solid white;
+    outline: 1px solid hsla(0, 0%, 0%, 0.05);
+    border-bottom: 50px solid white;
+    box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.25);
+    backface-visibility: hidden;
+  }
+  
+  #photos-list img.landscape {
+    width: 75%;
+  }
+
+  #photos-list img.portrait {
+    width: 60%;
+  }
+  
+  #photos-list li:first-child {
+    margin-top: 0;
+  }
+  
+  #photos-list li:before {
+    position: absolute;
+    right: 0; bottom: 3px; left: 0;
+    height: 50px;
+    line-height: 53px;
+    font-family: 'Architects Daughter';
+    font-size: 25px;
+    color: hsl(0, 0%, 50%);
+    content: attr(data-title);
+  }
+</style>
+
+<script>
+  $(document).ready(function(event) {
+    window.photos = $("#photos-list li");
+
+    photos.each(function(index, item) {
+      var even = index % 2 == 0;
+      
+      $(item).css("transform", "translate(" + (Math.random() - (even ? 1 : 0)) * 5 + "%, 0) " + "rotate(" + (Math.random() - (even ? 1 : 0)) * 5 + "deg)");
+    });
+  });
+  
+  $(document).on("xscroll", function(event) {
+    photos.each(function(index, item) {
+      var scrollTop = windowObject.scrollTop();
+      var item = $(item);
+
+      if (!item.data("top")) {
+        item.data("top", item.offset().top);
+      }
+
+      //console.log(index + ": " + (scrollTop + $("#photos").offset().top) + ", " + item.offset().top);
+      var ratio = (scrollTop + $("#photos").offset().top) / (item.data("top"));
+      console.log(index + ": " + ratio);
+
+      //$(item).css("top", (scrollTop + $("#photos").offset().top - item.data("top")) + "px");
+      $(item).css("opacity", ratio);
+    });
+  });
+</script>

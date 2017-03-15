@@ -1,0 +1,41 @@
+
+body            { margin: 0; padding: 10px; }
+body *          { font: 12px/1.5em Arial; margin: 0; padding: 0; }
+
+h1		{ font: bold 24px/1em Arial; padding: 10px 0; color: #404040; }
+h2		{ font: bold 14px/1em Arial; padding: 5px 0; color: #303030; }
+
+a		{ color: #5080b0; font-weight: bold; text-decoration: none; }
+
+p		{ margin-top: 10px; }
+
+#top	{ overflow: hidden; zoom: 1; }
+
+.contents		{ padding: 0px 10px; }
+
+.memItemLeft	{ padding: 3px 0; border-bottom: 1px dotted #e0e0e0; }
+.memItemRight	{ padding: 3px 0; padding-left: 10px; border-bottom: 1px dotted #e0e0e0; }
+
+.memproto		{ background: #f0f0f0; border-top: 1px solid #c0c0c0; padding: 5px; }
+
+.memname		{ color: #303030; font-weight: bold; }
+
+.memdoc			{ padding: 0 5px; xbackground: #e0e0e0; }
+
+ul				{ margin: 0; padding: 0; }
+li				{ margin: 0; margin-left: 20px; }
+dt				{ font-weight: bold; }
+
+hr				{ height: 10px; visibility: hidden; }
+
+.tabs *			{ line-height: 1em; color: #404040; font-weight: bold; }
+
+.indexkey,
+.indexvalue		{ padding: 3px 0; border-bottom: 1px dotted #e0e0e0; }
+
+table			{ border-collapse: collapse; }
+
+.anchor			{ font-size: 14px; color: #404040; }
+
+pre                     { font-family: 'courier new'; }
+

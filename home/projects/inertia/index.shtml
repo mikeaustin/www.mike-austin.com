@@ -1,0 +1,264 @@
+<html>
+<head>
+<title>Mike Austin : Projects : Inertia</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+.page {  height: 100ex; width: 100%}
+-->
+</style>
+<link rel="stylesheet" href="/home/normal.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="/home/images/backgr-grid.gif">
+<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+  <tr>
+    <td valign="top"> 
+      <!--#include virtual="/home/top-menu.shtml"-->
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="titleBar">
+        <tr> 
+          <td valign="top" width="40%"> 
+            <!--#include virtual="/home/sub-menu.shtml" -->
+          </td>
+          <td valign="middle" align="center" rowspan="2"><font color="#FFFFFF" class="sectionHeader">Projects 
+            : Inertia</font></td>
+          <td valign="middle" align="right" rowspan="2" width="40%"> <font color="#FFFFFF" size="1"> 
+            </font> 
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td align="right"><font color="#FFFFFF" size="1"> without music, 
+                  life would be an error<br>
+                  &#150; nitzsche </font></td>
+                <td width="7">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td valign="top" height="3"><img src="/home/images/spacer.gif"></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="7" height="7"></td>
+          <td></td>
+          <td width="7"></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="69%" valign="top"> 
+                  <p class="section"><img src="/home/projects/inertia/inertia-logo.gif" width="31" height="40" align="right">Brief 
+                    Overview</p>
+                  <ul>
+                    <p> Inertia is a programming language that has been brewing 
+                      in my head for a few years now. It's a language based on 
+                      objects, blocks (closures) and messages, with syntax and 
+                      semantics borrowed from several languages -- refactored 
+                      and stripped of extraneous symbols and other artifacts. 
+                      There is nothing yet to download, I've only constructed 
+                      prototypes and test implementations.</p>
+                    <p> Inertia's main goals are:</p>
+<ul>
+  <li>Make simple things very simple, but more complex things possible</li>
+  <li>Get rid of extraneous symbols and delimiters in the syntax, but...</li>
+  <li>Add a little syntactic sugar for collection access and assignment</li>
+  <li>Use higher order functions to allow native code to execute more often</li>
+  <li>Create a runtime in C++ which is very easy to use and extend</li>
+</ul>
+<ul>
+  <p>Maybe not in the first versions, but I'd also like to incorporate these later 
+    on:</p>
+  <li>Pattern matching for method arguments -- for types and values</li>
+  <li>Predicate dispatching and support for DBC and metaprogramming</li>
+  <li>Coroutines, generators and thread support for multi-processor machines</li>
+</ul>
+                  </ul>
+                  <p class="section">Basic Syntax</p>
+                  <ul>
+                    <p>The syntax of Inertia is a mix between Python, Ruby and 
+                      Self &#151; anonymous blocks by indentation, and keyword 
+                      messages:</p>
+                    <p><code> y = 45 sin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- send 
+                      message &quot;sin&quot; to 45, then<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- 
+                      send message &quot;y:0.70710&quot; to &quot;self&quot;<br>
+                      </code><code><br>
+                      1..10 each: i &nbsp;-- create range object with 1..10, then<br>
+                      &nbsp;&nbsp;puts: i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- 
+                      send message &quot;each:i[block]&quot;<br>
+                      <br>
+                      if x in: 1,2,3&nbsp;-- send message &quot;in:[1,2,3]&quot; 
+                      to x<br>
+                      &nbsp;&nbsp;puts: 'yes'&nbsp;&nbsp;-- if true, execute block</code></p>
+                    <p>Every message can contain an anonymous block. Blocks can 
+                      be written on the same line by using "|", which allows for 
+                      a sort of meta-syntax &#150; the following code contains 
+                      two levels of blocks, one using &quot;|&quot; and one by 
+                      indentation:</p>
+                    <p><code>1..255 each: i | thread:<br>
+                      &nbsp;&nbsp;time = ping: '10.0.0.' + i<br>
+                      &nbsp;&nbsp;list add: '10.0.0.' + i + &quot;: &quot; + time<br>
+                      </code></p>
+                    <p>More examles:</p>
+                    <p><code>local i, j&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- 
+                      local variables<br>
+                      attr x, y = 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- object 
+                      attributes<br>
+                      const true = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- constant 
+                      literal<br>
+                      enum style = Border, NoBorder, Dialog&nbsp; -- enumeration</code></p>
+                    <p><code>object Button: Visual<br>
+                      <br>
+                      &nbsp;&nbsp;attr &nbsp;x = 10, y = 10<br>
+                      &nbsp;&nbsp;local title = 'Untitled'<br>
+                      <br>
+                      &nbsp;&nbsp;method title: string [String]<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;self title = string<br>
+                      </code> </p>
+                  </ul>
+                  <p class="section">Language Features<b></b></p>
+                  <ul>
+                    <p><b>Predicate Dispatching</b></p>
+                    <p><code>method doit: str [length &gt; 100]&nbsp;&nbsp;-- 
+                      method table is modified by<br>
+                      &nbsp;&nbsp;puts: 'a long string'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-- 
+                      invariants to remove lookup</code></p>
+                    <p><b>Multi-Methods</b></p>
+                    <p><code>method doit: str [String]<br>
+                      &nbsp;&nbsp;puts: 'a long string'</code></p>
+                    <p></p>
+                    <p><b>Pattern Matching</b></p>
+                    <p><code>method factorial: 0 | 1<br>
+                      method factorial: n | n * factorial: n - 1</code></p>
+                    <p><b>Continuations</b></p>
+                    <p><code>method inverse: n<br>
+                      &nbsp;&nbsp;while: 1 |&nbsp;yield 1 / n</code><code><br>
+                      </code> </p>
+                  </ul>
+                  <p class="section">Language Comparison</p>
+                  <ul>
+                    <p>The syntax of Inertia is a refactorization of other languages:</p>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                      <tr> 
+                        <td valign="top"><b>Python</b></td>
+                        <td> 
+                          <p><code>filter( lambda x % 2 != 0 and x % 3 != 0, range(2, 
+                            25) )<br>
+                            [x for x in range(2, 25) if x % 2 != 0 and x % 3 != 
+                            0</code>]</p>
+                        </td>
+                      </tr>
+                      <tr> 
+                        <td valign="top"><b>Smalltalk</b></td>
+                        <td> 
+                          <p><code>(2 to: 25) select: [:i | i % 2 != 0 and: [x 
+                            % 3 != 0]]</code></p>
+                        </td>
+                      </tr>
+                      <tr> 
+                        <td valign="top"><b>Ruby</b></td>
+                        <td><code>(2..25).select { |i| i % 2 != 0 and i % 3 != 
+                          0 }</code></td>
+                      </tr>
+                      <tr> 
+                        <td valign="top"><b>Inertia</b></td>
+                        <td><code>2..25 select: i | i % 2 != 0 and i % 3 != 0</code></td>
+                      </tr>
+                    </table>
+                  </ul>
+                  <p class="section">Runtime Library</p>
+                  <ul>
+                    <p>I wanted the C++ runtime to be almost as easy to use as 
+                      the language, so I created a dynamically typed system where 
+                      one can use symbols (enumerated strings) for efficiency, 
+                      or strings for simplicity. The virtual machine and object 
+                      primitives are written in this system.</p>
+                    <p>Value n = 10, y = n (sin_);<br>
+                      Value str = &quot;Hello&quot;;<br>
+                      str (replace_, &quot;lo&quot;, &quot;ium&quot;);<br>
+                      Value MyObject = Object (clone_);<br>
+                      MyObject (attr_, &quot;aVariable&quot;, 10);<br>
+                      MyObject (slot_, &quot;myMethod&quot;, &amp;aNativeFunction);</p>
+                  </ul>
+                  <p class="section">Detailed Examples</p>
+                  <ul>
+                    <p><code>object Matrix: Object<br>
+                      <br>
+                      &nbsp;&nbsp;local rows, cols<br>
+                      &nbsp;&nbsp;local matrix = Array new: rows by: cols<br>
+                      <br>
+                      &nbsp;&nbsp;method init: rows by: cols<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;rows, cols = rows, cols<br>
+                      <br>
+                      &nbsp;&nbsp;method *: other<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;local result = Matrix new<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;local sum = 0<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;1..rows,1..cols each: i, j<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum = 0<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1..cols each: k<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum += matrix.i,k 
+                      * other.k,j<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result.i,j 
+                      = sum<br>
+                      <br>
+                      </code><code>sub = string.1..5<br>
+                      pos = string.'mike'<br>
+                      <br>
+                      File read: 'test.txt'<br>
+                      &nbsp;&nbsp; eachLine: line | line print</code></p>
+                  </ul>
+                </td>
+                <td valign="top">&nbsp;</td>
+                <td width="30%" valign="top"> 
+                  <table width="100%" border="0" cellspacing="2" cellpadding="3" class="topMenu">
+                    <tr> 
+                      <td align="center"><b><font color="#FFFFFF">News</font></b></td>
+                    </tr>
+                    <tr> 
+                      <td bgcolor="#EEEEEE"> 
+                        <p>I have written prototypes for the runtime, the virtual 
+                          machine, multi-methods and the parser. I am still learning 
+                          other languages, and will probably not work on the language 
+                          as a whole until I feel comfortable with the direction 
+                          of the language.</p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td width="69%" valign="top">&nbsp;</td>
+                <td valign="top">&nbsp;</td>
+                <td width="30%" valign="top">&nbsp;</td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+          </td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td valign="bottom"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="20">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td class="topMenu" align="right" height="20"><font color="#FFFFFF"> 
+            <!--#include virtual="/cgi-bin/counter.pl"-->
+            · Last modified: 
+            <!--#config timefmt="%B %d, %Y"-->
+            <!--#flastmod file="index.shtml"-->
+            </font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

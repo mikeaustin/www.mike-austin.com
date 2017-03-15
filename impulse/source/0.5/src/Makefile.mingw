@@ -1,0 +1,5 @@
+include Makefile
+
+CC	= ~/.wine/drive_c/MinGW/bin/g++.exe
+LIBS	= -lws2_32
+

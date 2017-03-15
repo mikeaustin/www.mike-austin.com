@@ -1,0 +1,198 @@
+<html>
+<head>
+<title>Mike Austin : Images : Fractals</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="/home/normal.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="/home/images/backgr-grid.gif">
+<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+  <tr>
+    <td valign="top"> 
+      <!--#include virtual="/home/top-menu.shtml"-->
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="titleBar">
+        <tr> 
+          <td valign="top" width="40%"> 
+            <!--#include virtual="/home/sub-menu.shtml" -->
+          </td>
+          <td valign="middle" align="center" rowspan="2"><font color="#FFFFFF" class="sectionHeader">Images 
+            : Fractals</font></td>
+          <td valign="middle" align="right" rowspan="2" width="40%"> <font color="#FFFFFF" size="1"> 
+            </font> 
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td align="right" valign="middle"><font color="#FFFFFF" size="1"> 
+                  Half the work that is done in this world is to make things<br>
+                  appear what they are not. &#150; e. r. beadle</font></td>
+                <td width="7">&nbsp;</td>
+              </tr>
+            </table>
+            </td>
+        </tr>
+        <tr> 
+          <td valign="top" height="3"><img src="/home/images/spacer.gif"></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="7" height="7"></td>
+          <td></td>
+          <td width="7"></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td> 
+            <table border="0" width="100%" cellspacing="0" cellpadding="2">
+              <tr> 
+                <td width="100%">These are fractal images I've collected from 
+                  different sites. I have given them names of my own.</td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><br>
+                  <b>Alien Mesh</b></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><img src="fractals/alien.jpg" width="760" height="560"
+    alt="alien.jpg (102411 bytes)"></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><br>
+                  <b>Photon Blur</b></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center">
+				<img src="fractals/blur.jpg" width="760" height="560"
+                 alt="blur.jpg (44402 bytes)"></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><br>
+                  <b>Evil Undead</b></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center">
+				  <img src="fractals/evil.jpg" width="760" height="760"
+                   alt="evil.jpg (115862 bytes)"></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><br>
+                  <b>Autonomous</b></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><img src="fractals/evil2.jpg" width="512" height="512"
+    alt="evil2.jpg (142018 bytes)"></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><br>
+                  <b>Desert Flower</b></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><img src="fractals/flower.jpg" width="512"
+    height="512" alt="flower.jpg (47569 bytes)"></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><br>
+                  <b>South of Heaven</b></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><img src="fractals/hell.jpg" width="760" height="560"
+    alt="hell.jpg (162464 bytes)"></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><br>
+                  <b>Metal Silk</b></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><img src="fractals/metal.jpg" width="512" height="512"
+    alt="metal.jpg (72608 bytes)"></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><br>
+                  <b>Alien Mountains</b></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><img src="fractals/mountains.jpg" width="760"
+    height="560" alt="mountains.jpg (92204 bytes)"></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><br>
+                  <b>Mural of Sand</b></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><img src="fractals/mural.jpg" width="512" height="512"
+    alt="mural.jpg (94515 bytes)"></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><br>
+                  <b>Sun Spots</b></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><img src="fractals/sun.jpg" width="512" height="512"
+    alt="sun.jpg (124705 bytes)"></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><br>
+                  <b>Before Time</b></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><img src="fractals/trip.jpg" width="512" height="512"
+    alt="trip.jpg (119719 bytes)"></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><br>
+                  <b>Alien Shell</b></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><img src="fractals/twisted.jpg" width="760"
+    height="560" alt="twisted.jpg (26576 bytes)"></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><br>
+                  <b>Energy Wave</b></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><img src="fractals/wave.jpg" width="760" height="560"
+    alt="wave.jpg (68995 bytes)"></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><br>
+                  <b>Brain Matter</b></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><img src="fractals/wired.jpg" width="512" height="512"
+    alt="wired.jpg (53622 bytes)"></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><br>
+                  <b>Lakes of Flesh</b></td>
+              </tr>
+              <tr> 
+                <td width="100%" align="center"><img src="fractals/wormhole.jpg" width="760" height="560"
+    alt="wormhole.jpg (81928 bytes)"></td>
+              </tr>
+            </table>
+          </td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td valign="bottom"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="20">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td align="right" height="20" class="topMenu" valign="middle"><font color="#FFFFFF"> 
+            <!--#include virtual="/cgi-bin/counter.pl"-->
+            · Last modified: 
+            <!--#config timefmt="%B %d, %Y"-->
+            <!--#flastmod file="index.shtml"-->
+            </font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

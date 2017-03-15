@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="glossary.xsl" ?>
+<glossary>
+
+  <categs>
+    <categ name="novice"/>
+    <categ name="advanced"/>
+  </categs>
+
+  <node name="Alpha">
+    <categ name="novice"/>
+    Additional color component in some representations of pixels, along with red, green, and blue (RGB). The alpha channel denotes transparency or opacity, often as a fractional value, used in blending and antialiasing.
+  </node>
+
+  <node name="Alpha Blending">
+    <categ name="novice"/>
+    The real world is composed of transparent, translucent, and opaque objects. Alpha blending is a technique for adding transparency information for translucent objects. It is implemented by rendering polygons through a stipple mask whose on-off density is proportional to the transparency of the object. The resultant color of a pixel is a combination of the foreground and background color.
+  </node>
+
+  <node name="Bump Map">
+    <categ name="novice"/>
+    A bump map is a method of creating the appearance of texture or relief on a surface without modifying the underlying geometry of the model.
+  </node>
+
+  <node name="Vertex">
+    <categ name="novice"/>
+    A point in space, described by (X,Y,Z) or (X,Y,Z,W), where "W" is a fudge factor that keeps track of perspective effects in a string of computations.
+  </node>
+
+  <node name="Anti-Aliasing">
+    <categ name="novice"/>
+    An algorithm designed to reduce the stair-stepping artifacts (sometimes called jaggies) that result from drawing graphic primitives on a raster grid. The solution usually relies on the multi-bit raster’s ability to display a number of pixel intensities. If the intensities of the neighboring pixels lie between the background and line intensities, the line becomes slightly blurred, and the jagged appearance is thereby diffused. 
+  </node>
+
+  <node name="Back buffer">
+    <categ name="novice"/>
+    A hidden drawing buffer used in double-buffering. Graphics are drawn into the back buffer so that the rendering process cannot be seen by the user. When the drawing is complete, the front and back buffers are swapped. See double-buffering.
+  </node>
+
+  <node name="Culling">
+    <categ name="novice"/>
+    Removing, from the processing pipeline to spare unneeded work, complete objects and surfaces which are completely hidden by other objects, or are facing away from the viewer (i.e. Backface culling).
+  </node>
+
+  <node name="Double Buffering">
+    <categ name="novice"/>
+    The process of using two frame buffers for smooth animation. Graphical contents of one buffer are displayed while updates occur on the other buffer. When the updates are complete, the buffers are switched. Only complete images are displayed, and the process of drawing is not shown. The result is the appearance of smooth animation. Double buffering may be implemented by hardware which simply changes the pointer that the DAC (Digital-Analog-Converter) circuitry is using to access pixels, or by complete copies of the entire buffer via software. 
+  </node>
+
+  <node name="Gouraud shading">
+    <categ name="novice"/>
+    Also known as smooth shading. Applies a lighting calculation to each vertex of a polygon face, and linearly interpolates the results across the face to achieve a smooth lighting effect with gradual color transitions. 
+  </node>
+
+  <node name="Jaggies">
+    <categ name="novice"/>
+    Also known as Aliasing. A term for the jagged visual appearance of lines and shapes in raster pictures that results from producing graphics on a grid format. This effect can be reduced by increasing the sample rate in scan conversion.
+  </node>
+
+  <node name="Mip Mapping">
+    <categ name="novice"/>
+    A texture-mapping scheme, which uses multiple resolutions of each texture, pre-filtered, at typically 100%, 50%, 25%, and 12% resolution. The rasterizer either chooses the resolution (the map-level) that most closely matches the instantaneous resolution of the image being textured, or it interpolates between the two nearest mipmap levels. The resolutions are, for example, 128x128, 64x64, 32x32, and 16x16. Each is one-half the dimension of its larger neighbor. They are pre-filtered for best appearance at their particular magnification. 
+  </node>
+
+  <node name="Polygon">
+    <categ name="novice"/>
+    Three-sided (triangle) or 4-sided (Quadrilateral) or occasionally more-sided "simple" geometric objects. Complex objects like teapots are decomposed, or "tessellated", into many (like 700) polygons to allow regular processing of the data, and hardware acceleration of that processing.
+  </node>
+
+  <node name="Tessellate">
+    <categ name="novice"/>
+    To divide an object or surface into geometric primitives (triangles, quadrilaterals, or other polygons) for simplified processing and rendering.
+  </node>
+
+  <node name="Texel">
+    <categ name="novice"/>
+    A colored element in a texture map; texture element.
+  </node>
+
+  <node name="Texture">
+    <categ name="novice"/>
+    A (2 dimensional) bitmap pasted onto objects or polygons, to add realism 
+  </node>
+
+  <node name="Vertex Shader">
+    <categ name="novice"/>
+  </node>
+  
+  <node name="Texture">
+    <categ name="novice"/>
+    A (2 dimensional) bitmap pasted onto objects or polygons, to add realism 
+  </node>
+
+  <node name="Z-Buffer">
+    <categ name="novice"/>
+    A common method of eliminating hidden surface removal (which the viewer should not see) in the rasterization process.
+    An integer value is stored in RAM, the "z-buffer" for each point on the screen. Before each pixel is drawn,
+    the existing z-buffer value is compared to the z (depth) of the object at that point; if the existing value is less,
+    it is nearer, so the new pixel is discarded. However, if the new Z value is less, then it is written to replace the old value,
+    and the corresponding pixel is updated.
+  </node>
+
+  <refs>
+    <node><![CDATA[cedar.intel.com/cgi-bin/ids.dll/content/content.jsp?cntKey=Legacy::irtm_3DGLOSS_10536&cntType=IDS_EDITORIAL]]></node>
+    <node><![CDATA[www.directron.com/videoglossary.html]]></node>
+    <node><![CDATA[developer.apple.com/techpubs/quicktime/qtdevdocs/QD3D/qd3dglossary.htm]]></node>
+  </refs>
+
+</glossary>

@@ -1,0 +1,367 @@
+<html><head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="styles/animations.css">
+	<style>
+		@font-face {
+			font-family: 'Gang of Three';
+			src: url('fonts/gangofthree.ttf');
+		}
+		
+		* {
+			margin: 0; padding; 0;
+			font: 20px/1.5 'Gang of Three';
+		}
+
+		body {
+			background: black;
+			color: rgb(105, 44, 8);
+		}
+		
+		#templates {
+			display: none;
+		}
+		
+		#container {
+			position: fixed;
+			width: 1200px; height: 700px;
+			background: red;
+			left: 50%; top: 50%;
+			margin-left: -600px; margin-top: -350px;
+			background: url(images/background.jpg);
+		}
+		
+		.person {
+			margin: 20px !important;
+			outline: 2px solid black;
+			overflow: hidden;
+			height: 260px;
+		}
+		
+		.card {
+			position: relative;
+			width: 260px; height: 160px;
+			margin: 10px; margin-left: 30px !important; margin-right: 0px !important;
+			background: url(images/sushi_box.png);
+		}
+		
+		.card #name {
+			position: absolute;
+			left: 10px; right: 10px; bottom: 10px; height: 55px;
+			text-align: center;
+			color: rgb(105, 44, 8);
+			font-size: 16px;
+			text-shadow: rgba(255, 255, 255, 0.2) 3px 2px 3px;
+		}
+
+		#serving-line {
+			width: 960px;
+			margin: auto;
+			padding: 5px;
+			position: absolute;
+			margin-left: -480px;
+			left: 50%; top: 150px;
+		}
+		
+		#serving-area {
+			width: 1300px;
+			margin: auto;
+			padding: 5px;
+			position: absolute;
+			bottom: 25px;
+			margin-left: -600px;
+			left: 50%;
+		}
+
+		.list {
+			text-align: justify;
+		}		
+
+		.item {
+			display: inline-block;
+			margin: 10px;
+		}
+
+		#stop-music {
+			position: absolute;
+			left: 10px; top: 7px;
+			color: #c0c0c0;
+			text-decoration: none;
+		}
+		
+		#stop-music:hover {
+			text-decoration: underline;
+		}
+		
+		#header {
+			background: url(images/header.png);
+			width: 400px; height: 120px;
+			position: absolute;
+			margin-left: -200px;
+			left: 50%; top: -23px;
+		}
+		
+		#servings {
+			background: url(images/servings.png);
+			width: 130px; height: 100px;
+			position: absolute; top: 2px;
+		}
+		
+		#servings #text {
+			text-align: center;
+			font-size: 17px;
+			line-height: 20px;
+			margin-top: 10px;
+		}
+
+		#servings #served {
+			text-align: center;
+			font-size: 32px;
+			line-height: 20px;
+			margin-top: 15px;
+		}
+	</style>
+	<script src="scripts/zepto.js"></script>
+	<script>
+		var music = new Audio("sounds/arcade-music-loop.wav");
+		music.loop = true;
+		music.volume = 0.5;
+
+		var eatingSound = new Audio("sounds/eating-sound.wav");
+		var wrongSound = new Audio("sounds/head-shake.wav");
+
+		music.play();
+
+		var stormiesServed = 0;
+
+		function updateScore()
+		{
+			$("#served").text(stormiesServed);
+			
+			var fedCustomers = $("#serving-line .person[data-fed=true]");
+			var fedBoxes = $("#temp .card");
+			
+			if (fedCustomers.length == 3)
+			{
+				var great = $("#great");
+				great.css("display", "");
+				great.addClass("bounceInLeft");
+				
+				setTimeout(function()
+				{
+					great.removeClass("bounceInLeft");
+					great.addClass("bounceOutRight");
+				
+					fedCustomers.addClass("bounceOutRight");
+					fedBoxes.addClass("bounceOutRight");
+					
+					setTimeout(function()
+					{
+						great.removeClass("bounceOutRight");
+						great.css("display", "none");
+						
+						startRound();
+					}, 1000);
+				}, 2000);
+			}
+		}
+
+		function startRound()
+		{
+			$("#serving-line").empty();
+			$("#serving-area").empty();
+			$("#temp").empty();
+					
+			var offset = parseInt(Math.random() * (window.data.length - 3));
+			
+			for (var i = offset; i < offset + 3; i++)
+			{
+				var person = $("#templates #person").clone();
+				
+				person.find("#photo").attr("src", "http://shared.storm8.com/HR/badge_thumbs/" + data[i]["username"] + ".jpg");
+				person.attr("data-id", data[i]["username"]);
+				person.addClass("bounceInLeft");
+
+				(function(person) {
+					setTimeout(function()
+					{
+						person.removeClass("bounceInLeft");
+					}, 1000);
+				})(person);
+
+				person.on("dragover", function(event)
+				{
+				    event.preventDefault();
+				});
+
+				person.on("dragenter", function(event)
+				{
+					this.style.transform = "scale(1.125, 1.125)";
+
+				    event.preventDefault();
+				});
+
+				person.on("dragleave", function(event)
+				{
+					this.style.transform = "";
+
+				    event.preventDefault();
+				});
+
+				person.on("drop", function(event)
+				{
+					this.style.transform = "";
+					
+					if (event.dataTransfer.getData("id") == $(this).attr("data-id"))
+					{
+					    event.preventDefault();
+
+						eatingSound.play();
+
+						$(this).addClass("bounce");
+						var self = $(this);
+						setTimeout(function() {
+							self.removeClass("bounce");
+						}, 1000);
+
+						$(this).attr("data-fed", "true");
+						
+						window.stormiesServed += 1;
+												
+						var bento = $("#serving-area [data-id='" + $(this).attr("data-id") + "']");
+						var clone = bento.clone();
+						bento.css("visibility", "hidden");
+						
+						clone.removeClass("bounceInLeft");
+						$("#temp").append(clone);
+						clone.css("position", "fixed");
+						clone.css("left", $(this).offset().left - 63);
+						clone.css("top", $(this).offset().top + 160);
+						clone.css("transform", "scale(0.75, 0.75)");
+
+						updateScore();
+					}
+					else
+					{
+						wrongSound.play();
+						
+						$(this).addClass("shake");
+						var self = $(this);
+						setTimeout(function() {
+						console.log(self);
+							self.removeClass("shake");
+						}, 1000);
+					}
+				});
+			
+				$("#serving-line").append(person);
+			}
+
+//			var array = window.data.slice(offset, offset + 3).sort(function()
+//			{
+//				return 0.5 * Math.random();
+//			});
+
+			var array = shuffle(window.data.slice(offset, offset + 3));
+			
+			console.log(array);
+			
+			for (var i = 0; i < 3; i++)
+			{
+				var card = $("#templates #card").clone();
+				
+				card.find("#name").text(array[i]["name"]);
+				card.find("#dept").text(array[i]["department"]);
+				card.attr("data-id", array[i]["username"]);
+
+				card.addClass("bounceInLeft");
+
+				(function(card) {
+					setTimeout(function()
+					{
+						card.removeClass("bounceInLeft");
+					}, 1000);
+				})(person);
+
+				card.attr("draggable", true);
+				card.on("dragstart", function(event)
+				{
+					//this.style.opacity = 0.0;
+					event.dataTransfer.effectAllowed = 'move';
+				    event.dataTransfer.setData("id", $(this).attr("data-id"));
+				});
+			
+				$("#serving-area").append(card);
+			}
+		}
+
+		function shuffle(array) {
+		  var currentIndex = array.length, temporaryValue, randomIndex ;
+		
+		  // While there remain elements to shuffle...
+		  while (0 !== currentIndex) {
+		
+		    // Pick a remaining element...
+		    randomIndex = Math.floor(Math.random() * currentIndex);
+		    currentIndex -= 1;
+		
+		    // And swap it with the current element.
+		    temporaryValue = array[currentIndex];
+		    array[currentIndex] = array[randomIndex];
+		    array[randomIndex] = temporaryValue;
+		  }
+		
+		  return array;
+		}
+
+		window.xonload = function()
+		{
+			$.getJSON("http://peeps.storm8.com/json.php?callback=get", function(data, status)
+			{
+				window.data = data;
+				
+				startRound();
+			});
+		}
+	</script>
+</head>
+<body>
+	<sound id="audio" src="">
+	<a id="stop-music" href="#" onclick="if (music.paused) music.play(); else music.pause();">Toggle Music</a>
+	<div id="templates">
+		<div id="person" class="person item">
+			<img id="photo" width="200">
+		</div>
+		<div id="card" class="card item">
+			<div id="name"></div>
+		</div>
+	</div>
+	<div id="container">
+		<div id="temp" style="position: fixed; z-index: 10000;"></div>
+		<div id="great" style="position: absolute; bottom: 30px; width: 1200px; text-align: center; font-size: 100px; z-index: 1000; line-height: 1.25em; text-shadow: 10px 10px black; color: white; xbackground: rgba(0, 0, 0, 0.5); display: none;">Great Job!</div>
+		<div id="header"></div>
+		<div id="servings">
+			<div id="text">STORMIES SERVED:</div>
+			<div id="served">9999</div>
+		</div>
+		<div id="serving-line" class="list"><div id="person" class="person item" data-id="soe">
+			<img id="photo" width="200" src="images/bronwen.jpg">
+		</div><div id="person" class="person item" data-id="sophia">
+			<img id="photo" width="200" src="http://shared.storm8.com/HR/badge_thumbs/mike.jpg">
+		</div><div id="person" class="person item" data-id="stanley">
+			<img id="photo" width="200" src="http://shared.storm8.com/HR/badge_thumbs/elizabeth.jpg">
+		</div><div id="person" class="person item" data-id="stanley">
+			<img id="photo" width="200" src="http://shared.storm8.com/HR/badge_thumbs/manyu.jpg">
+		</div></div>
+		<div id="serving-area" class="list"><div id="card" class="card item bounceInLeft" data-id="sophia" draggable="true">
+			<div id="name">Bronwen<br/>Marshall-Bass</div>
+		</div><div id="card" class="card item bounceInLeft" data-id="stanley" draggable="true">
+			<div id="name" style="line-height: 45px;">Mike Austin</div>
+		</div><div id="card" class="card item bounceInLeft" data-id="soe" draggable="true">
+			<div id="name" style="line-height: 45px;">Elizabeth Bledsoe</div>
+		</div><div id="card" class="card item bounceInLeft" data-id="soe" draggable="true">
+			<div id="name" style="line-height: 45px;">Manyu Lui</div>
+		</div></div>
+	</div>
+
+
+</sound></body></html>

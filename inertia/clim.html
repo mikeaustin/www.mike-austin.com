@@ -1,0 +1,346 @@
+<html>
+<head>
+	<style type="text/css">
+		*					{ cursor: default; }
+		body				{ margin: 0; padding: 0; font: 12px/1.3em helvetica; }
+		.desktop			{ position: absolute; width: 900px; height: 600px;
+							  left: 50%; margin-left: -450px; top: 50%; margin-top: -300px;
+							  border: 1px solid #303326;
+							  background: url(images/desktop.jpg) no-repeat; }
+		.window				{ position: absolute; left: 10px; top: 10px;
+							  border: 1px solid rgba(0, 0, 0, 0.35);
+							  -webkit-border-top-left-radius: 5px; -webkit-border-top-right-radius: 5px;
+							  -moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px; }
+		#desktop.with-shadow
+		 .window			{ -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+							  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.35); }
+		.window h1			{ margin: 0; height: 20px; line-height: 21px; padding: 0 7px;
+							  font-size: 12px; color: #202020; text-shadow: 1px 1px 1px #e0e0e0;
+							  -webkit-border-top-left-radius: 3px; -webkit-border-top-right-radius: 3px;
+							  -moz-border-radius-topleft: 3px; -moz-border-radius-topright: 3px;
+							  border-top: 1px solid #f0f0f0; border-bottom: 1px solid #a0a0a0;
+							  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #e0e0e0), color-stop(1.0, #c0c0c0));
+							  background-image: -moz-linear-gradient(top, #e0e0e0, #c0c0c0); }
+		.window .client		{ background: #ffffff; overflow: hidden; }
+
+		ul.list.icons		{ margin: 0; padding: 0; list-style: none; padding-top: 20px; }
+		ul.icons li			{ float: left; width: 100px; height: 30px; margin-bottom: 20px; padding-top: 45px;
+							  text-align: center; overflow: hidden; }
+		ul.icons li.folder	{ background: url(images/folder.png) center 10px no-repeat; }
+		ul.icons li.file	{ background: url(images/file.png) center 10px no-repeat; }
+		ul.header,
+		ul.icons li .column	{ display: none; }
+		ul.icons li:hover	{ background: url(images/folder.png) center 10px no-repeat,
+							  url(images/selected.png) center 0 no-repeat; }
+
+		ul.list.detail		{ margin: 0; padding: 0; list-style: none; padding: 3px 0;
+							  -webkit-border-bottom-left-radius: 4px; -webkit-border-bottom-right-radius: 4px; }
+		ul.detail li		{ height: 1em; padding: 3px 7px; overflow: hidden; }
+		ul.detail li.folder	{ xbackground: url(images/folder.png) top center no-repeat; }
+		ul.detail li.file	{ xbackground: url(images/file.png) top center no-repeat; }
+		ul.detail li:hover	{ background: #80c0ff; }
+		ul.detail .column	{ float: right; margin-left: 5px; }
+		ul.detail.header	{ display: block; font-weight: bold; }
+	</style>
+	<script type="text/javascript">
+		function MouseEvent( type, x, y )
+		{
+			this.type = type;
+			this.x    = x;
+			this.y    = y;
+		}
+
+		MouseEvent.prototype.dispatch = function( view )
+		{
+			var subviews = view.subviews;
+
+			for (var i = subviews.length - 1, subview = subviews[i]; i >= 0; subview = subviews[--i]) {
+				if (i < 0) break;
+				
+				var x = this.x - subview.element.offsetLeft;
+				var y = this.y - subview.element.offsetTop;
+
+				if (subview.containsPoint( x, y )) {
+					var event = new MouseEvent( this.type, x, y );
+
+					return subview.sendEvent( event );
+				}
+			}
+
+			view.handleEvent( this );
+			
+			return view;
+		}
+
+		// --------------------------------------------------------------------------------
+
+		function View() { }
+
+		View.init = function( element )
+		{
+			var self = new this().init( element );
+		}
+
+		View.prototype.init = function( element )
+		{
+			console.log( "View.init()" );
+			
+			this.element  = element;
+			this.subviews = [];
+			
+			return this;
+		}
+
+		View.NORMAL  = 0;
+		View.PRESSED = 1;
+
+		View.prototype.addSubview = function( subview )
+		{
+			subview.parent = this;
+			
+			this.subviews.push( subview );
+		}
+		
+		View.prototype.containsPoint = function( x, y )
+		{
+			return x > 0 && x < this.element.offsetWidth
+				&& y > 0 && y < this.element.offsetHeight;
+		}
+		
+		View.prototype.screenX = function()
+		{
+			return this.parent.screenX() + this.element.offsetLeft;
+		}
+
+		View.prototype.screenY = function()
+		{
+			return this.parent.screenY() + this.element.offsetTop;
+		}
+		
+		View.prototype.sendEvent = function( event )
+		{
+			return event.dispatch( this );
+		}
+		
+		View.prototype.handleEvent = function( event )
+		{
+			this[event.type]( event.x, event.y );
+		}
+
+		View.prototype.onMouseDown = function( x, y )
+		{
+			console.log( "onMouseDown: " + x + ", " + y );
+		}
+
+		View.prototype.onMouseMove = function( x, y )
+		{
+			//console.log( "onMouseMove: " + x + ", " + y );
+		}
+
+		View.prototype.onMouseUp = function( x, y )
+		{
+			//console.log( "onMouseMove: " + x + ", " + y );
+		}
+
+		// --------------------------------------------------------------------------------
+
+		function Desktop() { }
+		
+		Desktop.prototype = new View();
+
+		Desktop.prototype.init = function( element )
+		{
+			this.constructor.prototype.init.call( this, element );
+			
+			this._grabbed = null;
+			
+			return this;
+		}
+
+		Desktop.prototype.screenX = function()
+		{
+			return 0;
+		}
+
+		Desktop.prototype.screenY = function()
+		{
+			return 0;
+		}
+		
+		Desktop.prototype.sendEvent = function( event )
+		{
+			if (this._grabbed)
+			{
+				var view = this._grabbed;
+
+				var grabbedEvent = new MouseEvent( event.type, event.x - view.screenX(), event.y - view.screenY() );
+				
+				view.handleEvent( grabbedEvent );
+				
+				if (event.type == "onMouseUp")
+					this._grabbed = null;
+				
+				return view;
+			}
+			else if (event.type == "onMouseDown")
+			{
+				var view = this.constructor.prototype.sendEvent.call( this, event );
+				
+				this._grabbed = view;
+				
+				return view;
+			}
+			else
+			{
+				var view = this.constructor.prototype.sendEvent.call( this, event );
+				
+				return view;
+			}
+		}
+
+		// --------------------------------------------------------------------------------
+
+		function Titlebar() { }
+		
+		Titlebar.prototype = new View();
+
+		Titlebar.prototype.onMouseDown = function( x, y )
+		{
+			this.state = View.PRESSED;
+			
+			this.firstX = x;
+			this.firstY = y;
+			
+			this.lastX = x;
+			this.lastY = y;
+		}
+
+		Titlebar.prototype.onMouseMove = function( x, y )
+		{
+			if (this.state != View.PRESSED) return;
+			
+			//console.log( "onMouseMove: " + x + ", " + y );
+			var deltaX = x - this.lastX;
+			var deltaY = y - this.lastY;
+			
+			this.element.parentNode.style.left = this.element.parentNode.offsetLeft + deltaX + "px";
+			this.element.parentNode.style.top  = this.element.parentNode.offsetTop  + deltaY + "px";
+			
+			this.lastX = x - deltaX;
+			this.lastY = y - deltaY;
+		}
+
+		Titlebar.prototype.onMouseUp = function( x, y )
+		{
+			this.state = View.NORMAL;
+		}
+
+		// --------------------------------------------------------------------------------
+
+		function Window() { }
+		
+		Window.prototype = new View();
+		
+		Window.prototype.init = function( element )
+		{
+			this.constructor.prototype.init.call( this, element );
+			
+			var header = this.element.querySelector( ".titlebar" );
+			this.addSubview( new Titlebar().init( header ) );
+			
+			return this;
+		}
+
+		Window.prototype.sendEvent = function( event )
+		{
+			if (event.type == "onMouseDown")
+			{
+				this.element.style.zIndex = this.parent.element.childNodes.length;
+			}
+			
+			return this.constructor.prototype.sendEvent.call( this, event );
+		}
+
+		var desktop = null;
+		
+		function sendScreenEvent( event, type )
+		{
+			event.preventDefault();
+			event.stopPropagation();
+
+			desktop.sendEvent( new MouseEvent( type, event.clientX - desktop.element.offsetLeft,
+											   event.clientY - desktop.element.offsetTop ) );
+		}
+		
+		window.addEventListener( "load", function( event ) {
+			desktop = new Desktop().init( document.querySelector("#desktop") );
+			var windows = desktop.element.querySelectorAll(".window");
+
+			for (var i = 0; i < windows.length; i++)
+			{
+				desktop.addSubview( new Window().init( windows[i] ) );
+			}
+
+			window.addEventListener( "mousedown", function( event ) {
+				sendScreenEvent( event, "onMouseDown" );
+			}, false );
+	
+			window.addEventListener( "mousemove", function( event ) {
+				sendScreenEvent( event, "onMouseMove" );
+			}, false );
+
+			window.addEventListener( "mouseup", function( event ) {
+				sendScreenEvent( event, "onMouseUp" );
+			}, false );
+		}, false);
+	</script>
+</head>
+<body>
+	<div id="desktop" class="desktop with-shadow">
+		<div proto="window" class="window" style="left: 10px; top: 10px; width: 300px;">
+			<h1 class="titlebar">Documents</h1>
+			<div class="client">
+				<ul id="file-list" class="icons list">
+					<li class="selected folder"><div class="column">35KB</div>Folder</li>
+					<li class="file"><div class="column">35KB</div>File with a really really really long long long long name</li>
+					<li class="folder"><div class="column">35KB</div>Folder</li>
+					<li class="file"><div class="column">35KB</div>File with a really long name</li>
+					<li class="folder"><div class="column">35KB</div>Folder</li>
+					<li class="file"><div class="column">35KB</div>File with a really long name</li>
+				</ul>
+			</div>
+		</div>
+
+		<br/>
+
+		<div class="window" style="left: 100px; top: 140px;">
+			<h1 class="titlebar">Documents</h1>
+			<div class="client">
+				<ul class="detail list header" style="background: #f0f0f0; border-bottom: 1px solid #c0c0c0; -webkit-border-radius: 0;">
+					<li style="padding: 0 7px;"><div class="column">Size</div>Name</li>
+				</ul>
+				<ul id="file-list" class="detail list">
+					<li class="folder"><div class="column">146KB</div><div class="column">10/30/2010</div>Folder</li>
+					<li class="file"><div class="column">35KB</div><div class="column">10/30/2010</div>
+						File with a really really long long name</li>
+					<li class="folder"><div class="column">35KB</div>Folder</li>
+					<li class="file"><div class="column">35KB</div>File with a really long name</li>
+					<li class="folder"><div class="column">35KB</div>Folder</li>
+					<li class="file"><div class="column">35KB</div>File with a really long name</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="window" style="left: 500px; width: auto; height: auto;">
+			<h1 class="titlebar">Documents</h1>
+			<div class="client">
+				<video controls="controls" loop="loop">
+					<source xsrc="videos/sample_mpeg4.mp4"/>
+					<source src="videos/sample_theora.ogv"/>
+					No video for you!
+				</video>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Cache-Control" content="No-Cache"><title>hi5 | Your Friends. Your World.</title>
+	
+		
+	
+	
+	<link href="http://images.hi5.com/images/favicon.ico" type="image/x-icon" rel="shortcut icon">
+	<link rel="apple-touch-icon" href="http://hi5networks.com/media/hi5logo_96dpi_160x120.jpg">
+	<style>
+	body				{ font-family: Arial, Helvetica, sans-serif; font-size: small; color: #666666; }
+	body				{ margin: 0; padding: 0px; }
+	form				{ margin: 0; padding: 0; }
+    input				{ padding-left: 0; padding-right: 0; color: #000000; }
+    textarea			{ padding-left: 0; padding-right: 0; color: #000000; }
+	p					{ margin: 0; padding: 0; margin-top: 3px; }
+	a					{ text-decoration: none; color: #085098; font-weight: normal; }
+	h3					{ margin: 0; padding: 3px 5px; font-weight: normal; font-size: small; border-top: 3px solid #7ea2c8;
+						  background: url(/mobile/login/displayLogin_files/module_header.gif) left bottom repeat-x; background-color: #f6f6f6; color: #000000; }
+	strong				{ font-weight: normal; color: #000000; }
+	hr					{ display: none; }
+
+	.selected			{ color: #000000; }
+	.module				{ overflow: hidden; }
+	.content			{ border-bottom: 1px solid #eeeeee; padding: 5px; overflow: hidden; }
+	.friendrow			{ border-bottom: 1px solid #eeeeee; padding: 5px; overflow: hidden;
+						  background: url(http://images.hi5.com/images/mobile/right_arrow_gray.gif) right 18px no-repeat; }
+	.item				{ margin-top: 5px; }
+	.button				{ float: right; margin-left: 10px; }
+	.photo				{ float: left; margin-right: 5px; }
+	.navigate			{ background: #e0e0e0; padding: 2px; }
+	.unfinished			{ border: 1px solid red; }
+
+	#content			{ xwidth: 230px; xwidth: 320px; xoverflow-y: scroll; }
+	#header				{ xpadding: 6px 5px 5px 5px; color: #d6d6d6; }
+	#banner				{ border-bottom: 1px solid #eeeeee; }
+	#footer				{ padding: 6px 5px 5px 5px; color: #d6d6d6; text-align: center; }
+</style></head><body>
+	<div id="content">
+		
+		
+
+		<div id="header" class="content" style="padding-bottom: 3px;">
+			<img src="displayLogin_files/logo_micro.gif" alt="hi5" border="0">&nbsp;
+			<strong>Your Friends.  Your world.</strong>
+		</div>
+
+		<div id="login" class="module">
+			<hr><h3>Login or <a href="#register">Register</a></h3>
+	
+			<div class="content">
+				
+	
+				<form name="loginForm" method="post" action="/friend/mobile/login/processLogin.do">
+					<div>
+						Email or Phone #:<br>
+						<input name="email" value="tester2@hi5.com" size="20" maxlength="255" tabindex="1" style="width: 100%;" type="text">
+						<input name="phone" value="6505551212" size="20" maxlength="255" tabindex="1" format="*N" style="width: 100%;" type="text">
+					</div>
+					<div class="item">
+						Password:<br>
+						<input name="password" maxlength="255" tabindex="2" value="tester2" style="width: 100%;" type="password">
+					</div>
+					<div class="item" align="center">
+						<input tabindex="3" value="Login" type="submit"> &nbsp; <input name="remember" checked="checked" type="checkbox"> Remember Me
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div id="register" class="module">
+			<hr><h3 style="border-top: 3px solid #fcaf32;">Register</h3>
+
+			<div id="register" class="content">
+				<div>
+					Your email:<br> <input size="20" style="width: 100%;">
+				</div>
+				<div class="item">
+					Your phone number: <a href="#">Why?</a><br> <input style="width: 100%;"><br>
+					Example: 5432354950
+				</div>
+				<div class="item">
+					Country:<br>
+					<select name="defaultCountry"><option value="1005">Afghanistan</option><option value="1003">Albania</option><option value="1006">Algeria</option><option value="8002">American Samoa</option><option value="8003">Andorra</option><option value="8004">Angola</option><option value="8005">Anguilla</option><option value="8006">Antigua and Barbuda</option><option value="1004">Argentina</option><option value="8007">Armenia</option><option value="9000">Aruba</option><option value="8008">Ascension Island</option><option value="1007">Australia</option><option value="1008">Austria</option><option value="8009">Azerbaijan</option><option value="2000">Bahamas</option><option value="8010">Bahrain</option><option value="8011">Bangladesh</option><option value="8012">Barbados</option><option value="8013">Belarus</option><option value="1009">Belgium</option><option value="8014">Belize</option><option value="8015">Benin</option><option value="8016">Bermuda</option><option value="8017">Bhutan</option><option value="8018">Bolivia</option><option value="8019">Bosnia and Herzegovina</option><option value="8020">Botswana</option><option value="1010">Brazil</option><option value="8021">Brit Indian Ocean Terr</option><option value="8022">Brunei Darussalam</option><option value="1011">Bulgaria</option><option value="8023">Burkina Faso</option><option value="8024">Burundi</option><option value="8026">Cambodia</option><option value="8027">Cameroon</option><option value="1001">Canada</option><option value="8028">Cape Verde</option><option value="8029">Cayman Islands</option><option value="8030">Central African Republic</option><option value="8031">Chad</option><option value="1012">Chile</option><option value="1013">China</option><option value="1014">Colombia</option><option value="8032">Comoros</option><option value="8033">Congo</option><option value="8034">Cook Islands</option><option value="1015">Costa Rica</option><option value="8035">Cote d' Ivoire</option><option value="1016">Croatia</option><option value="8036">Cuba</option><option value="8037">Cyprus</option><option value="1017">Czech Republic</option><option value="8165">Democratic republic of Congo</option><option value="1019">Denmark</option><option value="8038">Djibouti</option><option value="8039">Dominica</option><option value="8040">Dominican Republic</option><option value="1021">Ecuador</option><option value="1020">Egypt</option><option value="1023">El Salvador</option><option value="8041">Equatorial Guinea</option><option value="8042">Eritrea</option><option value="8043">Estonia</option><option value="8044">Ethiopia</option><option value="8045">Falkland Islands</option><option value="8046">Faroe Islands</option><option value="8047">Fed States Micronesia</option><option value="8048">Fiji</option><option value="1024">Finland</option><option value="1064">Fmr Yugoslavia</option><option value="1025">France</option><option value="8049">French Guiana</option><option value="8050">French Polynesia</option><option value="8051">Gabon</option><option value="8052">Georgia</option><option value="1018">Germany</option><option value="8053">Ghana</option><option value="8054">Gibralter</option><option value="1026">Greece</option><option value="8055">Greenland</option><option value="8056">Grenada</option><option value="8057">Guadeloupe</option><option value="8058">Guam</option><option value="8059">Guatemala</option><option value="8060">Guinea</option><option value="8061">Guinea Bissau</option><option value="8062">Guyana</option><option value="8063">Haiti</option><option value="8064">Honduras</option><option value="1027">Hong Kong</option><option value="1028">Hungary</option><option value="8065">Iceland</option><option value="1031">India</option><option value="1029">Indonesia</option><option value="8066">Iran</option><option value="8067">Iraq</option><option value="1030">Ireland</option><option value="8068">Isle of Man</option><option value="1032">Israel</option><option value="1034">Italy</option><option value="8069">Jamaica</option><option value="1035">Japan</option><option value="1036">Jordan</option><option value="8070">Kazakhstan</option><option value="8071">Kenya</option><option value="8072">Kiribati</option><option value="8168">Kosovo</option><option value="8074">Kuwait</option><option value="8075">Kyrgyzstan</option><option value="8076">Laos</option><option value="8077">Latvia</option><option value="1037">Lebanon</option><option value="8078">Lesotho</option><option value="8079">Liberia</option><option value="8080">Libya</option><option value="8081">Liechtenstein</option><option value="8082">Lithuania</option><option value="8083">Luxembourg</option><option value="8084">Macau</option><option value="8085">Macedonia</option><option value="8086">Madagascar</option><option value="8087">Malawi</option><option value="1038">Malaysia</option><option value="8088">Maldives</option><option value="8089">Mali</option><option value="8090">Malta</option><option value="8091">Marshall Islands</option><option value="8092">Martinique</option><option value="9401">Mauritania</option><option value="8093">Mauritius</option><option value="8094">Mayotte</option><option value="1039">Mexico</option><option value="8095">Moldova</option><option value="8096">Monaco</option><option value="8097">Mongolia</option><option value="8098">Montenegro</option><option value="8099">Montserrat</option><option value="1040">Morocco</option><option value="8100">Mozambique</option><option value="8101">Myanmar</option><option value="8102">Namibia</option><option value="8103">Nauru</option><option value="8104">Nepal</option><option value="1041">Netherlands</option><option value="8105">Netherlands Antilles</option><option value="8106">New Caledonia</option><option value="1043">New Zealand</option><option value="8107">Nicaragua</option><option value="8108">Niger</option><option value="8109">Nigeria</option><option value="8110">Niue</option><option value="8111">Norfolk Island</option><option value="8112">Northern Mariana Islands</option><option value="8073">North Korea</option><option value="1042">Norway</option><option value="8113">Oman</option><option value="1044">Pakistan</option><option value="8114">Palau</option><option value="9402">Palestine</option><option value="8115">Panama</option><option value="8116">Papua New Guinea</option><option value="8117">Paraguay</option><option value="1048">Peru</option><option value="1045">Philippines</option><option value="8118">Pitcairn</option><option value="1046">Poland</option><option value="1047">Portugal</option><option value="1049">Puerto Rico</option><option value="8119">Qatar</option><option value="8120">Reunion</option><option value="1050">Romania</option><option value="1051">Russia</option><option value="8121">Rwanda</option><option value="8122">Saint Lucia</option><option value="8123">San Marino</option><option value="8125">Sao Tome and Principe</option><option value="1052">Saudi Arabia</option><option value="8126">Senegal</option><option value="8127">Serbia</option><option value="8128">Seychelles</option><option value="8129">Sierra Leone</option><option value="1053">Singapore</option><option value="8130">Slovakia</option><option value="8131">Slovenia</option><option value="8132">Solomon Islands</option><option value="8133">Somalia</option><option value="1054">South Africa</option><option value="8134">South Georgia</option><option value="1055">South Korea</option><option value="1056">Spain</option><option value="8135">Sri Lanka</option><option value="8136">St. Kitts and Nevis</option><option value="8138">St. Pierre and Miquelon</option><option value="8124">St. Vincent and Grenadines</option><option value="8139">Sudan</option><option value="8140">Suriname</option><option value="8141">Swaziland</option><option value="1057">Sweden</option><option value="1058">Switzerland</option><option value="8142">Syrian Arab Republic</option><option value="1059">Taiwan</option><option value="8143">Tajikistan</option><option value="8144">Tanzania</option><option value="1060">Thailand</option><option value="8145">The Gambia</option><option value="9400">Timor-Leste</option><option value="8146">Togo</option><option value="8147">Tokelau</option><option value="8148">Tonga</option><option value="8149">Trinidad and Tobago</option><option value="8150">Tunisia</option><option value="1061">Turkey</option><option value="8151">Turkmenistan</option><option value="8152">Turks/Caicos Islands</option><option value="8153">Tuvalu</option><option value="8154">Uganda</option><option value="1062">Ukraine</option><option value="1022">United Arab Emirates</option><option value="1002">United Kingdom</option><option value="1000">United States of America</option><option value="8156">Uruguay</option><option value="8157">Uzbekistan</option><option value="8158">Vanuatu</option><option value="1063">Venezuela</option><option value="8159">Vietnam</option><option value="8160">Virgin Islands (U.K)</option><option value="8161">Virgin Islands (U.S)</option><option value="8162">Wallis/Futuna Islands</option><option value="8163">Western Samoa</option><option value="8164">Yemen</option><option value="8166">Zambia</option><option value="8167">Zimbabwe</option></select>
+				</div>
+				<div class="item">
+					Create a Password:<br> <input style="width: 100%;" type="password">
+				</div>
+				<div class="item">
+					Date of Birth:<br>
+					<select>
+						<option>Month</option>
+					    <option value="0">Month</option>
+						<option value="1">January</option>
+						<option value="2">February</option>
+						<option value="3">March</option>
+						<option value="4">April</option>
+						<option value="5">May</option>
+						<option value="6">June</option>
+						<option value="7">July</option>
+						<option value="8">August</option>
+						<option value="9">September</option>
+						<option value="10">October</option>
+						<option value="11">November</option>
+						<option value="12">December</option>
+					</select>
+					<select>
+						<option>Day</option>
+						
+							<option value="1">1</option>
+						
+							<option value="2">2</option>
+						
+							<option value="3">3</option>
+						
+							<option value="4">4</option>
+						
+							<option value="5">5</option>
+						
+							<option value="6">6</option>
+						
+							<option value="7">7</option>
+						
+							<option value="8">8</option>
+						
+							<option value="9">9</option>
+						
+							<option value="10">10</option>
+						
+							<option value="11">11</option>
+						
+							<option value="12">12</option>
+						
+							<option value="13">13</option>
+						
+							<option value="14">14</option>
+						
+							<option value="15">15</option>
+						
+							<option value="16">16</option>
+						
+							<option value="17">17</option>
+						
+							<option value="18">18</option>
+						
+							<option value="19">19</option>
+						
+							<option value="20">20</option>
+						
+							<option value="21">21</option>
+						
+							<option value="22">22</option>
+						
+							<option value="23">23</option>
+						
+							<option value="24">24</option>
+						
+							<option value="25">25</option>
+						
+							<option value="26">26</option>
+						
+							<option value="27">27</option>
+						
+							<option value="28">28</option>
+						
+							<option value="29">29</option>
+						
+							<option value="30">30</option>
+						
+							<option value="31">31</option>
+						
+					</select>
+					<select>
+						<option>Year</option>
+						
+							<option value="2008">2008</option>
+						
+							<option value="2007">2007</option>
+						
+							<option value="2006">2006</option>
+						
+							<option value="2005">2005</option>
+						
+							<option value="2004">2004</option>
+						
+							<option value="2003">2003</option>
+						
+							<option value="2002">2002</option>
+						
+							<option value="2001">2001</option>
+						
+							<option value="2000">2000</option>
+						
+							<option value="1999">1999</option>
+						
+							<option value="1998">1998</option>
+						
+							<option value="1997">1997</option>
+						
+							<option value="1996">1996</option>
+						
+							<option value="1995">1995</option>
+						
+							<option value="1994">1994</option>
+						
+							<option value="1993">1993</option>
+						
+							<option value="1992">1992</option>
+						
+							<option value="1991">1991</option>
+						
+							<option value="1990">1990</option>
+						
+							<option value="1989">1989</option>
+						
+							<option value="1988">1988</option>
+						
+							<option value="1987">1987</option>
+						
+							<option value="1986">1986</option>
+						
+							<option value="1985">1985</option>
+						
+							<option value="1984">1984</option>
+						
+							<option value="1983">1983</option>
+						
+							<option value="1982">1982</option>
+						
+							<option value="1981">1981</option>
+						
+							<option value="1980">1980</option>
+						
+							<option value="1979">1979</option>
+						
+							<option value="1978">1978</option>
+						
+							<option value="1977">1977</option>
+						
+							<option value="1976">1976</option>
+						
+							<option value="1975">1975</option>
+						
+							<option value="1974">1974</option>
+						
+							<option value="1973">1973</option>
+						
+							<option value="1972">1972</option>
+						
+							<option value="1971">1971</option>
+						
+							<option value="1970">1970</option>
+						
+							<option value="1969">1969</option>
+						
+							<option value="1968">1968</option>
+						
+							<option value="1967">1967</option>
+						
+							<option value="1966">1966</option>
+						
+							<option value="1965">1965</option>
+						
+							<option value="1964">1964</option>
+						
+							<option value="1963">1963</option>
+						
+							<option value="1962">1962</option>
+						
+							<option value="1961">1961</option>
+						
+							<option value="1960">1960</option>
+						
+							<option value="1959">1959</option>
+						
+							<option value="1958">1958</option>
+						
+							<option value="1957">1957</option>
+						
+							<option value="1956">1956</option>
+						
+							<option value="1955">1955</option>
+						
+							<option value="1954">1954</option>
+						
+							<option value="1953">1953</option>
+						
+							<option value="1952">1952</option>
+						
+							<option value="1951">1951</option>
+						
+							<option value="1950">1950</option>
+						
+							<option value="1949">1949</option>
+						
+							<option value="1948">1948</option>
+						
+							<option value="1947">1947</option>
+						
+							<option value="1946">1946</option>
+						
+							<option value="1945">1945</option>
+						
+							<option value="1944">1944</option>
+						
+							<option value="1943">1943</option>
+						
+							<option value="1942">1942</option>
+						
+							<option value="1941">1941</option>
+						
+							<option value="1940">1940</option>
+						
+							<option value="1939">1939</option>
+						
+							<option value="1938">1938</option>
+						
+							<option value="1937">1937</option>
+						
+							<option value="1936">1936</option>
+						
+							<option value="1935">1935</option>
+						
+							<option value="1934">1934</option>
+						
+							<option value="1933">1933</option>
+						
+							<option value="1932">1932</option>
+						
+							<option value="1931">1931</option>
+						
+							<option value="1930">1930</option>
+						
+							<option value="1929">1929</option>
+						
+							<option value="1928">1928</option>
+						
+							<option value="1927">1927</option>
+						
+							<option value="1926">1926</option>
+						
+							<option value="1925">1925</option>
+						
+							<option value="1924">1924</option>
+						
+							<option value="1923">1923</option>
+						
+							<option value="1922">1922</option>
+						
+							<option value="1921">1921</option>
+						
+							<option value="1920">1920</option>
+						
+							<option value="1919">1919</option>
+						
+							<option value="1918">1918</option>
+						
+							<option value="1917">1917</option>
+						
+							<option value="1916">1916</option>
+						
+							<option value="1915">1915</option>
+						
+							<option value="1914">1914</option>
+						
+							<option value="1913">1913</option>
+						
+							<option value="1912">1912</option>
+						
+							<option value="1911">1911</option>
+						
+							<option value="1910">1910</option>
+						
+							<option value="1909">1909</option>
+						
+							<option value="1908">1908</option>
+						
+							<option value="1907">1907</option>
+						
+							<option value="1906">1906</option>
+						
+							<option value="1905">1905</option>
+						
+							<option value="1904">1904</option>
+						
+							<option value="1903">1903</option>
+						
+							<option value="1902">1902</option>
+						
+							<option value="1901">1901</option>
+						
+							<option value="1900">1900</option>
+						
+					</select>
+				</div>
+				<div class="item" align="center">
+					<input value="Register" type="submit">
+				</div>
+			</div>
+		</div>
+
+		<div id="footer" align="center">
+			<a href="http://192.168.64.110:8080/friend/mobile/home/displayLoggedinHome.do">Language</a> |
+			<a href="http://192.168.64.110:8080/friend/mobile/login/not%20implemented">Full Site</a>
+		</div>
+	</div>
+</body></html>

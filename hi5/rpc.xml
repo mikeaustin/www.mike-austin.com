@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+
+	<ModulePrefs
+	 title="Sample RPC" title_url="http://www.hi5.com"
+	 summary="Sample RPC"
+	 description="Sample RPC"
+	 icon="http://images.hi5.com/images/icons/_/update_birthday.gif"
+	 thumbnail="http://images.hi5.com/images/opensocial/gifts_120x60.gif"
+	 author="Mike Austin" author_email="mike_ekim@yahoo.com"
+	 author_affiliation="hi5" author_location="San Francisco, CA">
+		<Require feature="opensocial-0.7"/>
+	</ModulePrefs>
+
+	<Content type="html" quirks="false" view="default"><![CDATA[
+		Loading...
+		<script type="text/javascript">
+			gadgets.util.registerOnLoadHandler(function() {
+				var itemId = 100, description = 'test', quantity = 10, imageUrl = 'http://';
+				gadgets.rpc.call(null, 'initiatePurchase', function() { alert('here'); }, itemId, description, quantity, imageUrl);
+			});
+		</script>
+	]]></Content>
+
+</Module>

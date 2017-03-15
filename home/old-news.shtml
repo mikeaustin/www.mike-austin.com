@@ -1,0 +1,145 @@
+<html>
+<head>
+<title>Mike Austin : Past News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="/home/normal.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="/home/images/backgr-grid.gif">
+<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%"
+ style="background:url(/home/images/logo-star.gif) no-repeat">
+  <tr>
+    <td valign="top"> 
+      <!--#include virtual="/home/top-menu.shtml"-->
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="titleBar">
+        <tr> 
+          <td valign="top" width="40%"> 
+            <!--#include virtual="/home/sub-menu.shtml" -->
+          </td>
+          <td valign="middle" align="center" rowspan="2"><font class="sectionHeader">Past 
+            News</font></td>
+          <td valign="middle" align="right" rowspan="2" width="40%"> <font color="#FFFFFF" size="1"> 
+            </font> 
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td align="right" valign="middle"><font color="#FFFFFF" size="1"> 
+                  there is no good or bad, but thinking makes it so<br>
+              - shakespeare</font></td>
+                <td width="7">&nbsp;</td>
+              </tr>
+            </table>
+            </td>
+        </tr>
+        <tr> 
+          <td valign="top" height="3"><img src="/home/images/spacer.gif"></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="7" height="7"></td>
+          <td></td>
+          <td width="7"></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="30%" valign="top"> 
+                  <table width="100%" border="0" cellspacing="2" cellpadding="3" class="topMenu">
+                    <tr> 
+                      <td align="center"><b><font color="#FFFFFF">Past News</font></b></td>
+                    </tr>
+                    <tr> 
+                      <td bgcolor="#F0F0F0" class="windowContent"> 
+                        <p style="text-align: xjustify"><b>March 19, 2003</b>&nbsp;&nbsp;&#149;&nbsp;Has 
+                          it really been that long??? I've still been working 
+                          on inertia, but doing other things also. I have finally 
+                          <b><i>fixed the 'papers' section</i></b>, and added 
+                          a few working papers and a few references. I wish I 
+                          didn't have to work. :)</p>
+                        <p style="text-align: xjustify"><b><a href="projects/inertia/inertia-io.jpg"><img src="projects/inertia/inertia-io-small.gif" width="100" height="77" align="right" border="0"></a>December 
+                          13, 2002</b>&nbsp;&nbsp;&#149;&nbsp;&nbsp;I've Been 
+                          working on inerita.io, a prototype of inertia written 
+                          in a prototype based language called <a href="http://www.dekorte.com/software/c/Io/">&quot;Io&quot; 
+                          by Steve Dekorte</a>. The image to the right is a demonstration 
+                          of some tablets, buttons and other controls. The more 
+                          interesting stuff will come when menus are implemented 
+                          since menus are a large part of the inertia idea. Happy 
+                          Holidays! </p>
+                        <p style="text-align: xjustify"><b><a href="music/images/ride-the-teapot.jpg"><img src="music/images/ride-the-teapot-small.gif" width="100" height="78" align="right" border="0"></a>October 
+                          15, 2002</b>&nbsp;&nbsp;&#149;&nbsp;&nbsp;Working on 
+                          miscellaneous projects. More opengl than in the past. 
+                          The Metallica image to the right was a not planned, 
+                          I just wanted a 3D model in a 2D scene and it looked 
+                          cool enough to snapshot. It looks like the electric 
+                          chair is the core of the wireframe teapot :) <a href="projects/inertia/proto-2-big.jpg"><img src="projects/inertia/proto-2-small.gif" width="100" height="78" align="right" border="0"></a>Here 
+                          is an image of the real project. It's just me playing 
+                          with textures, transparent shadows, and moving and rotating 
+                          things. </p>
+                        <p style="text-align: xjustify"><b>August 29, 2002</b>&nbsp;&nbsp;&#149;&nbsp;&nbsp;Added 
+                          a little pizzazz to the top of the pages and beefed 
+                          up the <a href="reference/index.shtml">reference</a> 
+                          and <a href="xlinks.shtml">internet links</a> sections.. 
+                          I've worked on <a href="/home/projects/inertia/index.shtml">inertia</a> 
+                          a little bit, and it's getting clearer with each round 
+                          of coding. I Will be adding a few glossaries: programming 
+                          and 3D graphics, which are in xml and translated with 
+                          Perl::XSLT on the fly. The xml files will available 
+                          for download.<br>
+                        </p>
+                        <p style="text-align: xjustify"><b>August 2, 2002</b>&nbsp;&nbsp;&#149;&nbsp;&nbsp;Welcome 
+                          to www.mike-austin.com. This site was launched in August 
+                          of 2002 as a place for me to express my ideas and to 
+                          share information. I kept it simple and strait forward, 
+                          which is what a site should do. While the site is under 
+                          construction, you will find links with <a href="#" class="brokenLink">strikethrough</a> 
+                          type; these are simply placeholders and do not work.</p>
+                        <p><a href="/home/projects/inertia/inertia-screen.jpg"><img src="/home/projects/inertia/inertia-small.jpg" width="100" height="77" border="0" align="right" alt="Thumbnail view of inertia.ui screenshot"></a><b>July 
+                          15, 2002&nbsp;</b>&nbsp;&#149;&nbsp;&nbsp;The prototype 
+                          for <a href="/home/projects/inertia.ui/" class="brokenLink">inertia.ui</a> 
+                          is making progress, although more time has been spent 
+                          on this site lately. :) Click the thumbnail to view 
+                          a larger image. 'Inertia' is what I am calling my combination 
+                          of a programming language, context user interface, and 
+                          persistent database.</p>
+                        <p><b><a href="/home/papers/my-windows.jpg"><img src="/home/papers/my-windows-small.jpg" width="100" height="76" align="right" border="0" alt="Thumbnail view of context user interface mockup"></a>June 
+                          28, 2002&nbsp;</b>&nbsp;&#149;&nbsp;&nbsp;You can find 
+                          my work-in-progress paper <a href="#" class="brokenLink">the 
+                          context user interface</a>, <a href="#" class="brokenLink">studies 
+                          of computer languages</a> and other papers I have written 
+                          on this site. Click the thumbnail to view a larger image. 
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            
+          </td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td valign="bottom"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="20">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td align="right" height="20" class="topMenu" valign="middle"><font color="#FFFFFF"> 
+            <!--#include virtual="/cgi-bin/counter.pl"-->
+            · Last modified: 
+            <!--#config timefmt="%B %d, %Y"-->
+            <!--#flastmod file="index.shtml"-->
+            </font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=">
+<link rel="stylesheet" type="text/css" href="http://images.hi5.com/images/styles/global_20071116.css"/>
+<link rel="stylesheet" type="text/css" href="http://static.hi5.com/friend/styles/hi5_common_1211239050.css"/>
+<style>
+	#page-content ul.tabs:after			{ content:"."; display: block; height: 0; clear: both; visibility: hidden; overflow: hidden; }
+	#page-content ul.tabs				{ background: #f3f3f3; padding-top: 5px; }
+	#page-content ul.tabs li			{ border-bottom: 1px solid #cccccc; }
+	#page-content ul.tabs li.active		{ border-bottom: 1px solid white; }
+	#page-content ul.tabs li.after		{ border: none; background: none; padding-left: 3px; padding-right: 3px; }
+
+	#page-content .after		{ float: right; }
+	#page-content h2			{ padding: 0; margin: 0; border-bottom: none; }
+	#page-content th			{ text-align: left; }
+	#page-content h4			{ padding: 5px; font-family: Arial,Helvetica,Sans-Serif; font-weight: bold; }
+	#page-content h2.app-title	{ padding: 3px 7px; background: #999999; color: white; }
+
+	#page-content th			{ font-family: Arial,Helvetica,Sans-Serif; padding-right: 5px; }
+	#page-content th a			{ font-family: Arial,Helvetica,Sans-Serif; font-weight: bold; }
+
+	#app-details				{ border: 1px solid #cccccc; }
+
+	#page-content .general-details th,
+	#page-content .general-details td			{ padding: 5px; }
+
+	#page-content .stats-details th				{ font-family: Arial,Helvetica,Sans-Serif; text-align: right; padding-bottom: 3px; border-bottom: 1px solid #cccccc; }
+	#page-content .stats-details td				{ vertical-align: top; padding-left: 5px; padding-right: 5px; text-align: right; }
+	#page-content .stats-details tr.first th,
+	#page-content .stats-details tr.first td	{ padding-left: 5px; padding-top: 5px; }
+
+	#page-content .language-details th,
+	#page-content .language-details td			{ padding: 10px 10px; border-top: 1px dotted #cccccc; vertical-align: middle; }
+	#page-content .language-details tr.first th,
+	#page-content .language-details tr.first td	{ border-top: none; }
+	
+	label			{ cursor: pointer; }
+</style>
+<!--[if IE]>
+<style>
+	#page-content ul.tabs				{ display: inline-block; }
+</style>
+<![endif]-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"></script>
+</head>
+
+<body>
+	<div id="p_container">
+		<br/>
+
+		<div id="page-content">
+			<div id="app-details">
+				<h2 class="app-title">
+					<span style="float: right;"><a href="#">My Applications</a></span>
+					Addicted to Borat/Ali. G.</h2>
+				<ul class="tabs">
+					<li class="before active"><a href="javascript:void(0);" onclick="new Ajax.Updater('detail', 'dev-details-general.html'); return false;">General</a></li>
+					<li class="before"><a href="javascript:void(0);" onclick="new Ajax.Updater('detail', 'dev-details-stats.html'); return false;">Stats</a></li>
+					<li class="before"><a href="javascript:void(0);" onclick="new Ajax.Updater('detail', 'dev-details-languages.html'); return false;">Languages</a></li>
+					<li class="after"><a href="#">Submit to Gallery</a></li>
+					<li class="after"><a href="#">Delete</a></li>
+					<li class="after"><a href="#">Refresh</a></li>
+				</ul>
+				<div id="detail">
+					<div style="padding: 4px;">
+						<table class="general-details" cellpadding="0" cellspacing="0">
+							<tr> <th>App URL:</th> <td colspan="2">http://www.asdfasdfsdfasdf.com/asdf/asfa/asdfasdf/app.xml</td> </tr>
+							<tr> <th>API Key:</th><td>asdfsdf_asdfdasdfasdfsadf</td>
+								 <td style="padding-left: 50px;"><input type="checkbox" id="participate" style="margin: 0;"/> <label for="participate">Participate in the hi5 translation program</label></td>
+							</tr>
+							<tr> <th>Linguists:</th> <td colspan="2"><a href="#">Add</a></td> </tr>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<br/><hr width="75%"/><br/>
+
+			<div id="app-details">
+				<h2 class="app-title">
+					<span style="float: right;"><a href="#">My Applications</a></span>
+					Addicted to Borat/Ali. G.</h2>
+				<ul class="tabs">
+					<li class="before">General</li>
+					<li class="before active">Stats</li>
+					<li class="before">Languages</li>
+					<li class="after"><a href="#">Submit to Gallery</a></li>
+					<li class="after"><a href="#">Delete</a></li>
+					<li class="after"><a href="#">Refresh</a></li>
+				</ul>
+				<div id="detail">
+					<div style="padding: 7px; overflow: hidden;">
+						<div style="float: left; width: 60%;">
+							<table class="stats-details" cellpadding="0" cellspacing="0" xwidth="100%">
+								<tr> <th>&nbsp;</th> <th width="75">Last Hour</th> <th width="75">Today</th> <th width="75">Yesterday</th> <th width="100">Total</th> </tr>
+								<tr class="first"> <td>Installs</td> <td>34</td> <td>216</td> <td>194</td> <td>1057</td> </tr>
+								<tr> <td>Removes</td> <td>34</td> <td>216</td> <td>194</td> <td>1057</td> </tr>
+								<tr> <td>Canvas Views</td> <td>34</td> <td>216</td> <td>194</td> <td>1057</td> </tr>
+								<tr> <td>Preview Views</td> <td>34</td> <td>216</td> <td>194</td> <td>1057</td> </tr>
+								<tr> <td>Notifications Sent</td> <td>34</td> <td>216</td> <td>194</td> <td>1057</td> </tr>
+								<tr> <td>Invites Sent</td> <td>34</td> <td>216</td> <td>194</td> <td>1057</td> </tr>
+								<tr> <td>Activities Sent</td> <td>34</td> <td>216</td> <td>194</td> <td>1057</td> </tr>
+								<tr> <td>Member Blocks</td> <td>34</td> <td>216</td> <td>194</td> <td>1057</td> </tr>
+								<tr> <td>Report Abuse</td> <td>34</td> <td>216</td> <td>194</td> <td>1057</td> </tr>
+							</table>
+						</div>
+						<div style="float: right; width: 40%;">
+							<h4 style="padding: 0 0 3px 5px; border-bottom: 1px solid #cccccc;">Relative Performance</h4>
+							<div style="padding: 5px;">
+								asdf<br/>asdf
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<br/><hr width="75%"/><br/>
+
+			<div id="app-details">
+				<h2 class="app-title">
+					<span style="float: right;"><a href="#">My Applications</a></span>
+					Addicted to Borat/Ali. G.</h2>
+				<ul class="tabs">
+					<li class="before">General</li>
+					<li class="before">Stats</li>
+					<li class="before active">Languages</li>
+					<li class="after"><a href="#">Submit to Gallery</a></li>
+					<li class="after"><a href="#">Delete</a></li>
+					<li class="after"><a href="#">Refresh</a></li>
+				</ul>
+				<div id="detail">
+					<div style="padding: 0 5px; height: 200px; overflow: scroll; overflow-x: hidden; overflow-y: scroll;">
+						<div style="zoom: 1;">
+							<table class="language-details" cellpadding="0" cellspacing="0" width="100%">
+								<tr class="first">
+									<th width="75"><a href="#">Thai</a></th> <td width="175">Status: Not released</td> <td width="175">Coverage: 371 / 459</td>
+									<td width="350"><img src="http://chart.apis.google.com/chart?chs=300x30&cht=bhs&chco=7DA9FA,c6d9fd,E3ECFC,ffffff&chd=t:20|40|40"/></td>
+									<td align="right"><button>Release</button></td>
+								</tr>
+								<tr>
+									<th width="75"><a href="#">German</a></th> <td width="175">Status: Not released</td> <td width="175">Coverage: 371 / 459</td>
+									<td width="350"><img src="http://chart.apis.google.com/chart?chs=300x30&cht=bhs&chco=7DA9FA,c6d9fd,E3ECFC&chd=t:10|50|90"/></td>
+									<td align="right"><button>Release</button></td>
+								</tr>
+								<tr style="background: #e0e0e0;">
+									<th width="75"><a href="#">French</a></th> <td width="175">Status: Not released</td> <td width="175">Coverage: 371 / 459</td>
+									<td width="350"><img src="http://chart.apis.google.com/chart?chs=300x30&cht=bhs&chco=7DA9FA,c6d9fd,E3ECFC&chd=t:10|50|90"/></td>
+									<td align="right"><button>Release</button></td>
+								</tr>
+								<tr>
+									<th width="75"><a href="#">French</a></th> <td width="175">Status: Not released</td> <td width="175">Coverage: 371 / 459</td>
+									<td width="350"><img src="http://chart.apis.google.com/chart?chs=300x30&cht=bhs&chco=7DA9FA,c6d9fd,E3ECFC&chd=t:10|50|90"/></td>
+									<td align="right"><button>Release</button></td>
+								</tr>
+								<tr>
+									<th width="75"><a href="#">French</a></th> <td width="175">Status: Not released</td> <td width="175">Coverage: 371 / 459</td>
+									<td width="350"><img src="http://chart.apis.google.com/chart?chs=300x30&cht=bhs&chco=7DA9FA,c6d9fd,E3ECFC&chd=t:10|50|90"/></td>
+									<td align="right"><button>Release</button></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<br/>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<html>
+<head>
+<style>
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#container, #header, #separator, #left_side, #content, #tools, #right_side, #ad, #footer {
+    background: #F8F8F8;
+	border: 1px solid #E0E0E0;
+	padding: 5px;
+	margin: 0px;
+}
+
+body		{ margin: 5px; }
+h1			{ margin: 0px 0px 5px 0px; font-size: 14px; }
+#container  { width: 1000px; margin: auto; }
+#left_side  { width: 820px; }
+#content    { float: left; }
+#tools      { float: left; width: 195px; }
+#right_side { float: right; width: 150px; }
+#ad         { }
+#footer     { clear: both; }
+
+.ActiveTab, .NormalTab {
+	float: left;
+}
+
+.ActiveTab .TabLeft {
+	width: 9px; height: 28px;
+	background: url(images/tab-left.png);
+	float: left;
+}
+
+.ActiveTab .TabRight {
+	width: 9px; height: 28px;
+	background: url(images/tab-right.png);
+	float: left;
+}
+
+.ActiveTab .TabCenter {
+	height: 28px;
+	background: url(images/tab-middle.png);
+	float: left;
+	line-height: 28px;
+}
+
+.NormalTab .TabLeft {
+	width: 9px; height: 28px;
+	//background: url(images/tab-left.png);
+	float: left;
+}
+
+.NormalTab .TabCenter {
+	height: 28px;
+	//background: url(images/tab-middle.png);
+	float: left;
+	line-height: 28px;
+}
+
+.NormalTab .TabRight {
+	width: 9px; height: 28px;
+	background: url(images/separator.png);
+	float: left;
+}
+
+.TabCenter {
+	padding: 0px 5px 0px 5px;
+}
+
+.TabPanel {
+	width: 600px;
+	background: #F8F8F8;
+	padding: 0px 0px 0px 5px;
+	//border: 1px solid #808080;
+}
+
+.Button {
+	line-height: 28px;
+	width: 85px; height: 28px;
+	text-align: center;
+	background: url(images/button.png);
+	float: right;
+}
+
+</style>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<div id="container">
+	container
+	<div id="header">
+		header
+	</div>
+	<div id="separator">
+		separator
+	</div>
+	<div id="right_side">
+		right_side
+		<div id="ad">
+			ad<br/>
+		</div>
+		<div style="clear: both"></div>
+	</div>
+	<div id="left_side">
+		left_side
+		<div id="tools">tools</div>
+		<div id="content">
+			content<br/>
+			asdf<br/>
+			asdf<br/>
+			asdf<br/>
+			asdf<br/>
+			asdf
+		</div>
+		<div style="clear: both"></div>
+	</div>
+	<div id="footer">footer</div>
+</div>
+
+<br/>
+
+<div class="TabPanel">
+	<div class="ActiveTab">
+		<div class="TabLeft"></div>
+		<div class="TabCenter"><a href="#">Inbox</a></div><div class="TabRight"></div>
+	</div>
+	<div class="NormalTab">
+		<div class="TabCenter"><a href="#">Sent</a></div><div class="TabRight"></div>
+	</div>
+	<div class="NormalTab">
+		<div class="TabCenter"><a href="#">Trash</a></div><div class="TabRight"></div>
+	</div>
+	<div class="Button">Save</div>
+	<div style="clear: both"></div>
+</div>
+
+</body>
+</html>

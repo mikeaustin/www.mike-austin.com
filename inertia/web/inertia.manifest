@@ -1,0 +1,36 @@
+CACHE MANIFEST
+
+# these are files that need to be cached they can either be listed
+# first, or a "CACHE:" header could be put before them, as is done
+# lower down.
+
+CACHE:
+index.html
+
+scripts/core.js
+scripts/views/desktop.js
+scripts/views/window.js
+
+styles/core.css
+
+store/email.html
+store/events.json
+
+images/calendar.png
+images/desktop.jpg
+images/file.png
+images/folder.png
+images/mail.png
+images/warning.png
+
+photos/1.jpg
+photos/1-big.jpg
+photos/2.jpg
+photos/3.jpg
+
+NETWORK:
+comm.cgi
+
+
+
+

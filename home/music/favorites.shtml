@@ -1,0 +1,184 @@
+<html>
+<head>
+<title>Mike Austin : Music : Favorites</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+.page {  height: 100ex; width: 100%}
+-->
+</style>
+<link rel="stylesheet" href="/home/normal.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" background="/home/images/backgr-grid.gif">
+<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+  <tr>
+    <td valign="top"> 
+      <!--#include virtual="/home/top-menu.shtml"-->
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="titleBar">
+        <tr> 
+          <td valign="top" width="40%"> 
+            <!--#include file="sub-menu.shtml" -->
+          </td>
+          <td valign="middle" align="center" rowspan="2"><font color="#FFFFFF" class="sectionHeader">Music 
+            : Favorites</font></td>
+          <td valign="middle" align="right" rowspan="2" width="40%"> <font color="#FFFFFF" size="1"> 
+            </font> 
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td align="right"><font color="#FFFFFF" size="1"> just remember 
+                  love is life, and hate is living death<br>
+                  &#150; Black Sabbath </font></td>
+                <td width="7">&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr> 
+          <td valign="top" height="3"><img src="/home/images/spacer.gif"></td>
+        </tr>
+      </table>
+	  <BASE TARGET="_blank">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="7" height="7"></td>
+          <td></td>
+          <td width="7"></td>
+        </tr>
+        <tr> 
+          <td>&nbsp;</td>
+          <td> 
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr> 
+                <td width="49%" valign="top"><p class="section">electronic</p> 
+                  <ul>
+                    <li><a href="../../images/aaa"><img border=0 src="images/infected-mushroom.jpg" align="right">infected 
+                      mushroom</a><br>
+                      <div class="note">Nice rolling bass lines, tripped out sounds. 
+                        Especially like <i>Gravity Waves</i> &amp; <i>Dream Theatre</i>.</div>
+                    </li>
+                    <li><a href="../../images/aaa"><img src="images/hallucinogen.jpg" align="right">hallucinogen</a> 
+                      <div class="note">Old skool trance. Blah blah blah blah 
+                        blah blah blah blah blah<br>
+                        <br>
+                        <br>
+                      </div>
+                    </li>
+                    <li><a href="../../images/aaa"> <img src="images/koxbox.jpg" align="right" width="54" height="54">koxbox</a> 
+                      <div class="note">Groovy beats &amp; synths. You can put 
+                        on headphones and space out. Get <i>The Great Unknown</i> 
+                        if you like this kind of stuff.</div>
+                    </li>
+                    <li><a href="../../images/aaa"><img border=0 src="images/astral-projection.jpg" align="right" width="54" height="54">astral 
+                      projection</a> 
+                      <div class="note">The spice expands consciousness. The spice 
+                        is vital to space travel. Travel &#151; without moving.</div>
+                    </li>
+                    <li><a href="../../images/aaa"><img border=0 src="images/crystal-method.jpg" align="right" width="54" height="54">the 
+                      crystal method</a> 
+                      <div class="note">Not sure how to describe crystal method. 
+                        The first electronic band I really liked. Awesome.</div>
+                    </li>
+                    <li><a href="../../images/aaa"><img border=0 src="images/eat-static.jpg" align="right" width="54" height="54">eat 
+                      static</a><br>
+                      <br>
+                      <br>
+                      <br>
+                    </li>
+                  </ul>
+                  <p class="section">downbeat</p> 
+                  <ul>
+                    <li><a href="../../images/aaa"><img border=0 src="images/dead-can-dance.jpg" align="right" width="54" height="54"></a>dead 
+                      can dance</li>
+                    <li><a href="../../images/aaa"><img border=0 src="images/morcheeba.jpg" align="right" width="54" height="54"></a>morcheeba</li>
+                    <li>massive attack</li>
+                    <li>tricky</li>
+                    <li>filla brazillia</li>
+                    <li>kruder &amp; dorfmeister</li>
+                    <li>plasc</li>
+                  </ul>
+                </td>
+                <td valign="top">&nbsp;</td>
+                <td width="49%" valign="top"><p class="section">classics</p> 
+                  <ul>
+                    <li><a href="http://www.pinkfloyd-co.com/" title="Visit Pink Floyd's official web site"> 
+                      <img src="images/pink-floyd.jpg" align="right">pink floyd</a> 
+                      <div class="note">Pink Floyd is the ultimate chill band. 
+                        Turn the lights down low and turn on the lava lamp.</div>
+                    </li>
+                    <li><a href="http://zztop.com"> <img src="images/zz-top.jpg" align="right">zz 
+                      top</a> 
+                      <div class="note">Old ZZ Top kicks ass! Texas blues - slick 
+                        riffs, lowdown and dirty vocals, and tight bass lines.</div>
+                    </li>
+                    <li><a href="http://www.led-zeppelin.com/"> <img src="images/led-zeppelin.jpg" align="right">led 
+                      zeppelin</a> 
+                      <div class="note">What can I say? They are a classic. Rockin 
+                        guitar, bass and drums.</div>
+                    </li>
+                    <li><a href="../index.shtml#"><img src="images/black-sabbath.jpg" align="right" width="54" height="54">black 
+                      sabbath</a> 
+                      <div class="note">The heaviest band of the 70s. The heaviest 
+                        band known to man.</div>
+                    </li>
+                    <li><a href="../index.shtml#"><img src="images/van-halen.jpg" align="right" width="54" height="54">van 
+                      halen</a> 
+                      <div class="note">One of the guitar gods, along with Jimi 
+                        Hendrix, Jimmy Page, Stevie Ray Vaughan and Steve Vai.<br>
+                      </div>
+                    </li>
+                    <li><a href="../index.shtml#"><img src="images/stevie-vaughan.jpg" align="right" width="54" height="54">stevie 
+                      ray vaughan</a> 
+                      <div class="note">Music is the interpretation of emotions. 
+                        You don't hear Stevie, you feel him.</div>
+                    </li>
+                    <li><a href="../index.shtml#"><img src="images/credence.jpg" align="right" width="54" height="54">credence 
+                      clearwater</a><br>
+                      <div class="note">Sometimes you only need 3 chords and a 
+                        good beat :) And it sounds damn good!</div>
+                    </li>
+                  </ul>
+                  <p class="section">rock / metal</p> 
+                  <ul>
+                    <li><img src="images/metallica.jpg" align="right" width="54" height="54">metallica 
+                      <div class="note">One of the first metal bands I got into. 
+                        They are the orchestration of chaos. [<a href="http://www.angelfire.com/nc2/boycottmetallica/lyrics.html">Why 
+                        they now suck</a>].</div>
+                    </li>
+                    <li>zz top</li>
+                    <li>led zeppelin</li>
+                    <li>black sabbath</li>
+                    <li>van halen</li>
+                    <li>stevie ray vaughan</li>
+                    <li>credence clearwater</li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+          </td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr> 
+    <td valign="bottom"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td width="20">&nbsp;</td>
+        </tr>
+        <tr> 
+          <td class="topMenu" align="right" height="20"><font color="#FFFFFF"> 
+            <!--#include virtual="/cgi-bin/counter.pl"-->
+            · Last modified: 
+            <!--#config timefmt="%B %d, %Y"-->
+            <!--#flastmod file="index.shtml"-->
+            </font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

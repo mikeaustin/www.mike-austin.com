@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+
+	<msg name="Friends List [hi5.template]">
+		Friends List [hi5.template]
+	</msg>
+	<msg name="friends-header">Friends</msg>
+	<msg name="tiles-link">Tiles</msg>
+	<msg name="list-link">List</msg>
+
+	<msg name="next-page">Next ${size} &#187;</msg>
+	<msg name="showing-range">Showing ${range}</msg>
+	<msg name="send-message">Send a message to ${name}</msg>
+
+</messagebundle>

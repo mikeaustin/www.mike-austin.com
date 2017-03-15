@@ -1,0 +1,361 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<pre>//
+// Simple Gravity ScreenSaver
+//
+// Copyright 2002 Mike Austin
+//
+
+#include &lt;cmath&gt;
+#include &lt;iostream&gt;
+#include &lt;windows.h&gt;
+#include &lt;GL/glut.h&gt;
+#include &lt;GL/gl.h&gt;
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
+using namespace std;
+
+#define MAX_PARTICLES 500
+
+int   windowWidth  = 800;
+int   windowHeight = 600;
+float angleX = 0, angleY = 0;
+int   lastX  = 0, lastY  = 0;
+
+bool  g_animate = true;
+bool  g_drawBox = false;
+int   g_frames  = 0;
+bool  g_usefog  = false;
+
+class Particle;
+extern Particle* g_particles;
+
+// Define some rgba values
+#define A 0xFFFFFF00  // White, 100.0% alpha
+#define B 0xFFFFFF80  // White,  50.0% alpha
+#define C 0xFFFFFF60  // White,  37.0% alpha
+#define D 0xFFFFFF40  // White,  25.0% alpha
+#define E 0xFFFFFF20  // White,  12.5% alpha
+#define Z 0xFFFFFF00  // White,   0.0% alpha
+
+// 8 by 8 antialiased sphere texture
+unsigned long g_texture[8*8] = {
+   Z,Z,E,E,E,E,Z,Z,
+   Z,E,D,D,D,D,E,Z,
+   E,D,C,B,B,C,D,E,
+   E,D,B,A,A,B,D,E,
+   E,D,B,A,A,B,D,E,
+   E,D,C,B,B,C,D,E,
+   Z,E,D,D,D,D,E,Z,
+   Z,Z,E,E,E,E,Z,Z,
+};
+
+double drand() { return rand() / (double)RAND_MAX; }
+double dsin( double degrees ) { return sin( degrees * (M_PI / 180.0) ); }
+double dcos( double degrees ) { return cos( degrees * (M_PI / 180.0) ); }
+
+class Particle {
+ public:
+  Particle() {
+    // asin distribution
+    float theta, phi;
+    theta = M_PI / 2.0 + asin( 2.0 * (0.5 - drand()) );
+    phi   = M_PI * 2.0 * drand();
+    x = sin( theta ) * sin( phi );
+    y = sin( theta ) * cos( phi );
+    z = cos( theta );
+
+    xvel = yvel = zvel = 0;
+    mass = (rand() / (float)RAND_MAX * 0.8) + 0.2;
+    invMass = 1 / mass;
+  }
+
+  void advance( int loop ) {
+    int i;
+    float f, d, id, dx, dy, dz;
+
+    for( i = loop + 1 ; i < MAX_PARTICLES ; i++ ) {
+      if( &g_particles[i] == this ) continue;
+      Particle &obj = g_particles[i];
+
+      dx = obj.x - x ; dy = obj.y - y ; dz = obj.z - z;
+      d = sqrt( dx*dx + dy*dy + dz*dz ) ; id = 1 / d;
+      dx *= id ; dy *= id ; dz *= id;
+
+      f = ( ( mass * obj.mass ) * ( id ) ) * 0.000001;
+
+      xvel += dx * (f * invMass) ; obj.xvel -= dx * (f * obj.invMass);
+      yvel += dy * (f * invMass) ; obj.yvel -= dy * (f * obj.invMass);
+      zvel += dz * (f * invMass) ; obj.zvel -= dz * (f * obj.invMass);
+    }
+    x += xvel;  y += yvel;  z += zvel;
+  }
+
+  void render() {
+    glColor3f( (xvel * yvel * zvel) * 10000000.0, mass, 1.0 - mass );
+
+    glPushMatrix();
+      glTranslatef( x, y, z );
+      glRotatef( -angleY, 0, 1, 0 );
+      glRotatef( -angleX, 1, 0, 0 );
+
+      glBegin( GL_QUADS );
+        glTexCoord2f( 0, 0 );  glVertex3f( -.01 * mass, -.01 * mass, 0 );
+        glTexCoord2f( 1, 0 );  glVertex3f(  .01 * mass, -.01 * mass, 0 );
+        glTexCoord2f( 1, 1 );  glVertex3f(  .01 * mass,  .01 * mass, 0 );
+        glTexCoord2f( 0, 1 );  glVertex3f( -.01 * mass,  .01 * mass, 0 );
+      glEnd();
+
+    glPopMatrix();
+  }
+
+  float x, y, z;
+  float xvel, yvel, zvel;
+  float mass, invMass;
+};
+
+Particle* g_particles;
+
+void reshapeEvent( int width, int height ) {
+  // Update window extents, projection matrix and viewport
+  windowWidth = width;
+  windowHeight = height;
+  glMatrixMode( GL_PROJECTION );
+    glLoadIdentity();
+    gluPerspective( 45, (float)windowWidth / (float)windowHeight, 1, 100 );
+  glMatrixMode( GL_MODELVIEW );
+  glViewport( 0, 0, width, height );
+
+  // Clear the front and back buffers
+  glClear( GL_COLOR_BUFFER_BIT );
+  glutSwapBuffers();
+  glClear( GL_COLOR_BUFFER_BIT );
+  glutSwapBuffers();
+}
+
+void displayEvent() {
+  // Clear the depth buffer and load the identity matrix
+  glClear( GL_DEPTH_BUFFER_BIT );
+  glLoadIdentity();
+  
+  // Change projection matrix to orthoganal mode
+  glMatrixMode( GL_PROJECTION );
+    glLoadIdentity();
+    gluOrtho2D( 0, windowWidth, 0, windowHeight );
+  glMatrixMode( GL_MODELVIEW );
+
+  // Draw a translucent quad that covers the screen
+  glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+  glDepthMask( GL_FALSE );
+  glDisable( GL_TEXTURE_2D );
+  glColor4f( 0, 0, 0, .2 );
+  glBegin( GL_QUADS );
+    glTexCoord2f( 0, 0 );  glVertex2i( 0, 0 );
+    glTexCoord2f( 1, 0 );  glVertex2i( windowWidth, 0 );
+    glTexCoord2f( 1, 1 );  glVertex2i( windowWidth, windowHeight );
+    glTexCoord2f( 0, 1 );  glVertex2i( 0, windowHeight );
+  glEnd();
+
+  // Change mode back to perspective
+  glDepthMask( GL_TRUE );
+  glMatrixMode( GL_PROJECTION );
+    glLoadIdentity();
+    gluPerspective( 45, (float)windowWidth / (float)windowHeight, 1, 100 );
+  glMatrixMode( GL_MODELVIEW );
+
+  // Move the 'camera' back 3 units and rotate
+  glTranslatef( 0, 0, -3 );
+  glRotated( angleX, 1, 0, 0 );
+  glRotated( angleY, 0, 1, 0 );
+
+  if( g_drawBox ) {
+    glDisable( GL_TEXTURE_2D );
+    glColor4f( .5, .5, .5, 1 );
+    glutWireCube( 1 );
+  }
+
+  // Draw the textured particles
+  glEnable( GL_TEXTURE_2D );
+  glEnable( GL_BLEND );       glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+  glBindTexture( GL_TEXTURE_2D, 10 );
+  for( int i = 0; i < MAX_PARTICLES; i++ ) {
+    g_particles[i].render();
+  }
+  g_frames++;
+
+  // Need to swap buffers in doubled-buffered mode
+  glutSwapBuffers();
+}
+
+void mouseEvent( int button, int state, int x, int y ) {
+  // A mouse button was pressed, remember x and y
+  lastX = x;
+  lastY = y;
+}
+
+void motionEvent( int x, int y ) {
+  // A mouse was moved, change camera angle
+  angleX += y - lastY;
+  angleY += x - lastX;
+  lastX = x;
+  lastY = y;
+
+  // Tell glut we need to redraw scene
+  glutPostRedisplay();
+}
+
+void keyboardEvent( unsigned char key, int x, int y ) {
+  // A key was pressed
+  if( key == 27 )  exit( 0 );
+  if( key == 32 )  g_animate = !g_animate;
+  if( key == 'b' ) g_drawBox = !g_drawBox;
+  if( key == 'f' ) {
+    g_usefog  = !g_usefog;
+    if( g_usefog )
+      glEnable( GL_FOG );
+    else
+      glDisable( GL_FOG );
+  }
+  if( key == 'r' ) {
+    for( int i = 0; i < MAX_PARTICLES; i++ )
+      g_particles[i] = Particle();
+  }
+}
+
+int oldtime = 0;
+
+void idleEvent() {
+  // Advance each particle and redraw scene
+  int delta, newtime;
+  newtime = glutGet( GLUT_ELAPSED_TIME );
+  if( oldtime == 0 )
+    oldtime = newtime;
+  delta = newtime - oldtime;
+  oldtime = newtime;
+  cout << delta << endl;
+  if( 20 - delta > 0 )
+    Sleep( 20 - delta );
+  oldtime = glutGet( GLUT_ELAPSED_TIME );
+
+  if( g_animate == true ) {
+    // Advance each particle
+    for( int i = 0; i < MAX_PARTICLES; i++ ) {
+      g_particles[i].advance( i );
+    }
+  }
+
+ // Tell glut we need to redraw scene
+    glutPostRedisplay();
+}
+
+void initGLUT() {
+  // Setup the glut window
+  glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH );
+  glutInitWindowPosition( 200, 100 );
+  glutInitWindowSize( windowWidth, windowHeight );
+  glutCreateWindow( "Gravity!" );
+  glutSetCursor( GLUT_CURSOR_NONE );
+
+  // Setup the glut callback functions
+  glutDisplayFunc( displayEvent );
+  glutReshapeFunc( reshapeEvent );
+  glutMouseFunc( mouseEvent );
+  glutMotionFunc( motionEvent );
+  glutKeyboardFunc( keyboardEvent );
+  glutIdleFunc( idleEvent );
+}
+
+void initGL() {
+  // Set some opengl graphics functions
+  glEnable( GL_BLEND );       glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
+  glEnable( GL_LINE_SMOOTH ); glLineWidth( 1.5 );
+
+  // Create an 8x8 shere texture
+  glBindTexture( GL_TEXTURE_2D, 10 );
+  glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
+  glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
+  glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP );
+  glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP );
+  glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
+  glTexImage2D( GL_TEXTURE_2D,      // Target
+                0,                  // Mip-Map Level
+                GL_RGBA,            // Internal Format
+                8,                  // Width
+                8,                  // Height
+                0,                  // Border
+                GL_RGBA,            // Source Format
+                GL_UNSIGNED_BYTE,   // Source Type
+                g_texture );        // Raw Data
+
+  // Add some fog
+  float fogColor[4] = { 0.0, 0.0, 0.0, 1.0 };
+  glFogi( GL_FOG_MODE, GL_LINEAR );
+  glFogfv( GL_FOG_COLOR, fogColor );
+  glFogf( GL_FOG_START, 3.0 );
+  glFogf( GL_FOG_END, 5.0 );
+  if( g_usefog )
+    glEnable( GL_FOG );
+
+  glEnable( GL_CULL_FACE );
+}
+
+int main( int argc, char *argv[] ) {
+  // If argc >= 2, check command line args    
+  if( argc >= 2 ) {
+    // Make sure screensaver only runs once
+    CreateMutex( NULL, true, "Gravity ScreenSaver" );
+    if( GetLastError() == ERROR_ALREADY_EXISTS )
+      exit( 0 );
+    if( argv[1][1] == 'c' )
+      MessageBox( (HWND)glutGetWindow(), "Copyright 2003 Mike Austin\n\n"
+       "Please send bug reports and suggestions to mike@mike-austin.com",
+       "OpenGL Gravity ScreenSaver", MB_OK | MB_ICONINFORMATION );
+    if( argv[1][1] != 's' )
+      exit( 0 );
+  }
+
+  // Initialize glut
+  glutInit( &argc, argv );
+
+  // Make rand() more random
+  srand( time(NULL) );
+
+  // Create a new array of Particles;
+  g_particles = new Particle[MAX_PARTICLES];
+
+  if( argc >= 2 ) {
+    // Get the screen width and height
+    windowWidth  = glutGet( GLUT_SCREEN_WIDTH );
+    windowHeight = glutGet( GLUT_SCREEN_HEIGHT );
+  }
+    
+  initGLUT();
+
+  if( argc >= 2 ) {
+    // Set window to borderless, full screen and make topmost
+    SetWindowLong( FindWindow( NULL, "Gravity!" ), GWL_STYLE, WS_POPUP );
+    SetWindowPos( FindWindow( NULL, "Gravity!" ), HWND_TOPMOST, 0, 0,
+     windowWidth, windowHeight, 0 );
+  }
+
+  // Initialize glut and opengl
+  initGL();
+
+  // Enter the main glut loop  
+  glutMainLoop();
+  
+  // Delete the array of particles we created
+  delete[] g_particles;
+}
+
+</pre>
+</body>
+</html>

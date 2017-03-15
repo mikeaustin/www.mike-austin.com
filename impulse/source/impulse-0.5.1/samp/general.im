@@ -1,0 +1,14 @@
+puts: "] (1..5) each: n -> n sin abs"
+puts: (1..5) map: n -> n sin abs
+
+puts: "] f = x -> (1..x) map: n -> x + n"
+puts: f = x -> (1..x) map: n -> x + n
+
+puts: "] f eval: 5"
+puts: f eval: 5
+
+puts: "] angle = 3.14159 / 2"
+angle = 3.14159 / 2
+puts: "] x = (angle cos * 10) - (angle sin * 10)"
+puts: x = (angle cos * 10) - (angle sin * 10)
+

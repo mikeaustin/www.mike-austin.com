@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>DatabasePlus - Tips & Tricks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="help-styles.css" type="text/css">
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" lang=EN-US>
+<table border=0 cellspacing=0 cellpadding=5 width="100%" >
+  <tr> 
+    <td valign=top class="navigator" ><a href="help-topics.html" class="navlink">Help Topics</a></td>
+  </tr>
+  <tr> 
+    <td valign=top class="section" ><b>Tips &amp; Tricks - DatabasePlus</b></td>
+  </tr>
+  <tr> 
+    <td valign=top class="description" >This section provides tips and tricks 
+      you can use to provide enhanced functionality within DatabasePlus.</td>
+  </tr>
+  <tr> 
+    <td valign=top > <br>
+      Calculated fields allow you to perform calculations and call functions to 
+      achieve a wide variety of results. Calculated fields are found in a View, 
+      and may be one of the following types: 
+      <p>Text, Number, True/False, Date, Time, Currency, HTML or URL</p>
+      <p><br>
+        <b>HTML and Calculated Fields</b><hr noshade size="1" width="100%"><p></p>
+      
+      <p>Support for HTML in a field is a powerful tool, but not as powerful as 
+        using a calculated field of type HTML. By dynamically creating HTML, you 
+        can change font sizes and colors, build sub-tables, insert inline frames, 
+        and much more.</p>
+      <p><b>Example 1:</b><br>
+        Show overdue tasks status with a red &quot;<span class="warning">OVERDUE</span>&quot; 
+      </p>
+      <ul>
+        <li>In a table, create a field named &quot;Due Date&quot; of type Date.</li>
+        <li>In a view, create a calculated field named &quot;Status&quot; of type 
+          HTML.</li>
+        <li>Enter the following formula:<br>
+          <br>
+          if( 'Due Date' &gt; Today(),<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&quot;&lt;font color='red'&gt;OVERDUE&lt;/font&gt;&quot;,<br>
+          &nbsp;&nbsp;&nbsp; &quot;On Time&quot; )<br>
+          <br>
+          and set the return type True/False.</li>
+      </ul>
+      <p><b>Example 2:</b><br>
+        Insert an inline frame into your field</p>
+      <ul>
+        <li>In a view, create a field named &quot;Small Chart&quot; of type HTML.</li>
+        <li>Enter the following formula:<br>
+          <br>
+          &quot;&lt;iframe<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;src='http://www.yahoo.com'&gt;<br>
+          &lt;/iframe&gt;&quot;<br>
+          <br>
+        </li>
+        <li>You can change the dimensional of the frame by specifying width and 
+          height tags:<br>
+          <br>
+          &lt;iframe width=320 height=240...<br>
+          <br>
+        </li>
+        <li>Here are some other tags you can in an iframe:<br>
+          <br>
+          frameborder=[pixel thickness]<br>
+          marginwidth=[pixel width]<br>
+          marginheight=[pixel height]<br>
+          scrolling=[yes|no|auto]<br>
+          <br>
+          Consult the HTML iframe specifications section at <a href="http://www.w3.org">www.w3.org</a> 
+          for more details.</li>
+      </ul>
+      <p><br>
+        <b>Building a Calculated URL</b><hr noshade size="1" width="100%"><p></p>
+      <p>How about building a URL so you can retrieve information dynamically 
+        from the web? This is easily done with a calculated URL.</p>
+      <p><b>Example 1:</b><br>
+        Create a link to a users Yahoo profile</p>
+      <ul>
+        <li>In a table, create a field named &quot;User Profile&quot; of type 
+          Text.</li>
+        <li>In a view, create a calculated field named &quot;Profile&quot; of 
+          type URL.</li>
+        <li>Enter the following formula:<br>
+          <br>
+          &quot;http://profiles.yahoo.com/&quot; + 'User Profile'</li>
+      </ul>
+      <p><br><b>Dynamic Report Filters</b><hr noshade size="1" width="100%"><p></p>
+      <p>In reports, you have the ability to filter for specific criteria. Although 
+        you cannot use functions directly within report filters, you <i>can</i> 
+        add a calculated field that returns true if your criteria is met, then 
+        filter on the calculated field in a report.</p>
+      <p><b>Example 1:<br>
+        </b>Only show shipments for today or earlier</p>
+      <ul>
+        <li>In a table, create a field named &quot;Ship Date&quot; of type Date. 
+        </li>
+        <li>In a view, create a calculated field named &quot;Ship Today&quot; 
+          of type True/False.</li>
+        <li>Enter the following formula:<br>
+          <br>
+          'Ship Date' &lt;= Today()<br>
+          <br>
+        </li>
+        <li>In a report based on this view, filter on the field &quot;Ship Today&quot; 
+          for a value of 1, which is equivalent to &quot;True&quot;.</li>
+      </ul>
+      <p >&nbsp;</p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

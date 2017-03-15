@@ -1,0 +1,367 @@
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway-Regular'), url(../fonts/raleway-regular.woff) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Raleway Medium'), local('Raleway-Medium'), url(../fonts/raleway-medium.woff) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Raleway SemiBold'), local('Raleway-SemiBold'), url(../fonts/raleway-semibold.woff) format('woff');
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: 16px/1em 'Raleway';
+  color: #404040;
+}
+html,
+body {
+  height: 100vh;
+}
+a {
+  text-decoration: none;
+}
+p {
+  line-height: 1.5em;
+}
+ul {
+  list-style-type: square;
+}
+.preload {
+  position: absolute;
+  opacity: 0;
+}
+#page {
+  position: relative;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+#header-background {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: #f2f2f2;
+  border-bottom: 1px solid #bfbfbf;
+}
+header {
+  position: absolute;
+  width: 100%;
+  padding: 0 20px;
+  z-index: 2;
+}
+header img {
+  position: relative;
+  z-index: 1;
+  float: left;
+  margin-top: 14px;
+  width: 150px;
+  border: 7px solid #ffffff;
+  box-shadow: 0 0 3px #bfbfbf;
+}
+header #profile-name {
+  font: 70px/1em 'Times New Roman';
+  height: 140px;
+  padding: 70px 0 0 170px;
+  position: relative;
+}
+header nav {
+  position: relative;
+  margin: 10px 0 0 170px;
+  xoverflow: hidden;
+}
+header nav #contact-button {
+  xfloat: right;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 0px;
+  height: 30px;
+  background: url(../images/icons.png) right 0px no-repeat;
+  background-size: 30px;
+  color: transparent;
+}
+header nav #contact-button:hover {
+  background-color: #404040;
+  background-position: right -30px;
+  color: #ffffff;
+  line-height: 31px;
+  font-weight: 600;
+  border-radius: 15px;
+  text-align: center;
+  padding: 0 36px 0 10px;
+}
+header nav #profile-name-small {
+  position: absolute;
+  xleft: 20px;
+  left: -170px;
+  width: 150px;
+  height: 30px;
+  font: 26px/1em 'Times New Roman';
+  line-height: 25px;
+  text-align: center;
+  font-weight: 600;
+}
+header nav #profile-name-small:before {
+  position: absolute;
+  content: "Mike Austin";
+  top: 20px;
+  right: 0;
+  bottom: 1px;
+  left: 0;
+  line-height: 0;
+  overflow: hidden;
+  transform: scale(1, -1);
+  color: #bfbfbf;
+}
+header nav #profile-name-small:after {
+  position: absolute;
+  content: "";
+  top: 18px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: scale(1, -1);
+  background: linear-gradient(0deg, rgba(242, 242, 242, 0), #f2f2f2);
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  header nav #profile-name-small:before {
+    top: 20px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+@media only screen and (max-width: 640px) {
+  header nav #profile-name-small {
+    font: 25.5px/1em 'Times New Roman';
+    line-height: 26px;
+  }
+}
+header nav ul {
+  margin: 0 0 0 1px;
+}
+header nav ul li {
+  display: block;
+  float: left;
+}
+header nav ul li a {
+  display: block;
+  position: relative;
+  height: 16px;
+  margin-top: 7px;
+  margin-left: -1px;
+  line-height: 17px;
+  padding: 0 15px;
+  border-left: 1px solid #e6e6e6;
+}
+header nav ul li a.current {
+  height: 30px;
+  margin-top: 0;
+  border-left: none;
+  line-height: 31px;
+  background: #404040;
+  color: #ffffff;
+  border-radius: 3px;
+  font-weight: 600;
+}
+aside {
+  position: absolute;
+  margin-top: 200px;
+  width: 150px;
+  padding: 0 7px 0 7px;
+  margin: 200px 0 0 20px;
+  xz-index: 1;
+  transform: translateZ(-1px);
+}
+aside li {
+  display: block;
+}
+aside li a {
+  display: block;
+  margin: 0 0 10px 0;
+  background: url(../images/icons.png) no-repeat;
+  background-size: 30px;
+  height: 30px;
+  padding: 0 0 0 37px;
+  line-height: 31px;
+  font-weight: 500;
+  color: inherit;
+}
+aside li a:hover {
+  background-color: #404040;
+  color: #ffffff;
+  border-radius: 15px;
+  font-weight: 600;
+}
+aside li a[href*='linkedin'],
+aside li a[href*='linkedin']:hover {
+  background-position: left -60px;
+}
+aside li a[href*='pinterest'] {
+  background-position: left -90px;
+}
+aside li a[href*='quora'] {
+  background-position: left -120px;
+}
+aside li a[href*='github'] {
+  background-position: left -150px;
+}
+main {
+  padding-top: 200px;
+  margin-left: 190px;
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+main a {
+  color: #4095bf;
+}
+main a:hover {
+  text-decoration: underline;
+}
+main section {
+  margin-top: 30px;
+  margin-right: 20px;
+}
+main section h1 {
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+main section h2 {
+  margin-bottom: 3px;
+}
+main section h2,
+main section h2 * {
+  font-weight: 500;
+}
+main section li {
+  margin-left: 30px;
+  padding-left: 0px;
+}
+main section xli:before {
+  font-family: Arial;
+  content: "\025B8";
+  font-weight: bold;
+  position: absolute;
+  margin-left: -15px;
+}
+main section:first-child {
+  margin-top: 0;
+}
+main li {
+  margin-top: 10px;
+}
+footer {
+  display: none;
+  position: relative;
+  height: 100%;
+  margin-top: 100px;
+  background-position: bottom center;
+  background-size: auto 100%;
+  xborder: 1px solid green;
+}
+footer div {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  text-shadow: 0 0 3px #404040;
+}
+footer div q {
+  display: block;
+  position: relative;
+  color: #bfbfbf;
+  font: 42px/1.5em 'Trebuchet MS';
+  font-weight: 600;
+  line-height: 1.5em;
+  text-align: right;
+  quotes: '\201C' '\201D';
+}
+@media only screen and (max-width: 667px) and (orientation: landscape) {
+  section {
+    width: 430px !important;
+  }
+  #escher-image {
+    margin-top: 25px !important;
+    margin-left: 140px !important;
+  }
+  #bottom-quote {
+    font-size: 25px;
+  }
+  footer div {
+    top: 22% !important;
+    right: 5% !important;
+  }
+}
+@media only screen and (max-width: 360px) and (orientation: portrait) {
+  header {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  #profile-image {
+    border-width: 5px !important;
+  }
+  h1#profile-name {
+    padding-left: 110px !important;
+    font-size: 35px !important;
+    padding-top: 95px !important;
+  }
+  nav {
+    margin-left: 0 !important;
+  }
+  #profile-name-small {
+    display: none;
+  }
+  #profile-image {
+    width: 100px;
+  }
+  aside {
+    margin-top: 20px;
+    margin-left: 115px;
+    z-index: 2;
+    width: auto;
+  }
+  aside li {
+    float: left;
+    width: 30px;
+    margin-right: 20px;
+    color: transparent;
+  }
+  aside li a {
+    padding: 0 0 0 0;
+    color: transparent !important;
+  }
+  main {
+    margin-left: 10px;
+  }
+  section {
+    width: 340px !important;
+    xborder: 1px solid red;
+  }
+  #escher-image {
+    margin-top: 25px !important;
+    margin-left: 100px !important;
+  }
+  #bottom-quote {
+    font-size: 20px;
+  }
+  #photos img {
+    border-bottom: 40px solid white !important;
+  }
+  #photos li:before {
+    height: 45px !important;
+    font-size: 17px !important;
+    font-weight: bold;
+  }
+}

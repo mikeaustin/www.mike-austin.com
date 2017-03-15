@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		* {
+			margin: 0; padding: 0;
+			font: 14px/1.5em helvetica;
+		}
+		
+		body {
+			margin: 0; padding: 100px;
+		}
+		
+		article {
+			margin-left: -20px; margin-bottom: 20px; margin-top: 20px;
+			margin-right: 20px;
+			border: 1px solid #c0c0c0;
+			background: white;
+			x-webkit-border-radius: 10px;
+		}
+		
+		article > header {
+			font-weight: bold;
+		}
+		
+	
+		article article {
+			x-webkit-transform: perspective(2000) rotateY(20deg);
+			opacity: 0.75;
+			xbackground: #e0e0e0;
+			xmax-height: 300px;
+			x-webkit-transform: scale(0.75);
+			x-webkit-transform-origin: 0 0;
+		}
+		
+		header {
+			padding: 0 5px;
+			background: #d0d0d0;
+		}
+		
+		article details {
+			display: block;
+			padding: 5px;
+		}
+		
+		article article details,
+		article article details * {
+					font-size: 90%;
+		}
+		
+		article details .hidden {
+			display: none;
+		}
+		
+		
+		article details:hover {
+			max-height: 100px;
+			overflow: auto;
+		}
+		
+		article details:hover .hidden {
+			display: block;
+		}
+		
+		article details:hover .clip {
+			background: #ffff88;
+		}
+	</style>
+</head>
+<body>
+	<article>
+		<header>On On Mon, 11 Oct 2010 15:19:00, Charles Calvert wrote:</header>
+		
+		<article>
+			<article>
+				<header>Charles Calvert</header>
+				<details>
+					<span class="clip">
+						I'm using Ruby 1.8.7 patchlevel 249<br/>
+						Is there a more idiomatic way to do the following?<br/>
+						var = hash[key].nil? ? nil : hash[key].downcase
+					</span>
+					<span class="hidden">
+						Note that if hash[key] is nil, I want nil assigned to var, so this won't work:<br/>
+						var = hash[key].downcase unless hash[key].nil?<br/>
+						Obviously I could do this, but I'm trying to keep it on one line:<br/>
+						var = hash[key]<br/>
+						var = var.downcase unless var.nil?
+					</span>
+				</details>
+			</article>
+	
+			<header>Kirk Haines</header>
+			<details>
+				I usually do:<br/>
+				hash = { :key1 => nil , :key2 => "aBcD" }<br/>
+				var = hash[:key1] && hash[:key1].downcase<br/>
+				var # => nil<br/>
+				var = hash[:key2] && hash[:key2].downcase<br/>
+			</details> 
+		</article>
+
+		<header>Charles Calvert</header>
+		<details>
+			Using the short-circuit evaluation of && to avoid calling downcase. Interesting. 
+		</details>
+
+		<article>
+			<header>Kirk Haines</header>
+			<details>Notice the nuance that if hash[:key1] is false, that will be assigned to var.</details>
+		</article>
+
+		<header>Charles Calvert</header>
+		<details>
+			Yes, that's a weakness of the technique, though it wouldn't matter in the use case at hand. 		
+		</details>
+		
+	</article>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html manifest="inertia.manifest">
+<head>
+	<title>html5 desktop</title>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-height, user-scalable=no">
+	<link href="styles/core.css" rel="stylesheet" type="text/css"/>
+	<script src="scripts/core.js" type="text/javascript"></script>
+	<script src="scripts/views/desktop.js" type="text/javascript"></script>
+	<script src="scripts/views/window.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		window.addEventListener( "DOMContentLoaded", function( event ) {
+			var list = new List().init( document.$( "#event-list" ) );
+			list.load( "store/events.json" );
+
+			desktop = new Desktop().init( document.$("#desktop") );
+			var windows = desktop.element.$$(".window");
+		
+			for (var i = 0; i < windows.length; i++)
+			{
+				desktop.addSubview( new Window().init( windows[i] ) );
+			}
+
+		}, false);
+
+		document.addEventListener( "touchmove", function( event )
+		{
+			event.preventDefault();
+			event.stopPropagation();
+		}, false);
+
+		document.addEventListener( "mousedown", function( event )
+		{
+			sendScreenEvent( event, "onMouseDown" );
+		}, false );
+	
+		document.addEventListener( "mousemove", function( event )
+		{
+			sendScreenEvent( event, "onMouseMove" );
+		}, false );
+	
+		document.addEventListener( "mouseup", function( event )
+		{
+			sendScreenEvent( event, "onMouseUp" );
+		}, false );
+	</script>
+</head>
+<body>
+	<div style="display: none;">
+		<li id="template" style="list-style: none;">
+			<div style="float: left; width: 16px; height: 16px; background: url(images/calendar.png) no-repeat;">
+			</div>
+			<div style="margin-left: 25px;">
+				<h3 rel="what"></h3>
+				<div>Where: <span rel="where"></span></div>
+				<div>When: <span rel="when"></span></div>
+				<div>Location: <span rel="location"></span></div>
+			</div>
+		</li>
+	</div>
+	
+	<div id="desktop" class="desktop with-shadow">
+		<div style="position: absolute; top: 0; width: 320px; bottom: 0; left: 0; background: #f0f0f0; border-right: 1px solid #c0c0c0;">
+			<ul class="sidebar">
+				<li class="item">
+					<h1><span class="count">23</span>&#9660; Inbox</h1>
+					<ul class="rows list">
+						<li>
+							<span class="link" style="float: right; padding: 2px 7px 0px 7px;">New</span>
+							<input style="-moz-border-radius: 10px; background: #f0f0f0; border: 1px solid #c0c0c0; padding: 2px 5px;"/> <span class="link">Search</span>
+						</li>
+						<li onclick="document.$( '#email-window' ).show().$( '#email' ).load( 'store/email.html' );">
+							<h2 style="margin: 0; font-size: 12px;">What's new with you?</h2>
+							<div style="float: right;">Feb 24 8:37pm</div>
+							<div>Dave Mathews</div>
+						</li>
+						<li>
+							<h2 style="margin: 0; font-size: 12px;">What's new with you?</h2>
+							<div style="float: right;">Feb 24 8:37pm</div>
+							<div>Dave Mathews</div>
+						</li>
+					</ul>
+				</li>
+				<li class="item">
+					<h1><span class="count">7</span>&#9660; Tasks</h1>
+					<ul class="rows list">
+						<li>
+							<span class="checkbox" style="float: left; ">&#10004;</span>
+							<div style="margin-left: 30px;">
+								Go to the dentist yet again, when will it be done! This needs to be longer.
+							</div>
+						</li>
+						<li>
+							<span class="checkbox" style="float: left;"></span>
+							<div style="margin-left: 30px;">
+								Go to the dentist yet again, when will it be done! This needs to be longer.
+							</div>
+						</li>
+						<li>
+							<span class="checkbox" style="float: left; "></span>
+							<div style="margin-left: 30px;">
+								Go to the dentist yet again, when will it be done! This needs to be longer.
+							</div>
+						</li>
+					</ul>
+				</li>
+				<li class="item closed">
+					<h1><span class="count">7</span>&#9654; Calendar</h1>
+				</li>
+				<li class="item">
+					<h1><span class="count">7</span>&#9660; Photos</h1>
+					<div>
+						<div style="display: table-cell; width: 105px; text-align: center; padding: 10px 0;">
+							<img src="photos/1.jpg" style="vertical-align: middle; max-width: 80px; max-height: 80px; -webkit-box-shadow: 0 0 10px #808080; -moz-box-shadow: 0 0 10px #808080;" onclick="document.$('#email').innerHTML='<img style=\'width: 100%;\' src=\'photos/1-big.jpg\'/>';"/>
+						</div>
+						<div style="display: table-cell; width: 105px; text-align: center;">
+							<img src="photos/2.jpg" style="vertical-align: middle; max-width: 80px; max-height: 80px; -webkit-box-shadow: 0 0 10px #808080; -moz-box-shadow: 0 0 10px #808080;"/>
+						</div>
+						<div style="display: table-cell; width: 105px; text-align: center;">
+							<img src="photos/3.jpg" style="vertical-align: middle; max-width: 80px; max-height: 80px; -webkit-box-shadow: 0 0 10px #808080; -moz-box-shadow: 0 0 10px #808080;"/>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<div class="window" style="left: 400px; top: 400px; width: 500px; height: 400px;">
+			<h1 class="titlebar">Editor</h1>
+			<div class="client">
+				<div style="position: absolute; left: 200px; top: 100px; width: 201px; height: 274px; background: url(http://mike-austin.com/blog/uploaded_images/hybrid-menu-792597.jpg) no-repeat;"></div>
+				<div contenteditable="true" style="padding: 10px;">
+					<h2 style="margin: 0;">Go ahead, edit away!</h2>
+					<p>Here's a typical paragraph element</p>
+					<ol>
+						<li>and now a list</li>
+						<li>with only</li>
+						<li>three items</li>
+					</ol>
+				</div>
+			</div>
+			<div class="sizer" style="position: absolute; width: 25px; height: 25px; right: 0; bottom: 0; background: #c0c0c0;"></div>
+		</div>
+
+		<div proto="window" class="window" style="left: 1000px; top: 500px; width: 300px;">
+			<h1 class="titlebar">Alert</h1>
+			<div class="client" style="background: #e8e8e8;">
+				<div style="padding: 10px;">
+					<div style="float: left; width: 32px; height: 32px; margin-top: 2px; background: url(images/warning.png) no-repeat;"></div>
+					<div style="padding: 10px; margin-left: 35px;">
+						<div style="font-weight: bold; margin-bottom: 10px; color: #202020;">Are you sure you want to delete the file "test.doc"?</div>
+						<div style="clear: left;"><span style="font-size: 16px; padding: 2px 3px 1px 3px; border: 1px solid #c0c0c0; background: #f0f0f0; -webkit-border-radius: 5px; -moz-border-radius: 5px;">&#10004;</span>&nbsp;
+							Don't ask me next time</div>
+					</div>
+				</div>
+				<div style="margin: 10px; margin-top: 0; overflow: hidden;">
+					<table style="margin: auto;" cellpadding="0" cellspacing="0">
+						<tr>
+							<td>
+								<div class="button" href="javascript:void(0);"
+								 onmousedown="this.className='button active';" onmouseup="this.className='button';">
+									<span class="label">Delete</span>
+								</div>
+							</td>
+							<td width="10"></td>
+							<td>
+								<div class="button" href="javascript:void(0);"
+								 onmousedown="this.className='button active';" onmouseup="this.className='button';">
+									<span class="label">Cancel</span>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<div class="window" style="left: 800px; width: auto; height: auto;">
+			<h1 class="titlebar">Video</h1>
+			<div class="client">
+				<video controls="controls" loop="loop">
+					<source xsrc="videos/sample_mpeg4.mp4"/>
+					<source src="videos/sample_theora.ogv"/>
+					No video for you!
+				</video>
+			</div>
+		</div>
+
+		<div class="window" style="left: 900px; top: 100px; width: 400px;">
+			<h1 class="titlebar">Events</h1>
+			<div class="client">
+				<ul id="event-list" class="events list"></ul>
+			</div>
+			<div class="sizer"></div>
+		</div>
+
+		<div class="window" id="email-window" style="display: none; left: 327px; top: 5px; width: 690px; xheight: 583px; bottom: 5px; max-height: 800px;">
+			<h1 class="titlebar" style="height: auto; text-align: left; overflow: hidden;">
+					<ul class="toolbar" style="line-height: 1.3em;">
+						<li style="background-image: url(images/delete.png);">Delete Message</li>
+						<li style="background-image: url(images/mail-reply.png)">Reply to Sender</li>
+						<li style="background-image: url(images/mail-new.png);">New Message</li>
+					</ul>
+					<div style="font-weight: normal;">
+						<div style="font-weight: bold; margin-bottom: 5px;">Mike, New Wishlist Update - Feb 25</div>
+						<div style="line-height: 1.3em; padding: 0 0 5px 0;">From: <span class="link">Dave Mathews</span></div>
+					</div>
+			</h1>
+			<div class="client" style="-moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px;">
+				<div id="email" style="background: #ffffff; padding: 7px;"></div>
+			</div>
+			<div class="sizer"></div>
+		</div>
+	</div>
+</body>
+</html>
+
+<!--
+		<div class="window" style="display: none; left: 1000px; width: auto; height: auto;">
+			<h1 class="titlebar">Yahoo!</h1>
+			<div class="client">
+				<div style="display: none; position: absolute; top: 0; right: 0; bottom: 0; left: 0;"></div>
+				<iframe xsrc="http://m.yahoo.com" frameborder="0" width="320" height="480"></iframe>
+			</div>
+		</div>
+		
+		<div class="window" style="left: 450px; top: 140px;">
+			<h1 class="titlebar">Documents</h1>
+			<div class="client">
+				<ul class="detail list header" style="padding: 0; background: #e8e8e8; border-bottom: 1px solid #c0c0c0;">
+					<li><div class="column">Size</div>Name</li>
+				</ul>
+				<ul id="file-list" class="detail list">
+					<li class="folder"><div class="column">146KB</div><div class="column">10/30/2010</div>Folder</li>
+					<li class="file"><div class="column">35KB</div><div class="column">10/30/2010</div>
+						File with a really really long long name</li>
+					<li class="folder"><div class="column">35KB</div>Folder</li>
+					<li class="file"><div class="column">35KB</div>File with a really long name</li>
+					<li class="folder"><div class="column">35KB</div>Folder</li>
+					<li class="file"><div class="column">35KB</div>File with a really long name</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="window" style="left: 350px; top: 10px; width: 340px;">
+			<h1 class="titlebar">Documents</h1>
+			<div class="client">
+				<ul id="file-list" class="icons list" style="overflow: hidden;">
+					<li class="selected folder"><div class="column">35KB</div>Folder</li>
+					<li class="file"><div class="column">35KB</div>File with a really really really long long long name</li>
+					<li class="folder"><div class="column">35KB</div>Folder</li>
+					<li class="file"><div class="column">35KB</div>File with a really long name</li>
+					<li class="folder"><div class="column">35KB</div>Folder</li>
+					<li class="file"><div class="column">35KB</div>File with a really long name</li>
+				</ul>
+			</div>
+			<div class="sizer" style="position: absolute; width: 25px; height: 25px; right: 0; bottom: 0; background: #c0c0c0;"></div>
+		</div>
+-->

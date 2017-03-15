@@ -1,0 +1,520 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Mike Austin's Blog: Building ui hierarchies from a file</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="MSSmartTagsPreventParsing" content="true" />
+<meta name="generator" content="Blogger" />
+<link rel="icon" type="image/vnd.microsoft.icon" href="http://www.blogger.com/favicon.ico"/>
+<link rel="alternate" type="application/atom+xml" title="Mike Austin's Blog - Atom" href="http://mike-austin.com/blog/atom.xml" />
+<link rel="alternate" type="application/rss+xml" title="Mike Austin's Blog - RSS" href="http://mike-austin.com/blog/rss.xml" />
+<link rel="service.post" type="application/atom+xml" title="Mike Austin's Blog - Atom" href="http://www.blogger.com/feeds/10299300/posts/default" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.blogger.com/rsd.g?blogID=10299300" />
+<link rel="alternate" type="application/atom+xml" title="Mike Austin's Blog - Atom" href="http://www.blogger.com/feeds/10299300/113133877676562488/comments/default" />
+ <link rel="stylesheet" type="text/css" href="http://www.blogger.com/static/v1/v-css/3727950723-blog_controls.css"/> <link rel="stylesheet" type="text/css" href="http://www.blogger.com/dyn-css/authorization.css?targetBlogID=10299300&zx=d82febc4-d1ad-4da9-83e8-1d23cc1ba3f7"/>
+
+
+  <style type="text/css">
+
+
+/* 
+Blogger Template Style
+Name:     TicTac (Blueberry)
+Author:   Dan Cederholm
+URL:      www.simplebits.com
+Date:     1 March 2004
+*/
+
+/* ---( page defaults )--- */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, sans-serif;
+  font-size: small;
+  text-align: center;
+  color: #333;
+  background: #e0e0e0;
+  }
+
+blockquote {
+  margin: 0 0 0 30px;
+  padding: 10px 0 0 20px;
+  font-size: 88%;
+  line-height: 1.5em;
+  color: #666;
+  background: url(http://www.blogblog.com/tictac_blue/quotes.gif) no-repeat top left;
+  }
+
+blockquote p {
+  margin-top: 0;
+  }
+
+abbr, acronym {
+  cursor: help;
+  font-style: normal;
+  border-bottom: 1px dotted;
+  }
+
+code {
+  color: #996666;
+  }
+
+hr {
+  display: none;
+  }
+
+img {
+  border: none;
+  }
+
+/* unordered list style */
+
+ul {
+  list-style: none;
+  margin: 0 0 20px 30px;
+  padding: 0;
+  }
+
+li {
+  list-style: none;
+  padding-left: 14px;
+  margin-bottom: 3px;
+  background: url(http://www.blogblog.com/tictac_blue/tictac_blue.gif) no-repeat 0 6px;
+  }
+
+/* links */
+
+a:link {
+  color: #6699cc;
+  text-decoration: none;
+  }
+
+a:visited {
+  color: #666699;
+  text-decoration: none;
+  }
+
+a:hover {
+  color: #5B739C;
+  text-decoration: underline;
+  }
+
+a:active {
+  color: #5B739C;
+  text-decoration: none;
+  }
+
+/* ---( layout structure )---*/
+
+#wrap {
+  width: 847px;
+  margin: 0 auto;
+  text-align: left;
+  background: url(http://www.blogblog.com/tictac_blue/tile.gif) repeat-y;
+  }
+
+#content {
+  margin-left: 62px; /* to avoid the BMH */
+  }
+
+#main-content {
+  float: left;
+  width: 460px;
+  margin: 20px 0 0 0;
+  padding: 0;
+  line-height: 1.5em;
+  }
+
+#sidebar {
+  margin: 0 41px 0 547px;
+  padding: 20px 0 0 0;
+  font-size: 85%;
+  line-height: 1.4em;
+  color: #999;
+  background: url(http://www.blogblog.com/tictac_blue/sidebar_bg.gif) no-repeat 0 0;
+  }
+
+/* ---( header and site name )--- */
+
+#blog-header {
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Grande", "Trebuchet MS";
+  background: #e0e0e0 url(http://www.blogblog.com/tictac_blue/top_div_blue.gif) no-repeat top left;
+  }
+
+#blog-header h1 {
+  margin: 0;
+  padding: 45px 60px 50px 160px;
+  font-size: 200%;
+  color: #fff;
+  text-shadow: #4F73B6 2px 2px 2px;
+  background: url(http://www.blogblog.com/tictac_blue/top_h1_blue.gif) no-repeat bottom left;
+  }
+
+#blog-header h1 a {
+  text-decoration: none;
+  color: #fff;
+  }
+
+#blog-header h1 a:hover {
+  color: #eee;
+  }
+
+/* ---( main column )--- */
+
+h2.date-header {
+  margin-top: 0;
+  padding-left: 14px;
+  font-size: 90%;
+  color: #999999;
+  background: url(http://www.blogblog.com/tictac_blue/date_icon_blue.gif) no-repeat 0 50%;
+  }
+
+h3.post-title {
+  margin-top: 0;
+  font-family: "Lucida Grande", "Trebuchet MS";
+  font-size: 130%;
+  letter-spacing: -1px;
+  color: #993333;
+  }
+
+.post {
+  margin: 0 0 1.5em 0;
+  padding: 0 0 1.5em 14px;
+  border-bottom: 1px solid #ddd;
+  }
+
+.post-footer {
+  margin: 0;
+  padding: 0 0 0 14px;
+  font-size: 88%;
+  color: #999;
+  background: url(http://www.blogblog.com/tictac_blue/tictac_grey.gif) no-repeat 0 8px;
+  }
+
+.post img {
+  padding: 6px;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #c0c0c0;
+  border-right: 1px solid #c0c0c0;
+  }
+
+/* comment styles */
+
+#comments {
+  padding-top: 10px;
+  font-size: 85%;
+  line-height: 1.5em;
+  color: #666;
+  background: #eee url(http://www.blogblog.com/tictac_blue/comments_curve.gif) no-repeat top left;
+  }
+
+#comments h4 {
+  margin: 20px 0 15px 0;
+  padding: 8px 0 0 40px;
+  font-family: "Lucida Grande", "Trebuchet MS";
+  font-size: 130%;
+  color: #666;
+  background: url(http://www.blogblog.com/tictac_blue/bubbles.gif) no-repeat 10px 0;
+  height: 29px !important; /* for most browsers */
+  height /**/:37px; /* for IE5/Win */
+  }
+  
+#comments ul {
+  margin-left: 0;
+  }
+
+#comments li {
+  background: none;
+  padding-left: 0;
+  }
+  
+.comment-body {
+  padding: 0 10px 0 25px;
+  background: url(http://www.blogblog.com/tictac_blue/tictac_blue.gif) no-repeat 10px 5px;
+  }
+
+.comment-body p {
+  margin-bottom: 0;
+  }
+
+.comment-data {
+  margin: 4px 0 0 0;
+  padding: 0 10px 1em 60px;
+  color: #999;
+  border-bottom: 1px solid #ddd;
+  background: url(http://www.blogblog.com/tictac_blue/comment_arrow_blue.gif) no-repeat 44px 2px;
+  }
+
+.deleted-comment {
+  font-style:italic;
+  color:gray;
+  }
+
+/* ---( sidebar )--- */
+
+h2.sidebar-title {
+  margin: 0 0 0 0;
+  padding: 25px 0 0 50px;
+  font-family: "Lucida Grande", "Trebuchet MS";
+  font-size: 130%;
+  color: #666;
+  height: 32px;
+  background: url(http://www.blogblog.com/tictac_blue/sidebar_icon.gif) no-repeat 20px 15px;
+  height: 32px !important; /* for most browsers */
+  height /**/:57px; /* for IE5/Win */
+  }
+
+#sidebar ul, #sidebar p {
+  margin: 0;
+  padding: 5px 20px 1em 20px;
+  border-bottom: 1px solid #ddd;
+  }
+
+#sidebar li {
+  background: url(http://www.blogblog.com/tictac_blue/tictac_blue.gif) no-repeat 0 5px;
+  }
+
+/* profile block */
+
+.profile-datablock {
+  margin: 0;
+  padding: 5px 20px 0 20px;
+  }
+
+.profile-datablock dd {
+  margin: 0;
+  padding: 0;
+  }
+
+.profile-img img {
+  float: left;
+  margin: 0 10px 0 0;
+  padding: 4px;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #c0c0c0;
+  border-right: 1px solid #c0c0c0;
+  background: #fff;
+  }
+
+#sidebar p.profile-link {
+  padding-left: 36px;
+  background: url(http://www.blogblog.com/tictac_blue/profile_blue.gif) no-repeat 20px 4px;
+  }
+
+p#powered-by, #sidebar p.profile-textblock {
+  margin-top: 1em;
+  border: none;
+  }
+
+/* ---( footer )--- */
+
+.clear { /* to fix IE6 padding-top issue */
+  clear: both;
+  height: 0;
+  }
+
+#footer {
+  margin: 0;
+  padding: 0 0 9px 0;
+  font-size: 85%;
+  color: #ddd;
+  background: url(http://www.blogblog.com/tictac_blue/bottom_sill.gif) no-repeat bottom left;
+  }
+
+#footer p {
+  margin: 0;
+  padding: 20px 320px 20px 95px;
+  background: url(http://www.blogblog.com/tictac_blue/bottom_sash.gif) no-repeat top left;
+  }
+
+
+/* ---- overrides for post page ---- */
+
+.post {
+  padding: 0;
+  border: none;
+  }
+
+  </style>
+
+
+</head>
+
+<body>
+
+<div id="wrap"> <!-- #wrap - for centering -->
+
+<!-- Blog Header -->
+<div id="blog-header">
+  <h1>
+    <a href="http://mike-austin.com/blog/">
+	Mike Austin's Blog
+	</a>
+  </h1>
+</div>
+
+
+<div id="content"> <!-- #content wrapper -->
+
+<!-- Begin #main-content -->
+<div id="main-content">
+
+
+
+    
+  <h2 class="date-header">Sunday, November 06, 2005</h2>
+  
+  
+     
+  <!-- Begin .post -->
+  <div class="post"><a name="113133877676562488"></a>
+     
+    
+    <h3 class="post-title">
+	 
+	 Building ui hierarchies from a file
+	 
+    </h3>
+    
+     
+    <div class="post-body">
+    
+      <p><div style="clear:both;"></div>I looked at XML, YAML and a bunch of others [<a href="http://www.pault.com/pault/pxml/xmlalternatives.html">XML Alternatives</a>] to do simple object persistence.  But in the end, I'd have to create a binding (for Dylan) and learn the api, or use XML, so I borrowed the format for Borland's C++ Builder and tweaked it a bit.  It only takes around 50 lines of code to read in and create the ui hierarchy.<br /><pre>let window = make (&lt;window&gt;, caption: "Window 1",<br />                             width: 600.0, height: 400.0);<br />build-hierarchy (window, "test.ui");<br /><br />test.ui<br />-------<br />shape-left: 10<br />shape-top: 10<br />object button: &lt;push-button&gt;<br />  caption: "It's Alive!"<br />  shape-left: 10<br />  shape-top: 10<br />end</pre><div style="clear:both; padding-bottom:0.25em"></div></p>
+    
+    </div>
+    
+    <p class="post-footer">posted by Mike Austin at 
+      <a href="http://mike-austin.com/blog/2005/11/building-ui-hierarchies-from-file.html" title="permanent link">8:24 PM</a> 
+       <span class="item-control blog-admin pid-1953536068"><a style="border:none;" href="http://www.blogger.com/post-edit.g?blogID=10299300&postID=113133877676562488" title="Edit Post"><img class="icon-action" alt="" src="http://www.blogger.com:80/img/icon18_edit_allbkg.gif" height="18" width="18"></a></span></p>
+  
+  </div>
+  <!-- End .post -->
+  
+  
+   <!-- Begin #comments -->
+ 
+
+  <div id="comments">
+
+	<a name="comments"></a>
+    
+    <h4>2 Comments:</h4>
+    
+    <ul>
+      
+      <li id="c113135448879925636"><a name="c113135448879925636"></a>
+        <div class="comment-body">
+         <p>Did you think about using the .nib files that Interface Builder generates?<BR/><BR/>I think they are xml, so yes they would require parsing, but if I had to choose an existing UI building tool to be compatible with, Interface Builder would win hands-down!</p>
+        </div>
+        <p class="comment-data">By <span style="line-height:16px" class="comment-icon anon-comment-icon"><img src="http://www.blogger.com/img/anon16-rounded.gif" alt="Anonymous" style="display:inline;" /></span>&nbsp;<a href="http://www.elegantchaos.com/bornsleepy" rel="nofollow">Sam Deane</a>, at <a href="#c113135448879925636" title="comment permalink">1:08 AM</a>
+	  <span class="item-control blog-admin pid-143184575"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=10299300&postID=113135448879925636" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></p>
+      </li>
+      
+      <li id="c113139019253167493"><a name="c113139019253167493"></a>
+        <div class="comment-body">
+         <p>I just took a look at IB's .nib format.  It creates 3 sub-files, classes.nib wich is some text format but not xml, info.nib which is xml but  looks like info for IB itself, and keyedobjects.nib, which seems to contains object info, but is a binary file.  I read that IB uses the Coder protocol to store the objects, and that would probably store data in binary.  Unless there is a need to use IB to create UIs in Inertia, I'll stick with the current format.  Plus, I hope to create an IB like tool in Inertia anyway. :)</p>
+        </div>
+        <p class="comment-data">By <span style="line-height:16px" class="comment-icon blogger-comment-icon"><img src="http://www.blogger.com/img/b16-rounded.gif" alt="Blogger" style="display:inline;" /></span>&nbsp;<a href="http://www.blogger.com/profile/10858095751808264396" rel="nofollow">Mike Austin</a>, at <a href="#c113139019253167493" title="comment permalink">11:03 AM</a>
+	  <span class="item-control blog-admin pid-1953536068"><a style="border:none;" href="http://www.blogger.com/delete-comment.g?blogID=10299300&postID=113139019253167493" title="Delete Comment" ><span class="delete-comment-icon">&nbsp;</span></a></span></p>
+      </li>
+      
+    </ul>
+	
+	<p class="comment-data">
+    <a class="comment-link" href="https://www.blogger.com/comment.g?blogID=10299300&postID=113133877676562488">Post a Comment</a>
+    <br /><br />
+
+	
+
+	<a href="http://mike-austin.com/blog/">&lt;&lt; Home</a>
+    </p>
+    </div>
+  
+
+  <!-- End #comments -->
+
+
+
+  <hr />
+</div><!-- End #main-content -->
+</div><!-- End #content -->
+
+
+
+<!-- Begin #sidebar -->
+<div id="sidebar">
+
+  <h2 class="sidebar-title">About</h2>
+  
+  <p>Technology is like a double edged sword... with no handle.<br>
+<br>
+<a href="atom.xml"><img src="/blog/images/xml.gif" border="0"></a> <a href="/blog/atom.xml">Atom Site Feed</a></p>
+  
+   <!-- Begin #profile-container -->
+   
+   <div id="profile-container"><h2 class="sidebar-title">About Me</h2>
+<dl class="profile-datablock"><dt class="profile-img"><a href="http://www.blogger.com/profile/10858095751808264396"><img src="http://www.mike-austin.com/mike-guitar.jpg" width="80" height="60" alt="My Photo"></a></dt>
+<dd class="profile-data"><strong>Name:</strong>  Mike Austin </dd>
+<dd class="profile-data"><strong>Location:</strong>  CA </dd></dl>
+
+<p class="profile-link"><a href="http://www.blogger.com/profile/10858095751808264396">View my complete profile</a></p></div>
+   
+  <!-- End #profile -->
+  
+  <h2 class="sidebar-title">Previous</h2>
+  
+  <ul id="recently">
+    
+        <li><a href="http://mike-austin.com/blog/2005/11/dylan-inertia-update.html">Dylan Inertia update</a></li>
+     
+        <li><a href="http://mike-austin.com/blog/2005/11/structure-and-interpretation-of.html">Structure and Interpretation of Computer Programs</a></li>
+     
+        <li><a href="http://mike-austin.com/blog/2005/11/no-news-is-good-gnus.html">No news is good gnus...</a></li>
+     
+        <li><a href="http://mike-austin.com/blog/2005/10/dylan-inertia-screen-shot.html">Dylan Inertia screen shot</a></li>
+     
+        <li><a href="http://mike-austin.com/blog/2005/10/vintage-computer-festival-80.html">Vintage Computer Festival 8.0</a></li>
+     
+        <li><a href="http://mike-austin.com/blog/2005/10/hybrid-context-menu.html">Hybrid context menu</a></li>
+     
+        <li><a href="http://mike-austin.com/blog/2005/10/this-clip-always-cracks-me-up.html">This clip always cracks me up...</a></li>
+     
+        <li><a href="http://mike-austin.com/blog/2005/10/another-simple-example-in-dylan.html">Another simple example in Dylan</a></li>
+     
+        <li><a href="http://mike-austin.com/blog/2005/10/programs-must-be-written-to-be-read.html">Programs must be written to be read</a></li>
+     
+        <li><a href="http://mike-austin.com/blog/2005/10/dylan-macro-system-is-badass.html">Dylan macro system is badass!</a></li>
+     
+  </ul>
+  
+  
+  
+  <!--<h2 class="sidebar-title">New</h2>
+  
+  <p>This is a paragraph of text in the sidebar.</p>
+  -->
+  
+  <p id="powered-by"><a href="http://www.blogger.com"><img src="http://buttons.blogger.com/bloggerbutton1.gif" alt="Powered by Blogger" /></a></p>
+
+
+</div>
+<!-- End #sidebar -->
+
+<div class="clear">&nbsp;</div>
+
+<div id="footer">
+   <p><!-- If you'd like, you could place footer information here. -->&nbsp;</p>
+</div>
+
+</div> <!-- end #wrap -->
+
+<!-- c(~) -->
+</body>
+</html>
