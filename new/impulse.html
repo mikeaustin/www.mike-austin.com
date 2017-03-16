@@ -65,13 +65,20 @@
   <style>
     #calc {
       width: 200px;
-      border: 1px solid #afafaf;
+      border: 3px solid #afafaf;
       overflow: hidden;
     }
     
     #calc * {
       box-sizing: border-box;
+      margin: 0; padding: 0;
       font: 20px/1em 'Arial';
+    }
+
+    #calc h1 {
+      background: #afafaf;
+      height: 30px; line-height: 30px;
+      color: white; text-align: center;
     }
 
     #calc input {
@@ -97,6 +104,8 @@
   </style>
 
   <div id="calc">
+    <h1>Calculator</h1>
+    
     <input data-binding="display" readonly />
     
     <button data-action="clear">C</button>
@@ -121,7 +130,11 @@
 
     <button class="wide" data-number="0">0</button>
     <button data-number=".">.</button>
-    
+  </div>
+
+  <br />
+
+  <div id="debug">
     <input data-binding="display" readonly />
   </div>
 
@@ -179,7 +192,9 @@
       }
     }
     
-    Impulse.applyBindings(new Calculator(), document.querySelector("#calc"), function(controller) {
+    var calculator = new Calculator();
+    
+    Impulse.applyBindings(calculator, document.querySelector("#calc"), function(controller) {
       return {
         "input[data-binding='display']": {
           init: function() { controller.displayString.addListener(this); },
@@ -199,6 +214,16 @@
         }
       }
     });
+    
+    Impulse.applyBindings(calculator, document.querySelector("#debug"), function(controller) {
+      return {
+        "input[data-binding='display']": {
+          init: function() { controller.displayString.addListener(this); },
+          update: function(event) { this.value = event.detail; }
+        },
+      }
+    });
+
   </script>
 </body>
 </html>
