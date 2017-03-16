@@ -46,27 +46,55 @@
       }
     };
     
-    Impulse.Observable = function(value) {
+    Impulse.Observable = function(value, type) {
       this.value = value;
+      this.type = type;
       this.listeners = [];
       
       this.addEventListener = function(type, listener) {
         this.listeners.push(listener);
+        
+        return this;
       };
-      
-      this.getValue = function() {
-        return this.value;
-      }
-      
+            
       this.setValue = function(value) {
+        if (this.type != null && value.constructor !== this.type) {
+          throw Error(value.constructor.name + " does not match observable type " + this.type.name);
+        }
+        
         this.value = value;
         
         var event = new CustomEvent("update", { detail: value });
         
+        var obs = this;
+        
         this.listeners.forEach(function(listener) {
-          listener(event);
+          listener.call(obs, event);
         });
       };
+
+      this.getValue = function() {
+        return this.value;
+      }
+      
+      this.compose = function(listener, value, type) {
+        var observable = new Impulse.Observable(value, type);
+        
+        this.addEventListener("update", function(event) {
+          observable.setValue(listener(event));
+        });
+        
+        return observable;
+      }
+      
+      this.listenTo = function(observable, listener) {
+        var _this = this;
+        
+        observable.addEventListener("update", function(event) {
+          _this.setValue(listener(event));
+        });
+      }
+
     }
   </script>
 </head>
@@ -162,18 +190,31 @@
     "use strict";
     
     function Calculator() {
-      this.displayString = new Impulse.Observable("");
-      this.numberValue = 0;
       this.clearDisplay = true;
       this.lastOperator = "eql";
+      this.numberValue = new Impulse.Observable(0, Number);
+      this.displayString = new Impulse.Observable("", String);
+
+//      this.displayString = this.numberValue.compose(function(event) {
+//        return event.detail.toString();
+//      }, "", String);
+
+      this.displayString.listenTo(this.numberValue, function(event) {
+        return event.detail.toString();
+      });
+
+//      var calc = this;
+//      this.numberValue.addEventListener("update", function(event) {
+//        calc.displayString.setValue(event.detail.toString());
+//      });
+
 
       this.onBindingsApplied = function() {
-        this.displayString.setValue(this.numberValue);
+        this.displayString.setValue(this.numberValue.getValue().toString());
       }
 
       this.actionPressed = function(dataset) {
-        this.numberValue = 0;
-        this.displayString.setValue(this.numberValue);
+        this.numberValue.setValue(0);
       }
       
       this.numberPressed = function(number) {
@@ -198,18 +239,20 @@
       
       this.operatorPressed = function(dataset) {
         if (!this.clearDisplay) {
-          var displayString = parseFloat(this.displayString.getValue());
+          var displayValue = parseFloat(this.displayString.getValue());
 
           var operation = this.operations[this.lastOperator];
           if (operation != null) {
-            this.numberValue = operation(this.numberValue, displayString);
-            this.displayString.setValue(this.numberValue);
+            this.numberValue.setValue(operation(this.numberValue.getValue(), displayValue));
           }
         }
         
         this.lastOperator = dataset.operator;        
         this.clearDisplay = true;
       }
+    }
+    
+    function Client(numberPressed, operatorPressed) {
     }
     
     var calculator = new Calculator();
