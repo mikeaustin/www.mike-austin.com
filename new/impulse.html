@@ -22,8 +22,18 @@
           elements.forEach(function(element) {
             var events = bindings[binding];
             
-            Object.keys(events).forEach(function(event) {
-              element.addEventListener(event, events[event], false);
+            Object.keys(events).forEach(function(eventName) {
+              var listener = events[eventName];
+              
+              if (typeof(events[eventName]) == "function") {
+                element.addEventListener(eventName, events[eventName], false);
+              } else {
+                listener.callback = listener.callback.bind(element);
+
+                listener.sources.forEach(function(source) {
+                  source.addEventListener(eventName, listener.callback);
+                });
+              }
             });
             
             if (events.init) {
@@ -40,7 +50,7 @@
       this.value = value;
       this.listeners = [];
       
-      this.addListener = function(listener) {
+      this.addEventListener = function(type, listener) {
         this.listeners.push(listener);
       };
       
@@ -54,7 +64,7 @@
         var event = new CustomEvent("update", { detail: value });
         
         this.listeners.forEach(function(listener) {
-          listener.dispatchEvent(event);
+          listener(event);
         });
       };
     }
@@ -207,12 +217,18 @@
     Impulse.applyBindings(calculator, document.querySelector("#calc"), function(controller) {
       return {
         "input[data-binding='display']": {
-          init: function() { controller.displayString.addListener(this); },
-          update: function(event) { this.value = event.detail; }
+          update: {
+            sources: [controller.displayString],
+            callback: function(event) { this.value = event.detail; }
+          }
         },
 
         "button[data-action='clear']": {
-          click: Impulse.bindDataset(controller, "actionPressed")
+          //click: Impulse.bindDataset(controller, "actionPressed")
+          click: {
+            sources: document.querySelectorAll("#calc button[data-action='clear']"),
+            callback: Impulse.bindDataset(controller, "actionPressed")
+          }
         },
         
         "button[data-number]": {
@@ -228,8 +244,10 @@
     Impulse.applyBindings(calculator, document.querySelector("#debug"), function(controller) {
       return {
         "input[data-binding='display']": {
-          init: function() { controller.displayString.addListener(this); },
-          update: function(event) { this.value = event.detail; }
+          update: {
+            sources: [controller.displayString],
+            callback: function(event) { this.value = event.detail; }
+          }
         },
       }
     });
