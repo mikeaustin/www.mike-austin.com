@@ -7,7 +7,8 @@
     "use strict";
 
     //
-    // Impulse namespace with core static functions
+    // This is a small experimental library for connecting views to controllers
+    // It has no dependencies, and supports value observables that act just like DOM EventTargets
     //
     
     var Impulse = {
@@ -60,6 +61,7 @@
     
     //
     // An object similar to EventTarget that sends events
+    // Value type invariant can be set to detect type mismatch on assignment
     //
     
     Impulse.Observable = function(value, valueConstructor) {
@@ -119,6 +121,8 @@
 </head>
 <body>
 
+  <!-- Basic styles for a calculator -->
+  
   <style>
     #calc {
       width: 200px;
@@ -168,6 +172,8 @@
     }
   </style>
 
+  <!-- Basic layout for a calculator -->
+
   <div id="calc">
     <h1>Calculator</h1>
     
@@ -202,6 +208,8 @@
   <div id="debug">
     <input data-binding="display" readonly />
   </div>
+
+  <!-- Controller and view classes for a calculator -->
 
   <script>
     "use strict";
@@ -307,6 +315,7 @@
       }
       
       Impulse.applyBindings(document.querySelector("#calc"), {
+        // You can add event listeners to sources other than the selector elements
         "input[data-binding='display']": {
           update: {
             sources: [properties.displayString],
