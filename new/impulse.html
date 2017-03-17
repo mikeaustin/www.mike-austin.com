@@ -7,77 +7,67 @@
     "use strict";
 
     var Impulse = {
-      bindDataset: function(controller, funcName) {
+      bindDataset: function(listener) {
         return function(event) {
-          return controller[funcName](event.target.dataset);
+          return listener(event.target.dataset);
         }
       },
       
-      applyBindings: function(controller, rootElement, bindingsFunc) {
-        var bindings = bindingsFunc(controller);
-        
-        Object.keys(bindings).forEach(function(binding) {
+      applyBindings: function(rootElement, bindings) {
+        for (var binding in bindings) {
           var elements = rootElement.querySelectorAll(binding);
           
-          elements.forEach(function(element) {
-            var events = bindings[binding];
+          for (var element of elements) {
+            var eventTypes = bindings[binding];
             
-            Object.keys(events).forEach(function(eventName) {
-              var listener = events[eventName];
+            for (var eventType in eventTypes) {
+              var listener = eventTypes[eventType];
               
-              if (typeof(events[eventName]) == "function") {
-                element.addEventListener(eventName, events[eventName], false);
+              if (typeof(listener) === "function") {
+                element.addEventListener(eventType, listener, false);
               } else {
                 listener.callback = listener.callback.bind(element);
 
                 listener.sources.forEach(function(source) {
-                  source.addEventListener(eventName, listener.callback);
+                  source.addEventListener(eventType, listener.callback);
                 });
               }
-            });
-            
-            if (events.init) {
-              events.init.apply(element);
             }
-          });
-        });
-
-        controller.onBindingsApplied();
+          }
+        }
       }
     };
     
-    Impulse.Observable = function(value, type) {
+    Impulse.Observable = function(value, valueConstructor) {
       this.value = value;
-      this.type = type;
-      this.listeners = [];
-      
-      this.addEventListener = function(type, listener) {
-        this.listeners.push(listener);
-        
-        return this;
-      };
+      this.valueConstructor = valueConstructor;
+      this.valueListeners = [];
+    }
+    
+    Impulse.Observable.prototype = {  
+      addEventListener: function(eventType, listener) {
+        this.valueListeners.push(listener);
+      },
             
-      this.setValue = function(value) {
-        if (this.type != null && value.constructor !== this.type) {
-          throw Error(value.constructor.name + " does not match observable type " + this.type.name);
+      setValue: function(value) {
+        if (this.valueConstructor != null && value.constructor !== this.valueConstructor) {
+          throw Error(value.constructor.name + " does not match observable type " + this.valueConstructor.name);
         }
         
         this.value = value;
         
         var event = new CustomEvent("update", { detail: value });
         
-        var obs = this;
-        
-        this.listeners.forEach(function(listener) {
-          listener.call(obs, event);
-        });
-      };
+        for (var listener of this.valueListeners) {
+          listener.call(this, event);
+        }
+      },
 
-      this.getValue = function() {
+      getValue: function() {
         return this.value;
-      }
+      },
       
-      this.compose = function(listener, value, type) {
+      compose: function(listener, value, type) {
         var observable = new Impulse.Observable(value, type);
         
         this.addEventListener("update", function(event) {
@@ -85,16 +75,15 @@
         });
         
         return observable;
-      }
+      },
       
-      this.listenTo = function(observable, listener) {
+      listenTo: function(observable, listener) {
         var _this = this;
         
         observable.addEventListener("update", function(event) {
           _this.setValue(listener(event));
         });
       }
-
     }
   </script>
 </head>
@@ -105,7 +94,6 @@
       width: 200px;
       border: 1px solid #606060;
       overflow: hidden;
-      box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.5);
     }
     
     #calc * {
@@ -119,7 +107,6 @@
       background: #606060;
       height: 30px; line-height: 30px;
       color: white; text-align: center;
-      text-shadow: 0 1px 1px hsla(0, 0%, 0%, 0.25);
     }
 
     #calc input {
@@ -195,21 +182,18 @@
       this.numberValue = new Impulse.Observable(0, Number);
       this.displayString = new Impulse.Observable("", String);
 
-//      this.displayString = this.numberValue.compose(function(event) {
-//        return event.detail.toString();
-//      }, "", String);
-
       this.displayString.listenTo(this.numberValue, function(event) {
         return event.detail.toString();
       });
 
-//      var calc = this;
-//      this.numberValue.addEventListener("update", function(event) {
-//        calc.displayString.setValue(event.detail.toString());
-//      });
-
-
-      this.onBindingsApplied = function() {
+      this.createView = function(viewClass) {
+        new viewClass({
+          displayString: this.displayString,
+          numberPressed: this.numberPressed.bind(this),
+          operatorPressed: this.operatorPressed.bind(this),
+          actionPressed: this.actionPressed.bind(this)
+        });
+        
         this.displayString.setValue(this.numberValue.getValue().toString());
       }
 
@@ -217,7 +201,7 @@
         this.numberValue.setValue(0);
       }
       
-      this.numberPressed = function(number) {
+      this.numberPressed = function(dataset) {
         var displayString = this.displayString.getValue();
       
         if (this.clearDisplay) {
@@ -226,7 +210,7 @@
           this.clearDisplay = false;
         }
         
-        this.displayString.setValue(displayString + number);
+        this.displayString.setValue(displayString + dataset.number);
       }
       
       this.operations = {
@@ -252,49 +236,48 @@
       }
     }
     
-    function Client(numberPressed, operatorPressed) {
-    }
-    
-    var calculator = new Calculator();
-    
-    Impulse.applyBindings(calculator, document.querySelector("#calc"), function(controller) {
-      return {
+    function Client(properties) {
+      var required = ["displayString", "numberPressed", "operatorPressed", "actionPressed"];
+
+      for (var r of required) {
+        if (!(r in properties)) {
+          throw Error("Required");
+        }
+      }
+      
+      Impulse.applyBindings(document.querySelector("#calc"), {
         "input[data-binding='display']": {
           update: {
-            sources: [controller.displayString],
+            sources: [properties.displayString],
             callback: function(event) { this.value = event.detail; }
           }
         },
 
         "button[data-action='clear']": {
-          //click: Impulse.bindDataset(controller, "actionPressed")
-          click: {
-            sources: document.querySelectorAll("#calc button[data-action='clear']"),
-            callback: Impulse.bindDataset(controller, "actionPressed")
-          }
+          click: Impulse.bindDataset(properties.actionPressed)
         },
         
         "button[data-number]": {
-          click: function(event) { return controller.numberPressed(event.target.dataset["number"]); }
+          click: Impulse.bindDataset(properties.numberPressed)
         },
         
         "button[data-operator]": {
-          click: Impulse.bindDataset(controller, "operatorPressed")
+          click: Impulse.bindDataset(properties.operatorPressed)
+        }
+      });
+    }
+    
+    var calculator = new Calculator();
+    calculator.createView(Client)
+    
+    Impulse.applyBindings(document.querySelector("#debug"), {
+      "input[data-binding='display']": {
+        update: {
+          sources: [calculator.displayString],
+          callback: function(event) { this.value = event.detail; }
         }
       }
     });
-    
-    Impulse.applyBindings(calculator, document.querySelector("#debug"), function(controller) {
-      return {
-        "input[data-binding='display']": {
-          update: {
-            sources: [controller.displayString],
-            callback: function(event) { this.value = event.detail; }
-          }
-        },
-      }
-    });
-
   </script>
 </body>
 </html>
