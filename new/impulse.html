@@ -6,23 +6,43 @@
   <script>
     "use strict";
 
+    //
+    // Impulse namespace with core static functions
+    //
+    
     var Impulse = {
+      //
+      // Bind event listener argument to dataset for convenience
+      //
+      
       bindDataset: function(listener) {
         return function(event) {
           return listener(event.target.dataset);
         }
       },
       
+      //
+      // Traverse bindings and hook up events. Example bindings: {
+      //   "button[data-action='clear']": {
+      //     click: Impulse.bindDataset(properties.actionPressed)
+      //   }
+      // }
+      //
+      
       applyBindings: function(rootElement, bindings) {
         for (var binding in bindings) {
           var elements = rootElement.querySelectorAll(binding);
+          var eventTypes = bindings[binding];
           
-          for (var element of elements) {
-            var eventTypes = bindings[binding];
+          //elements.forEach(function(element) {
+          for (var i = 0; i < elements.length; i++) {
+            var element = elements[i];
             
             for (var eventType in eventTypes) {
               var listener = eventTypes[eventType];
-              
+
+              // If a function, call setEventListener on the element
+              // If not a function, call setEventListener on each source
               if (typeof(listener) === "function") {
                 element.addEventListener(eventType, listener, false);
               } else {
@@ -38,6 +58,10 @@
       }
     };
     
+    //
+    // An object similar to EventTarget that sends events
+    //
+    
     Impulse.Observable = function(value, valueConstructor) {
       this.value = value;
       this.valueConstructor = valueConstructor;
@@ -45,10 +69,18 @@
     }
     
     Impulse.Observable.prototype = {  
+      //
+      // Similar to EventTarget, adds listeners for the value
+      //
+      
       addEventListener: function(eventType, listener) {
         this.valueListeners.push(listener);
       },
-            
+
+      //
+      // Set's the observable's value and sends an event to all listeners
+      //
+                  
       setValue: function(value) {
         if (this.valueConstructor != null && value.constructor !== this.valueConstructor) {
           throw Error(value.constructor.name + " does not match Observable type " + this.valueConstructor.name);
@@ -63,20 +95,18 @@
         }
       },
 
+      //
+      // Get the observable's raw value
+      //
+      
       getValue: function() {
         return this.value;
       },
-      
-      compose: function(listener, value, type) {
-        var observable = new Impulse.Observable(value, type);
-        
-        this.addEventListener("update", function(event) {
-          observable.setValue(listener(event));
-        });
-        
-        return observable;
-      },
-      
+
+      //
+      // Listen to and transform an observable value when changed
+      //
+            
       listenTo: function(observable, listener) {
         var _this = this;
         
@@ -176,6 +206,10 @@
   <script>
     "use strict";
     
+    //
+    // Calculator controller. Knows nothing about views.
+    //
+    
     function Calculator() {
       this.clearDisplay = true;
       this.lastOperator = "eql";
@@ -186,17 +220,24 @@
         return event.detail.toString();
       });
     }
+
+    //
+    // Operations called when clicking operator buttons
+    //
     
     Calculator.operations = {
-        eql: function(a, b) { return b; },
-        add: function(a, b) { return a + b; },
-        sub: function(a, b) { return a - b; },
-        mul: function(a, b) { return a * b; },
-        div: function(a, b) { return a / b; }
-      }
-
+      eql: function(a, b) { return b; },
+      add: function(a, b) { return a + b; },
+      sub: function(a, b) { return a - b; },
+      mul: function(a, b) { return a * b; },
+      div: function(a, b) { return a / b; }
+    }
     
     Calculator.prototype = {
+      //
+      // Create a new view object, passing in properties similar to React
+      //
+      
       createView: function(viewClass) {
         new viewClass({
           displayString: this.displayString,
@@ -208,9 +249,17 @@
         this.displayString.setValue(this.numberValue.getValue().toString());
       },
 
+      //
+      // An action button was pressed, currently only the clear button
+      //
+      
       actionPressed: function(dataset) {
         this.numberValue.setValue(0);
       },
+      
+      //
+      // A number button was pressed. Which number is found in data-number
+      //
       
       numberPressed: function(dataset) {
         var displayString = this.displayString.getValue();
@@ -224,6 +273,10 @@
         this.displayString.setValue(displayString + dataset.number);
       },
             
+      //
+      // An operator button was pressed. Which operator is found in data-operator
+      //
+      
       operatorPressed: function(dataset) {
         if (!this.clearDisplay) {
           var displayValue = parseFloat(this.displayString.getValue());
@@ -238,7 +291,12 @@
         this.clearDisplay = true;
       }
     }
-    
+
+    //
+    // The Calculator view. Impulse.applyBindings() hooks up the buttons
+    // and adds listeners for changes to displayString
+    //
+        
     function Client(properties) {
       var required = ["displayString", "numberPressed", "operatorPressed", "actionPressed"];
 
@@ -271,7 +329,12 @@
     }
     
     var calculator = new Calculator();
+    
     calculator.createView(Client)
+
+    //
+    // Multiple views can be listen to observables
+    //
     
     Impulse.applyBindings(document.querySelector("#debug"), {
       "input[data-binding='display']": {
