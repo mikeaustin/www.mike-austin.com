@@ -51,7 +51,7 @@
             
       setValue: function(value) {
         if (this.valueConstructor != null && value.constructor !== this.valueConstructor) {
-          throw Error(value.constructor.name + " does not match observable type " + this.valueConstructor.name);
+          throw Error(value.constructor.name + " does not match Observable type " + this.valueConstructor.name);
         }
         
         this.value = value;
@@ -185,8 +185,19 @@
       this.displayString.listenTo(this.numberValue, function(event) {
         return event.detail.toString();
       });
+    }
+    
+    Calculator.operations = {
+        eql: function(a, b) { return b; },
+        add: function(a, b) { return a + b; },
+        sub: function(a, b) { return a - b; },
+        mul: function(a, b) { return a * b; },
+        div: function(a, b) { return a / b; }
+      }
 
-      this.createView = function(viewClass) {
+    
+    Calculator.prototype = {
+      createView: function(viewClass) {
         new viewClass({
           displayString: this.displayString,
           numberPressed: this.numberPressed.bind(this),
@@ -195,13 +206,13 @@
         });
         
         this.displayString.setValue(this.numberValue.getValue().toString());
-      }
+      },
 
-      this.actionPressed = function(dataset) {
+      actionPressed: function(dataset) {
         this.numberValue.setValue(0);
-      }
+      },
       
-      this.numberPressed = function(dataset) {
+      numberPressed: function(dataset) {
         var displayString = this.displayString.getValue();
       
         if (this.clearDisplay) {
@@ -211,21 +222,13 @@
         }
         
         this.displayString.setValue(displayString + dataset.number);
-      }
-      
-      this.operations = {
-        eql: function(a, b) { return b; },
-        add: function(a, b) { return a + b; },
-        sub: function(a, b) { return a - b; },
-        mul: function(a, b) { return a * b; },
-        div: function(a, b) { return a / b; }
-      }
-      
-      this.operatorPressed = function(dataset) {
+      },
+            
+      operatorPressed: function(dataset) {
         if (!this.clearDisplay) {
           var displayValue = parseFloat(this.displayString.getValue());
 
-          var operation = this.operations[this.lastOperator];
+          var operation = Calculator.operations[this.lastOperator];
           if (operation != null) {
             this.numberValue.setValue(operation(this.numberValue.getValue(), displayValue));
           }
@@ -241,7 +244,7 @@
 
       for (var r of required) {
         if (!(r in properties)) {
-          throw Error("Required");
+          throw Error("Required Client constructor property " + r + " not found");
         }
       }
       
