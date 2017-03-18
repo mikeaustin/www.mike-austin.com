@@ -1,0 +1,429 @@
+
+<!-- saved from url=(0036)http://peeps.storm8.com/contactlist/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style type="text/css">
+    * {
+      margin: 0; padding: 0;
+      font: 12px/1.5em Arial;
+    }
+
+    body {
+      margin: 0; padding: 5px;
+      xbackground: url(background.jpg) repeat;
+      background: rgb(64, 64, 64);
+      background: rgb(80, 80, 80);
+      xbackground: rgb(96, 96, 96);
+    }
+
+    ul#content {
+      margin-left: 200px; margin-right: 550px;
+      xtext-align: justify;
+    }
+
+    ul#content li {
+      position: relative;
+      float: left;
+      xdisplay: inline-block;
+      xborder: 5px solid rgba(0, 0, 0, 0.75);
+      xborder: 0px solid rgba(0, 0, 0, 0.75);
+      list-style: none;
+      width: 150px; height: 200px;
+      margin: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+    }
+
+    ul#content li img.photo {
+      display: block;
+      margin: auto;
+    }
+
+    ul#content li div {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 25px;
+      text-align: center;
+      xpadding: 0 10px;
+      line-height: 27px;
+      background: rgba(0, 0, 0, 0.75);
+      color: rgb(192, 192, 192);
+    }
+
+    ul#content .overlay {
+      xvisibility: hidden;
+      opacity: 0;
+      transition: opacity 0.125s linear;
+      position: absolute;
+      left: 0; top: 130px; right: 0; xbottom: 25px; height: 45px;
+      background: rgba(0, 0, 0, 0.75);
+      xborder-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    ul#content li:hover div.overlay {
+      xdisplay: block;
+      xvisibility: visible;
+      opacity: 1;
+      transition: opacity 0.0s linear;
+    }
+
+    ul#content .overlay a {
+      display: block;
+      float: left;
+      overflow: hidden;
+      xmargin: 5px 0 0 0px;
+      xpadding: 2px 2px;
+    }
+
+    ul#content .overlay a.first {
+      margin: 0 0 0 5px;
+    }
+
+    ul#content .overlay a img {
+      display: block;
+      width: 25px; height: 25px;
+      xmargin: 10px 10px; padding: 10px 10px;
+      xmargin: 5px 5px; padding: 5px 5px;
+      margin: 5px 0px 0px 0px; padding: 5px 11px;
+      xborder-radius: 5px;
+      border-radius: 2px;
+      opacity: 0.75;
+    }
+
+    ul#content .overlay a:hover img {
+      background: rgba(255, 255, 255, 0.25);
+      opacity: 1.0;
+    }
+
+    ul#content .overlay::after {
+      display: block;
+      content: ' ';
+      position: absolute;
+      left: 5px; right: 5px; bottom: -1px; height: 1px;
+      xleft: 0px; xright: 0px; bottom: -1px; height: 1px;
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    ul#content {
+      xpadding-top: 45px;
+    }
+
+
+    ul#menubar {
+      position: fixed;
+      z-index: 1;
+      left: 0; top: 0; bottom: 0; width: 200px;
+      background: rgba(0, 0, 0, 1.0);
+      padding: 5px 0;
+    }
+
+    ul#menubar li:first-child a {
+      padding-left: 10px;
+    }
+
+    ul#menubar li {
+      background: rgba(0, 0, 0, 0.75);
+      xpadding: 5px 0;
+    }
+
+    ul#menubar li > a {
+      display: block;
+      padding: 6px 10px 5px 27px;
+      color: rgb(192, 192, 192);
+      text-decoration: none;
+    }
+
+    ul#menubar li > a:hover {
+      color: white;
+    }
+
+    ul#menubar li > a:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+
+    * .hover {
+      display: none;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.85) !important;
+      top: -130px; left: 20px !important; right: 20px !important; height: 25px;
+      line-height: 24px !important;
+      border-bottom-left-radius: 7px; border-bottom-right-radius: 7px;
+    }
+
+    *:hover .hover {
+      display: block;
+    }
+  </style>
+
+  <script type="text/javascript">
+    function showDetails(id)
+    {
+      var iframe = document.querySelector("#iframe");
+      var details = document.querySelector("#details");
+
+      iframe.src = "http://contacts.storm8.com/stormies.php?stormie=" + id;
+      details.style.visibility = "hidden";
+
+      var image = new Image();
+      image.onload = function(event)
+      {
+        details.src = "http://shared.storm8.com/HR/user_bios/" + id + ".jpg";
+        details.style.visibility = "visible";
+      };
+      image.src = "http://shared.storm8.com/HR/user_bios/" + id + ".jpg";
+    }
+
+    function filterList(dept)
+    {
+      var stormies = document.querySelectorAll(".stormie");
+      var filtered = document.querySelectorAll(".stormie[data-dept='" + dept + "']");
+
+      if (dept == "") filtered = stormies;
+
+      for (var i = 0; i < stormies.length; i++)
+      {
+        stormies[i].style.display = "none";
+      }
+
+      for (var i = 0; i < filtered.length; i++)
+      {
+        filtered[i].style.display = "";
+      }
+
+      window.scrollTo(0, 0);
+    }
+  </script>
+</head>
+
+<body>
+  <ul id="menubar"> 
+    <li><a href="javascript:filterList(&#39;&#39;);">All Departments</a></li>
+    <li><a href="javascript:filterList(&#39;office&#39;);">Administration</a></li>
+    <li><a href="javascript:filterList(&#39;analytics&#39;);">Analytics</a></li>
+    <li><a href="javascript:filterList(&#39;artist&#39;);">Artists</a></li>
+    <li><a href="javascript:filterList(&#39;eng&#39;);">Engineering</a></li>
+    <li><a href="javascript:filterList(&#39;finance&#39;);">Finance</a></li>
+    <li><a href="javascript:filterList(&#39;gd&#39;);">Game Design</a></li>
+    <li><a href="javascript:filterList(&#39;hr&#39;);">Human Resources</a></li>
+    <li><a href="javascript:filterList(&#39;management&#39;);">Management</a></li>
+    <li><a href="javascript:filterList(&#39;pm&#39;);">Product Management</a></li>
+    <li><a href="javascript:filterList(&#39;producers&#39;);">Producers</a></li>
+    <li><a href="javascript:filterList(&#39;product&#39;);">Production</a></li>
+    <li><a href="javascript:filterList(&#39;recruiter&#39;);">Recruiting</a></li>
+    <li><a href="javascript:filterList(&#39;ops&#39;);">IT / Tech Ops</a></li>
+    <li><a href="javascript:filterList(&#39;qa&#39;);">Quality Assurance</a></li>
+    <li><a href="javascript:filterList(&#39;ui-art&#39;);">UI / UX Design</a></li>
+    <li><a href="javascript:filterList(&#39;ui-eng&#39;);">UI Engineering</a></li>
+    <li><a href="javascript:filterList(&#39;ua&#39;);">User Acquisitions</a></li>
+    <li><a href="javascript:filterList(&#39;ur&#39;);">User Relations</a></li>
+  </ul>
+
+  <div style="width: 550px; position: fixed; top: -40px; right: 0; bottom: 0; background: white; z-index: 1000; xborder-left: 2px solid black;">
+    <iframe id="iframe" src="./contactlist_files/stormies.html" style="width: 770px; height: 450px; border: none;" scrolling="no"></iframe>
+    <div style="position: absolute; right: 25px; bottom: 20px; width: 500px; margin: auto; overflow: hidden;">
+      <img id="details" src="./contactlist_files/keith.jpg" style="width: 501px; visibility: hidden;">
+    </div>
+  </div>
+
+  <ul id="content">
+                                  
+      <li id="$id" class="stormie" data-dept="qa">
+        <img class="photo" height="201" src="./contactlist_files/acapps.jpg" onmousedown="showDetails(&#39;a-jay&#39;)">
+        <div class="name">Laken Bonebiter</div>
+        <div class="overlay">
+          <div class="hover" style="display: block;">qa</div>
+          <a class="first" href="http://contacts.storm8.com/stormies.php?stormie=a-jay">
+            <div class="button hover">Contacts</div>
+            <img src="./contactlist_files/man-24-128.png">
+          </a>
+          <a class="profile" href="http://floorplan.corp.storm8.com/index.php?floor=2#a-jay">
+            <div class="button hover">Floorplan</div>
+            <img src="./contactlist_files/cmd-24-128.png">
+          </a>
+          <a class="profile" href="hipchat://www.hipchat.com/user/a-jay@storm8.com">
+            <div class="button hover">HipChat</div>
+            <img src="./contactlist_files/bubble-24-128.png">
+          </a>
+        </div>
+      </li>
+                                  
+      <li id="$id" class="stormie" data-dept="artist">
+        <img class="photo" height="201" src="./contactlist_files/avinash.jpg" onmousedown="showDetails(&#39;acapps&#39;)">
+        <div class="name">Dale Eagleflight</div>
+        <div class="overlay">
+          <div class="hover" style="display: block;">artist</div>
+          <a class="first" href="http://contacts.storm8.com/stormies.php?stormie=acapps">
+            <div class="button hover">Contacts</div>
+            <img src="./contactlist_files/man-24-128.png">
+          </a>
+          <a class="profile" href="http://floorplan.corp.storm8.com/index.php?floor=2#acapps">
+            <div class="button hover">Floorplan</div>
+            <img src="./contactlist_files/cmd-24-128.png">
+          </a>
+          <a class="profile" href="hipchat://www.hipchat.com/user/acapps@storm8.com">
+            <div class="button hover">HipChat</div>
+            <img src="./contactlist_files/bubble-24-128.png">
+          </a>
+        </div>
+      </li>
+                                  
+      <li id="$id" class="stormie" data-dept="gd">
+        <img class="photo" height="201" src="./contactlist_files/bryan.jpg" onmousedown="showDetails(&#39;alee&#39;)">
+        <div class="name">Devon Darkblood</div>
+        <div class="overlay">
+          <div class="hover" style="display: block;">gd</div>
+          <a class="first" href="http://contacts.storm8.com/stormies.php?stormie=alee">
+            <div class="button hover">Contacts</div>
+            <img src="./contactlist_files/man-24-128.png">
+          </a>
+          <a class="profile" href="http://floorplan.corp.storm8.com/index.php?floor=2#alee">
+            <div class="button hover">Floorplan</div>
+            <img src="./contactlist_files/cmd-24-128.png">
+          </a>
+          <a class="profile" href="hipchat://www.hipchat.com/user/alee@storm8.com">
+            <div class="button hover">HipChat</div>
+            <img src="./contactlist_files/bubble-24-128.png">
+          </a>
+        </div>
+      </li>
+                                  
+      <li id="$id" class="stormie" data-dept="finance">
+        <img class="photo" height="201" src="./contactlist_files/cheryll.jpg" onmousedown="showDetails(&#39;adi&#39;)">
+        <div class="name">Winter Infinity</div>
+        <div class="overlay">
+          <div class="hover" style="display: block;">finance</div>
+          <a class="first" href="http://contacts.storm8.com/stormies.php?stormie=adi">
+            <div class="button hover">Contacts</div>
+            <img src="./contactlist_files/man-24-128.png">
+          </a>
+          <a class="profile" href="http://floorplan.corp.storm8.com/index.php?floor=2#adi">
+            <div class="button hover">Floorplan</div>
+            <img src="./contactlist_files/cmd-24-128.png">
+          </a>
+          <a class="profile" href="hipchat://www.hipchat.com/user/adi@storm8.com">
+            <div class="button hover">HipChat</div>
+            <img src="./contactlist_files/bubble-24-128.png">
+          </a>
+        </div>
+      </li>
+                                  
+      <li id="$id" class="stormie" data-dept="qa">
+        <img class="photo" height="201" src="./contactlist_files/craig.jpg" onmousedown="showDetails(&#39;adrienne&#39;)">
+        <div class="name">Avalon Ninja</div>
+        <div class="overlay">
+          <div class="hover" style="display: block;">qa</div>
+          <a class="first" href="http://contacts.storm8.com/stormies.php?stormie=adrienne">
+            <div class="button hover">Contacts</div>
+            <img src="./contactlist_files/man-24-128.png">
+          </a>
+          <a class="profile" href="http://floorplan.corp.storm8.com/index.php?floor=2#adrienne">
+            <div class="button hover">Floorplan</div>
+            <img src="./contactlist_files/cmd-24-128.png">
+          </a>
+          <a class="profile" href="hipchat://www.hipchat.com/user/adrienne@storm8.com">
+            <div class="button hover">HipChat</div>
+            <img src="./contactlist_files/bubble-24-128.png">
+          </a>
+        </div>
+      </li>
+                                  
+      <li id="$id" class="stormie" data-dept="pm">
+        <img class="photo" height="201" src="./contactlist_files/cwong.jpg" onmousedown="showDetails(&#39;akash&#39;)">
+        <div class="name">Halley Harrison</div>
+        <div class="overlay">
+          <div class="hover" style="display: block;">pm</div>
+          <a class="first" href="http://contacts.storm8.com/stormies.php?stormie=akash">
+            <div class="button hover">Contacts</div>
+            <img src="./contactlist_files/man-24-128.png">
+          </a>
+          <a class="profile" href="http://floorplan.corp.storm8.com/index.php?floor=2#akash">
+            <div class="button hover">Floorplan</div>
+            <img src="./contactlist_files/cmd-24-128.png">
+          </a>
+          <a class="profile" href="hipchat://www.hipchat.com/user/akash@storm8.com">
+            <div class="button hover">HipChat</div>
+            <img src="./contactlist_files/bubble-24-128.png">
+          </a>
+        </div>
+      </li>
+                                  
+      <li id="$id" class="stormie" data-dept="eng">
+        <img class="photo" height="201" src="./contactlist_files/deyanira.jpg" onmousedown="showDetails(&#39;alex&#39;)">
+        <div class="name">Reagan Iodine</div>
+        <div class="overlay">
+          <div class="hover" style="display: block;">eng</div>
+          <a class="first" href="http://contacts.storm8.com/stormies.php?stormie=alex">
+            <div class="button hover">Contacts</div>
+            <img src="./contactlist_files/man-24-128.png">
+          </a>
+          <a class="profile" href="http://floorplan.corp.storm8.com/index.php?floor=2#alex">
+            <div class="button hover">Floorplan</div>
+            <img src="./contactlist_files/cmd-24-128.png">
+          </a>
+          <a class="profile" href="hipchat://www.hipchat.com/user/alex@storm8.com">
+            <div class="button hover">HipChat</div>
+            <img src="./contactlist_files/bubble-24-128.png">
+          </a>
+        </div>
+      </li>
+                                  
+      <li id="$id" class="stormie" data-dept="qa">
+        <img class="photo" height="201" src="./contactlist_files/dphillips.jpg" onmousedown="showDetails(&#39;alexander&#39;)">
+        <div class="name">Kennedy Darkskull</div>
+        <div class="overlay">
+          <div class="hover" style="display: block;">qa</div>
+          <a class="first" href="http://contacts.storm8.com/stormies.php?stormie=alexander">
+            <div class="button hover">Contacts</div>
+            <img src="./contactlist_files/man-24-128.png">
+          </a>
+          <a class="profile" href="http://floorplan.corp.storm8.com/index.php?floor=2#alexander">
+            <div class="button hover">Floorplan</div>
+            <img src="./contactlist_files/cmd-24-128.png">
+          </a>
+          <a class="profile" href="hipchat://www.hipchat.com/user/alexander@storm8.com">
+            <div class="button hover">HipChat</div>
+            <img src="./contactlist_files/bubble-24-128.png">
+          </a>
+        </div>
+      </li>
+                                  
+      <li id="$id" class="stormie" data-dept="ui-art">
+        <img class="photo" height="201" src="./contactlist_files/gustavo.jpg" onmousedown="showDetails(&#39;alister&#39;)">
+        <div class="name">Bailey Strange</div>
+        <div class="overlay">
+          <div class="hover" style="display: block;">ui-art</div>
+          <a class="first" href="http://contacts.storm8.com/stormies.php?stormie=alister">
+            <div class="button hover">Contacts</div>
+            <img src="./contactlist_files/man-24-128.png">
+          </a>
+          <a class="profile" href="http://floorplan.corp.storm8.com/index.php?floor=2#alister">
+            <div class="button hover">Floorplan</div>
+            <img src="./contactlist_files/cmd-24-128.png">
+          </a>
+          <a class="profile" href="hipchat://www.hipchat.com/user/alister@storm8.com">
+            <div class="button hover">HipChat</div>
+            <img src="./contactlist_files/bubble-24-128.png">
+          </a>
+        </div>
+      </li>
+                                  
+      <li id="$id" class="stormie" data-dept="eng">
+        <img class="photo" height="201" src="./contactlist_files/jbojorquez.jpg" onmousedown="showDetails(&#39;allison&#39;)">
+        <div class="name">Skylar Creepy</div>
+        <div class="overlay">
+          <div class="hover" style="display: block;">eng</div>
+          <a class="first" href="http://contacts.storm8.com/stormies.php?stormie=allison">
+            <div class="button hover">Contacts</div>
+            <img src="./contactlist_files/man-24-128.png">
+          </a>
+          <a class="profile" href="http://floorplan.corp.storm8.com/index.php?floor=2#allison">
+            <div class="button hover">Floorplan</div>
+            <img src="./contactlist_files/cmd-24-128.png">
+          </a>
+          <a class="profile" href="hipchat://www.hipchat.com/user/allison@storm8.com">
+            <div class="button hover">HipChat</div>
+            <img src="./contactlist_files/bubble-24-128.png">
+          </a>
+        </div>
+      </li>
+</body></html>
