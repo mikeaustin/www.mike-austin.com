@@ -84,7 +84,7 @@
       //
                   
       setValue: function(value) {
-        if (this.valueConstructor != null && value.constructor !== this.valueConstructor) {
+        if (this.valueConstructor !== null && value.constructor !== this.valueConstructor) {
           throw Error(value.constructor.name + " does not match Observable type " + this.valueConstructor.name);
         }
         
@@ -290,7 +290,7 @@
           var displayValue = parseFloat(this.displayString.getValue());
 
           var operation = Calculator.operations[this.lastOperator];
-          if (operation != null) {
+          if (operation !== null) {
             this.numberValue.setValue(operation(this.numberValue.getValue(), displayValue));
           }
         }
