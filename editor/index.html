@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+  <style>
+    * {
+      margin: 0; padding: 0;
+      color: hsl(0, 0%, 25%);
+    }
+    
+    html, body {
+      xheight: 100%;
+      padding: 5px;
+      background: hsl(0, 0%, 95%);
+    }
+    
+    textarea {
+      display: none;
+      xvisibility: hidden;
+      font: 10pt/1.25em 'Ubuntu Mono', monospace;
+      padding: 5px;
+    }
+    
+    ul.editor {
+      display: block;
+      position: relative;
+      list-style: none;
+      counter-reset: line;
+      font-family: monospace;
+      font: 10pt 'Ubuntu Mono', monospace;
+      background: white;
+      xpadding: 5px;
+      border: 1px solid hsl(0, 0%, 85%);
+    }
+    
+    ul.editor * {
+      xfont: 12pt 'Courier New';
+    }
+
+    ul.editor:before {
+      content: '';
+      position: absolute;
+      width: 45px; height: 100%;
+      background: hsl(0, 0%, 95%);
+    }
+    
+    ul.editor li:before {
+      display: inline-block;
+      position: absolute;
+      margin-left: -50px;
+      text-align: right;
+      width: 40px;
+      padding-right: 5px;
+      background: hsl(0, 0%, 95%);
+      counter-increment: line;
+      content: counter(line);
+    }
+    
+    ul.editor li.blank:before {
+      visibility: hidden;
+    }
+
+    ul.editor li.blank.gone:before {
+      visibility: hidden;
+      display: none;
+    }
+    
+    ul.editor li {
+      line-height: 1.25em;
+      white-space: pre-wrap;
+      xbackground: white;
+      xmargin: 1px 0;
+      margin-left: 50px;
+    }
+    
+    ul.editor li.blank {
+      xbackground: red;
+      height: 0.5em;
+    }
+    
+    .keyword {
+      font-weight: bold;
+      color: hsl(200, 50%, 40%);
+    }
+    
+    .string {
+      background: hsl(0, 0%, 95%);
+    }
+    
+    .literal {
+      font-weight: bold;
+      color: hsl(0, 50%, 35%);
+    }
+    
+    .apply {
+      font-weight: bold;
+      color: black;
+    }
+  </style>
+  <script type="text/javascript">
+    window.addEventListener("load", function (event) {
+      var textarea = document.querySelector("textarea");
+      var lines = textarea.value.split("\n");
+      
+      textarea.setAttribute("rows", lines.length);
+      
+      var editor = document.querySelector("#editor");
+      
+      var html = lines.map(function(line) {
+        var buffer = "";
+ 
+        line = line.replace(/([\+\-\*\/\<\>\=])/g, function(match) {
+          switch (match) {
+            case "+": return "<span class='apply'>+</span>";
+            case "-": return "<span class='apply'>−</span>";
+            case "*": return "<span class='apply'>×</span>";
+            case "/": return "<span class='apply'>÷</span>";
+            case "<": return "<span class='apply'><</span>";
+            case ">": return "<span class='apply'>></span>";
+            case "=": return "<span class='apply'>=</span>";
+          }
+        });
+               
+        line = line.replace(/"[ A-Za-z=;,!]*"|\d+/g, function(match) {
+          return '<span class="literal">' + match + '</span>';
+        });
+        
+        line = line.replace(/([A-Za-z]+)\((.*)\)/g, function(match, m1, m2) {
+          return '<span class="apply">' + m1 + '</span>' + '&thinsp;(' + m2 + ')';
+        });
+        
+        line = line.replace(/let|if|else|return/g, function(match) {
+          return '<span class="keyword">' + match + '</span>';
+        });
+        
+        line = line.replace(/undefined|null|true|false/g, function(match) {
+          return '<span class="literal">' + match + '</span>';
+        });
+                
+        if (line.trim() === "") {
+          buffer += '<li class="blank"></li>';
+        } else if (line.trim() === "// -") {
+          buffer += '<hr />';
+        } else {
+          if (line.trim().startsWith("}")) {
+            buffer += '<li class="blank gone"></li>';
+          }
+
+          buffer += '<li class="codex">' + line + '</li>';
+          
+          if (line.trim().endsWith("{")) {
+            buffer += '<li class="blank gone"></li>';
+          }
+        }
+        
+        return buffer;
+      });
+      
+      editor.innerHTML = html.join("");
+    });
+  </script>
+</head>
+<body>
+  <textarea rows="40" cols="80">
+let x = a + b - c * d / e;
+let s = "Hello, world!";
+let o = undefined || null || true;
+
+
+let stack = {
+  
+  sp: -1,
+  maxSp: -1,
+
+
+  push(exprCode) {
+    let code = some(++this.sp) + " = " + exprCode + ";";
+    if (this.sp > this.maxSp) { this.maxSp = this.sp; }
+
+    return code;
+  },
+
+
+  pop(n) {
+    if (n === undefined) {
+      return some(this.sp--);      
+    } else {
+      let values = Array(n);
+
+      values[0] = some(this.sp - n * 1 / i);
+      values[1] = some(this.sp - n * 1 / i);
+      values[2] = some(this.sp - n * 1 / i);
+
+      this.sp -= n;
+
+      return values;
+    }
+  },
+
+
+  top() {
+    return some(this.sp);
+  },
+
+
+  index(i) {
+    return some(this.sp - i);
+  }
+  
+};</textarea>
+
+  <ul id="editor" class="editor">
+  </ul>
+  
+<pre>
+  <ul class="editor" style="line-height: 1.25em">
+  var x = a + b - c * d / e;
+  let s = "Hello, world!";
+  let o = undefined || null || true;
+
+  let stack = {
+  
+    sp: -1,
+    maxSp: -1,
+
+    push(exprCode) {
+      let code = some(++this.sp) + " = " + exprCode + ";";
+      if (this.sp > this.maxSp) { this.maxSp = this.sp; }
+
+      return code;
+    },
+
+    pop(n) {
+      if (n === undefined) {
+        return some(this.sp--);
+      } else {
+        let values = Array(n);
+
+        values[0] = some(this.sp - n + 1 + i);
+        values[1] = some(this.sp - n + 1 + i);
+        values[2] = some(this.sp - n + 1 + i);
+
+        this.sp -= n;
+
+        return values;
+      }
+    },
+
+    top() {
+      return some(this.sp);
+    },
+
+    index(i) {
+      return some(this.sp - i);
+    }
+    
+  };
+  </ul>
+    </pre>
+</body>
+</html>

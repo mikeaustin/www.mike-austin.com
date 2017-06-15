@@ -1,6 +1,6 @@
 <section>
   <p style="float: right; width: 230px; margin-right: 20px; margin-bottom: 10px; padding: 30px 20px; background: hsl(50, 95%, 90%); transform: rotate(5deg); xline-height: 30px; box-shadow: 0 3px 10px hsl(0, 0%, 75%), 0 0 1px hsla(0, 0%, 0%, 0.25); margin-left: 40px; font-weight: 500; text-align: center;">
-    <span style="font-size: 20px; font-weight: 600;">Recent Articles</span><br /><br /><a href="https://www.linkedin.com/pulse/what-i-learned-from-agilescrum-mike-austin" style="font-size: 20px; font-weight: 500; display: block; line-height: 25px;">What I learned from Agile/Scrum</a>
+    <span style="font-size: 20px; font-weight: 600;">Recent Articles</span><br /><br /><a href="https://structura.quora.com/Extension-Methods-in-JavaScript" style="font-size: 20px; font-weight: 500; display: block; line-height: 25px;">Extension Methods in JavaScript</a>
   </p>
   <p>
     Hi. I'm Mike, a software engineer with an eye for design. Thanks for stopping by.
@@ -13,6 +13,10 @@
 <section style="float: left;; width: 534px;">
   <h1>Personal Projects</h1>
   <ul>
+  	<li>
+      <h2><a href="https://www.npmjs.com/package/impulse-js">Impulse-JS: A cleaner dialect of JavaScript</a></h2>
+      <p>A dialect of JavaScript with extension methods and more</p>
+    </li>
   	<li>
       <h2><a href="https://github.com/mikeaustin/watchface-rpm">RPM: A Pebble Watch Face written in C</a></h2>
       <p>A watch face for <a href="http://mike-austin.com/RPM/RPM_Watchface.html">Pebble Time</a> based on a car tachometer</p>
@@ -69,13 +73,13 @@
   <h1>Posted Articles</h1>
   <ul>
     <li>
-      <h2><a href="https://structura.quora.com/Free-your-Methods">Free your Methods</a></h2>
-      <p>or... stop monkey-patching!</p>
+      <h2><a href="https://structura.quora.com/HTML-Image-Borders-Done-Right">HTML Image Borders</a></h2>
+      <p>Using overlayed, inset semi-transparent borders</p>
     </li>
   </ul>
   <ul>
     <li>
-      <h2><a href="https://structura.quora.com/Using-recursion-to-implement-a-linked-list">Linked list stack</a></h2>
+      <h2><a href="https://structura.quora.com/Using-recursion-to-implement-a-linked-list">Recursive Linked List Stack</a></h2>
       <p>Using recursion to implement a linked list</p>
     </li>
     <li>
@@ -288,6 +292,10 @@
   });
   
   $(document).on("scroll", function(event) {
+    if (location.hash !== "#about") {
+      return;
+    }
+   
     var footerOffset = footerBackground.offset();
     var scrollTop = windowObject.scrollTop();
 

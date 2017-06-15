@@ -1,17 +1,201 @@
-<section>
+<style>
+  .company {
+    margin-top: 18px;
+  }
+  
+  .dates-column {
+    float: left;
+    width: 105px;
+    margin-bottom: 0.5em;
+  }
+  
+  .title-column {
+    float: left;
+    max-width: 700px;
+    font-weight: bold;
+  }
+  
+  main li {
+    margin-top: 10px;
+    line-height: 1.5em;
+  }
+
+  #page {
+    max-width: auto;
+  }
+
+  @media only screen {
+    #about-me img {
+      display: none;
+    }
+  }
+  
+  @media only print {
+    * {
+      font-size: 14px;
+    }
+    
+    aside, nav, header #profile-image {
+      display: none;
+    }
+    
+    main, header, header #profile-name {
+      padding-top: 0;
+      margin-top: 0;
+      margin-left: 0;
+      padding-left: 0;
+      position: relative;
+      height: auto;
+    }
+    
+    header #profile-name {
+      font-size: 40px;
+      text-align: center;
+      opacity: 1 !important;
+      position: static !important;
+    }
+
+    header {
+      position: static !important;
+      width: auto !important;
+    }
+    
+    main {
+      padding-top: 20px;
+    }
+    
+    #header-background {
+      height: 45px;
+      position: relative;
+      display: none;
+    }
+    
+    .dates-column {
+      width: 13%;
+    }
+    
+    .title-column {
+      width: 87%;
+    }
+  }
+</style>
+<section style="margin-top: 0;">
+  <h1>Objective</h1>
   <p>
-    I worked at Storm8, Inc. for 7 years, starting with taking over front end development of their first HTML based mobile games.
-    As we grew, I learned iOS development, then Android, and more recently learned Unity and helped our company grow from 7 people to 250+ people.
-    
-    <br><br>
-  
-    Along the way, I worked on projects ranging from individual games to libraries such as a UI framework written in C++ and OpenGL, and tools and documentation to help develop, profile and debug our games.
-    Having been part of a fast growing company, I've learned a tremendous amount of business knowledge, most recently agile principles and practices.
-  
-    <br><br>
-    
-    More information is available upon request. My previous résumé is available here: <a href="http://mike-austin.com/resume">Archived Résumé (2009)</a>.
+    As a software engineer with an eye for design and user experience, I'm looking for a challenging front-end development position where I can apply my broad technical knowledge and work experience.
+  </p>
+  <br>
+  <p>
+    My experience ranges from web development, to mobile platforms with iOS and Android, to game engines with Unity3D. I strive to achieve technical and process simplicity, and clear communication.
+  </p>
+  <br/>
+  <p>
+    <span style="font-weight: 500;">Key Strengths:</span>
+  </p>
+  <p>
+    <ul>
+      <li>Knowledge and use of JavaScript ES3 - ES6, CSS3, LESS/SASS, C#/Unity, Objective-C/iOS, C++11, Java, PHP, Ruby and Python. Familiar with Balsamiq, Photoshop, and Illustrator.</li>
+      <li>Familiar with semantic HTML, SEO, page optimization (spriting, inlining, deferring), and advanced JavaScript (ES6/7). Understanding of functional and reactive programming.</li>
+      <li>Recent experience with React, Babel, Webpack, Immutable.js, and Redux. Currently studying react-router, redux-thunk, Flow, TypeScript, Cycle.js, and Elm.</li>
+      <li>Experience with agile methodologies and understanding of business priorities and challenges. Experience managing Jira backlogs and Confluence wikis, Pivotal Tracker and Wrike.</li>
+    </ul>
   </p>
 </section>
 
-<p style="height: 100px;"></p>
+<section>  
+  <h1>Experience</h1>
+  <p>
+    Working at <a href="http://storm8.com">Storm8.com</a> for 7 years, I started by taking over front end development of their first HTML based mobile games.
+    As we grew, I learned iOS development, then Android, and more recently learned Unity and helped the company grow from 7 to 250+ people.
+    See <a href="http://mike-austin.com/old-resume">mike-austin.com/old-resume</a> for more.
+  </p>
+  <div class="company" style="overflow: hidden;">
+    <div class="dates-column">2014 - 2017</div>
+    <div class="title-column">
+      <h2>UI Engineering Architect &nbsp;|&nbsp; Storm8, Inc.</h2>
+      <br>
+      <p>
+        As a Software Architect, I focused on company-wide projects to help develop, profile and debug our games. Architects were also responsible for engineering initiatives such as increasing performance and reliability in our games and infrastructure.
+        <ul>
+          <li>Designed and implemented an OpenGL UI framework written in C++, used in place of UIKit to improve performance where needed.</li>
+          <li>Designed and implemented Storm8 Foundation Library, WorkerQueue to reduce co-routines, and PowerManager to save 10%-40% battery life in our games.</li>
+          <li>Created GameObject Profiler to reduce co-routine and game-object counts, and Time Profiler to optimize game loading and user experience.</li>
+          <li>Implemented autogenerated documentation for our iOS and C# code bases using Doxygen and AppleDoc to promote code sharing and elevate code quality.</li>
+          <li>Created and managed Storm8's Code Review Checklist along with other engineering documentation. See <a href="http://mike-austin.com/#portfolio">mike-austin.com/#portfolio</a> for more examples.</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+  
+  <div class="company" style="overflow: hidden; page-break-before: always;">
+    <div class="dates-column">2009 - 2014</div>
+    <div class="title-column">
+      <h2>Senior UI Engineer &nbsp;|&nbsp; Storm8, Inc.</h2>
+      <br>
+      <p>
+        As a Senior UI Engineer, my priority was to ship high quality, highly polished games to an audience of millions of players. This meant working closely with designers and project leads, and mentoring newly hired engineers.
+        <ul>
+          <li>Worked on and released 15+ successful casual games including Dream City, Jewel Mania, Bingo!, Castle Story and Farm and Restaurant Story.</li>
+          <li>Created Xibs from wireframes and comps, implemented re-usable UI components, optimized assets and generally kept the overall project clean.</li>
+          <li>Created UI-focused frameworks, shared components and debugging tools to make development easier and faster. Proponent of documentation.</li>
+          <li>Presented topics on code documentation, best practices, design patterns, information hiding and more. See <a href="http://mike-austin.com">mike-austin.com</a> for examples.</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+  
+  <div class="company" style="overflow: hidden;">
+    <div class="dates-column">2006 - 2009</div>
+    <div class="title-column">
+      <h2>Senior UI Engineer &nbsp;|&nbsp; hi5, Inc.</h2>
+      <br>
+      <p>
+        One of the top three social networks in the world, serving 1 billion page views per day. I worked on projects such as photos, video, profile skins, home and applications, later focusing on standardization,
+        optimization and key projects such as hi5 mobile and hi5 IM.
+        <ul>
+          <li>Designed and implemented hi5 mobile front end in two months using JSP+Struts+Sitemesh.</li>
+          <li>Developed internal Javascript libraries including a templating system, lightbox, and lightweight Ajax and DOM functions.</li>
+          <li>Worked with Google and others to define the OpenSocial templating language and developed initial hi5 implementation</li>
+          <li>Implemented profile skin templates, photo tagging and Flash/JS based photo uploader. See <a href="http://www.mike-austin.com/old-resume/samples/hi5.com/">mike-austin.com/old-resume/samples/hi5.com</a> fore samples.</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="about-me">
+  <h1>About Me</h1>
+  <img src="http://mike-austin.com/new/images/profile.jpg" style="float: left; height: 160px; margin-right: 15px;" />
+  <div>
+  <p>
+    I'm passionate about learning, exploring new ideas, and solving problems. I study user interfaces, programming language design and technology in general. Personal projects range from programming languages to smart watch faces. Example projects can be found at <a href="http://mike-austin.com">mike-austin.com</a>.
+  </p>
+  <br>
+  <p>
+    When I'm not coding or designing, I like to watch sci-fi, play guitar and drums, create acrylic PC cases, or drive my FR-S on windy roads. I also love hanging out with my wife and and our puppy: <a href="http://mike-austin.com/#photos">mike-austin.com/#photos</a>.
+  </p>  
+  <br>
+  <p>
+    Besides coding and reading about technology, I also like to write about it. You can find articles at <a href="https://www.quora.com/profile/Mike-Austin-1">quora.com/profile/Mike-Austin-1</a> and <a href="https://www.linkedin.com/in/mike-austin-6b383b4/">linkedin.com/in/mike-austin-6b383b4</a>.
+  </p>
+  </div>
+</section>
+
+<!--
+Farm Story, Restaurant Story, Pet Shop Story, Slots, Bingo, Dragon Story, Hidden Objects, Zoo Story, Castle Story, City Story, Pet Hotel, 8 Ball Pool, Poker, Diamond Quest, Fashion Story
+-->
+
+<!--
+    Sample Articles:
+    <ul>
+      <li>
+        <h2><a href="https://structura.quora.com/HTML-Image-Borders-Done-Right">structura.quora.com/HTML-Image-Borders-Done-Right</a></h2>
+      </li>
+      <li>
+        <h2><a href="https://structura.quora.com/Extension-Methods-in-JavaScript">structura.quora.com/Extension-Methods-in-JavaScript</a></h2>
+      </li>
+      <li>
+        <h2><a href="https://structura.quora.com/What-I-learned-from-Agile-SCRUM">structura.quora.com/What-I-learned-from-Agile-SCRUM</a></h2>
+      </li>
+    </ul>
+-->
