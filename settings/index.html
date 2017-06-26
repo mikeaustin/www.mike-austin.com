@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet"> 
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+      font: 13px/1.5em 'Ubuntu';
+      color: #404040;
+      cursor: default;
+    }
+
+    body {
+      padding: 10px;
+    }
+
+    .table-container {
+      padding: 0 10px;
+      background: #f8f8f8;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    main {
+      width: 1024px;
+      margin: auto;
+    }
+
+    table {
+      width: 100%;
+    }
+    
+    tr {
+      width: 100%;
+    }
+
+    th {
+      font-weight: 500;
+      text-align: right;
+      vertical-align: top;
+      padding: 10px;
+      xcursor: help;
+    }
+
+    td {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 10px 0;
+    }
+    
+    tr:last-child td {
+      border-bottom: none;
+    }
+    
+    p {
+      padding-bottom: 5px;
+    }
+    
+    p:last-child {
+      padding-bottom: 0;
+    }
+    
+    select {
+      margin: 0 0.25em;
+    }
+    
+    h1 {
+      xheight: 25px;
+      font-size: 20px;
+      line-height: 0.75em;
+      padding-bottom: 10px;
+      xoutline: 1px dotted red;
+    }
+    
+    button {
+      height: 30px;
+      border: none;
+      background: rgb(76, 138, 239);
+      color: white;
+      border-radius: 2px;
+      padding: 0 20px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    
+    a {
+      color: rgb(76, 138, 239);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    input[type='checkbox'], input[type='radio'] {
+      margin-right: 0.25em;
+    }
+    
+    strong {
+      font-weight: 700;
+    }
+    
+    ul.tabs {
+      padding: 0 10px;
+    }
+    
+    ul.tabs li {
+      display: inline-block;
+    }
+    
+    ul.tabs li a {
+      display: block;
+      height: 25px;
+      padding: 0 10px;
+      line-height: 25px;
+    }
+    
+    .border {
+      position: relative;
+    }
+    
+    .border:after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      border: 1px solid hsla(0, 0%, 0%, 0.125);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <ul class="tabs" style="float: right;">
+      <li><a href="#" style="font-weight: 700; xbox-shadow: inset 0 0 5px hsla(0, 0%, 0%, 0.25);">General</a></li>
+      <li><a href="#">Labels</a></li>
+      <li><a href="#">Inbox</a></li>
+      <li><a href="#">Accounts</a></li>
+      <li><a href="#">Filters</a></li>
+      <li><a href="#">Blocked</a></li>
+      <li><a href="#">Forwarding</a></li>
+      <li><a href="#">POP / IMAP</a></li>
+      <li><a href="#">Labs</a></li>
+      <li><a href="#">Offline</a></li>
+      <li><a href="#">Theme</a></li>
+    </ul>
+    <h1>Gmail Settings</h1>
+    <form>
+      <div class="table-container">
+        <table>
+          <tr>
+            <th>Language</th>
+            <td>
+              Gmail display language:
+              <select>
+                <option>English (US)</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th>Phone numbers</th>
+            <td>
+              Default country code:
+              <select>
+                <option>United States</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th>Maximum page size</th>
+            <td>
+              <p>
+                Show <select>
+                  <option>50</option>
+                </select> convertations per page
+              </p>
+              <p>
+                Show <select>
+                  <option>250</option>
+                </select> contacts per page
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <th>External images</th>
+            <td>
+              <p>
+                <input type="radio" id="images-show" name="displayImages" checked="checked"/>
+                <label for="images-show"><strong>Always</strong> display external images</label>
+              </p>
+              <p title="Test">
+                <input type="radio" id="images-ask" name="displayImages"/>
+                <label for="images-ask"><strong>Ask</strong> before displaying external images</label>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <th>Undo Send</th>
+            <td>
+              <p><input id="undo-send" type="checkbox"/><label for="undo-send">Enable Undo Send</label></p>
+              <p style="margin-left: 16px; color: #808080;">Send cancellation period: <select disabled="disabled"><option>10</option></select></p>
+            </td>
+          </tr>
+          <tr>
+            <th>Desktop notifications</th>
+            <td>
+              <p>
+                <input type="radio" id="images-show" name="displayImages" checked="checked"/>
+                <label for="images-show">Notify me when <strong>any</strong> new messages arrive</label>
+              </p>
+              <p title="Test">
+                <input type="radio" id="images-ask" name="displayImages" />
+                <label for="images-ask">Notify me when <strong>important</strong> messages arive</label>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <th>Desktop notifications</th>
+            <td>
+              <p>
+                <input type="radio" id="images-show" name="displayImages" checked="checked"/>
+                <label for="images-show"> <strong>All</strong> new messages</label>
+              </p>
+              <p title="Test">
+                <input type="radio" id="images-ask" name="displayImages" />
+                <label for="images-ask"><strong>Important</strong> messages only</label>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <th>My picture</th>
+            <td>
+              <p><a class="hover" href="#" style="font-weight: 500; position: absolute; z-index: 1; color: white; text-align: center; width: 96px; margin-top: 35px;">Change<br>Picture</a></p>
+              <div class="border" style="float: left; width: 96px; height: 96px; background: url(https://plus.google.com/u/0/_/focus/photos/public/AIbEiAIAAABECPzMyrOVrIj57QEiC3ZjYXJkX3Bob3RvKihjOGFhZjA0ZDY1NGQ2MjZmZjMwZmQ1YjE2MThhYmM2MjA0OTRkNjViMAHaoHKSHJN7Zj1UfPWJJ_XxQJb6JQ);"></div>
+              <div style="margin-left: 105px;">
+                <p>My picture is visible:</p>
+                <p style="padding-left: 15px;"><input type="radio"/> to everyone</p>
+                <p style="padding-left: 15px;"><input type="radio"/> to people I can chat with</p>
+                <p style="margin-top: 5px;">NOTE: If you have a Google Profile picture, then it's always visible to everyone.</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>Signature</th>
+            <td>
+              <p><textarea rows="5" style="width: 400px; border: 1px solid #e0e0e0"></textarea></p>
+              <p>Your signature is appended at the end of all outgoing messages</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div style="text-align: center; padding-top: 10px;">
+        <button>Save Changes</button> &nbsp;or&nbsp; <a href="#">Cancel</a>
+      </div>
+    </form>
+  
+    <br><br>
+  
+    <h1>Gmail Settings</h1>
+    <ul class="tabs" style="padding: 0; xfloat: right; border-top: 1px solid #e0e0e0;">
+      <li><a href="#" style="font-weight: 700; background: #f8f8f8; box-shadow: inset 0 0 5px hsla(0, 0%, 0%, 0.125);">General</a></li>
+      <li><a href="#">Labels</a></li>
+      <li><a href="#">Inbox</a></li>
+      <li><a href="#">Accounts</a></li>
+      <li><a href="#">Filters</a></li>
+      <li><a href="#">Blocked</a></li>
+      <li><a href="#">Forwarding</a></li>
+      <li><a href="#">POP / IMAP</a></li>
+      <li><a href="#">Labs</a></li>
+      <li><a href="#">Offline</a></li>
+      <li><a href="#">Theme</a></li>
+    </ul>
+    <form>
+      <div class="table-container">
+        <table>
+          <tr>
+            <th>Language</th>
+            <td>asdf asdf asdf asdf asdf asdf asdf asdf</td>
+          </tr>
+        </table>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
