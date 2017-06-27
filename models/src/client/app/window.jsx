@@ -24,7 +24,7 @@ export default class Window extends React.PureComponent {
 
     Window.nextPosition = {
       x: Window.nextPosition.x + 20,
-      y: Window.nextPosition.y + 40
+      y: Window.nextPosition.y + 60
     };
 
     this.zIndex = 0;
@@ -48,7 +48,7 @@ export default class Window extends React.PureComponent {
   }
 
   render() {
-    console.log("Window#render()");
+    //console.log("Window#render()");
     
     return (
       <div className="model" style={{left: this.state.position.x + 'px', top: this.state.position.y + 'px', zIndex: this.props.zIndex}} onMouseDown={this.handleMouseDown}>
@@ -62,4 +62,4 @@ export default class Window extends React.PureComponent {
   
 }
 
-Window.nextPosition = { x: 200, y: 200 }
+Window.nextPosition = { x: 20, y: 45 }

@@ -42,7 +42,7 @@ export default class WindowManager extends React.PureComponent {
   }
   
   render() {
-    console.log("WindowManager#render()");
+    //console.log("WindowManager#render()");
    
     return (
       <div>
