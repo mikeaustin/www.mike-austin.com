@@ -6,7 +6,8 @@
   "scripts": {
     "build-dev": "webpack -d --watch",
     "build-prod": "webpack -p",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "testx": "./node_modules/mocha/bin/mocha --compilers js:babel-core/register -w test/helpers/browser.js test/*.js",
+    "test": "./node_modules/mocha/bin/mocha --compilers js:babel-core/register"
   },
   "author": "Mike Austin <mike@mike-austin.com>",
   "license": "ISC",
@@ -20,5 +21,15 @@
     "react-dom": "^15.6.1",
     "redux": "^3.7.1",
     "webpack": "^3.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "chai-enzyme": "^0.7.1",
+    "chai-immutable": "^1.6.0",
+    "enzyme": "^2.9.1",
+    "jsdom": "^11.0.0",
+    "mocha": "^3.4.2",
+    "mocha-phantomjs-core": "^2.1.1",
+    "react-test-renderer": "^15.6.1"
   }
 }

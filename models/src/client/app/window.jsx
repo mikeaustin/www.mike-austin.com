@@ -49,9 +49,16 @@ export default class Window extends React.PureComponent {
 
   render() {
     //console.log("Window#render()");
+
+    var style = {
+      left: this.state.position.x + 'px',
+      top: this.state.position.y + 'px',
+      zIndex: this.props.zIndex,
+      outline: this.props.active ? '1px solid hsla(0, 0%, 25%, 1)' : ''
+    };
     
     return (
-      <div className="model" style={{left: this.state.position.x + 'px', top: this.state.position.y + 'px', zIndex: this.props.zIndex}} onMouseDown={this.handleMouseDown}>
+      <div className="model" style={style} onMouseDown={this.handleMouseDown}>
         <DragHandle onDrag={this.handleDrag}>
           <h1>Model</h1>
         </DragHandle>
